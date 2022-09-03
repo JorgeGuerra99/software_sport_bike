@@ -1,3 +1,4 @@
+//---------------------------------- VENTANA INICIAL -------------------------------------------------
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

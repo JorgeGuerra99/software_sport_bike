@@ -1,3 +1,4 @@
+//-------------------------------VENTANA DE REGISTRO DE USUARIO ----------------------------------------------
 #ifndef REGWINDOW_H
 #define REGWINDOW_H
 

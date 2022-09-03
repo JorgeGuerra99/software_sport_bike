@@ -1,3 +1,6 @@
+//---------------------- CLASE BIKE--------------------------------------------------------------
+//Contiene los diferentes sensores disponibles y el puerto serie de bike.
+
 #ifndef BIKE_H
 #define BIKE_H
 

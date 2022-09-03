@@ -1,3 +1,10 @@
+//---------------------------------CLASE SENSORS -----------------------------------------------------
+// Template para que pueda ser utilizada dependiendo del tipo de dato que entrega cada sensor
+// Este archivo contiene ademas las clases derivadas de la clase abstracta Sensors, donde cada clase derivada
+// está adaptada de acuerdo a los diferentes tipos de sensores a utilizar
+
+// FALTA DEFINIR COMO SE LEEN LOS DATOS DESDE EL PUERTO SERIE
+
 #ifndef SENSORS_H
 #define SENSORS_H
 
@@ -68,13 +75,16 @@ private:
     T maxLoad = 0;
 };
 
+// Definición de los métodos de la clase abstracta y las clases derivadas- Se incluyen en este archivo y no en cpp ya que se trabaja
+// con templates
+
 template<class T>
 Sensors<T>::Sensors(QSerialPort *p)
 {
     port = p; //asocio direccion del puerto de bike a la direccion del puerto del sensor
-    if (!port->isOpen())
+    if (!port->isOpen()) //Si el puerto está cerrado
     {
-        if (!port->open(QSerialPort::ReadOnly))
+        if (!port->open(QSerialPort::ReadOnly)) //Abro el puerto para lectura
         {
             cout << "Error al abrir el puerto serie" << endl;
         } else cout << "Puerto serie abierto con éxito" << endl;
@@ -95,10 +105,10 @@ PulseSensor<T>::PulseSensor(QSerialPort *p):Sensors<T> (p)
 template<class T>
 void PulseSensor<T>::GetValue()
 {
-    //aca poner como lee los datos del sensor y luego...
+    // aca poner como lee los datos del sensor y luego...
     T dataRead; //esto es lo que leería el sensor
     instantData.push_back(dataRead); //guardo dato instantáneo
-    if (instantData.size() > 9)
+    if (instantData.size() > 9) //Guardo hasta 10 lecturas de pulso instantáneo
     {
         UpdateValue();
         instantData.clear();
@@ -114,10 +124,10 @@ void PulseSensor<T>::UpdateValue()
     {
         sumData += (*it);
     }
-    Sensors <T>::currentValue = sumData/(int) instantData.size();
+    Sensors <T>::currentValue = sumData/(int) instantData.size(); //Promedio de los valores instantáneos
     if (Sensors <T>::currentValue > maxFrequency)
     {
-        maxFrequency = Sensors <T>::currentValue;
+        maxFrequency = Sensors <T>::currentValue; // Si supera el ultimo máximo guardado, actualizo máximo
     }
 }
 
@@ -134,10 +144,10 @@ void VelocitySensor<T>::GetValue()
     T data;
     Sensors <T>::currentValue = data;
     dataRead++;
-    sumData += Sensors <T>::currentValue;
-    if (Sensors <T>::currentValue > velocMax) velocMax = Sensors <T>::currentValue;
-    velocMed = sumData/dataRead;
-    rpm = Sensors <T>::currentValue * 30 / (M_PI* 3.6* radius);
+    sumData += Sensors <T>::currentValue; // Acumulador
+    if (Sensors <T>::currentValue > velocMax) velocMax = Sensors <T>::currentValue; //Valor maximo
+    velocMed = sumData/dataRead; // Valor medio
+    rpm = Sensors <T>::currentValue * 30 / (M_PI* 3.6* radius); // Conversion a RPM
 }
 
 
@@ -153,7 +163,7 @@ void LoadSensor<T>::GetValue()
     //lectura del puerto y actualizo el current value
     if (Sensors <T>::currentValue > maxLoad)
     {
-        maxLoad = Sensors <T>::currentValue;
+        maxLoad = Sensors <T>::currentValue; // Valor maximo
     }
 
 }

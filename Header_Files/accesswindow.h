@@ -1,3 +1,4 @@
+//-----------------------VENTANA DE ACCESO DE USUARIO -----------------------------------------------------------------
 #ifndef ACCESSWINDOW_H
 #define ACCESSWINDOW_H
 

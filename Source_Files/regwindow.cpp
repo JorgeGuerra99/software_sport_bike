@@ -14,7 +14,6 @@ RegWindow::RegWindow(User *us, QWidget *parent) :
 RegWindow::~RegWindow()
 {
     delete ui;
-    cout << "angora fudeu" << endl;
 }
 
 void RegWindow::RegisterUser()

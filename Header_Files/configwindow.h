@@ -1,3 +1,4 @@
+//----------------------------------VENTANA DE CONFIGURACIÓN DE PUERTO SERIE -----------------------------------------------
 #ifndef CONFIGWINDOW_H
 #define CONFIGWINDOW_H
 

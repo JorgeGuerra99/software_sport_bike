@@ -1,3 +1,6 @@
+//------------------------------------ CLASE USUARIO --------------------------------------------------------
+// Contiene los datos de cada usuario y los métodos de inicio de sesión o registro.
+// Contiene el objeto sessions
 #ifndef USER_H
 #define USER_H
 
