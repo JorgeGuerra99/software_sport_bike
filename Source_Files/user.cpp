@@ -2,6 +2,7 @@
 
 User::User(string &name, int &ag, char &sx, float &wei, float &hei, string &pass)
 {
+    //Método de registro de usuario. Llena datos del usuario en el archivo UserData.txt
     if (!VerifReg(name))
     {
         userData.open("UserData.txt", ios::app);
@@ -69,14 +70,15 @@ void User::ExtractData()
 
 bool User::VerifReg(string &name)
 {
-    userData.open("UserData.txt", ios::app);
+    //Método que devuelve un valor booleano indicativo si el usuario se encuentra o no ya registrado
+    userData.open("UserData.txt", ios::in);
     string line;
     int auxPos;
     while (!userData.eof())
     {
         getline (userData, line);
         auxPos = line.find_first_of (" ");
-        if (auxPos != (int) string::npos)
+        if (auxPos != (int) string::npos) //si encuentra el " "
         {
             line.resize(auxPos);
             if (line == name)
@@ -93,7 +95,7 @@ bool User::VerifReg(string &name)
 
 bool User::VerifUser (string &name, string &pass)
 {
-    userData.open("UserData.txt", ios::app);
+    userData.open("UserData.txt", ios::app); //creo que esto es para que si no existe, lo crea
     userData.close ();
     userData.open("UserData.txt", ios::in);
     string line, lineAux, passAux;

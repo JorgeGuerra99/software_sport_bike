@@ -18,7 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    User *us = nullptr;
+    User *us = nullptr; //objeto User vacío
     RegWindow *winReg;
     accesswindow *winAcc;
 

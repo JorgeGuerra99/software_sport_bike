@@ -27,8 +27,8 @@ protected:
     // ---------- Objeto bike ---------------
     StateBike bike;
     //------- Métodos de sesión ------------
-    virtual void Start () = 0;
-    virtual void Sample () = 0;
+    virtual void Start () = 0; //iniciar entrenamiento - habilito sample
+    virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
     virtual void LoadConfig () = 0;
     virtual void End () = 0;
     virtual void ViewReport () const = 0;
@@ -72,6 +72,7 @@ public:
 private:
     float calories;
     float distance;
+    float velocRef;
     virtual void Sample ();
     virtual void LoadConfig ();
     virtual bool AlarmPpm (const int&) const;

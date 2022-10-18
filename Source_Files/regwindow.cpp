@@ -32,7 +32,16 @@ void RegWindow::RegisterUser()
         sex = 'F';
         break;
     }
-    usReg = new User (nameUser, ag, sex, we, he, pass);
-    emit UserRegistered();
-    this->close();
+    try {
+        usReg = new User (nameUser, ag, sex, we, he, pass);
+        emit UserRegistered();
+        this->close();
+        delete this;
+    }  catch (int e) {
+        if (e == REGISTERED_USER)
+        {
+            ui->label_8->setText("ERROR: Este nombre de usuario ya se encuentra registrado");
+        }
+
+    }
 }
