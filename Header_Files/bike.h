@@ -27,7 +27,7 @@ public:
     QSerialPort portBike;
 };
 
-class StateBike: public Bike
+class StateBike: public Bike //Bicicleta fija
 {
 public:
     StateBike ();

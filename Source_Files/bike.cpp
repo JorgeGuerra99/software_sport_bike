@@ -33,7 +33,6 @@ void StateBike::ConfigSerial ()
     portBike.setDataBits ( QSerialPort::Data8 );
     portBike.setParity ( QSerialPort::NoParity );
     portBike.setStopBits ( QSerialPort::OneStop );
-
 }
 
 void StateBike::ConfigSensors()

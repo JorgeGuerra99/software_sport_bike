@@ -17,16 +17,6 @@ class MainSession : public QWidget
 public:
     explicit MainSession(QWidget *parent = nullptr);
     ~MainSession();
-    int contSeg = 0;
-    int contMin = 0;
-    int contHours = 0;
-    bool flagTimer = false;
-public slots:
-    void ActTimer ();
-
-private slots:
-    void on_pushButton_2_clicked();
-
 private:
     Ui::MainSession *ui;
 };
