@@ -16,3 +16,124 @@ double Session ::CalcCalories (const double &time, const double &pes, const doub
     }
     return aux;
 }
+
+
+Session::Session(const int &age, const char &sex)
+{
+    ageUser = age;
+    sexUser = sex;
+    cout << "En constructor de session" << endl;
+}
+
+Cardio::Cardio(const int &age, const char &sex): Session (age,sex)
+{
+    cout << "En constructor de cardio" << endl;
+}
+
+void Cardio::Start()
+{
+    sesAct = true;
+    LoadConfig(); //cargo configuraciones del archivo
+}
+
+void Cardio::End()
+{
+    sesAct = false;
+}
+
+void Cardio::ViewReport() const
+{
+
+}
+
+double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
+{
+
+}
+
+void Cardio::Sample()
+{
+    if (sesAct == true)
+    {
+        //operaciones de muestreo de datos
+        //una forma de usar esta función es que en la clase haya un objeto timer interno que se inicialice con
+        //el método start - Encontré en internet el QTimer pero no se si usar ese
+
+
+    }
+}
+
+void Cardio::StageEval(const int &tim)
+{
+    for (int i=0; i < (int) timeRef.size(); i++)
+    {
+        if ((int) tim/sampleTime < timeRef[i])
+        {
+            stage = i;
+        }
+    }
+}
+
+void Cardio::LoadConfig()
+{
+    //---------------------------------------------------------------------------------------------------------------------
+    //Este método carga los valores de los vectores de timeRef y velocRef (de referencia para la sesión de entrenamiento)
+    //---------------------------------------------------------------------------------------------------------------------
+
+    fstream configFile;
+    int timePos = 0, velocPos = 0; //posiciones dentro del archivo
+    int timeAux, velocAux;
+
+    // Apertura de archivo
+    configFile.open("Session1Config.txt", ios::in);
+    if (!configFile)
+    {
+        cout << "Error al abrir Session1Config" << endl;
+        throw (int (FILE_CONFIG_ERROR));
+    }
+
+    //Extraigo posiciones de acuerdo a marcadores preestablecidos
+    string line;
+    while (!(configFile.eof()))
+    {
+        getline (configFile,line);
+        if (line == "TIME_REF")
+        {
+            timePos = configFile.tellg();
+        } else if (line == "VELOC_REF")
+        {
+            velocPos = configFile.tellg();
+        }
+    }
+
+    configFile.clear(); //para borrar los bits de error (eof)
+    configFile.seekg(timePos); //me posiciono en el comienzo de los datos de tiempo
+    while (configFile >> timeAux)
+    {
+        timeRef.push_back(timeAux); //lleno vector
+    }
+    configFile.clear();
+    configFile.seekg(velocPos); //me posiciono en los datos de velocidad
+    while (configFile >> velocAux)
+    {
+        velocRef.push_back(velocAux); //lleno vector
+    }
+
+    //-------------Lineas para mostrar los datos que se cargan - solo para pruebas --------------------
+
+//    cout << "Datos cargados de tiempo: " << endl;
+//    for (int i = 0; i < (int)timeRef.size(); i++)
+//    {
+//        cout << timeRef [i] << endl;
+//    }
+//    cout << "Datos cargados de velocidad: " << endl;
+//    for (int i = 0; i < (int)velocRef.size(); i++)
+//    {
+//        cout << velocRef [i] << endl;
+//    }
+}
+
+bool Cardio::AlarmPpm(const int &age) const
+{
+
+}

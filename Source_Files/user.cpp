@@ -38,6 +38,11 @@ User::User(string &name, string &pass)
 void User::ExtractData()
 {
     userData.open("UserData.txt", ios::in);
+    if (!userData)
+    {
+        cout << "ERROR al abrir UserData.txt" << endl;
+        throw (int (FILE_ERROR));
+    }
     string line, lineAux, sweigth, sheigth, ssex, sage;
     int auxPos;
     while (!userData.eof())
@@ -72,6 +77,11 @@ bool User::VerifReg(string &name)
 {
     //Método que devuelve un valor booleano indicativo si el usuario se encuentra o no ya registrado
     userData.open("UserData.txt", ios::in);
+    if (!userData)
+    {
+        cout << "ERROR al abrir UserData.txt" << endl;
+        throw (int (FILE_ERROR));
+    }
     string line;
     int auxPos;
     while (!userData.eof())
@@ -98,6 +108,11 @@ bool User::VerifUser (string &name, string &pass)
     userData.open("UserData.txt", ios::app); //creo que esto es para que si no existe, lo crea
     userData.close ();
     userData.open("UserData.txt", ios::in);
+    if (!userData)
+    {
+        cout << "ERROR al abrir UserData.txt" << endl;
+        throw (int (FILE_ERROR));
+    }
     string line, lineAux, passAux;
     int auxPos;
     while (!userData.eof())

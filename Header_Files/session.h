@@ -8,18 +8,22 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include "bike.h"
 
+enum {FILE_CONFIG_ERROR};
 using namespace std;
 class Session
 {
 protected:
     Session ( const int& age, const char& sex );
-    virtual ~Session ();
-    double time;
+    virtual ~Session () {cout << "Destructor de session" << endl;};
+    int time;
     const string date;
     bool sesAct = false;
     float freqMaxRef;
+    int ageUser;
+    char sexUser;
     //-----Datos de sensores --------------
     vector < double > velocData;
     vector < double > pulseData;
@@ -35,7 +39,8 @@ protected:
     virtual bool AlarmPpm ( const int &age) const = 0;
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
     // -------- Operadores de I/O ----------------
-    friend ostream& operator<< ( ostream& ios, const Session & );
+    friend ostream& operator<< ( ostream& ios, const Session & ); //Se utiliza friend porque los operadores >> y << no son de la clase Session
+                                                                  //pero pueden acceder a los miembros de esta
     friend istream& operator>> ( istream& ist, const Session & );
 };
 
@@ -44,6 +49,8 @@ protected:
 class Cardio :public Session
 {
 public:
+    Cardio (const int& age, const char& sex); //por ahora necesitaría estos datos
+    ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual void End ();
     virtual void ViewReport () const;
@@ -51,11 +58,13 @@ public:
 private:
     float calories;
     float distance;
-    int stage;
-    vector < double > velocRef;
+    int stage = 0;
+    float sampleTime; //tiempo de muestreo
+    vector < int > velocRef;
     vector < int > timeRef;
     virtual void Sample ();
     bool NoRutAlm () const; //Alerta de desvío de rutina
+    void StageEval (const int&);
     virtual void LoadConfig ();
     virtual bool AlarmPpm ( const int &age ) const;
 };
@@ -64,6 +73,7 @@ private:
 class WeightLoss: public Session
 {
 public:
+    WeightLoss (const int& age, const char& sex);
     virtual void Start ();
     virtual void End ();
     bool VelCte () const;
@@ -83,6 +93,7 @@ private:
 class Free: public Session
 {
 public:
+    Free (const int& age, const char & sex);
     virtual void Start ();
     virtual void End ();
     virtual void ViewReport () const ;
