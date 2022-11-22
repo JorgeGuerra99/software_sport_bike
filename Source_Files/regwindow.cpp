@@ -42,6 +42,10 @@ void RegWindow::RegisterUser()
         {
             ui->label_8->setText("ERROR: Este nombre de usuario ya se encuentra registrado");
         }
+        if (e == FILE_ERROR)
+        {
+            ui->label_8->setText("Error abriendo UserData.txt");
+        }
 
     }
 }

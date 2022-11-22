@@ -1,6 +1,5 @@
 #include "Header_Files/mainsession.h"
 #include "ui_mainsession.h"
-#include <QTimer>
 
 MainSession::MainSession(QWidget *parent) :
     QWidget(parent),
