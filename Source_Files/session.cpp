@@ -34,6 +34,9 @@ void Cardio::Start()
 {
     sesAct = true;
     LoadConfig(); //cargo configuraciones del archivo
+    distance = 0.0;
+    if (!bike.sensorsConfigured) bike.ConfigSerial();
+    cout << "Sesión iniciada" << endl;
 }
 
 void Cardio::End()
@@ -58,18 +61,54 @@ void Cardio::Sample()
         //operaciones de muestreo de datos
         //una forma de usar esta función es que en la clase haya un objeto timer interno que se inicialice con
         //el método start - Encontré en internet el QTimer pero no se si usar ese
+        time++;
+        //Obtengo datos de sensores
+        bike.vSensor->GetValue();
+        velocData.push_back(bike.vSensor->GetVeloc(1)); //rpm
+        pulseData.push_back(bike.pSensor->GetPulse());
+        dataOfLoad.push_back(bike.lSensor->GetLoad());
+        distance+= bike.vSensor->GetVeloc(0)*time/sampleTime* 3.6; //obtengo distancia en km
+        StageEval(time);
+        cout << "stage= " << stage << "y velocref= " << velocRef[stage] << endl;
+        //Evaluo velocidad en un rango de variación del 10%
+        if (NoRutAlm()){
+            //acá lo que voy a hacer si no cumple las especificaciones de velocidad
+            cout << "no cumple esp." << endl;
+        }
 
 
+        if (pulseData.back() > freqMaxRef)
+        {
+            AlarmPpm(ageUser);
+        }
+        cout << "sample:" << time/sampleTime << endl;
     }
+}
+
+bool Cardio::NoRutAlm() const
+{
+    if (velocData.back() > velocRef[stage]+ velocRef[stage]*0.1)
+    {
+        cout << "Reduzca la velocidad" << endl;
+        return true;
+    }
+    if (velocData.back() < velocRef[stage] - velocRef[stage]*0.1)
+    {
+        cout << "Incremente la velocidad" << endl;
+        return true;
+    }
+    cout << "va a ritmo" << endl;
+    return false;
 }
 
 void Cardio::StageEval(const int &tim)
 {
+    //Evalua etapa de entrenamiento de acuerdo al tiempo transcurrido
     for (int i=0; i < (int) timeRef.size(); i++)
     {
-        if ((int) tim/sampleTime < timeRef[i])
+        if ((int) tim/sampleTime > timeRef[i])
         {
-            stage = i;
+            stage = i+1;
         }
     }
 }
@@ -121,19 +160,19 @@ void Cardio::LoadConfig()
 
     //-------------Lineas para mostrar los datos que se cargan - solo para pruebas --------------------
 
-//    cout << "Datos cargados de tiempo: " << endl;
-//    for (int i = 0; i < (int)timeRef.size(); i++)
-//    {
-//        cout << timeRef [i] << endl;
-//    }
-//    cout << "Datos cargados de velocidad: " << endl;
-//    for (int i = 0; i < (int)velocRef.size(); i++)
-//    {
-//        cout << velocRef [i] << endl;
-//    }
+    cout << "Datos cargados de tiempo: " << endl;
+    for (int i = 0; i < (int)timeRef.size(); i++)
+    {
+        cout << timeRef [i] << endl;
+    }
+    cout << "Datos cargados de velocidad: " << endl;
+    for (int i = 0; i < (int)velocRef.size(); i++)
+    {
+        cout << velocRef [i] << endl;
+    }
 }
 
 bool Cardio::AlarmPpm(const int &age) const
 {
-
+    cout << "PPM alto" << endl;
 }
