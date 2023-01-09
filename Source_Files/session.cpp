@@ -56,18 +56,26 @@ double Cardio::CalcCalories(const double &tim, const double &pes, const double &
 
 void Cardio::Sample()
 {
+    //-----------------------------MÉTODO DE MUESTREO A EJECUTARSE REITERADAMENTE DURANTE LA SESIÓN ----------------------------
     if (sesAct == true)
     {
         //operaciones de muestreo de datos
         //una forma de usar esta función es que en la clase haya un objeto timer interno que se inicialice con
         //el método start - Encontré en internet el QTimer pero no se si usar ese
+
         time++;
-        //Obtengo datos de sensores
+        //Actualizo datos de sensores
         bike.vSensor->GetValue();
+        bike.pSensor->GetValue();
+        bike.lSensor->GetValue();
+
+        //Obtengo valores y guardo en vector
         velocData.push_back(bike.vSensor->GetVeloc(1)); //rpm
         pulseData.push_back(bike.pSensor->GetPulse());
         dataOfLoad.push_back(bike.lSensor->GetLoad());
         distance+= bike.vSensor->GetVeloc(0)*time/sampleTime* 3.6; //obtengo distancia en km
+
+        //Evalúo etapa actual
         StageEval(time);
         cout << "stage= " << stage << "y velocref= " << velocRef[stage] << endl;
         //Evaluo velocidad en un rango de variación del 10%
@@ -76,17 +84,19 @@ void Cardio::Sample()
             cout << "no cumple esp." << endl;
         }
 
-
         if (pulseData.back() > freqMaxRef)
         {
+            //Alarma de pulsaciones elevadas - De acuerdo a la edad del usuario
             AlarmPpm(ageUser);
         }
-        cout << "sample:" << time/sampleTime << endl;
     }
 }
 
 bool Cardio::NoRutAlm() const
 {
+    //---------------------------------------------------------------------------------------------------------
+    //Evalúa si la velocidad actual se mantiene dentro del rango del 10% de la velocidad de referencia
+    //---------------------------------------------------------------------------------------------------------
     if (velocData.back() > velocRef[stage]+ velocRef[stage]*0.1)
     {
         cout << "Reduzca la velocidad" << endl;
