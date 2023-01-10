@@ -11,19 +11,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
-//    return a.exec();
-
-
-    Cardio car (23, 'M');
-    car.Start();
-
-    for (int i=0; i<1000; i++)
-    {
-        car.Sample();
-        sleep (1);
-    }
-
+    MainWindow w;
+    w.show();
+    return a.exec();
     return 0;
 }

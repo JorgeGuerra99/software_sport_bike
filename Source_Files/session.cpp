@@ -70,25 +70,19 @@ void Cardio::Sample()
         bike.lSensor->GetValue();
 
         //Obtengo valores y guardo en vector
-        velocData.push_back(bike.vSensor->GetVeloc(1)); //rpm
+        velocData.push_back(bike.vSensor->GetVeloc());
         pulseData.push_back(bike.pSensor->GetPulse());
         dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(0)*time/sampleTime* 3.6; //obtengo distancia en km
+        distance+= bike.vSensor->GetVeloc(1)*time/sampleTime* 3.6; //obtengo distancia en km
 
         //Evalúo etapa actual
         StageEval(time);
-        cout << "stage= " << stage << "y velocref= " << velocRef[stage] << endl;
         //Evaluo velocidad en un rango de variación del 10%
         if (NoRutAlm()){
             //acá lo que voy a hacer si no cumple las especificaciones de velocidad
             cout << "no cumple esp." << endl;
         }
-
-        if (pulseData.back() > freqMaxRef)
-        {
-            //Alarma de pulsaciones elevadas - De acuerdo a la edad del usuario
-            AlarmPpm(ageUser);
-        }
+        AlarmPpm(ageUser); //evalúo PPM
     }
 }
 
@@ -184,5 +178,11 @@ void Cardio::LoadConfig()
 
 bool Cardio::AlarmPpm(const int &age) const
 {
-    cout << "PPM alto" << endl;
+    float freqMaxRef = (220 - age)*0.85;
+    if (pulseData.back() > freqMaxRef)
+    {
+        cout << "Frecuencia cardíaca alta" << endl;
+        return true;
+    }
+    return false;
 }

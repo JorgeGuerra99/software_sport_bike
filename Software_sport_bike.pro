@@ -17,7 +17,8 @@ SOURCES += \
     Source_Files/mainwindow.cpp \
     Source_Files/regwindow.cpp \
     Source_Files/session.cpp \
-    Source_Files/user.cpp
+    Source_Files/user.cpp \
+    cardiowindow.cpp
 
 HEADERS += \
     Header_Files/accesswindow.h \
@@ -28,7 +29,8 @@ HEADERS += \
     Header_Files/regwindow.h \
     Header_Files/sensors.h \
     Header_Files/session.h \
-    Header_Files/user.h
+    Header_Files/user.h \
+    cardiowindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -40,4 +42,5 @@ FORMS += \
     UI_Files/configwindow.ui \
     UI_Files/mainsession.ui \
     UI_Files/mainwindow.ui \
-    UI_Files/regwindow.ui
+    UI_Files/regwindow.ui \
+    cardiowindow.ui

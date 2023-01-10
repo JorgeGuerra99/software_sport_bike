@@ -15,13 +15,13 @@ enum {FILE_CONFIG_ERROR};
 using namespace std;
 class Session
 {
+public:
+    int time = 0;
 protected:
     Session ( const int& age, const char& sex );
     virtual ~Session () {cout << "Destructor de session" << endl;};
-    int time = 0;
     const string date;
     bool sesAct = false;
-    float freqMaxRef;
     int ageUser;
     char sexUser;
     //-----Datos de sensores --------------

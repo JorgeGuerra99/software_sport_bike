@@ -51,15 +51,16 @@ public:
     VelocitySensor (QSerialPort *p);
     virtual ~VelocitySensor () {};
     virtual void GetValue ();
-    const T GetVeloc ( const int &sel ) const { if ( sel == 1) return rpm; else return this->currentValue; }
+    const T GetVeloc ( const int &sel = 0) const { if ( sel == 1) return kmh; else return this->currentValue; }
     const T GetVelocMax () const { return velocMax; }
     const T GetVelocProm () const { return velocMed; }
 private:
+    //currentValue almacena el valor en RPM
     T velocMax = 0;
     T velocMed;
     int dataRead = 0;
     T sumData = 0;
-    T rpm;
+    T kmh;
     T radius = 0.02; //en metro
 };
 
@@ -98,6 +99,7 @@ Sensors<T>::~Sensors()
     cout << "Destructor de sensors" << endl;
 }
 
+
 template<class T>
 PulseSensor<T>::PulseSensor(QSerialPort *p):Sensors<T> (p)
 {
@@ -117,10 +119,17 @@ void PulseSensor<T>::GetValue()
 
     while(this->port->waitForReadyRead(100));
     buf = this->port->readAll();
-    cout << "Leido pulso: " << buf.toDouble() << endl;
+
+    //    if (sizeof(T) == sizeof (double))
+    //    {
+            //consultar
+    //    }
+
     this->port->clear();
 
     T dataRead; //esto es lo que leería el sensor
+
+    dataRead = buf.toDouble();
     instantData.push_back(dataRead); //guardo dato instantáneo
     if (instantData.size() > 9) //Guardo hasta 10 lecturas de pulso instantáneo
     {
@@ -162,15 +171,16 @@ void VelocitySensor<T>::GetValue()
     }
     while(this->port->waitForReadyRead(100));
     buf = this->port->readAll();
-    cout << "Leido velocidad: " << buf.toDouble() << endl;
     this->port->clear();
     T data;
+    data = buf.toDouble();
+    cout << "data velocidad = " << data << endl;
     this->currentValue = data;
     dataRead++;
     sumData += this->currentValue; // Acumulador
     if (this->currentValue > velocMax) velocMax = this->currentValue; //Valor maximo
     velocMed = sumData/dataRead; // Valor medio
-    rpm = this->currentValue * 30 / (M_PI* 3.6* radius); // Conversion a RPM
+    kmh = this->currentValue * M_PI * 3.6 * radius / 30; //conversion a km/h
 }
 
 
@@ -194,8 +204,10 @@ void LoadSensor<T>::GetValue()
 
     while(this->port->waitForReadyRead(100));
     buf = this->port->readAll();
-    cout << "Leido carga: " << buf.toDouble() << endl;
     this->port->clear();
+    T dataRead;
+    dataRead = buf.toDouble();
+    this->currentValue = dataRead;
     if (this->currentValue > maxLoad)
     {
         maxLoad = this->currentValue; // Valor maximo

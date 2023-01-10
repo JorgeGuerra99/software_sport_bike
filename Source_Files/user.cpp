@@ -76,7 +76,7 @@ void User::ExtractData()
 bool User::VerifReg(string &name)
 {
     //Método que devuelve un valor booleano indicativo si el usuario se encuentra o no ya registrado
-    userData.open("UserData.txt", ios::in);
+    userData.open("UserData.txt", ios::app);
     if (!userData)
     {
         cout << "ERROR al abrir UserData.txt" << endl;

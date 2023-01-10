@@ -6,6 +6,7 @@
 #include "user.h"
 #include "regwindow.h"
 #include "accesswindow.h"
+#include "cardiowindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,6 +22,7 @@ public:
     User *us = nullptr; //objeto User vacío
     RegWindow *winReg;
     accesswindow *winAcc;
+    CardioWindow *winCar;
 
 private:
     Ui::MainWindow *ui;
@@ -29,5 +31,6 @@ private slots:
     void usReg ();
     void buttAcc ();
     void usAcc ();
+    void startSession();
 };
 #endif // MAINWINDOW_H
