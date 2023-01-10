@@ -24,15 +24,21 @@ void StateBike::ConfigSerial(const QString &portname, const int &baud, const int
     portBike.setDataBits( (QSerialPort::DataBits) data);
     portBike.setParity( (QSerialPort::Parity) par);
     portBike.setStopBits( (QSerialPort::StopBits) stop);
+    ConfigSensors();
 }
 
 void StateBike::ConfigSerial ()
 {
-    portBike.setPortName ( portBikeInfo.portName () );
+    //---------CONFIGURACIÓN POR DEFECTO DEL PUERTO SERIE-----------------------------------------
+
+    portBike.setPortName ("/dev/ttyACM0");
+    cout << "PUERTO "<< portBike.portName().toStdString() << endl;
     portBike.setBaudRate ( QSerialPort::Baud9600 );
     portBike.setDataBits ( QSerialPort::Data8 );
     portBike.setParity ( QSerialPort::NoParity );
     portBike.setStopBits ( QSerialPort::OneStop );
+    portBike.setFlowControl( QSerialPort::NoFlowControl);
+    ConfigSensors();
 }
 
 void StateBike::ConfigSensors()

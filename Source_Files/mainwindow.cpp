@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     connect (ui->pushButton, SIGNAL (clicked()), this, SLOT (buttReg()));
     connect (ui->pushButton_2, SIGNAL (clicked()), this, SLOT (buttAcc()));
+    connect (ui->pushButton_4, SIGNAL (clicked()), this, SLOT (startSession()));
 }
 
 MainWindow::~MainWindow()
@@ -33,6 +34,8 @@ void MainWindow::usReg()
     ui->label->setText(nam);
     ui->pushButton->setDisabled(true);
     ui->pushButton_2->setDisabled(true);
+    ui->pushButton_4->setEnabled(true);
+    ui->comboBox->setEnabled(true);
 }
 
 void MainWindow::usAcc()
@@ -41,6 +44,29 @@ void MainWindow::usAcc()
     ui->label->setText(QString::fromStdString(us->nameUsr));
     ui->pushButton->setDisabled(true);
     ui->pushButton_2->setDisabled(true);
+    ui->pushButton_4->setEnabled(true);
+    ui->comboBox->setEnabled(true);
+}
+
+void MainWindow::startSession()
+{
+    const int selectedSession = ui->comboBox->currentIndex();
+    switch (selectedSession) {
+    case 0:
+        cout << "Seleccionado cardio" << endl;
+        winCar = new CardioWindow (us, this);
+        winCar->show();
+        break;
+    case 1:
+        cout << "Seleccionado perdida de peso" << endl;
+        break;
+    case 2:
+        cout << "Seleccionado libre" << endl;
+        break;
+    default:
+        cout << "No se ha seleccionado nada" << endl;
+        break;
+    }
 }
 
 void MainWindow::buttAcc()

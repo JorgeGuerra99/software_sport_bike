@@ -15,13 +15,13 @@ enum {FILE_CONFIG_ERROR};
 using namespace std;
 class Session
 {
+public:
+    int time = 0;
 protected:
     Session ( const int& age, const char& sex );
     virtual ~Session () {cout << "Destructor de session" << endl;};
-    int time;
     const string date;
     bool sesAct = false;
-    float freqMaxRef;
     int ageUser;
     char sexUser;
     //-----Datos de sensores --------------
@@ -44,7 +44,9 @@ protected:
     friend istream& operator>> ( istream& ist, const Session & );
 };
 
-// Sesión de cardio
+//----------------------------------------------------------------------------------------------------------------------------------
+//--------------------SESIÓN DE ENTRENAMIENTO: "CARDIO" ----------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
 // Velocidad constante de a tramos. Se incrementa la velocidad gradualmente dando avisos y activando alertas
 class Cardio :public Session
 {
@@ -55,20 +57,23 @@ public:
     virtual void End ();
     virtual void ViewReport () const;
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual void Sample ();
 private:
     float calories;
     float distance;
     int stage = 0;
-    float sampleTime; //tiempo de muestreo
+    float sampleTime = 1; //tiempo de muestreo
     vector < int > velocRef;
     vector < int > timeRef;
-    virtual void Sample ();
     bool NoRutAlm () const; //Alerta de desvío de rutina
     void StageEval (const int&);
     virtual void LoadConfig ();
     virtual bool AlarmPpm ( const int &age ) const;
 };
-// Clase pérdida de peso
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//---------------------SESIÓN DE ENTRENAMIENTO: "WEIGHTLOSS" ----------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
 // En esta rutina se trata de mantener un ritmo constante durante cierto período de tiempo
 class WeightLoss: public Session
 {

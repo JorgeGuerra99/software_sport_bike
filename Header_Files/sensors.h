@@ -13,6 +13,7 @@
 #include <vector>
 #include <QtSerialPort/QSerialPortInfo>
 #include <math.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -50,15 +51,16 @@ public:
     VelocitySensor (QSerialPort *p);
     virtual ~VelocitySensor () {};
     virtual void GetValue ();
-    const T GetVeloc ( int &sel ) const { if ( sel == 1) return rpm; else return Sensors <T>::currentValue; }
+    const T GetVeloc ( const int &sel = 0) const { if ( sel == 1) return kmh; else return this->currentValue; }
     const T GetVelocMax () const { return velocMax; }
     const T GetVelocProm () const { return velocMed; }
 private:
+    //currentValue almacena el valor en RPM
     T velocMax = 0;
     T velocMed;
     int dataRead = 0;
     T sumData = 0;
-    T rpm;
+    T kmh;
     T radius = 0.02; //en metro
 };
 
@@ -84,17 +86,19 @@ Sensors<T>::Sensors(QSerialPort *p)
     port = p; //asocio direccion del puerto de bike a la direccion del puerto del sensor
     if (!port->isOpen()) //Si el puerto está cerrado
     {
-        if (!port->open(QSerialPort::ReadOnly)) //Abro el puerto para lectura
+        if (!port->open(QSerialPort::ReadWrite)) //Abro el puerto para lectura y escritura
         {
             cout << "Error al abrir el puerto serie" << endl;
         } else cout << "Puerto serie abierto con éxito" << endl;
     }
+    cout << "constructor de sensors" << endl;
 }
 template<class T>
 Sensors<T>::~Sensors()
 {
-
+    cout << "Destructor de sensors" << endl;
 }
+
 
 template<class T>
 PulseSensor<T>::PulseSensor(QSerialPort *p):Sensors<T> (p)
@@ -106,7 +110,26 @@ template<class T>
 void PulseSensor<T>::GetValue()
 {
     // aca poner como lee los datos del sensor y luego...
+    QByteArray buf;
+    char velC = 'P';
+    if (this->port->isWritable())
+    {
+        this->port->write (&velC);
+    }
+
+    while(this->port->waitForReadyRead(100));
+    buf = this->port->readAll();
+
+    //    if (sizeof(T) == sizeof (double))
+    //    {
+            //consultar
+    //    }
+
+    this->port->clear();
+
     T dataRead; //esto es lo que leería el sensor
+
+    dataRead = buf.toDouble();
     instantData.push_back(dataRead); //guardo dato instantáneo
     if (instantData.size() > 9) //Guardo hasta 10 lecturas de pulso instantáneo
     {
@@ -124,10 +147,10 @@ void PulseSensor<T>::UpdateValue()
     {
         sumData += (*it);
     }
-    Sensors <T>::currentValue = sumData/(int) instantData.size(); //Promedio de los valores instantáneos
-    if (Sensors <T>::currentValue > maxFrequency)
+    this->currentValue = sumData/(int) instantData.size(); //Promedio de los valores instantáneos
+    if (this->currentValue > maxFrequency)
     {
-        maxFrequency = Sensors <T>::currentValue; // Si supera el ultimo máximo guardado, actualizo máximo
+        maxFrequency = this->currentValue; // Si supera el ultimo máximo guardado, actualizo máximo
     }
 }
 
@@ -140,14 +163,24 @@ VelocitySensor<T>::VelocitySensor(QSerialPort *p): Sensors<T> (p)
 template<class T>
 void VelocitySensor<T>::GetValue()
 {
-    //aca faltaría como lee del puerto serie
+    char velC = 'V';
+    QByteArray buf;
+    if (this->port->isWritable())
+    {
+        this->port->write (&velC);
+    }
+    while(this->port->waitForReadyRead(100));
+    buf = this->port->readAll();
+    this->port->clear();
     T data;
-    Sensors <T>::currentValue = data;
+    data = buf.toDouble();
+    cout << "data velocidad = " << data << endl;
+    this->currentValue = data;
     dataRead++;
-    sumData += Sensors <T>::currentValue; // Acumulador
-    if (Sensors <T>::currentValue > velocMax) velocMax = Sensors <T>::currentValue; //Valor maximo
+    sumData += this->currentValue; // Acumulador
+    if (this->currentValue > velocMax) velocMax = this->currentValue; //Valor maximo
     velocMed = sumData/dataRead; // Valor medio
-    rpm = Sensors <T>::currentValue * 30 / (M_PI* 3.6* radius); // Conversion a RPM
+    kmh = this->currentValue * M_PI * 3.6 * radius / 30; //conversion a km/h
 }
 
 
@@ -161,9 +194,23 @@ template<class T>
 void LoadSensor<T>::GetValue()
 {
     //lectura del puerto y actualizo el current value
-    if (Sensors <T>::currentValue > maxLoad)
+    QByteArray buf;
+
+    char velC = 'L';
+    if (this->port->isWritable())
     {
-        maxLoad = Sensors <T>::currentValue; // Valor maximo
+        this->port->write (&velC);
+    }
+
+    while(this->port->waitForReadyRead(100));
+    buf = this->port->readAll();
+    this->port->clear();
+    T dataRead;
+    dataRead = buf.toDouble();
+    this->currentValue = dataRead;
+    if (this->currentValue > maxLoad)
+    {
+        maxLoad = this->currentValue; // Valor maximo
     }
 
 }
