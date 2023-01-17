@@ -18,35 +18,79 @@ double Session ::CalcCalories (const double &time, const double &pes, const doub
 }
 
 
-Session::Session(const int &age, const char &sex)
+Session::Session(const string& name, const int &age, const char &sex)
 {
+    nameUsr = name;
     ageUser = age;
     sexUser = sex;
     cout << "En constructor de session" << endl;
 }
 
-Cardio::Cardio(const int &age, const char &sex): Session (age,sex)
+Cardio::Cardio(const string& name, const int &age, const char &sex): Session (name,age,sex)
 {
+    SessionType = "Cardio";
+    time_t now;
+    time (&now);
+    char *c = ctime (&now);
+    string localDate (c);
+    date = localDate;
     cout << "En constructor de cardio" << endl;
 }
 
 void Cardio::Start()
 {
-    sesAct = true;
-    LoadConfig(); //cargo configuraciones del archivo
-    distance = 0.0;
-    if (!bike.sensorsConfigured) bike.ConfigSerial();
-    cout << "Sesión iniciada" << endl;
+    try {
+        sesAct = true;
+        LoadConfig(); //cargo configuraciones del archivo
+        distance = 0.0;
+        if (!bike.sensorsConfigured) bike.ConfigSerial();
+        cout << "Sesión iniciada" << endl;
+    }  catch (int e) {
+        if (e == ERROR_SERIAL_OPEN)
+        {
+            cout << "ERROR SERIAL" << endl;
+            sesAct = false;
+        }
+    }
+}
+
+bool Cardio::Pause()
+{
+    //Evalúo los últimos 5 valores de velocidad. Si la suma de los mismos es cero retorna verdadero para pausar el entrenamiento automáticamente
+    if (velocData.size()>5)
+    {
+        double auxData = 0.0;
+        for (vector<double>::iterator it = velocData.end()-1; it!= velocData.end()-5; it--)
+        {
+            auxData+= *it;
+        }
+        if (auxData == 0.0)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 void Cardio::End()
 {
     sesAct = false;
+    paused = false;
 }
 
 void Cardio::ViewReport() const
 {
 
+}
+
+void Cardio::WriteReport() const
+{
+    fstream sessionFile;
+    string filename;
+    filename = date;
+    filename+= string ("_") += nameUsr;
+    sessionFile.open(filename, ios::app);
+    sessionFile << *this;
 }
 
 double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
@@ -63,7 +107,7 @@ void Cardio::Sample()
         //una forma de usar esta función es que en la clase haya un objeto timer interno que se inicialice con
         //el método start - Encontré en internet el QTimer pero no se si usar ese
 
-        time++;
+        timeSes++;
         //Actualizo datos de sensores
         bike.vSensor->GetValue();
         bike.pSensor->GetValue();
@@ -73,16 +117,31 @@ void Cardio::Sample()
         velocData.push_back(bike.vSensor->GetVeloc());
         pulseData.push_back(bike.pSensor->GetPulse());
         dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(1)*time/sampleTime* 3.6; //obtengo distancia en km
+        distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
 
         //Evalúo etapa actual
-        StageEval(time);
+        StageEval(timeSes);
         //Evaluo velocidad en un rango de variación del 10%
         if (NoRutAlm()){
             //acá lo que voy a hacer si no cumple las especificaciones de velocidad
             cout << "no cumple esp." << endl;
         }
+        if (Pause())
+        {
+            cout << "Entrenamiento pausado" << endl;
+            sesAct = false;
+            paused = true;
+        }
         AlarmPpm(ageUser); //evalúo PPM
+    }
+    if (paused)
+    {
+        bike.vSensor->GetValue();
+        if (bike.vSensor->GetVeloc()!= 0.0)
+        {
+            paused = false;
+            sesAct = true;
+        }
     }
 }
 
@@ -185,4 +244,22 @@ bool Cardio::AlarmPpm(const int &age) const
         return true;
     }
     return false;
+}
+ostream& operator<< (ostream& ios, const Cardio& car)
+{
+    ios << "-------------------------------SESIÓN DE ENTRENAMIENTO: CARDIO ----------------------------------------" << endl;
+    ios << "Usuario: " << car.nameUsr << endl;
+    ios << "DATOS DE ENTRENAMIENTO: " << endl;
+    ios << "Tiempo: " << car.timeSes << endl;
+    ios << "Velocidad máxima: " << car.bike.vSensor->GetVelocMax() << endl;
+    ios << "Velocidad promedio: " << car.bike.vSensor->GetVelocProm() << endl;
+    ios << "Distancia estimada: " << car.distance << endl;
+    ios << endl << endl << endl;
+    ios << "Datos instantáneos:" << endl;
+    ios << "TIEMPO      VELOCIDAD       PPM     CARGA" <<endl;
+    for (int i = 0; i < (int) car.velocData.size(); i++)
+    {
+        ios << i <<"        "<< car.velocData[i] << "       " << car.pulseData[i]<< "       " << car.dataOfLoad[i]<< endl;
+    }
+    return ios;
 }
