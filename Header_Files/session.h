@@ -17,6 +17,10 @@ class Session
 {
 public:
     int time = 0;
+    //-----Datos de sensores --------------
+    vector < double > velocData;
+    vector < double > pulseData;
+    vector < double > dataOfLoad;
 protected:
     Session ( const int& age, const char& sex );
     virtual ~Session () {cout << "Destructor de session" << endl;};
@@ -24,20 +28,19 @@ protected:
     bool sesAct = false;
     int ageUser;
     char sexUser;
-    //-----Datos de sensores --------------
-    vector < double > velocData;
-    vector < double > pulseData;
-    vector < double > dataOfLoad;
+    bool paused = false;
     // ---------- Objeto bike ---------------
     StateBike bike;
     //------- Métodos de sesión ------------
     virtual void Start () = 0; //iniciar entrenamiento - habilito sample
     virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
     virtual void LoadConfig () = 0;
+    virtual bool Pause () = 0; //pausa de entrenamiento
     virtual void End () = 0;
     virtual void ViewReport () const = 0;
     virtual bool AlarmPpm ( const int &age) const = 0;
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
+    bool IsPaused () const { return paused; };
     // -------- Operadores de I/O ----------------
     friend ostream& operator<< ( ostream& ios, const Session & ); //Se utiliza friend porque los operadores >> y << no son de la clase Session
                                                                   //pero pueden acceder a los miembros de esta
@@ -54,6 +57,7 @@ public:
     Cardio (const int& age, const char& sex); //por ahora necesitaría estos datos
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
+    virtual bool Pause ();
     virtual void End ();
     virtual void ViewReport () const;
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;

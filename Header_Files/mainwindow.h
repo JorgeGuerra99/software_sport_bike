@@ -32,5 +32,6 @@ private slots:
     void buttAcc ();
     void usAcc ();
     void startSession();
+    void closedWindow () {cout << "ventana cerrada" << endl;}
 };
 #endif // MAINWINDOW_H

@@ -16,6 +16,7 @@
 #include <unistd.h>
 
 using namespace std;
+enum {ERROR_SERIAL_OPEN};
 
 template < class T >
 class Sensors
@@ -89,6 +90,7 @@ Sensors<T>::Sensors(QSerialPort *p)
         if (!port->open(QSerialPort::ReadWrite)) //Abro el puerto para lectura y escritura
         {
             cout << "Error al abrir el puerto serie" << endl;
+            throw int (ERROR_SERIAL_OPEN);
         } else cout << "Puerto serie abierto con éxito" << endl;
     }
     cout << "constructor de sensors" << endl;
@@ -177,9 +179,12 @@ void VelocitySensor<T>::GetValue()
     cout << "data velocidad = " << data << endl;
     this->currentValue = data;
     dataRead++;
-    sumData += this->currentValue; // Acumulador
-    if (this->currentValue > velocMax) velocMax = this->currentValue; //Valor maximo
-    velocMed = sumData/dataRead; // Valor medio
+    if (this->currentValue>0.0)
+    {
+       sumData += this->currentValue; // Acumulador
+       if (this->currentValue > velocMax) velocMax = this->currentValue; //Valor maximo
+       velocMed = sumData/dataRead; // Valor medio
+    }
     kmh = this->currentValue * M_PI * 3.6 * radius / 30; //conversion a km/h
 }
 

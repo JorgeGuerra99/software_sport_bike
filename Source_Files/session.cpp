@@ -32,16 +32,44 @@ Cardio::Cardio(const int &age, const char &sex): Session (age,sex)
 
 void Cardio::Start()
 {
-    sesAct = true;
-    LoadConfig(); //cargo configuraciones del archivo
-    distance = 0.0;
-    if (!bike.sensorsConfigured) bike.ConfigSerial();
-    cout << "Sesión iniciada" << endl;
+    try {
+        sesAct = true;
+        LoadConfig(); //cargo configuraciones del archivo
+        distance = 0.0;
+        if (!bike.sensorsConfigured) bike.ConfigSerial();
+        cout << "Sesión iniciada" << endl;
+    }  catch (int e) {
+        if (e == ERROR_SERIAL_OPEN)
+        {
+            cout << "ERROR SERIAL" << endl;
+            sesAct = false;
+        }
+    }
+}
+
+bool Cardio::Pause()
+{
+    //Evalúo los últimos 5 valores de velocidad. Si la suma de los mismos es cero retorna verdadero para pausar el entrenamiento automáticamente
+    if (velocData.size()>5)
+    {
+        double auxData = 0.0;
+        for (vector<double>::iterator it = velocData.end()-1; it!= velocData.end()-5; it--)
+        {
+            auxData+= *it;
+        }
+        if (auxData == 0.0)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 void Cardio::End()
 {
     sesAct = false;
+    paused = false;
+    cout << *this << endl;
 }
 
 void Cardio::ViewReport() const
@@ -82,7 +110,22 @@ void Cardio::Sample()
             //acá lo que voy a hacer si no cumple las especificaciones de velocidad
             cout << "no cumple esp." << endl;
         }
+        if (Pause())
+        {
+            cout << "Entrenamiento pausado" << endl;
+            sesAct = false;
+            paused = true;
+        }
         AlarmPpm(ageUser); //evalúo PPM
+    }
+    if (paused)
+    {
+        bike.vSensor->GetValue();
+        if (bike.vSensor->GetVeloc()!= 0.0)
+        {
+            paused = false;
+            sesAct = true;
+        }
     }
 }
 
@@ -185,4 +228,9 @@ bool Cardio::AlarmPpm(const int &age) const
         return true;
     }
     return false;
+}
+ostream& operator<< ( ostream& ios, const Session & ){
+    ios << "Datos de velocidad" << endl;
+    ios << "Datos de tiempo" << endl;
+    return ios;
 }
