@@ -13,7 +13,7 @@
 #include "bike.h"
 
 
-enum {FILE_CONFIG_ERROR};
+enum {FILE_CONFIG_ERROR, INVALID_USER};
 using namespace std;
 class Session
 {
@@ -23,6 +23,7 @@ public:
     vector < double > velocData;
     vector < double > pulseData;
     vector < double > dataOfLoad;
+    string screenMessage = "Sesión de entrenamiento";
 protected:
     Session (const string& name, const int& age, const char& sex);
     virtual ~Session () {cout << "Destructor de session" << endl;};
@@ -43,13 +44,10 @@ protected:
     virtual void End () = 0;
     virtual void ViewReport () const = 0;
     virtual void WriteReport () const = 0;
-    virtual bool AlarmPpm ( const int &age) const = 0;
+    virtual void ReadReport () = 0;
+    virtual bool AlarmPpm ( const int &age) = 0;
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
     bool IsPaused () const { return paused; };
-    // -------- Operadores de I/O ----------------
-    friend ostream& operator<< ( ostream& ios, const Session & ); //Se utiliza friend porque los operadores >> y << no son de la clase Session
-                                                                  //pero pueden acceder a los miembros de esta
-    friend istream& operator>> ( istream& ist, const Session & );
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -66,6 +64,7 @@ public:
     virtual void End ();
     virtual void ViewReport () const;
     virtual void WriteReport () const;
+    virtual void ReadReport ();
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
     virtual void Sample ();
 private:
@@ -73,13 +72,16 @@ private:
     float distance;
     int stage = 0;
     float sampleTime = 1; //tiempo de muestreo
+    double velMax;
+    double velMed;
     vector < int > velocRef;
     vector < int > timeRef;
-    bool NoRutAlm () const; //Alerta de desvío de rutina
+    bool NoRutAlm (); //Alerta de desvío de rutina
     void StageEval (const int&);
     virtual void LoadConfig ();
-    virtual bool AlarmPpm ( const int &age ) const;
+    virtual bool AlarmPpm ( const int &age );
     friend ostream& operator<< (ostream& ios, const Cardio&);
+    friend istream &operator>> ( istream& ist, Cardio &);
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -101,7 +103,7 @@ private:
     float velocRef;
     virtual void Sample ();
     virtual void LoadConfig ();
-    virtual bool AlarmPpm (const int&) const;
+    virtual bool AlarmPpm (const int&);
 };
 
 // Clase libre
@@ -119,7 +121,7 @@ private:
     float distance;
     virtual void Sample ();
     virtual void LoadConfig ();
-    virtual bool AlarmPpm ( const int& ) const ;
+    virtual bool AlarmPpm ( const int& ) ;
 };
 
 

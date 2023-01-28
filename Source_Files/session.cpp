@@ -44,7 +44,7 @@ void Cardio::Start()
         LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
         if (!bike.sensorsConfigured) bike.ConfigSerial();
-        cout << "Sesión iniciada" << endl;
+        screenMessage = "Entrenamiento iniciado";
     }  catch (int e) {
         if (e == ERROR_SERIAL_OPEN)
         {
@@ -87,10 +87,18 @@ void Cardio::WriteReport() const
 {
     fstream sessionFile;
     string filename;
-    filename = date;
-    filename+= string ("_") += nameUsr;
+    filename = nameUsr + string ("_") + date;
+    filename.pop_back();
     sessionFile.open(filename, ios::app);
     sessionFile << *this;
+}
+
+void Cardio::ReadReport()
+{
+    fstream sessionFile;
+    sessionFile.open("JorgeGuerra_Mon Jan 23 11:44:27 2023", ios::in);
+    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
+    sessionFile >> *this;
 }
 
 double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
@@ -121,11 +129,8 @@ void Cardio::Sample()
 
         //Evalúo etapa actual
         StageEval(timeSes);
+        if (timeSes > 10 and !NoRutAlm()) screenMessage = "Va a buen ritmo";
         //Evaluo velocidad en un rango de variación del 10%
-        if (NoRutAlm()){
-            //acá lo que voy a hacer si no cumple las especificaciones de velocidad
-            cout << "no cumple esp." << endl;
-        }
         if (Pause())
         {
             cout << "Entrenamiento pausado" << endl;
@@ -137,6 +142,7 @@ void Cardio::Sample()
     if (paused)
     {
         bike.vSensor->GetValue();
+        screenMessage = "Entrenamiento pausado";
         if (bike.vSensor->GetVeloc()!= 0.0)
         {
             paused = false;
@@ -145,19 +151,19 @@ void Cardio::Sample()
     }
 }
 
-bool Cardio::NoRutAlm() const
+bool Cardio::NoRutAlm()
 {
     //---------------------------------------------------------------------------------------------------------
     //Evalúa si la velocidad actual se mantiene dentro del rango del 10% de la velocidad de referencia
     //---------------------------------------------------------------------------------------------------------
     if (velocData.back() > velocRef[stage]+ velocRef[stage]*0.1)
     {
-        cout << "Reduzca la velocidad" << endl;
+        screenMessage = "Reduzca la velocidad";
         return true;
     }
     if (velocData.back() < velocRef[stage] - velocRef[stage]*0.1)
     {
-        cout << "Incremente la velocidad" << endl;
+        screenMessage = "Incremente la velocidad";
         return true;
     }
     cout << "va a ritmo" << endl;
@@ -190,7 +196,7 @@ void Cardio::LoadConfig()
     configFile.open("Session1Config.txt", ios::in);
     if (!configFile)
     {
-        cout << "Error al abrir Session1Config" << endl;
+        screenMessage = "Error al abrir el archivo de configuración";
         throw (int (FILE_CONFIG_ERROR));
     }
 
@@ -235,12 +241,12 @@ void Cardio::LoadConfig()
     }
 }
 
-bool Cardio::AlarmPpm(const int &age) const
+bool Cardio::AlarmPpm(const int &age)
 {
     float freqMaxRef = (220 - age)*0.85;
     if (pulseData.back() > freqMaxRef)
     {
-        cout << "Frecuencia cardíaca alta" << endl;
+        screenMessage = "Frecuencia cardíaca alta";
         return true;
     }
     return false;
@@ -256,10 +262,66 @@ ostream& operator<< (ostream& ios, const Cardio& car)
     ios << "Distancia estimada: " << car.distance << endl;
     ios << endl << endl << endl;
     ios << "Datos instantáneos:" << endl;
-    ios << "TIEMPO      VELOCIDAD       PPM     CARGA" <<endl;
+    ios << "VELOCIDAD" <<endl;
     for (int i = 0; i < (int) car.velocData.size(); i++)
     {
-        ios << i <<"        "<< car.velocData[i] << "       " << car.pulseData[i]<< "       " << car.dataOfLoad[i]<< endl;
+        ios << car.velocData [i] << endl;
+    }
+    ios << "PPM" <<endl;
+    for (int i = 0; i < (int) car.pulseData.size(); i++)
+    {
+        ios << car.pulseData [i] << endl;
+    }
+    ios << "CARGA" <<endl;
+    for (int i = 0; i < (int) car.dataOfLoad.size(); i++)
+    {
+        ios << car.dataOfLoad [i] << endl;
     }
     return ios;
+}
+
+istream& operator>> (istream& ist, Cardio& car)
+{
+    string line, aux;
+    while (line.find("Usuario") == string::npos )
+    {
+        getline (ist, line);
+    }
+    if (line.substr(line.find_first_of(" ")+1) != car.nameUsr)
+    {
+        throw int (INVALID_USER);
+        return ist;
+    }
+    std::setlocale(LC_NUMERIC,"C"); //Con esta linea permite reconocer al "." de los strings como delimitador de punto flotante
+                                    //de lo contrario, tomaba "," entonces recortaba los números a su parte entera
+    while (line.find("Datos instantáneos") == string::npos)
+    {
+        getline (ist,line);
+        if (line.find("Tiempo") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            car.timeSes = stoi (aux);
+            cout << "Tiempo = " << car.timeSes << endl;
+        }
+        if (line.find("Velocidad máxima") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            car.velMax = stod (aux);
+            cout << "Velocidad máxima: " << car.velMax << endl;
+        }
+        if (line.find("Velocidad promedio") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            car.velMed = atof (aux.c_str());
+            cout << "Velocidad promedio: " << car.velMed << endl;
+        }
+        if (line.find("Distancia") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            car.distance = stof (aux);
+            cout << "Distancia estimada: " << car.distance << endl;
+        }
+    }
+
+    return ist;
 }
