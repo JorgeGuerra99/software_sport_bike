@@ -1,32 +1,41 @@
 #include "Header_Files/session.h"
 
-double Session ::CalcCalories (const double &time, const double &pes, const double &vel ) const
+//-----------------------------------------------------------------------------------------
+//------------------------------- MÉTODOS DE SESSION --------------------------------------
+//-----------------------------------------------------------------------------------------
+double Session ::CalcCalories (const double &time, const double &weig, const double &vel ) const
 {
     double aux = 0;
     static double ind1 = 49 / 1000;
-    static double indPes = 22 / 10;
+    static double indWeig = 22 / 10;
     static double ind2 = 71 / 1000;
+    //corroborar que el número de la condición este en rpm
     if (vel <= 16.00)
     {
-        aux = ind1 * ( pes * indPes ) * ( time / 60 );
+        aux = ind1 * ( weig * indWeig ) * ( time / 60 );
     }
     else
     {
-        aux = ind2 * ( pes * indPes ) * ( time / 60 );
+        aux = ind2 * ( weig * indWeig ) * ( time / 60 );
     }
     return aux;
 }
 
 
-Session::Session(const string& name, const int &age, const char &sex)
+Session::Session(const string& name, const int &age, const char &sex, const float &weig)
 {
     nameUsr = name;
     ageUser = age;
     sexUser = sex;
+    weightUser = weig;
     cout << "En constructor de session" << endl;
 }
 
-Cardio::Cardio(const string& name, const int &age, const char &sex): Session (name,age,sex)
+//-----------------------------------------------------------------------------------------
+//------------------------------- MÉTODOS DE CARDIO ---------------------------------------
+//-----------------------------------------------------------------------------------------
+
+Cardio::Cardio(const string& name, const int &age, const char &sex, const float &weig): Session (name,age,sex,weig)
 {
     SessionType = "Cardio";
     time_t now;
@@ -93,10 +102,10 @@ void Cardio::WriteReport() const
     sessionFile << *this;
 }
 
-double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
+/*double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
 {
 
-}
+}*/
 
 void Cardio::Sample()
 {
@@ -262,4 +271,86 @@ ostream& operator<< (ostream& ios, const Cardio& car)
         ios << i <<"        "<< car.velocData[i] << "       " << car.pulseData[i]<< "       " << car.dataOfLoad[i]<< endl;
     }
     return ios;
+}
+//-----------------------------------------------------------------------------------------
+//------------------------------ MÉTODOS DE WEIGHTLOSS ------------------------------------
+//-----------------------------------------------------------------------------------------
+
+WeightLoss::WeightLoss (const string& name, const int &age, const char &sex, const float &weig): Session (name,age,sex,weig)
+{
+    SessionType = "Weightloss";
+    //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
+    time_t now;
+    time (&now);
+    char *c = ctime (&now);
+    string localDate (c);
+    date = localDate;
+    cout << "En constructor de weightloss" << endl;
+}
+
+void WeightLoss::Start ()
+{
+    try {
+        sesAct = true;
+        LoadConfig(); //cargo configuraciones del archivo
+        distance = 0.0;
+        if (!bike.sensorsConfigured) bike.ConfigSerial();
+        cout << "Sesión iniciada" << endl;
+    }  catch (int e) {
+        if (e == ERROR_SERIAL_OPEN)
+        {
+            cout << "ERROR SERIAL" << endl;
+            sesAct = false;
+        }
+    }
+}
+
+bool WeightLoss::Pause ()
+{
+    //Se evalua los últimos 5 valores de velocidad, si la suma de los mismos es cero retorna true para pausar el entrenamiento automáticamente
+    if (velocData.size()>5)
+    {
+        double auxData = 0.0;
+        for (vector<double>::iterator it = velocData.end()-1; it!= velocData.end()-5; it--)
+        {
+            auxData+= *it;
+        }
+        if (auxData == 0.0)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void WeightLoss::End ()
+{
+    sesAct = false;
+    paused = false;
+}
+
+void WeightLoss::WriteReport () const
+{
+    fstream sessionFile;
+    string filename;
+    //definición del nombre de archivo en el que se guarda la sesión en formato "fecha-usuario.txt"
+    filename = date;
+    filename+= string ("_") += nameUsr;
+    // apertura del archivo de texto para posterior guardado de los datos de la sesión
+    sessionFile.open(filename, ios::app);
+    sessionFile << *this;
+}
+
+void WeightLoss::ViewReport () const
+{
+
+}
+
+void WeightLoss::IntensityFc (const int &age)
+{
+    //Se calcula los valores minimo y máximo de la intensidad al cual debe realizar esta sesión
+    int Fcmax;
+    Fcmax= 220 - age;
+    intensityMinFc= Fcmax*(6/10);
+    intensityMaxFc= Fcmax*(7/10);
 }

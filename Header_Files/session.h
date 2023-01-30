@@ -9,7 +9,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "time.h"
+#include <time.h>
 #include "bike.h"
 
 
@@ -24,13 +24,14 @@ public:
     vector < double > pulseData;
     vector < double > dataOfLoad;
 protected:
-    Session (const string& name, const int& age, const char& sex);
+    Session (const string& name, const int& age, const char& sex, const float &weig);
     virtual ~Session () {cout << "Destructor de session" << endl;};
     string date;
     string nameUsr;
     bool sesAct = false;
     int ageUser;
     char sexUser;
+    float weightUser;
     string SessionType;
     bool paused = false;
     // ---------- Objeto bike ---------------
@@ -44,7 +45,7 @@ protected:
     virtual void ViewReport () const = 0;
     virtual void WriteReport () const = 0;
     virtual bool AlarmPpm ( const int &age) const = 0;
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
+    virtual double CalcCalories ( const double &tim, const double &weig, const double &vel )const = 0;
     bool IsPaused () const { return paused; };
     // -------- Operadores de I/O ----------------
     friend ostream& operator<< ( ostream& ios, const Session & ); //Se utiliza friend porque los operadores >> y << no son de la clase Session
@@ -59,7 +60,7 @@ protected:
 class Cardio :public Session
 {
 public:
-    Cardio (const string& name, const int& age, const char& sex); //por ahora necesitaría estos datos
+    Cardio (const string& name, const int& age, const char& sex, const float& weig); //por ahora necesitaría estos datos
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
@@ -89,22 +90,33 @@ private:
 class WeightLoss: public Session
 {
 public:
-    WeightLoss (const int& age, const char& sex);
+    WeightLoss (const string &name, const int &age, const char &sex, const float &weig);
+    ~WeightLoss() { cout << "destructor de weightloss"<<endl;}
     virtual void Start ();
+    virtual bool Pause ();
     virtual void End ();
-    bool VelCte () const;
+    //bool VelCte () const;
     virtual void ViewReport () const;
+    virtual void WriteReport () const;
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
 private:
     float calories;
     float distance;
-    float velocRef;
+    //float velocRef; lo saco porque lo hago de acuerdo a un rango de pulsaciones de la persona
+    float timeRef; //Está para el ejemplo 1 de 2 horas continuas, se puede agregar los otros ejemplos
+    float intensityMaxFc;
+    float intensityMinFc;
+    void IntensityFc (const int &age);  //asigna los valores de intensidad de FC max y min
+    bool NoRutAlm() const;
     virtual void Sample ();
     virtual void LoadConfig ();
-    virtual bool AlarmPpm (const int&) const;
+    virtual bool AlarmPpm (const int &age) const;
+    friend ostream& operator<< (ostream& ios, const WeightLoss&);
 };
 
-// Clase libre
+//---------------------------------------------------------------------------------------------------------------------------------
+//---------------------SESIÓN DE ENTRENAMIENTO: "FREE" ----------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
 // Libre uso sin restricciones
 class Free: public Session
 {
@@ -121,8 +133,6 @@ private:
     virtual void LoadConfig ();
     virtual bool AlarmPpm ( const int& ) const ;
 };
-
-
 
 
 #endif // SESSION_H

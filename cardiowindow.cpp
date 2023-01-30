@@ -6,7 +6,7 @@ CardioWindow::CardioWindow(User* us, QWidget *parent) :
     ui(new Ui::CardioWindow)
 {
     ui->setupUi(this);
-    car = new Cardio (us->nameUsr, us->age, us->sex);
+    car = new Cardio (us->nameUsr, us->age, us->sex, us->weight);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT(UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT(StartButton()));
@@ -61,7 +61,7 @@ void CardioWindow::StopButton()
 void CardioWindow::UiSample()
 {
     car->Sample();
-    ui->lcdNumber->display(car->time);
+//    ui->lcdNumber->display(car->time);
     ui->lcdNumber_2->display(car->velocData.back());
     ui->lcdNumber_3->display(car->dataOfLoad.back());
     ui->lcdNumber_4->display(car->pulseData.back());
