@@ -14,9 +14,11 @@ CardioWindow::CardioWindow(User* us, QWidget *parent) :
     connect(ui->pushButton_3, SIGNAL (clicked()), this, SLOT(StopButton()));
     connect (ui->pushButton_5, SIGNAL (clicked()), this, SLOT (deleteLater()));
     connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
+    connect(ui->pushButton_6, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_3->setDisabled(true);
     ui->pushButton_4->setDisabled(true);
+
 }
 
 CardioWindow::~CardioWindow()
@@ -61,13 +63,19 @@ void CardioWindow::StopButton()
 void CardioWindow::UiSample()
 {
     car->Sample();
-//    ui->lcdNumber->display(car->time);
+    ui->lcdNumber->display(car->timeSes);
     ui->lcdNumber_2->display(car->velocData.back());
     ui->lcdNumber_3->display(car->dataOfLoad.back());
     ui->lcdNumber_4->display(car->pulseData.back());
+    ui->label_5->setText(QString::fromStdString(car->screenMessage));
 }
 
 void CardioWindow::ExportDataButton()
 {
     car->WriteReport();
+}
+
+void CardioWindow::OpenSessionButton()
+{
+    car->ReadReport();
 }

@@ -29,6 +29,7 @@ private slots:
     void StopButton();
     void UiSample ();
     void ExportDataButton ();
+    void OpenSessionButton ();
 };
 
 #endif // CARDIOWINDOW_H
