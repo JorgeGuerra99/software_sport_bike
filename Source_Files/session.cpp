@@ -355,7 +355,7 @@ void WeightLoss::WriteReport () const
     filename+= string ("_") += nameUsr;
     // apertura del archivo de texto para posterior guardado de los datos de la sesión
     sessionFile.open(filename, ios::app);
-    sessionFile << *this;
+//    sessionFile << *this;
 }
 
 void WeightLoss::ViewReport () const
@@ -370,7 +370,7 @@ void WeightLoss::IntensityFc (const int &age)
     Fcmax= 220 - age;
     intensityMinFc= Fcmax*(6/10);
     intensityMaxFc= Fcmax*(7/10);
-    
+}
 
 istream& operator>> (istream& ist, Cardio& car)
 {
@@ -416,4 +416,9 @@ istream& operator>> (istream& ist, Cardio& car)
     }
 
     return ist;
+}
+
+istream& operator>> (istream& ist, WeightLoss& wei)
+{
+
 }

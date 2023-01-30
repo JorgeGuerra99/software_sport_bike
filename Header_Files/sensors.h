@@ -178,11 +178,11 @@ void VelocitySensor<T>::GetValue()
     data = buf.toDouble();
     cout << "data velocidad = " << data << endl;
     this->currentValue = data;
-    dataRead++;
     if (this->currentValue>0.0)
     {
        sumData += this->currentValue; // Acumulador
        if (this->currentValue > velocMax) velocMax = this->currentValue; //Valor maximo
+       dataRead++;
        velocMed = sumData/dataRead; // Valor medio
     }
     kmh = this->currentValue * M_PI * 3.6 * radius / 30; //conversion a km/h
