@@ -95,12 +95,12 @@ public:
     WeightLoss (const string &name, const int &age, const char &sex, const float &weig);
     ~WeightLoss() { cout << "destructor de weightloss"<<endl;}
     virtual void Start ();
-    virtual bool Pause ();
+    virtual bool Pause () ;
     virtual void End ();
     //bool VelCte () const;
     virtual void ViewReport () const;
     virtual void WriteReport () const;
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const {};
 private:
     float calories;
     float distance;
@@ -110,9 +110,9 @@ private:
     float intensityMinFc;
     void IntensityFc (const int &age);  //asigna los valores de intensidad de FC max y min
     bool NoRutAlm() const;
-    virtual void Sample ();
-    virtual void LoadConfig ();
-    virtual bool AlarmPpm (const int &age) const;
+    virtual void Sample () {};
+    virtual void LoadConfig () {};
+    virtual bool AlarmPpm (const int &age) const {};
     friend ostream& operator<< (ostream& ios, const WeightLoss&);
 };
 
