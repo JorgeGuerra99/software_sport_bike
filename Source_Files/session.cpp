@@ -22,12 +22,9 @@ double Session ::CalcCalories (const double &time, const double &weig, const dou
 }
 
 
-Session::Session(const string& name, const int &age, const char &sex, const float &weig)
+Session::Session(const User& myUser)
 {
-    nameUsr = name;
-    ageUser = age;
-    sexUser = sex;
-    weightUser = weig;
+    dataUser = new User (myUser);
     cout << "En constructor de session" << endl;
 }
 
@@ -35,7 +32,7 @@ Session::Session(const string& name, const int &age, const char &sex, const floa
 //------------------------------- MÉTODOS DE CARDIO ---------------------------------------
 //-----------------------------------------------------------------------------------------
 
-Cardio::Cardio(const string& name, const int &age, const char &sex, const float &weig): Session (name,age,sex,weig)
+Cardio::Cardio(const User& myUser): Session (myUser)
 {
     SessionType = "Cardio";
     time_t now;
@@ -96,7 +93,7 @@ void Cardio::WriteReport() const
 {
     fstream sessionFile;
     string filename;
-    filename = nameUsr + string ("_") + date;
+    filename = dataUser->nameUsr + string ("_") + date;
     filename.pop_back();
     sessionFile.open(filename, ios::app);
     sessionFile << *this;
@@ -146,7 +143,7 @@ void Cardio::Sample()
             sesAct = false;
             paused = true;
         }
-        AlarmPpm(ageUser); //evalúo PPM
+        AlarmPpm(dataUser->age); //evalúo PPM
     }
     if (paused)
     {
@@ -263,7 +260,7 @@ bool Cardio::AlarmPpm(const int &age)
 ostream& operator<< (ostream& ios, const Cardio& car)
 {
     ios << "-------------------------------SESIÓN DE ENTRENAMIENTO: CARDIO ----------------------------------------" << endl;
-    ios << "Usuario: " << car.nameUsr << endl;
+    ios << "Usuario: " << car.dataUser->nameUsr << endl;
     ios << "DATOS DE ENTRENAMIENTO: " << endl;
     ios << "Tiempo: " << car.timeSes << endl;
     ios << "Velocidad máxima: " << car.bike.vSensor->GetVelocMax() << endl;
@@ -293,7 +290,7 @@ ostream& operator<< (ostream& ios, const Cardio& car)
 //------------------------------ MÉTODOS DE WEIGHTLOSS ------------------------------------
 //-----------------------------------------------------------------------------------------
 
-WeightLoss::WeightLoss (const string& name, const int &age, const char &sex, const float &weig): Session (name,age,sex,weig)
+WeightLoss::WeightLoss (const User& myUser): Session (myUser)
 {
     SessionType = "Weightloss";
     //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
@@ -352,7 +349,7 @@ void WeightLoss::WriteReport () const
     string filename;
     //definición del nombre de archivo en el que se guarda la sesión en formato "fecha-usuario.txt"
     filename = date;
-    filename+= string ("_") += nameUsr;
+    filename+= string ("_") += dataUser->nameUsr;
     // apertura del archivo de texto para posterior guardado de los datos de la sesión
     sessionFile.open(filename, ios::app);
 //    sessionFile << *this;
@@ -374,18 +371,25 @@ void WeightLoss::IntensityFc (const int &age)
 
 istream& operator>> (istream& ist, Cardio& car)
 {
+    //---------------OPERADOR >> PARA SESSION CARDIO -------------------------------------------
+    // Permite armar el stream de entrada con los datos de entrenamiento de una sesión cardio y cargarlos en un objeto cardio
+
     string line, aux;
     while (line.find("Usuario") == string::npos )
     {
         getline (ist, line);
     }
-    if (line.substr(line.find_first_of(" ")+1) != car.nameUsr)
+    if (line.substr(line.find_first_of(" ")+1) != car.dataUser->nameUsr)
     {
+        //Si el usuario del archivo no es coincidente con el usuario que inició sesión
         throw int (INVALID_USER);
         return ist;
     }
     std::setlocale(LC_NUMERIC,"C"); //Con esta linea permite reconocer al "." de los strings como delimitador de punto flotante
                                     //de lo contrario, tomaba "," entonces recortaba los números a su parte entera
+
+    //Extracción de datos
+
     while (line.find("Datos instantáneos") == string::npos)
     {
         getline (ist,line);
@@ -414,7 +418,53 @@ istream& operator>> (istream& ist, Cardio& car)
             cout << "Distancia estimada: " << car.distance << endl;
         }
     }
+    //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
+    getline (ist,line);
+    while (!ist.eof())
+    {
+        if (line.find("VELOCIDAD") != string::npos)
+        {
+            getline (ist,line);
+            while (line.find("PPM") == string::npos)
+            {
+                car.velocData.push_back(stod (line));
+                getline (ist, line);
+            }
+        } else if (line.find("PPM") != string::npos){
+            getline (ist,line);
+            while (line.find("CARGA") == string::npos)
+            {
+                car.pulseData.push_back(stod (line));
+                getline (ist, line);
+            }
+        } else if (line.find("CARGA") != string::npos)
+        {
+            getline (ist,line);
+            while (!ist.eof())
+            {
+                car.dataOfLoad.push_back(stod (line));
+                getline (ist, line);
+            }
+        }
+    }
 
+    // Líneas para mostrar los datos cargados, comentar si es necesario...
+
+    cout << "Datos de velocidad cargados: " << endl;
+    for (int i = 0; i < (int) car.velocData.size(); i++)
+    {
+        cout << car.velocData[i] << endl;
+    }
+    cout << "Datos de pulso cargados: " << endl;
+    for (int i = 0; i < (int) car.pulseData.size(); i++)
+    {
+        cout << car.pulseData[i] << endl;
+    }
+    cout << "Datos de carga cargados: " << endl;
+    for (int i = 0; i < (int) car.dataOfLoad.size(); i++)
+    {
+        cout << car.dataOfLoad[i] << endl;
+    }
     return ist;
 }
 

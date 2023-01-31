@@ -35,6 +35,15 @@ User::User(string &name, string &pass)
     }
 }
 
+User::User(const User & cUser)
+{
+    nameUsr = cUser.nameUsr;
+    age = cUser.age;
+    sex = cUser.sex;
+    weight = cUser.weight;
+    height = cUser.height;
+}
+
 void User::ExtractData()
 {
     userData.open("UserData.txt", ios::in);
