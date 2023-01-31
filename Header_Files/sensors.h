@@ -3,8 +3,6 @@
 // Este archivo contiene ademas las clases derivadas de la clase abstracta Sensors, donde cada clase derivada
 // está adaptada de acuerdo a los diferentes tipos de sensores a utilizar
 
-// FALTA DEFINIR COMO SE LEEN LOS DATOS DESDE EL PUERTO SERIE
-
 #ifndef SENSORS_H
 #define SENSORS_H
 

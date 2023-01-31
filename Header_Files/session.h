@@ -11,6 +11,7 @@
 #include <fstream>
 #include <time.h>
 #include "bike.h"
+#include "Header_Files/user.h"
 
 
 enum {FILE_CONFIG_ERROR, INVALID_USER};
@@ -25,14 +26,11 @@ public:
     vector < double > dataOfLoad;
     string screenMessage = "Sesión de entrenamiento";
 protected:
-    Session (const string& name, const int& age, const char& sex, const float &weig);
+    Session (const User&);
     virtual ~Session () {cout << "Destructor de session" << endl;};
     string date;
-    string nameUsr;
     bool sesAct = false;
-    int ageUser;
-    char sexUser;
-    float weightUser;
+    User* dataUser;
     string SessionType;
     bool paused = false;
     // ---------- Objeto bike ---------------
@@ -58,7 +56,7 @@ protected:
 class Cardio :public Session
 {
 public:
-    Cardio (const string& name, const int& age, const char& sex, const float& weig); //por ahora necesitaría estos datos
+    Cardio (const User&); //por ahora necesitaría estos datos
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
@@ -92,7 +90,7 @@ private:
 class WeightLoss: public Session
 {
 public:
-    WeightLoss (const string &name, const int &age, const char &sex, const float &weig);
+    WeightLoss (const User&);
     ~WeightLoss() { cout << "destructor de weightloss"<<endl;}
     virtual void Start ();
     virtual bool Pause () ;
@@ -123,7 +121,7 @@ private:
 class Free: public Session
 {
 public:
-    Free (const int& age, const char & sex);
+    Free (const User&);
     virtual void Start ();
     virtual void End ();
     virtual void ViewReport () const ;

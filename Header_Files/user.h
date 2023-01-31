@@ -9,7 +9,6 @@
 #include <vector>
 #include <fstream>
 #include <filesystem>
-#include "session.h"
 
 enum {REGISTERED_USER, FILE_ERROR, US_PASS_INCORRECT};
 using namespace std;
@@ -19,6 +18,7 @@ class User
 public:
     User ( string&, int&, char&, float&, float&, string& );
     User ( string&, string& );
+    User (const User&); //constructor copia
     ~User () { cout << "destructor de user"; }
     void SaveData () const;
     void LoadData ( string& );

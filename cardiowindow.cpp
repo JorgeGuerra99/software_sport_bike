@@ -6,7 +6,7 @@ CardioWindow::CardioWindow(User* us, QWidget *parent) :
     ui(new Ui::CardioWindow)
 {
     ui->setupUi(this);
-    car = new Cardio (us->nameUsr, us->age, us->sex, us->weight);
+    car = new Cardio (*us);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT(UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT(StartButton()));
