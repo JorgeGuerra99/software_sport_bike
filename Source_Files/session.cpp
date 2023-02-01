@@ -22,9 +22,14 @@ double Session ::CalcCalories (const double &time, const double &weig, const dou
 }
 
 
-Session::Session(const User& myUser)
+Session::Session(const string& name, const int& age, const char& sex, const float& weight, const float& height)
 {
-    dataUser = new User (myUser);
+    dataUser.name = name;
+    dataUser.age = age;
+    dataUser.sex = sex;
+    dataUser.weight = weight;
+    dataUser.height = height;
+
     cout << "En constructor de session" << endl;
 }
 
@@ -32,7 +37,7 @@ Session::Session(const User& myUser)
 //------------------------------- MÉTODOS DE CARDIO ---------------------------------------
 //-----------------------------------------------------------------------------------------
 
-Cardio::Cardio(const User& myUser): Session (myUser)
+Cardio::Cardio(const string& name, const int& age, const char& sex, const float& weight, const float& height): Session (name, age, sex, weight, height)
 {
     SessionType = "Cardio";
     time_t now;
@@ -95,7 +100,7 @@ void Cardio::WriteReport() const
     //Permite exportar unicamente la sesión realizada en ese instante
     fstream sessionFile;
     string filename;
-    filename = dataUser->nameUsr + string ("_") + date;
+    filename = dataUser.name + string ("_") + date;
     filename.pop_back();
     sessionFile.open(filename, ios::app);
     sessionFile << *this;
@@ -145,7 +150,7 @@ void Cardio::Sample()
             sesAct = false;
             paused = true;
         }
-        AlarmPpm(dataUser->age); //evalúo PPM
+        AlarmPpm(dataUser.age); //evalúo PPM
     }
     if (paused)
     {
@@ -261,9 +266,10 @@ bool Cardio::AlarmPpm(const int &age)
 }
 ostream& operator<< (ostream& ios, const Cardio& car)
 {
-    ios << "-------------------------------SESIÓN DE ENTRENAMIENTO: CARDIO ----------------------------------------" << endl;
-    ios << "Usuario: " << car.dataUser->nameUsr << endl;
+    ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
+    ios << "Usuario: " << car.dataUser.name << endl;
     ios << "DATOS DE ENTRENAMIENTO: " << endl;
+    ios << "Fecha: " << car.date << endl;
     ios << "Tiempo: " << car.timeSes << endl;
     ios << "Velocidad máxima: " << car.bike.vSensor->GetVelocMax() << endl;
     ios << "Velocidad promedio: " << car.bike.vSensor->GetVelocProm() << endl;
@@ -285,6 +291,7 @@ ostream& operator<< (ostream& ios, const Cardio& car)
     {
         ios << car.dataOfLoad [i] << endl;
     }
+    ios << "FIN_DATOS" << endl;
     return ios;
 }
 
@@ -298,7 +305,7 @@ istream& operator>> (istream& ist, Cardio& car)
     {
         getline (ist, line);
     }
-    if (line.substr(line.find_first_of(" ")+1) != car.dataUser->nameUsr)
+    if (line.substr(line.find_first_of(" ")+1) != car.dataUser.name)
     {
         //Si el usuario del archivo no es coincidente con el usuario que inició sesión
         throw int (INVALID_USER);
@@ -390,7 +397,7 @@ istream& operator>> (istream& ist, Cardio& car)
 //------------------------------ MÉTODOS DE WEIGHTLOSS ------------------------------------
 //-----------------------------------------------------------------------------------------
 
-WeightLoss::WeightLoss (const User& myUser): Session (myUser)
+WeightLoss::WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height): Session (name, age, sex, weight, height)
 {
     SessionType = "Weightloss";
     //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
@@ -471,7 +478,7 @@ void WeightLoss::WriteReport () const
     string filename;
     //definición del nombre de archivo en el que se guarda la sesión en formato "fecha-usuario.txt"
     filename = date;
-    filename+= string ("_") += dataUser->nameUsr;
+    filename+= string ("_") += dataUser.name;
     // apertura del archivo de texto para posterior guardado de los datos de la sesión
     sessionFile.open(filename, ios::app);
 //    sessionFile << *this;
@@ -503,7 +510,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
     {
         getline (ist, line);
     }
-    if (line.substr(line.find_first_of(" ")+1) != wei.dataUser->nameUsr)
+    if (line.substr(line.find_first_of(" ")+1) != wei.dataUser.name)
     {
         //Si el usuario del archivo no es coincidente con el usuario que inició sesión
         throw int (INVALID_USER);
@@ -600,9 +607,10 @@ istream& operator>> (istream& ist, WeightLoss& wei)
 
 ostream& operator<< (ostream& ios, const WeightLoss& wei)
 {
-    ios << "-------------------------------SESIÓN DE ENTRENAMIENTO: WEIGHTLOSS ----------------------------------------" << endl;
-    ios << "Usuario: " << wei.dataUser->nameUsr << endl;
+    ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
+    ios << "Usuario: " << wei.dataUser.name<< endl;
     ios << "DATOS DE ENTRENAMIENTO: " << endl;
+    ios << "Fecha: " << wei.date << endl;
     ios << "Tiempo: " << wei.timeSes << endl;
     ios << "Velocidad máxima: " << wei.bike.vSensor->GetVelocMax() << endl;
     ios << "Velocidad promedio: " << wei.bike.vSensor->GetVelocProm() << endl;
@@ -625,5 +633,6 @@ ostream& operator<< (ostream& ios, const WeightLoss& wei)
     {
         ios << wei.dataOfLoad [i] << endl;
     }
+    ios << "FIN_DATOS" << endl;
     return ios;
 }

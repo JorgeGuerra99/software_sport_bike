@@ -44,6 +44,36 @@ User::User(const User & cUser)
     height = cUser.height;
 }
 
+void User::SaveData()
+{
+    string filename = "data_";
+    filename += nameUsr;
+    filename += ".txt";
+    sessionsData.open (filename, ios::app);
+}
+
+void User::LoadData(string &)
+{
+    string filename = "data_";
+    filename+= nameUsr += ".txt";
+    sessionsData.open(filename, ios::in);
+    if (!sessionsData)
+    {
+        cout << "No existe el archivo correspondiente a este usuario" << endl;
+        throw int (FILE_USER_NO_EXISTENT);
+    }
+    string line;
+    while (!sessionsData.eof())
+    {
+        getline (sessionsData, line);
+        if (line.find("CARDIO")) numCardio++;
+        if (line.find("WEIGHTLOSS")) numWei++;
+        if (line.find("FREE")) numFree++;
+    }
+    numSessions = numCardio + numWei + numFree;
+    sessionsData.close();
+}
+
 void User::ExtractData()
 {
     userData.open("UserData.txt", ios::in);
@@ -146,3 +176,5 @@ bool User::VerifUser (string &name, string &pass)
     userData.close();
     return false;
 }
+
+

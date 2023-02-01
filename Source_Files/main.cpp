@@ -14,10 +14,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
     return a.exec();
-<<<<<<< HEAD
-
     return 0;
-=======
-    return 0; //
->>>>>>> c97b81c4ee28968a235d69d4e5a4866739a81a47
 }

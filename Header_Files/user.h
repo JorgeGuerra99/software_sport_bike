@@ -9,8 +9,9 @@
 #include <vector>
 #include <fstream>
 #include <filesystem>
+#include "session.h"
 
-enum {REGISTERED_USER, FILE_ERROR, US_PASS_INCORRECT};
+enum {REGISTERED_USER, FILE_ERROR, US_PASS_INCORRECT, FILE_USER_NO_EXISTENT};
 using namespace std;
 
 class User
@@ -20,9 +21,9 @@ public:
     User ( string&, string& );
     User (const User&); //constructor copia
     ~User () { cout << "destructor de user"; }
-    void SaveData () const;
+    void SaveData ();
     void LoadData ( string& );
-    //Session** sessions;
+    Session** sessions;
     string nameUsr;
     int age;
     char sex;
@@ -34,9 +35,13 @@ private:
     bool VerifReg (string &);
     bool VerifUser (string &, string &);
     fstream userData;
+    fstream sessionsData;
     //vector < Session > sessions;
     string password;
     int numSessions = 0;
+    int numCardio = 0;
+    int numWei = 0;
+    int numFree = 0;
 };
 
 
