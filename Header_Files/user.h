@@ -22,6 +22,7 @@ public:
     ~User () { cout << "destructor de user"; }
     void SaveData () const;
     void LoadData ( string& );
+    //Session** sessions;
     string nameUsr;
     int age;
     char sex;
