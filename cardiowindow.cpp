@@ -1,10 +1,11 @@
 #include "cardiowindow.h"
 #include "ui_cardiowindow.h"
 
-CardioWindow::CardioWindow(User* us, QWidget *parent) :
+CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CardioWindow)
 {
+    us = usu;
     ui->setupUi(this);
     car = new Cardio (us->nameUsr, us->age, us->sex, us->weight, us->height);
     timer.setInterval(1000);
@@ -58,6 +59,7 @@ void CardioWindow::StopButton()
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
     car->End();
+    us->SaveLastSession(car);
 }
 
 void CardioWindow::UiSample()

@@ -48,6 +48,23 @@ Cardio::Cardio(const string& name, const int& age, const char& sex, const float&
     cout << "En constructor de cardio" << endl;
 }
 
+Cardio::Cardio(): Session()
+{
+    cout << "constructor vacio de cardio" << endl;
+}
+
+Cardio::Cardio(const Cardio* & car)
+{
+    calories = car->calories;
+    distance = car->distance;
+    sampleTime = car->sampleTime;
+    velMax = car->velMax;
+    velMed = car->velMed;
+    velocData = car->velocData;
+    pulseData = car->pulseData;
+    dataOfLoad = car->dataOfLoad;
+}
+
 void Cardio::Start()
 {
     try {

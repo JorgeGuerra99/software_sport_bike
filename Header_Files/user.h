@@ -22,8 +22,10 @@ public:
     User (const User&); //constructor copia
     ~User () { cout << "destructor de user"; }
     void SaveData ();
-    void LoadData ( string& );
-    Session** sessions;
+    bool LoadData ();
+    void SaveLastSession (Session*);
+    //Session** sessions;
+
     string nameUsr;
     int age;
     char sex;
@@ -36,12 +38,15 @@ private:
     bool VerifUser (string &, string &);
     fstream userData;
     fstream sessionsData;
-    //vector < Session > sessions;
     string password;
+    vector <Session *> sessions;
+    Cardio* auxCardio;
+    Session* auxSession;
     int numSessions = 0;
     int numCardio = 0;
     int numWei = 0;
     int numFree = 0;
+    bool fileExist = true;
 };
 
 

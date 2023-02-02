@@ -28,6 +28,7 @@ User::User(string &name, string &pass)
         nameUsr = name;
         password = pass;
         ExtractData();
+        LoadData();
     }
     else
     {
@@ -50,28 +51,59 @@ void User::SaveData()
     filename += nameUsr;
     filename += ".txt";
     sessionsData.open (filename, ios::app);
+    //ESte metodo no puede funcionar como tal, ya que para usar el operador << tiene que ser una de las clases derivadas
+    // y sessions<> contiene punteros a clase base. Consultar:
+    //- Se puede implementar el operador << para clase abstracta?
+    // - Otra alternativa es que el llenado del archivo sea automático y se haga una vez que se finalice la sesión, es decir
+    //pasando el fstream al objeto Session correspondiente y ejecutando allí el operador <<.
+
 }
 
-void User::LoadData(string &)
+bool User::LoadData()
 {
     string filename = "data_";
     filename+= nameUsr += ".txt";
     sessionsData.open(filename, ios::in);
     if (!sessionsData)
     {
-        cout << "No existe el archivo correspondiente a este usuario" << endl;
-        throw int (FILE_USER_NO_EXISTENT);
+        fileExist = false;
+        return false;
     }
     string line;
+//    while (!sessionsData.eof())
+//    {
+//        getline (sessionsData, line);
+//        if (line.find("CARDIO")) numCardio++;
+//        if (line.find("WEIGHTLOSS")) numWei++;
+//        if (line.find("FREE")) numFree++;
+//    }
+//    numSessions = numCardio + numWei + numFree;
+
     while (!sessionsData.eof())
     {
-        getline (sessionsData, line);
-        if (line.find("CARDIO")) numCardio++;
-        if (line.find("WEIGHTLOSS")) numWei++;
-        if (line.find("FREE")) numFree++;
+        getline (sessionsData,line);
+        if (line.find("CARDIO"))
+        {
+            cout << "Se creo una cardio" << endl;
+            auxCardio = new Cardio ();
+            sessionsData >> *auxCardio;
+            sessions.push_back(auxCardio);
+            delete auxCardio;
+        } else if (line.find("WEIGHTLOSS"))
+        {
+            cout << "Se creo una weightloss" << endl;
+        }
     }
-    numSessions = numCardio + numWei + numFree;
+
+
     sessionsData.close();
+    return true;
+}
+
+void User::SaveLastSession(Session * ses)
+{
+    sessions.push_back(ses);
+    SaveData();
 }
 
 void User::ExtractData()

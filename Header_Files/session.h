@@ -24,8 +24,10 @@ public:
     vector < double > pulseData;
     vector < double > dataOfLoad;
     string screenMessage = "Sesión de entrenamiento";
+    string SessionType;
 protected:
     Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
+    Session () { cout << "Constructor vacio de session" << endl;};
     virtual ~Session () {cout << "Destructor de session" << endl;}
     string date;
     bool sesAct = false;
@@ -35,7 +37,6 @@ protected:
         char sex;
         float weight, height;
     } dataUser;
-    string SessionType;
     bool paused = false;
     // ---------- Objeto bike ---------------
     StateBike bike;
@@ -49,6 +50,9 @@ protected:
     virtual void WriteReport () const = 0;
     virtual void ReadReport () = 0;
     virtual bool AlarmPpm ( const int &age) = 0;
+
+    //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
+
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
     bool IsPaused () const { return paused; };
 };
@@ -62,6 +66,7 @@ class Cardio :public Session
 public:
     Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
     Cardio ();
+    Cardio (const Cardio*&);
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
