@@ -488,6 +488,121 @@ bool WeightLoss::NoRutAlm ()
     return false;
 }
 
+void WeightLoss::Sample ()
+{
+    //-----------------------------MÉTODO DE MUESTREO A EJECUTARSE REITERADAMENTE DURANTE LA SESIÓN ----------------------------
+    if (sesAct == true)
+    {
+        //operaciones de muestreo de datos
+
+        timeSes++;
+        //Actualizo datos de sensores
+        bike.vSensor->GetValue();
+        bike.pSensor->GetValue();
+        bike.lSensor->GetValue();
+
+        //Obtengo valores y guardo en vector
+        velocData.push_back(bike.vSensor->GetVeloc());
+        pulseData.push_back(bike.pSensor->GetPulse());
+        dataOfLoad.push_back(bike.lSensor->GetLoad());
+        distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
+
+        //obtengo el calculo de calorias
+        calories += CalcCalories(timeSes,dataUser->weight,bike.vSensor->GetVeloc());
+
+        //Evalúo el tiempo que va transcurriendo
+        if (sampleTime == timeRef)
+        {
+            End();
+        }
+        if (timeSes > 10 and !NoRutAlm()) screenMessage = "Va a buen ritmo";
+        //Evaluo velocidad en un rango de variación del 10%
+        if (Pause())
+        {
+            cout << "Entrenamiento pausado" << endl;
+            sesAct = false;
+            paused = true;
+        }
+        if(AlarmPpm(dataUser->age))
+        {
+            screenMessage = "Frecuencia cardíaca alta";
+        }//evalúo PPM
+    }
+    if (paused)
+    {
+        bike.vSensor->GetValue();
+        screenMessage = "Entrenamiento pausado";
+        if (bike.vSensor->GetVeloc()!= 0.0)
+        {
+            paused = false;
+            sesAct = true;
+        }
+    }
+}
+
+void WeightLoss::LoadConfig ()
+{
+    //---------------------------------------------------------------------------------------------------------------------
+    //Este método carga los valores de timeRef e intensidad (de referencia para la sesión de entrenamiento)
+    //---------------------------------------------------------------------------------------------------------------------
+
+    fstream configFile;
+    int timePos = 0, intePos = 0, contInt = 0; //posiciones dentro del archivo
+    int timeAux, inteAux;
+
+    // Apertura de archivo
+    configFile.open("Session2Config.txt", ios::in);
+    if (!configFile)
+    {
+        screenMessage = "Error al abrir el archivo de configuración";
+        throw (int (FILE_CONFIG_ERROR));
+    }
+
+    //Extraigo posiciones de acuerdo a marcadores preestablecidos
+    string line;
+    while (!(configFile.eof()))
+    {
+        getline (configFile,line);
+        if (line == "TIME_REF")
+        {
+            timePos = configFile.tellg();
+        } else if (line == "INTENSITY")
+        {
+            intePos = configFile.tellg();
+        }
+    }
+
+    configFile.clear(); //para borrar los bits de error (eof)
+    configFile.seekg(timePos); //me posiciono en el comienzo de los datos de tiempo
+    while (configFile >> timeAux)
+    {
+        timeRef = timeAux;
+    }
+    configFile.clear();
+    configFile.seekg(intePos); //me posiciono en los datos de intensidad
+    while (configFile >> inteAux)
+    {
+        if ( contInt == 0)
+        {
+            intensityMinFc = inteAux * ( 220 - dataUser->age );
+            contInt++;
+        }
+        else
+        {
+            intensityMaxFc = inteAux * ( 220 - dataUser->age );
+            contInt = 0;
+        }
+    }
+
+    //-------------Lineas para mostrar los datos que se cargan - solo para pruebas --------------------
+
+    cout << "Datos cargados de tiempo: " << endl;
+    cout << timeRef << endl;
+    cout << "Datos cargados de intensidad minima y maxima: " << endl;
+    cout << intensityMinFc << endl;
+    cout << intensityMaxFc << endl;
+}
+
 void WeightLoss::WriteReport () const
 {
     //este método permite exportar unicamente la sesión realizada
@@ -506,16 +621,25 @@ void WeightLoss::ViewReport () const
 
 }
 
-void WeightLoss::IntensityFc (const int &age)
+bool WeightLoss::AlarmPpm (const int &age)
 {
+    float freqMaxRef = (220 - age)*0.85;
+    if (pulseData.back() > freqMaxRef)
+    {
+        return true;
+    }
+    return false;
+}
+
+/*void WeightLoss::IntensityFc (const int &age)
+{
+
     //Se calcula los valores minimo y máximo de la intensidad al cual debe realizar esta sesión
     int Fcmax;
     Fcmax= 220 - age;
     intensityMinFc= Fcmax*(6/10);
     intensityMaxFc= Fcmax*(7/10);
-}
-
-
+}*/
 
 istream& operator>> (istream& ist, WeightLoss& wei)
 {
