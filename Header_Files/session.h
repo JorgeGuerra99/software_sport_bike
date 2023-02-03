@@ -11,7 +11,6 @@
 #include <fstream>
 #include <time.h>
 #include "bike.h"
-#include "Header_Files/user.h"
 
 
 enum {FILE_CONFIG_ERROR, INVALID_USER};
@@ -25,13 +24,19 @@ public:
     vector < double > pulseData;
     vector < double > dataOfLoad;
     string screenMessage = "Sesión de entrenamiento";
+    string SessionType;
 protected:
-    Session (const User&);
+    Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
+    Session () { cout << "Constructor vacio de session" << endl;};
     virtual ~Session () {cout << "Destructor de session" << endl;}
     string date;
     bool sesAct = false;
-    User* dataUser;
-    string SessionType;
+    struct {
+        string name;
+        int age;
+        char sex;
+        float weight, height;
+    } dataUser;
     bool paused = false;
     // ---------- Objeto bike ---------------
     StateBike bike;
@@ -45,6 +50,9 @@ protected:
     virtual void WriteReport () const = 0;
     virtual void ReadReport () = 0;
     virtual bool AlarmPpm ( const int &age) = 0;
+
+    //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
+
     virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
     bool IsPaused () const { return paused; };
 };
@@ -56,8 +64,9 @@ protected:
 class Cardio :public Session
 {
 public:
-    Cardio (const User&); //por ahora necesitaría estos datos
+    Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
     Cardio ();
+    Cardio (const Cardio*&);
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
@@ -91,7 +100,7 @@ private:
 class WeightLoss: public Session
 {
 public:
-    WeightLoss (const User&);
+    WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     WeightLoss ();
     ~WeightLoss() { cout << "destructor de weightloss" << endl;}
     virtual void Start ();
@@ -114,9 +123,9 @@ private:
     double velMax;
    // void IntensityFc (const int &age);  //asigna los valores de intensidad de FC max y min
     bool NoRutAlm();
-    virtual void Sample ();
-    virtual void LoadConfig ();
-    virtual bool AlarmPpm (const int &age );
+    virtual void Sample () {};
+    virtual void LoadConfig () {};
+    virtual bool AlarmPpm (const int &age) {};
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
 };
@@ -128,7 +137,7 @@ private:
 class Free: public Session
 {
 public:
-    Free (const User&);
+    Free (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Free();
     ~Free () { cout << "destructor de free"  << endl;}
     virtual void Start ();

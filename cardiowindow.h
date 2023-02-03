@@ -15,11 +15,12 @@ class CardioWindow : public QMainWindow
     Q_OBJECT
 
 public:
-     CardioWindow(User* , QWidget *parent = nullptr);
+     CardioWindow(User*& , QWidget *parent = nullptr);
     ~CardioWindow();
 
 private:
     Ui::CardioWindow *ui;
+    User* us = nullptr;
     Cardio* car;
     QTimer timer;
     bool pause;
