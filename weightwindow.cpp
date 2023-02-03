@@ -7,7 +7,7 @@ weightwindow::weightwindow(User* us, QWidget *parent) :
     ui(new Ui::weightwindow)
 {
     ui->setupUi(this);
-    wei = new WeightLoss (*us);
+    wei = new WeightLoss (us->nameUsr, us->age, us->sex, us->weight, us->height);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT (UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT (StartButton()));

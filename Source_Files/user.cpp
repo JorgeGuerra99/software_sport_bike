@@ -62,7 +62,7 @@ void User::SaveData()
 bool User::LoadData()
 {
     string filename = "data_";
-    filename+= nameUsr += ".txt";
+    filename+= nameUsr + ".txt";
     sessionsData.open(filename, ios::in);
     if (!sessionsData)
     {

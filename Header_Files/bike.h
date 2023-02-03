@@ -19,12 +19,12 @@ class Bike
 protected:
     Bike () { cout << "En constructor de bike "<< endl; };
     virtual ~Bike () {cout << "En destructor de bike "<< endl; };
-    virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
-    virtual void ConfigSerial () = 0;
     virtual void ConfigSensors () = 0;
 public:
     QSerialPortInfo portBikeInfo;
     QSerialPort portBike;
+    virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
+    virtual void ConfigSerial () = 0;
 };
 
 class StateBike: public Bike //Bicicleta fija

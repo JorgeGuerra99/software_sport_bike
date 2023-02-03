@@ -1,12 +1,12 @@
 #include "Header_Files/configwindow.h"
 #include "ui_configwindow.h"
 
-ConfigWindow::ConfigWindow(QWidget *parent) :
-    QWidget(parent),
+ConfigWindow::ConfigWindow(Session*& sesBike, QWidget *parent) :
+    QMainWindow(parent),
     ui(new Ui::ConfigWindow)
 {
     ui->setupUi(this);
-
+    ses = sesBike;
     ListPorts();
     ui->comboBox->addItems(portList);
     connect(ui->horizontalSlider, SIGNAL (valueChanged(int)), this, SLOT(BaudRateChanged(int)));
@@ -21,7 +21,7 @@ ConfigWindow::~ConfigWindow()
 
 void ConfigWindow::ListPorts()
 {
-    QList <QSerialPortInfo> ports = myBike.portBikeInfo.availablePorts();
+    QList <QSerialPortInfo> ports = ses->bike.portBikeInfo.availablePorts();
     portList.resize(ports.size());
     int i = 0;
     if (!ports.empty())
@@ -68,12 +68,12 @@ void ConfigWindow::SaveConfig()
 
     wstop = ui->comboBox_3->currentIndex() + 1;
 
-    myBike.ConfigSerial(ui->comboBox->currentText(), baud, wdata, wpar, wstop);
+    ses->bike.ConfigSerial(ui->comboBox->currentText(), baud, wdata, wpar, wstop);
 
-    cout << "Puerto seleccionado: " << myBike.portBike.portName().toStdString() << endl;
-    cout << "BaudRate: " << myBike.portBike.baudRate() << endl;
-    cout << "Paridad: " << myBike.portBike.parity() << endl;
-    cout << "Stop: " << myBike.portBike.stopBits() << endl;
-    cout << "Data: " << myBike.portBike.dataBits() << endl;
+    cout << "Puerto seleccionado: " << ses->bike.portBike.portName().toStdString() << endl;
+    cout << "BaudRate: " << ses->bike.portBike.baudRate() << endl;
+    cout << "Paridad: " << ses->bike.portBike.parity() << endl;
+    cout << "Stop: " << ses->bike.portBike.stopBits() << endl;
+    cout << "Data: " << ses->bike.portBike.dataBits() << endl;
     this->close();
 }

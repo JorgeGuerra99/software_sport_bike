@@ -21,7 +21,7 @@ double Session ::CalcCalories (const double &time, const double &weig, const dou
     return aux;
 }
 
-
+//----------------------------------------------------------------------------------------------------------------------
 Session::Session(const string& name, const int& age, const char& sex, const float& weight, const float& height)
 {
     dataUser.name = name;
@@ -48,40 +48,32 @@ Cardio::Cardio(const string& name, const int& age, const char& sex, const float&
     cout << "En constructor de cardio" << endl;
 }
 
-Cardio::Cardio(): Session()
+//------------------------------------------------------------------------------------------------------
+Cardio::Cardio(const Cardio & car)
 {
-    cout << "constructor vacio de cardio" << endl;
+    *this = car;
 }
-
-Cardio::Cardio(const Cardio* & car)
-{
-    calories = car->calories;
-    distance = car->distance;
-    sampleTime = car->sampleTime;
-    velMax = car->velMax;
-    velMed = car->velMed;
-    velocData = car->velocData;
-    pulseData = car->pulseData;
-    dataOfLoad = car->dataOfLoad;
-}
-
+//-------------------------------------------------------------------------------------------------------
 void Cardio::Start()
 {
+    //Método de inicio de entrenamiento
+
     try {
         sesAct = true;
         LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
-        if (!bike.sensorsConfigured) bike.ConfigSerial();
+        if (!bike.sensorsConfigured) bike.ConfigSerial(); //Configura el puerto serie
         screenMessage = "Entrenamiento iniciado";
     }  catch (int e) {
         if (e == ERROR_SERIAL_OPEN)
         {
             cout << "ERROR SERIAL" << endl;
-            sesAct = false;
+            sesAct = false; //No inicia si no puede abrir el puerto serie
         }
     }
 }
 
+//----------------------------------------------------------------------------------------------------------------
 bool Cardio::Pause()
 {
     //Evalúo los últimos 5 valores de velocidad. Si la suma de los mismos es cero retorna verdadero para pausar el entrenamiento automáticamente
@@ -99,7 +91,7 @@ bool Cardio::Pause()
     }
     return false;
 }
-
+//--------------------------------------------------------------------------------------------------------
 void Cardio::End()
 {
     //Se desactiva las variables para evitar que siga realizando el muestreo de datos
@@ -107,14 +99,16 @@ void Cardio::End()
     paused = false;
 }
 
+//---------------------------------------------------------------------------------------------------------
 void Cardio::ViewReport() const
 {
 
 }
 
+//---------------------------------------------------------------------------------------------------------
 void Cardio::WriteReport() const
 {
-    //Permite exportar unicamente la sesión realizada en ese instante
+    //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
     fstream sessionFile;
     string filename;
     filename = dataUser.name + string ("_") + date;
@@ -122,7 +116,7 @@ void Cardio::WriteReport() const
     sessionFile.open(filename, ios::app);
     sessionFile << *this;
 }
-
+//-----------------------------------------------------------------------------------------------------------
 void Cardio::ReadReport()
 {
     fstream sessionFile;
@@ -130,12 +124,13 @@ void Cardio::ReadReport()
     if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
     sessionFile >> *this;
 }
-
+//----------------------------------------------------------------------------------------------------------
 double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
 {
 
 }
 
+//-------------------------------------------------------------------------------------------------------------
 void Cardio::Sample()
 {
     //-----------------------------MÉTODO DE MUESTREO A EJECUTARSE REITERADAMENTE DURANTE LA SESIÓN ----------------------------
@@ -180,7 +175,7 @@ void Cardio::Sample()
         }
     }
 }
-
+//_-------------------------------------------------------------------------------------------------------------
 bool Cardio::NoRutAlm()
 {
     //---------------------------------------------------------------------------------------------------------
@@ -199,7 +194,7 @@ bool Cardio::NoRutAlm()
     cout << "va a ritmo" << endl;
     return false;
 }
-
+//------------------------------------------------------------------------------------------------------------------
 void Cardio::StageEval(const int &tim)
 {
     //Evalua etapa de entrenamiento de acuerdo al tiempo transcurrido
@@ -211,7 +206,7 @@ void Cardio::StageEval(const int &tim)
         }
     }
 }
-
+//--------------------------------------------------------------------------------------------------------------------
 void Cardio::LoadConfig()
 {
     //---------------------------------------------------------------------------------------------------------------------
@@ -259,18 +254,19 @@ void Cardio::LoadConfig()
 
     //-------------Lineas para mostrar los datos que se cargan - solo para pruebas --------------------
 
-    cout << "Datos cargados de tiempo: " << endl;
-    for (int i = 0; i < (int)timeRef.size(); i++)
-    {
-        cout << timeRef [i] << endl;
-    }
-    cout << "Datos cargados de velocidad: " << endl;
-    for (int i = 0; i < (int)velocRef.size(); i++)
-    {
-        cout << velocRef [i] << endl;
-    }
+//    cout << "Datos cargados de tiempo: " << endl;
+//    for (int i = 0; i < (int)timeRef.size(); i++)
+//    {
+//        cout << timeRef [i] << endl;
+//    }
+//    cout << "Datos cargados de velocidad: " << endl;
+//    for (int i = 0; i < (int)velocRef.size(); i++)
+//    {
+//        cout << velocRef [i] << endl;
+//    }
 }
 
+//------------------------------------------------------------------------------------------------------
 bool Cardio::AlarmPpm(const int &age)
 {
     float freqMaxRef = (220 - age)*0.85;
@@ -281,6 +277,25 @@ bool Cardio::AlarmPpm(const int &age)
     }
     return false;
 }
+
+Cardio &Cardio::operator=(const Cardio &c)
+{
+    timeSes = c.timeSes;
+    velocData = c.velocData;
+    pulseData = c.pulseData;
+    dataOfLoad = c.dataOfLoad;
+    SessionType = c.SessionType;
+    date = c.date;
+    dataUser = c.dataUser;
+    calories = c.calories;
+    distance = c.distance;
+    sampleTime = c.sampleTime;
+    velMax = c.velMax;
+    velMed = c.velMed;
+    velocRef = c.velocRef;
+    timeRef = c.timeRef;
+}
+//-----------------------------------------------------------------------------------------------------
 ostream& operator<< (ostream& ios, const Cardio& car)
 {
     ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
@@ -311,7 +326,7 @@ ostream& operator<< (ostream& ios, const Cardio& car)
     ios << "FIN_DATOS" << endl;
     return ios;
 }
-
+//--------------------------------------------------------------------------------------------------------
 istream& operator>> (istream& ist, Cardio& car)
 {
     //---------------OPERADOR >> PARA SESSION CARDIO -------------------------------------------
@@ -393,26 +408,27 @@ istream& operator>> (istream& ist, Cardio& car)
 
     // Líneas para mostrar los datos cargados, comentar si es necesario...
 
-    cout << "Datos de velocidad cargados: " << endl;
-    for (int i = 0; i < (int) car.velocData.size(); i++)
-    {
-        cout << car.velocData[i] << endl;
-    }
-    cout << "Datos de pulso cargados: " << endl;
-    for (int i = 0; i < (int) car.pulseData.size(); i++)
-    {
-        cout << car.pulseData[i] << endl;
-    }
-    cout << "Datos de carga cargados: " << endl;
-    for (int i = 0; i < (int) car.dataOfLoad.size(); i++)
-    {
-        cout << car.dataOfLoad[i] << endl;
-    }
+//    cout << "Datos de velocidad cargados: " << endl;
+//    for (int i = 0; i < (int) car.velocData.size(); i++)
+//    {
+//        cout << car.velocData[i] << endl;
+//    }
+//    cout << "Datos de pulso cargados: " << endl;
+//    for (int i = 0; i < (int) car.pulseData.size(); i++)
+//    {
+//        cout << car.pulseData[i] << endl;
+//    }
+//    cout << "Datos de carga cargados: " << endl;
+//    for (int i = 0; i < (int) car.dataOfLoad.size(); i++)
+//    {
+//        cout << car.dataOfLoad[i] << endl;
+//    }
     return ist;
 }
-//-----------------------------------------------------------------------------------------
-//------------------------------ MÉTODOS DE WEIGHTLOSS ------------------------------------
-//-----------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//------------------------------ MÉTODOS DE WEIGHTLOSS ----------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
 
 WeightLoss::WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height): Session (name, age, sex, weight, height)
 {
@@ -426,7 +442,7 @@ WeightLoss::WeightLoss (const string& name, const int& age, const char& sex, con
     date = localDate;
     cout << "En constructor de weightloss" << endl;
 }
-
+//--------------------------------------------------------------------------------------------------------
 void WeightLoss::Start ()
 {
     try {
@@ -443,7 +459,7 @@ void WeightLoss::Start ()
         }
     }
 }
-
+//--------------------------------------------------------------------------------------------------------
 bool WeightLoss::Pause ()
 {
     //Se evalua los últimos 5 valores de velocidad, si la suma de los mismos es cero retorna true para pausar el entrenamiento automáticamente
@@ -461,14 +477,14 @@ bool WeightLoss::Pause ()
     }
     return false;
 }
-
+//--------------------------------------------------------------------------------------------------------
 void WeightLoss::End ()
 {
     //Se desactiva las variables para evitar que siga realizando el muestreo de datos
     sesAct = false;
     paused = false;
 }
-
+//--------------------------------------------------------------------------------------------------------
 bool WeightLoss::NoRutAlm ()
 {
     //---------------------------------------------------------------------------------------------------------
@@ -487,7 +503,7 @@ bool WeightLoss::NoRutAlm ()
     cout << "va a ritmo" << endl;
     return false;
 }
-
+//--------------------------------------------------------------------------------------------------------
 void WeightLoss::Sample ()
 {
     //-----------------------------MÉTODO DE MUESTREO A EJECUTARSE REITERADAMENTE DURANTE LA SESIÓN ----------------------------
@@ -508,7 +524,7 @@ void WeightLoss::Sample ()
         distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
 
         //obtengo el calculo de calorias
-        calories += CalcCalories(timeSes,dataUser->weight,bike.vSensor->GetVeloc());
+        calories += CalcCalories(timeSes,dataUser.weight,bike.vSensor->GetVeloc());
 
         //Evalúo el tiempo que va transcurriendo
         if (sampleTime == timeRef)
@@ -523,7 +539,7 @@ void WeightLoss::Sample ()
             sesAct = false;
             paused = true;
         }
-        if(AlarmPpm(dataUser->age))
+        if(AlarmPpm(dataUser.age))
         {
             screenMessage = "Frecuencia cardíaca alta";
         }//evalúo PPM
@@ -539,7 +555,7 @@ void WeightLoss::Sample ()
         }
     }
 }
-
+//--------------------------------------------------------------------------------------------------------
 void WeightLoss::LoadConfig ()
 {
     //---------------------------------------------------------------------------------------------------------------------
@@ -584,12 +600,12 @@ void WeightLoss::LoadConfig ()
     {
         if ( contInt == 0)
         {
-            intensityMinFc = inteAux * ( 220 - dataUser->age );
+            intensityMinFc = inteAux * ( 220 - dataUser.age );
             contInt++;
         }
         else
         {
-            intensityMaxFc = inteAux * ( 220 - dataUser->age );
+            intensityMaxFc = inteAux * ( 220 - dataUser.age );
             contInt = 0;
         }
     }
@@ -602,7 +618,7 @@ void WeightLoss::LoadConfig ()
     cout << intensityMinFc << endl;
     cout << intensityMaxFc << endl;
 }
-
+//--------------------------------------------------------------------------------------------------------
 void WeightLoss::WriteReport () const
 {
     //este método permite exportar unicamente la sesión realizada
@@ -615,12 +631,12 @@ void WeightLoss::WriteReport () const
     sessionFile.open(filename, ios::app);
 //    sessionFile << *this;
 }
-
+//--------------------------------------------------------------------------------------------------------
 void WeightLoss::ViewReport () const
 {
 
 }
-
+//--------------------------------------------------------------------------------------------------------
 bool WeightLoss::AlarmPpm (const int &age)
 {
     float freqMaxRef = (220 - age)*0.85;
@@ -630,7 +646,7 @@ bool WeightLoss::AlarmPpm (const int &age)
     }
     return false;
 }
-
+//--------------------------------------------------------------------------------------------------------
 /*void WeightLoss::IntensityFc (const int &age)
 {
 
@@ -640,7 +656,7 @@ bool WeightLoss::AlarmPpm (const int &age)
     intensityMinFc= Fcmax*(6/10);
     intensityMaxFc= Fcmax*(7/10);
 }*/
-
+//--------------------------------------------------------------------------------------------------------
 istream& operator>> (istream& ist, WeightLoss& wei)
 {
     //---------------OPERADOR >> PARA SESSION WEIGHTLOSS -------------------------------------------
@@ -745,7 +761,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
     }
     return ist;
 }
-
+//--------------------------------------------------------------------------------------------------------
 ostream& operator<< (ostream& ios, const WeightLoss& wei)
 {
     ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
