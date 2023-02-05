@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "Header_Files/session.h"
 #include "Header_Files/user.h"
+#include "Header_Files/configwindow.h"
 #include <QTimer>
 
 namespace Ui {
@@ -24,6 +25,8 @@ private:
     Cardio* car;
     QTimer timer;
     bool pause;
+    ConfigWindow* confWin;
+
 private slots:
     void StartButton();
     void PauseButton();
@@ -31,6 +34,7 @@ private slots:
     void UiSample ();
     void ExportDataButton ();
     void OpenSessionButton ();
+    void SerialConfigButton ();
 };
 
 #endif // CARDIOWINDOW_H

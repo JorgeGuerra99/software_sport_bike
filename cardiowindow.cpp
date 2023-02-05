@@ -16,6 +16,7 @@ CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
     connect (ui->pushButton_5, SIGNAL (clicked()), this, SLOT (deleteLater()));
     connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
     connect(ui->pushButton_6, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
+    connect(ui->pushButton_7, SIGNAL (clicked()), this, SLOT (SerialConfigButton()));
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_3->setDisabled(true);
     ui->pushButton_4->setDisabled(true);
@@ -80,4 +81,12 @@ void CardioWindow::ExportDataButton()
 void CardioWindow::OpenSessionButton()
 {
     car->ReadReport();
+}
+
+void CardioWindow::SerialConfigButton()
+{
+    Session* ptrSes;
+    ptrSes = car;
+    confWin = new ConfigWindow (ptrSes, this);
+    confWin->show();
 }

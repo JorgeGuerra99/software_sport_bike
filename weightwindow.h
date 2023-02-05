@@ -26,12 +26,12 @@ private:
     bool pause;
 
 private slots:
-    void StartButton ();
-    void PauseButton ();
-    void StopButton ();
-    void UiSample ();
-    void ExportDataButton ();
-    void OpenSessionButton ();
+//    void StartButton ();
+//    void PauseButton ();
+//    void StopButton ();
+//    void UiSample ();
+//    void ExportDataButton ();
+//    void OpenSessionButton ();
 
 };
 
