@@ -597,6 +597,16 @@ void WeightLoss::ViewReport () const
 
 }
 
+void WeightLoss::ReadReport()
+{
+    string filename;
+    filename = date;
+    filename+= string ("_") += dataUser->nameUsr;
+    fstream sessionFile;
+    sessionFile.open(filename, ios::in);
+    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
+    sessionFile >> *this;
+}
 bool WeightLoss::AlarmPpm (const int &age)
 {
     float freqMaxRef = (220 - age)*0.85;

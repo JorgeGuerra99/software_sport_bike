@@ -1,7 +1,6 @@
 #ifndef WEIGHTWINDOW_H
 #define WEIGHTWINDOW_H
 
-#include <QWidget>
 #include <QMainWindow>
 #include "Header_Files/session.h"
 #include "Header_Files/user.h"
@@ -11,7 +10,7 @@ namespace Ui {
 class weightwindow;
 }
 
-class weightwindow : public QWidget
+class weightwindow : public QMainWindow
 {
     Q_OBJECT
 

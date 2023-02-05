@@ -100,10 +100,12 @@ public:
     //bool VelCte () const;
     virtual void ViewReport () const;
     virtual void WriteReport () const;
-//    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const ;
-private:
+    virtual void ReadReport ();
+    virtual void Sample ();
     float calories;
     float distance;
+//    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const ;
+private:
     //float velocRef; lo saco porque lo hago de acuerdo a un rango de pulsaciones de la persona
     float timeRef; //Está para el ejemplo 1 de 2 horas continuas, se puede agregar los otros ejemplos
     vector < float > intensityRef;
@@ -114,7 +116,6 @@ private:
     double velMax;
    // void IntensityFc (const int &age);  //asigna los valores de intensidad de FC max y min
     bool NoRutAlm();
-    virtual void Sample ();
     virtual void LoadConfig ();
     virtual bool AlarmPpm (const int &age );
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);

@@ -7,6 +7,7 @@
 #include "regwindow.h"
 #include "accesswindow.h"
 #include "cardiowindow.h"
+#include "weightwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,7 +24,7 @@ public:
     RegWindow *winReg;
     accesswindow *winAcc;
     CardioWindow *winCar;
-
+    weightwindow *winWei;
 private:
     Ui::MainWindow *ui;
 private slots:
