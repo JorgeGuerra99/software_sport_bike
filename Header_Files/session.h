@@ -45,7 +45,8 @@ protected:
     virtual void WriteReport () const = 0;
     virtual void ReadReport () = 0;
     virtual bool AlarmPpm ( const int &age) = 0;
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
+    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
+    virtual double CalcCalories ( )const = 0;
     bool IsPaused () const { return paused; };
 };
 
@@ -65,7 +66,8 @@ public:
     virtual void ViewReport () const;
     virtual void WriteReport () const;
     virtual void ReadReport ();
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual double CalcCalories ( )const ;
     virtual void Sample ();
 private:
     float calories = 0;
@@ -104,9 +106,8 @@ public:
     virtual void Sample ();
     float calories;
     float distance;
-//    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const ;
+    virtual double CalcCalories ( ) const ;
 private:
-    //float velocRef; lo saco porque lo hago de acuerdo a un rango de pulsaciones de la persona
     float timeRef; //Está para el ejemplo 1 de 2 horas continuas, se puede agregar los otros ejemplos
     vector < float > intensityRef;
     float intensityMaxFc;
@@ -135,7 +136,8 @@ public:
     virtual void Start ();
     virtual void End ();
     virtual void ViewReport () const ;
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual double CalcCalories ( )const ;
 private:
     float calories;
     float distance;

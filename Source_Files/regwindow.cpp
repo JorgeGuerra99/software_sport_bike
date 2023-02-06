@@ -19,7 +19,11 @@ RegWindow::~RegWindow()
 void RegWindow::RegisterUser()
 {
     string nameUser = ui->lineEdit->text().toStdString();
-    string pass = ui->lineEdit_2->text().toStdString();
+    //lineas que extrae la contraseña para realizar una encriptación en md5 para luego almacenarla en el archivo de texto
+    //se opto para que la encriptación de md5 sea convertida hexa para compatibilidad con php y mysqly
+    QByteArray password = QByteArray(ui->lineEdit_2->text().toUtf8());
+    QString aux = QString(QCryptographicHash::hash((password),QCryptographicHash::Md5).toHex());
+    string pass = aux.toStdString();
     int ag = ui->spinBox->value();
     float we = ui->spinBox_2->value();
     float he = ui->spinBox_3->value();

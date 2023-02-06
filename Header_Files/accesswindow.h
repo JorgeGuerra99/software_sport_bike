@@ -4,6 +4,8 @@
 
 #include <QWidget>
 #include <QMainWindow>
+#include <QByteArray>
+#include <QCryptographicHash>
 #include "user.h"
 
 namespace Ui {
@@ -21,6 +23,7 @@ public:
 
 private:
     Ui::accesswindow *ui;
+
 private slots:
     void AccessUser ();
     void CancelAccess () { delete this; };

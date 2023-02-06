@@ -3,6 +3,8 @@
 #define REGWINDOW_H
 
 #include <QMainWindow>
+#include <QCryptographicHash>
+#include <QByteArray>
 #include "user.h"
 
 namespace Ui {
@@ -19,6 +21,7 @@ public:
     User *usReg;
 private:
     Ui::RegWindow *ui;
+    QCryptographicHash* hash;
 private slots:
     void RegisterUser ();
     void CancelRegister () { delete this;}
