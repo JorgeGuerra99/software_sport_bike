@@ -47,3 +47,6 @@ FORMS += \
     UI_Files/regwindow.ui \
     cardiowindow.ui \
     weightwindow.ui
+
+DISTFILES += \
+    5742154.png

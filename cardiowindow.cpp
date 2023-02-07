@@ -1,12 +1,13 @@
 #include "cardiowindow.h"
 #include "ui_cardiowindow.h"
 
-CardioWindow::CardioWindow(User* us, QWidget *parent) :
+CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CardioWindow)
 {
+    us = usu;
     ui->setupUi(this);
-    car = new Cardio (*us);
+    car = new Cardio (us->nameUsr, us->age, us->sex, us->weight, us->height);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT(UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT(StartButton()));
@@ -15,6 +16,7 @@ CardioWindow::CardioWindow(User* us, QWidget *parent) :
     connect (ui->pushButton_5, SIGNAL (clicked()), this, SLOT (deleteLater()));
     connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
     connect(ui->pushButton_6, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
+    connect(ui->pushButton_7, SIGNAL (clicked()), this, SLOT (SerialConfigButton()));
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_3->setDisabled(true);
     ui->pushButton_4->setDisabled(true);
@@ -58,6 +60,7 @@ void CardioWindow::StopButton()
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
     car->End();
+    us->SaveLastSession(car);
 }
 
 void CardioWindow::UiSample()
@@ -78,4 +81,12 @@ void CardioWindow::ExportDataButton()
 void CardioWindow::OpenSessionButton()
 {
     car->ReadReport();
+}
+
+void CardioWindow::SerialConfigButton()
+{
+    Session* ptrSes;
+    ptrSes = car;
+    confWin = new ConfigWindow (ptrSes, this);
+    confWin->show();
 }

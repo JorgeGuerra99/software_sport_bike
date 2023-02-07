@@ -3,23 +3,26 @@
 #define CONFIGWINDOW_H
 
 #include <QWidget>
+#include <QMainWindow>
 #include "bike.h"
+#include "session.h"
 #include <vector>
 namespace Ui {
 class ConfigWindow;
 }
 
-class ConfigWindow : public QWidget
+class ConfigWindow : public QMainWindow
 {
     Q_OBJECT
 
+
 public:
-    explicit ConfigWindow(QWidget *parent = nullptr);
+    ConfigWindow(Session*&, QWidget *parent = nullptr);
     ~ConfigWindow();
 
 private:
     Ui::ConfigWindow *ui;
-    StateBike myBike;
+    Session* ses;
     QStringList portList;
     void ListPorts ();
     int baud = QSerialPort::Baud9600;
