@@ -7,6 +7,7 @@
 #include "Header_Files/session.h"
 #include <unistd.h>
 #include "Header_Files/bike.h"
+#include "datawindow.h"
 
 int main(int argc, char *argv[])
 {

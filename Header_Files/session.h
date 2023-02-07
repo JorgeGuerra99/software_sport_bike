@@ -19,15 +19,18 @@ class Session
 {
 public:
     int timeSes = 0;
-    //-----Datos de sensores --------------
-    vector < double > velocData;
-    vector < double > pulseData;
-    vector < double > dataOfLoad;
     string screenMessage = "Sesión de entrenamiento";
     string SessionType;
     // ---------- Objeto bike ---------------
     StateBike bike;
+    //esta bien esto?
+    double GetLastData (int a = 0) const; //retorna el último dato leído por los sensores - usado para mostrar en pantalla
+    vector <double> GetAllData (char sel = 'P') const;
 protected:
+    //-----Datos de sensores --------------
+    vector < double > velocData;
+    vector < double > pulseData;
+    vector < double > dataOfLoad;
     Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Session () { cout << "Constructor por defecto: Session" << endl;};
     virtual ~Session () {cout << "Destructor de session" << endl;}
@@ -65,7 +68,6 @@ class Cardio :public Session
 public:
     Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
     Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
-    Cardio (const Cardio&);
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
@@ -76,7 +78,6 @@ public:
     //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
     virtual double CalcCalories ( )const ;
     virtual void Sample ();
-    Cardio& operator= (const Cardio&);
     Cardio* operator* () { return this;}
 private:
     float calories = 0;
@@ -110,7 +111,6 @@ public:
     virtual void End ();
     //bool VelCte () const;
     virtual void ViewReport () const ;
-    virtual void ReadReport () {};
     virtual void WriteReport () const;
     virtual void ReadReport ();
     virtual void Sample ();

@@ -17,9 +17,12 @@ CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
     connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
     connect(ui->pushButton_6, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
     connect(ui->pushButton_7, SIGNAL (clicked()), this, SLOT (SerialConfigButton()));
+    connect(ui->pushButton_8, SIGNAL (clicked()), this, SLOT (ReportButton()));
+
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_3->setDisabled(true);
     ui->pushButton_4->setDisabled(true);
+    ui->pushButton_8->setDisabled(true);
 
 }
 
@@ -59,6 +62,7 @@ void CardioWindow::StopButton()
     timer.stop();
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
+    ui->pushButton_8->setEnabled(true);
     car->End();
     us->SaveLastSession(car);
 }
@@ -67,9 +71,9 @@ void CardioWindow::UiSample()
 {
     car->Sample();
     ui->lcdNumber->display(car->timeSes);
-    ui->lcdNumber_2->display(car->velocData.back());
-    ui->lcdNumber_3->display(car->dataOfLoad.back());
-    ui->lcdNumber_4->display(car->pulseData.back());
+    ui->lcdNumber_2->display(car->GetLastData(1));
+    ui->lcdNumber_3->display(car->GetLastData(2));
+    ui->lcdNumber_4->display(car->GetLastData(0));
     ui->label_5->setText(QString::fromStdString(car->screenMessage));
 }
 
@@ -89,4 +93,12 @@ void CardioWindow::SerialConfigButton()
     ptrSes = car;
     confWin = new ConfigWindow (ptrSes, this);
     confWin->show();
+}
+
+void CardioWindow::ReportButton()
+{
+    Session* ptrSes;
+    ptrSes = car;
+    datWin = new datawindow (ptrSes, this);
+    datWin->show();
 }
