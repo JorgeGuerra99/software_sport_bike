@@ -20,7 +20,10 @@ accesswindow::~accesswindow()
 void accesswindow::AccessUser ()
 {
     string nameUser = ui->lineEdit->text().toStdString();
-    string pass = ui->lineEdit_2->text().toStdString();
+    // lineas que encripta la contraseña ingresada en md5
+    QByteArray password = QByteArray(ui->lineEdit_2->text().toUtf8());
+    QString aux = QString(QCryptographicHash::hash((password),QCryptographicHash::Md5).toHex());
+    string pass = aux.toStdString();
     try {
         usAccess = new User (nameUser, pass);
         emit UserAccess();

@@ -50,10 +50,9 @@ protected:
     virtual void WriteReport () const = 0;
     virtual void ReadReport () = 0;
     virtual bool AlarmPpm ( const int &age) = 0;
-
+    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
+    virtual double CalcCalories ( )const = 0;
     //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
-
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
     bool IsPaused () const { return paused; };
 };
 
@@ -74,7 +73,8 @@ public:
     virtual void ViewReport () const;
     virtual void WriteReport () const;
     virtual void ReadReport ();
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual double CalcCalories ( )const ;
     virtual void Sample ();
     Cardio& operator= (const Cardio&);
     Cardio* operator* () { return this;}
@@ -112,11 +112,12 @@ public:
     virtual void ViewReport () const ;
     virtual void ReadReport () {};
     virtual void WriteReport () const;
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const {} ;
-private:
+    virtual void ReadReport ();
+    virtual void Sample ();
     float calories;
     float distance;
-    //float velocRef; lo saco porque lo hago de acuerdo a un rango de pulsaciones de la persona
+    virtual double CalcCalories ( ) const ;
+private:
     float timeRef; //Está para el ejemplo 1 de 2 horas continuas, se puede agregar los otros ejemplos
     vector < float > intensityRef;
     float intensityMaxFc;
@@ -126,7 +127,6 @@ private:
     double velMax;
    // void IntensityFc (const int &age);  //asigna los valores de intensidad de FC max y min
     bool NoRutAlm();
-    virtual void Sample ();
     virtual void LoadConfig ();
     virtual bool AlarmPpm (const int &age);
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
@@ -146,7 +146,8 @@ public:
     virtual void Start ();
     virtual void End ();
     virtual void ViewReport () const ;
-    virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual double CalcCalories ( )const ;
 private:
     float calories;
     float distance;

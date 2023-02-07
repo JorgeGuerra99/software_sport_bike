@@ -3,20 +3,21 @@
 //-----------------------------------------------------------------------------------------
 //------------------------------- MÉTODOS DE SESSION --------------------------------------
 //-----------------------------------------------------------------------------------------
-double Session ::CalcCalories (const double &time, const double &weig, const double &vel ) const
+//double Session ::CalcCalories (const double &time, const double &weig, const double &vel ) const
+double Session::CalcCalories ( )const
 {
     double aux = 0;
     static double ind1 = 49 / 1000;
     static double indWeig = 22 / 10;
     static double ind2 = 71 / 1000;
     //corroborar que el número de la condición este en rpm
-    if (vel <= 16.00)
+    if (velocData.back() <= 16.00)
     {
-        aux = ind1 * ( weig * indWeig ) * ( time / 60 );
+        aux = ind1 * ( dataUser->weight * indWeig ) * ( timeSes / 60 );
     }
     else
     {
-        aux = ind2 * ( weig * indWeig ) * ( time / 60 );
+        aux = ind2 * ( dataUser->weight * indWeig ) * ( timeSes / 60 );
     }
     return aux;
 }
@@ -124,10 +125,24 @@ void Cardio::ReadReport()
     if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
     sessionFile >> *this;
 }
-//----------------------------------------------------------------------------------------------------------
-double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
-{
+//double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
+double Cardio::CalcCalories() const
 
+{
+    double cal = 0;
+    static double ind1 = 49 / 1000;
+    static double indWeig = 22 / 10;
+    static double ind2 = 71 / 1000;
+    //corroborar que el número de la condición este en rpm
+    if (velocData.back() <= 16.00)
+    {
+        cal = ind1 * ( dataUser->weight * indWeig ) * ( timeSes / 60 );
+    }
+    else
+    {
+        cal = ind2 * ( dataUser->weight * indWeig ) * ( timeSes / 60 );
+    }
+    return cal;
 }
 
 //-------------------------------------------------------------------------------------------------------------
@@ -524,7 +539,8 @@ void WeightLoss::Sample ()
         distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
 
         //obtengo el calculo de calorias
-        calories += CalcCalories(timeSes,dataUser.weight,bike.vSensor->GetVeloc());
+        //calories += CalcCalories(timeSes,dataUser->weight,bike.vSensor->GetVeloc());
+        calories += CalcCalories();
 
         //Evalúo el tiempo que va transcurriendo
         if (sampleTime == timeRef)
@@ -636,6 +652,18 @@ void WeightLoss::ViewReport () const
 {
 
 }
+
+void WeightLoss::ReadReport()
+{
+    string filename;
+    filename = date;
+    filename+= string ("_") += dataUser->nameUsr;
+    fstream sessionFile;
+    sessionFile.open(filename, ios::in);
+    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
+    sessionFile >> *this;
+}
+
 //--------------------------------------------------------------------------------------------------------
 bool WeightLoss::AlarmPpm (const int &age)
 {
@@ -646,7 +674,27 @@ bool WeightLoss::AlarmPpm (const int &age)
     }
     return false;
 }
+
+double WeightLoss::CalcCalories ( ) const
+{
+    double cal = 0;
+    static double ind1 = 49 / 1000;
+    static double indWeig = 22 / 10;
+    static double ind2 = 71 / 1000;
+    //corroborar que el número de la condición este en rpm
+    if (velocData.back() <= 16.00)
+    {
+        cal = ind1 * ( dataUser->weight * indWeig ) * ( timeSes / 60 );
+    }
+    else
+    {
+        cal = ind2 * ( dataUser->weight * indWeig ) * ( timeSes / 60 );
+    }
+    return cal;
+}
+
 //--------------------------------------------------------------------------------------------------------
+
 /*void WeightLoss::IntensityFc (const int &age)
 {
 

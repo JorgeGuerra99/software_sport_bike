@@ -59,6 +59,8 @@ void MainWindow::startSession()
         break;
     case 1:
         cout << "Seleccionado perdida de peso" << endl;
+        winWei = new weightwindow (us, this);
+        winWei->show();
         break;
     case 2:
         cout << "Seleccionado libre" << endl;
