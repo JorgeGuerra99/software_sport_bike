@@ -99,7 +99,6 @@ public:
     virtual void Start ();
     virtual bool Pause () ;
     virtual void End ();
-    //bool VelCte () const;
     virtual void ViewReport () const;
     virtual void WriteReport () const;
     virtual void ReadReport ();
@@ -115,7 +114,6 @@ private:
     float sampleTime = 1;
     double velMed;
     double velMax;
-   // void IntensityFc (const int &age);  //asigna los valores de intensidad de FC max y min
     bool NoRutAlm();
     virtual void LoadConfig ();
     virtual bool AlarmPpm (const int &age );

@@ -6,7 +6,6 @@ ConfigWindow::ConfigWindow(QWidget *parent) :
     ui(new Ui::ConfigWindow)
 {
     ui->setupUi(this);
-
     ListPorts();
     ui->comboBox->addItems(portList);
     connect(ui->horizontalSlider, SIGNAL (valueChanged(int)), this, SLOT(BaudRateChanged(int)));
