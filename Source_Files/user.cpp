@@ -51,7 +51,7 @@ void User::SaveData()
     filename += nameUsr;
     filename += ".txt";
     sessionsData.open (filename, ios::app);
-    //ESte metodo no puede funcionar como tal, ya que para usar el operador << tiene que ser una de las clases derivadas
+     //ESte metodo no puede funcionar como tal, ya que para usar el operador << tiene que ser una de las clases derivadas
     // y sessions<> contiene punteros a clase base. Consultar:
     //- Se puede implementar el operador << para clase abstracta?
     // - Otra alternativa es que el llenado del archivo sea automático y se haga una vez que se finalice la sesión, es decir
@@ -147,7 +147,7 @@ void User::ExtractData()
 bool User::VerifReg(string &name)
 {
     //Método que devuelve un valor booleano indicativo si el usuario se encuentra o no ya registrado
-    userData.open("UserData.txt", ios::app);
+    userData.open("UserData.txt", ios::in);
     if (!userData)
     {
         cout << "ERROR al abrir UserData.txt" << endl;
