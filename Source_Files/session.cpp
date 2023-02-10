@@ -37,7 +37,7 @@ double Session::GetLastData(int a) const
     }
 }
 
-vector<double> Session::GetAllData(char sel) const
+const vector<double> Session::GetAllData(char sel) const
 {
     switch (sel) {
     case 'P':
@@ -60,6 +60,13 @@ Session::Session(const string& name, const int& age, const char& sex, const floa
     dataUser.height = height;
 
     cout << "En constructor de session" << endl;
+}
+
+double Session::GetVelocMaxMed(const int &s)
+{
+    if (s == 0) return velMax;
+    else if (s == 1) return velMed;
+    else return -1;
 }
 
 //-----------------------------------------------------------------------------------------
@@ -189,7 +196,10 @@ void Cardio::Sample()
         velocData.push_back(bike.vSensor->GetVeloc());
         pulseData.push_back(bike.pSensor->GetPulse());
         dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
+        distance+= bike.vSensor->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
+
+        velMax = bike.vSensor->GetVelocMax();
+        velMed = bike.vSensor->GetVelocProm();
 
         //Evalúo etapa actual
         StageEval(timeSes);

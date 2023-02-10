@@ -1,3 +1,11 @@
+/**
+ * @file session.h
+ * @version 1.0
+ * @date 2023
+ * @title Clase Session
+ *
+ */
+
 //-----------------------------CLASE SESSION ------------------------------------------------------------------
 // Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas
 // correspondientes a los diferentes tipos de sesión, c/u con sus características
@@ -18,14 +26,24 @@ using namespace std;
 class Session
 {
 public:
+    /**
+     * @brief timeSes Contador de MUESTRAS de la sesión
+     */
     int timeSes = 0;
     string screenMessage = "Sesión de entrenamiento";
     string SessionType;
-    // ---------- Objeto bike ---------------
     StateBike bike;
     //esta bien esto?
-    double GetLastData (int a = 0) const; //retorna el último dato leído por los sensores - usado para mostrar en pantalla
-    vector <double> GetAllData (char sel = 'P') const;
+    /**
+     * @brief GetLastData Retorna el último valor en alguno de los vectores de los datos sensados
+     * @param a Indica de que sensor se extraerá el último dato
+     * @return Valor double con el último dato leído del sensor
+     */
+    double GetLastData (int a = 0) const;
+    float GetCalories () const { return calories; }
+    float GetDistance () const { return distance; }
+    double GetVelocMaxMed (const int& s = 0);
+    const vector <double> GetAllData (char sel = 'P') const;
 protected:
     //-----Datos de sensores --------------
     vector < double > velocData;
@@ -43,6 +61,10 @@ protected:
         float weight, height;
     } dataUser;
     bool paused = false;
+    float calories = 0;
+    float distance = 0.0;
+    double velMax = 0;
+    double velMed = 0.0;
     //------- Métodos de sesión ------------
     virtual void Start () = 0; //iniciar entrenamiento - habilito sample
     virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
@@ -80,12 +102,8 @@ public:
     virtual void Sample ();
     Cardio* operator* () { return this;}
 private:
-    float calories = 0;
-    float distance;
     int stage = 0;
     float sampleTime = 1; //tiempo de muestreo
-    double velMax;
-    double velMed;
     vector < int > velocRef;
     vector < int > timeRef;
     bool NoRutAlm (); //Alerta de desvío de rutina
