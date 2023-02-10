@@ -7,7 +7,7 @@ weightwindow::weightwindow(User* us, QWidget *parent) :
     ui(new Ui::weightwindow)
 {
     ui->setupUi(this);
-    wei = new WeightLoss (*us);
+    wei = new WeightLoss (us->nameUsr, us->age, us->sex, us->weight, us->height);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT (UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT (StartButton()));
@@ -65,10 +65,10 @@ void weightwindow::UiSample()
 {
     wei->Sample();
     ui->lcdNumber->display(wei->timeSes);
-    ui->lcdNumber_2->display(wei->velocData.back());
+    ui->lcdNumber_2->display(wei->GetLastData(1));
     ui->lcdNumber_3->display(wei->distance);
-    ui->lcdNumber_4->display(wei->pulseData.back());
-    ui->lcdNumber_5->display(wei->dataOfLoad.back());
+    ui->lcdNumber_4->display(wei->GetLastData(0));
+    ui->lcdNumber_5->display(wei->GetLastData(2));
     ui->lcdNumber_6->display(wei->calories);
     ui->label_7->setText(QString::fromStdString(wei->screenMessage));
 

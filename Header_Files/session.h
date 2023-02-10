@@ -1,3 +1,11 @@
+/**
+ * @file session.h
+ * @version 1.0
+ * @date 2023
+ * @title Clase Session
+ *
+ */
+
 //-----------------------------CLASE SESSION ------------------------------------------------------------------
 // Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas
 // correspondientes a los diferentes tipos de sesión, c/u con sus características
@@ -11,7 +19,6 @@
 #include <fstream>
 #include <time.h>
 #include "bike.h"
-#include "Header_Files/user.h"
 
 
 enum {FILE_CONFIG_ERROR, INVALID_USER};
@@ -19,22 +26,45 @@ using namespace std;
 class Session
 {
 public:
+    /**
+     * @brief timeSes Contador de MUESTRAS de la sesión
+     */
     int timeSes = 0;
+    string screenMessage = "Sesión de entrenamiento";
+    string SessionType;
+    StateBike bike;
+    //esta bien esto?
+    /**
+     * @brief GetLastData Retorna el último valor en alguno de los vectores de los datos sensados
+     * @param a Indica de que sensor se extraerá el último dato
+     * @return Valor double con el último dato leído del sensor
+     */
+    double GetLastData (int a = 0) const;
+    float GetCalories () const { return calories; }
+    float GetDistance () const { return distance; }
+    double GetVelocMaxMed (const int& s = 0);
+    const vector <double> GetAllData (char sel = 'P') const;
+protected:
     //-----Datos de sensores --------------
     vector < double > velocData;
     vector < double > pulseData;
     vector < double > dataOfLoad;
-    string screenMessage = "Sesión de entrenamiento";
-protected:
-    Session (const User&);
+    Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
+    Session () { cout << "Constructor por defecto: Session" << endl;};
     virtual ~Session () {cout << "Destructor de session" << endl;}
     string date;
     bool sesAct = false;
-    User* dataUser;
-    string SessionType;
+    struct {
+        string name;
+        int age;
+        char sex;
+        float weight, height;
+    } dataUser;
     bool paused = false;
-    // ---------- Objeto bike ---------------
-    StateBike bike;
+    float calories = 0;
+    float distance = 0.0;
+    double velMax = 0;
+    double velMed = 0.0;
     //------- Métodos de sesión ------------
     virtual void Start () = 0; //iniciar entrenamiento - habilito sample
     virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
@@ -47,6 +77,7 @@ protected:
     virtual bool AlarmPpm ( const int &age) = 0;
     //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
     virtual double CalcCalories ( )const = 0;
+    //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
     bool IsPaused () const { return paused; };
 };
 
@@ -57,8 +88,8 @@ protected:
 class Cardio :public Session
 {
 public:
-    Cardio (const User&); //por ahora necesitaría estos datos
-    Cardio ();
+    Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
+    Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
     ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
@@ -69,13 +100,10 @@ public:
     //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
     virtual double CalcCalories ( )const ;
     virtual void Sample ();
+    Cardio* operator* () { return this;}
 private:
-    float calories = 0;
-    float distance;
     int stage = 0;
     float sampleTime = 1; //tiempo de muestreo
-    double velMax;
-    double velMed;
     vector < int > velocRef;
     vector < int > timeRef;
     bool NoRutAlm (); //Alerta de desvío de rutina
@@ -93,7 +121,7 @@ private:
 class WeightLoss: public Session
 {
 public:
-    WeightLoss (const User&);
+    WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     WeightLoss ();
     ~WeightLoss() { cout << "destructor de weightloss" << endl;}
     virtual void Start ();
@@ -116,7 +144,7 @@ private:
     double velMax;
     bool NoRutAlm();
     virtual void LoadConfig ();
-    virtual bool AlarmPpm (const int &age );
+    virtual bool AlarmPpm (const int &age);
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
 };
@@ -128,7 +156,7 @@ private:
 class Free: public Session
 {
 public:
-    Free (const User&);
+    Free (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Free();
     ~Free () { cout << "destructor de free"  << endl;}
     virtual void Start ();

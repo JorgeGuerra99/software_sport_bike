@@ -1,5 +1,6 @@
 QT       += core gui
 QT       += serialport
+QT       += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -15,10 +16,12 @@ SOURCES += \
     Source_Files/main.cpp \
     Source_Files/mainsession.cpp \
     Source_Files/mainwindow.cpp \
+    Source_Files/qcustomplot.cpp \
     Source_Files/regwindow.cpp \
     Source_Files/session.cpp \
     Source_Files/user.cpp \
     cardiowindow.cpp \
+    datawindow.cpp \
     weightwindow.cpp
 
 HEADERS += \
@@ -27,11 +30,13 @@ HEADERS += \
     Header_Files/configwindow.h \
     Header_Files/mainsession.h \
     Header_Files/mainwindow.h \
+    Header_Files/qcustomplot.h \
     Header_Files/regwindow.h \
     Header_Files/sensors.h \
     Header_Files/session.h \
     Header_Files/user.h \
     cardiowindow.h \
+    datawindow.h \
     weightwindow.h
 
 # Default rules for deployment.
@@ -46,4 +51,8 @@ FORMS += \
     UI_Files/mainwindow.ui \
     UI_Files/regwindow.ui \
     cardiowindow.ui \
+    datawindow.ui \
     weightwindow.ui
+
+DISTFILES += \
+    5742154.png
