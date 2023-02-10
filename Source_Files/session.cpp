@@ -482,6 +482,7 @@ void WeightLoss::Start ()
         LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
         if (!bike.sensorsConfigured) bike.ConfigSerial();
+        screenMessage = "Entrenamiento iniciado";
         cout << "Sesión iniciada" << endl;
     }  catch (int e) {
         if (e == ERROR_SERIAL_OPEN)
@@ -491,7 +492,7 @@ void WeightLoss::Start ()
         }
     }
 }
-//--------------------------------------------------------------------------------------------------------
+
 bool WeightLoss::Pause ()
 {
     //Se evalua los últimos 5 valores de velocidad, si la suma de los mismos es cero retorna true para pausar el entrenamiento automáticamente
@@ -556,8 +557,9 @@ void WeightLoss::Sample ()
         distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
 
         //obtengo el calculo de calorias
-        //calories += CalcCalories(timeSes,dataUser->weight,bike.vSensor->GetVeloc());
         calories += CalcCalories();
+        cout<<"calorias"<<endl;
+        cout<<calories<<endl;
 
         //Evalúo el tiempo que va transcurriendo
         if (sampleTime == timeRef)
@@ -565,6 +567,7 @@ void WeightLoss::Sample ()
             End();
         }
         if (timeSes > 10 and !NoRutAlm()) screenMessage = "Va a buen ritmo";
+
         //Evaluo velocidad en un rango de variación del 10%
         if (Pause())
         {
@@ -572,10 +575,13 @@ void WeightLoss::Sample ()
             sesAct = false;
             paused = true;
         }
-        if(AlarmPpm(dataUser.age))
+
+        //Evalúo PPM
+        if(AlarmPpm(dataUser->age))
         {
             screenMessage = "Frecuencia cardíaca alta";
-        }//evalúo PPM
+        }
+
     }
     if (paused)
     {
@@ -597,7 +603,8 @@ void WeightLoss::LoadConfig ()
 
     fstream configFile;
     int timePos = 0, intePos = 0, contInt = 0; //posiciones dentro del archivo
-    int timeAux, inteAux;
+    int timeAux;
+    float inteAux;
 
     // Apertura de archivo
     configFile.open("Session2Config.txt", ios::in);
@@ -611,6 +618,7 @@ void WeightLoss::LoadConfig ()
     string line;
     while (!(configFile.eof()))
     {
+
         getline (configFile,line);
         if (line == "TIME_REF")
         {
@@ -633,12 +641,12 @@ void WeightLoss::LoadConfig ()
     {
         if ( contInt == 0)
         {
-            intensityMinFc = inteAux * ( 220 - dataUser.age );
+            intensityMinFc = ( inteAux * ( 220 - dataUser->age ) ) / 100;
             contInt++;
         }
         else
         {
-            intensityMaxFc = inteAux * ( 220 - dataUser.age );
+            intensityMaxFc = ( inteAux * ( 220 - dataUser->age ) ) / 100;
             contInt = 0;
         }
     }
@@ -695,33 +703,22 @@ bool WeightLoss::AlarmPpm (const int &age)
 double WeightLoss::CalcCalories ( ) const
 {
     double cal = 0;
-    static double ind1 = 49 / 1000;
-    static double indWeig = 22 / 10;
-    static double ind2 = 71 / 1000;
+    static double ind1 = 0.049;
+    static double indWeig = 2.2;
+    static double ind2 = 0.071;
     //corroborar que el número de la condición este en rpm
+
     if (velocData.back() <= 16.00)
     {
-        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes / 60 );
+        cal = ind1 * ( dataUser->weight * indWeig ) * ( timeSes * 0.016667 );
     }
     else
     {
-        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes / 60 );
+        cal = ind2 * ( dataUser->weight * indWeig ) * ( timeSes * 0.016667 );
     }
     return cal;
 }
 
-//--------------------------------------------------------------------------------------------------------
-
-/*void WeightLoss::IntensityFc (const int &age)
-{
-
-    //Se calcula los valores minimo y máximo de la intensidad al cual debe realizar esta sesión
-    int Fcmax;
-    Fcmax= 220 - age;
-    intensityMinFc= Fcmax*(6/10);
-    intensityMaxFc= Fcmax*(7/10);
-}*/
-//--------------------------------------------------------------------------------------------------------
 istream& operator>> (istream& ist, WeightLoss& wei)
 {
     //---------------OPERADOR >> PARA SESSION WEIGHTLOSS -------------------------------------------

@@ -14,7 +14,6 @@ accesswindow::accesswindow(User *us, QWidget *parent) :
 accesswindow::~accesswindow()
 {
     delete ui;
-    cout << "x aca tb" << endl;
 }
 
 void accesswindow::AccessUser ()

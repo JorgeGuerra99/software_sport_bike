@@ -126,10 +126,10 @@ void User::ExtractData()
             line.resize(auxPos);
             if (line == nameUsr)
             {
-                lineAux.resize(lineAux.find_last_of(" "));
-                sweigth.append (lineAux.begin() + lineAux.find_last_of(" ") +1, lineAux.end());
                 lineAux.resize (lineAux.find_last_of(" "));
                 sheigth.append (lineAux.begin() + lineAux.find_last_of(" ") + 1, lineAux.end());
+                lineAux.resize(lineAux.find_last_of(" "));
+                sweigth.append (lineAux.begin() + lineAux.find_last_of(" ") +1, lineAux.end());
                 lineAux.resize (lineAux.find_last_of(" "));
                 ssex.append (lineAux.begin() + lineAux.find_last_of(" ") + 1, lineAux.end());
                 lineAux.resize (lineAux.find_last_of(" "));
