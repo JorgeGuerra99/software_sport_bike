@@ -5,6 +5,8 @@ datawindow::datawindow(Session*& mySes, QWidget *parent) :
     ui(new Ui::datawindow)
 {
     ui->setupUi(this);
+    connect (ui->pushButton_2, SIGNAL (clicked()), this, SLOT (deleteLater()));
+
     vector <double> velVect = mySes->GetAllData('V');
     vector <double> pulVect = mySes->GetAllData('P');
     vector <double> loadVect = mySes->GetAllData('L');
@@ -50,6 +52,16 @@ datawindow::datawindow(Session*& mySes, QWidget *parent) :
     ui->customPlot_3->xAxis->setRange(0, time.back());
     ui->customPlot_3->yAxis->setRange(0, 10);
     ui->customPlot_3->replot();
+
+    int sec = mySes->timeSes%60;
+    int min = mySes->timeSes/60;
+    QString labTime = QString::number(min) + " min. " + QString::number(sec) + "seg.";
+    ui->label_6->setText(labTime);
+    ui->label_7->setText(QString::number(mySes->GetDistance())+" km");
+    ui->label_8->setText(QString::number(mySes->GetVelocMaxMed()));
+    ui->label_9->setText(QString::number(mySes->GetVelocMaxMed(1)));
+    ui->label_10->setText(QString::number(mySes->GetCalories()));
+
 }
 
 datawindow::~datawindow()

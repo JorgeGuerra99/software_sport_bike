@@ -60,7 +60,7 @@ private:
     int dataRead = 0;
     T sumData = 0;
     T kmh;
-    T radius = 0.02; //en metro
+    T radius = 0.2; //en metro
 };
 
 template < class T >
