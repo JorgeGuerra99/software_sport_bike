@@ -1,11 +1,15 @@
 #include "datawindow.h"
 #include "ui_datawindow.h"
+//In included file: 'qcustoplot.h' file not found
+//#include "Header_Files/qcustomplot.h"
+
 datawindow::datawindow(Session*& mySes, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::datawindow)
 {
     ui->setupUi(this);
     connect (ui->pushButton_2, SIGNAL (clicked()), this, SLOT (deleteLater()));
+    connect (ui->pushButton, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
 
     vector <double> velVect = mySes->GetAllData('V');
     vector <double> pulVect = mySes->GetAllData('P');
@@ -67,4 +71,9 @@ datawindow::datawindow(Session*& mySes, QWidget *parent) :
 datawindow::~datawindow()
 {
     delete ui;
+}
+
+void datawindow::ExportDataButton()
+{
+    ses->WriteReport();
 }

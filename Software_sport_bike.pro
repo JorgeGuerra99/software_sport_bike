@@ -14,7 +14,6 @@ SOURCES += \
     Source_Files/bike.cpp \
     Source_Files/configwindow.cpp \
     Source_Files/main.cpp \
-    Source_Files/mainsession.cpp \
     Source_Files/mainwindow.cpp \
     Source_Files/qcustomplot.cpp \
     Source_Files/regwindow.cpp \
@@ -28,7 +27,6 @@ HEADERS += \
     Header_Files/accesswindow.h \
     Header_Files/bike.h \
     Header_Files/configwindow.h \
-    Header_Files/mainsession.h \
     Header_Files/mainwindow.h \
     Header_Files/qcustomplot.h \
     Header_Files/regwindow.h \
@@ -47,7 +45,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 FORMS += \
     UI_Files/accesswindow.ui \
     UI_Files/configwindow.ui \
-    UI_Files/mainsession.ui \
     UI_Files/mainwindow.ui \
     UI_Files/regwindow.ui \
     cardiowindow.ui \

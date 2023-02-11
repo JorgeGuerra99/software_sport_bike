@@ -4,7 +4,6 @@
 
 #include <QWidget>
 #include <QMainWindow>
-#include "bike.h"
 #include "session.h"
 #include <vector>
 namespace Ui {
