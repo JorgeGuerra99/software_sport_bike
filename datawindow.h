@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Header_Files/qcustomplot.h"
+//Include header qcustom.h is not udes (fix available)
 #include <iostream>
 #include <vector>
 #include "Header_Files/session.h"
@@ -22,6 +23,8 @@ public:
 private:
     Ui::datawindow *ui;
     Session* ses;
+private slots:
+    void ExportDataButton ();
 };
 
 #endif // DATAWINDOW_H

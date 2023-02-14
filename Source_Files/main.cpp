@@ -2,12 +2,8 @@
 #include <QApplication>
 #include <Header_Files/mainwindow.h>
 #include <Header_Files/configwindow.h>
-#include <Header_Files/mainsession.h>
 #include <Header_Files/accesswindow.h>
-#include "Header_Files/session.h"
 #include <unistd.h>
-#include "Header_Files/bike.h"
-#include "datawindow.h"
 
 int main(int argc, char *argv[])
 {

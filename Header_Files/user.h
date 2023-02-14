@@ -20,12 +20,10 @@ public:
     User ( string&, int&, char&, float&, float&, string& );
     User ( string&, string& );
     User (const User&); //constructor copia
-    ~User () { cout << "destructor de user"; }
+    virtual ~User () { cout << "destructor de user"; }
     void SaveData ();
     bool LoadData ();
     void SaveLastSession (Session*);
-    //Session** sessions;
-
     string nameUsr;
     int age;
     char sex;
@@ -34,7 +32,18 @@ public:
 private:
     void FileReg ();
     void ExtractData ();
-    bool VerifReg (string &);
+    /**
+     * @brief VerifReg
+     * @param name
+     * @return
+     */
+    bool VerifReg (string& name);
+    /**
+     * @brief VerifUser
+     * @param nameUs
+     * @param pass
+     * @return
+     */
     bool VerifUser (string &, string &);
     fstream userData;
     fstream sessionsData;

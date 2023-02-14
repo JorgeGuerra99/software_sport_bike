@@ -3,7 +3,7 @@
  * @version 1.0
  * @date 2023
  * @title Clase Session
- *
+ * @authors Bazán Maria, Guerra Jorge
  */
 
 //-----------------------------CLASE SESSION ------------------------------------------------------------------
@@ -44,6 +44,7 @@ public:
     float GetDistance () const { return distance; }
     double GetVelocMaxMed (const int& s = 0);
     const vector <double> GetAllData (char sel = 'P') const;
+    virtual void WriteReport () const = 0;
 protected:
     //-----Datos de sensores --------------
     vector < double > velocData;
@@ -61,9 +62,9 @@ protected:
         float weight, height;
     } dataUser;
     bool paused = false;
-    float calories = 0;
+    float calories = 0.0;
     float distance = 0.0;
-    double velMax = 0;
+    double velMax = 0.0;
     double velMed = 0.0;
     //------- Métodos de sesión ------------
     virtual void Start () = 0; //iniciar entrenamiento - habilito sample
@@ -71,11 +72,8 @@ protected:
     virtual void LoadConfig () = 0;
     virtual bool Pause () = 0; //pausa de entrenamiento
     virtual void End () = 0;
-    virtual void ViewReport () const = 0;
-    virtual void WriteReport () const = 0;
     virtual void ReadReport () = 0;
-    virtual bool AlarmPpm ( const int &age) = 0;
-    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel )const = 0;
+    virtual bool AlarmPpm ( const int& age) = 0;
     virtual double CalcCalories ( )const = 0;
     //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
     bool IsPaused () const { return paused; };
@@ -90,14 +88,12 @@ class Cardio :public Session
 public:
     Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
     Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
-    ~Cardio() { cout << "destructor cardio" << endl;}
+    virtual ~Cardio() { cout << "destructor cardio" << endl;}
     virtual void Start ();
     virtual bool Pause ();
     virtual void End ();
-    virtual void ViewReport () const;
     virtual void WriteReport () const;
     virtual void ReadReport ();
-    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
     virtual double CalcCalories ( )const ;
     virtual void Sample ();
     Cardio* operator* () { return this;}
@@ -109,7 +105,7 @@ private:
     bool NoRutAlm (); //Alerta de desvío de rutina
     void StageEval (const int&);
     virtual void LoadConfig ();
-    virtual bool AlarmPpm ( const int &age );
+    virtual bool AlarmPpm ( const int& age );
     friend ostream& operator<< (ostream& ios, const Cardio&);
     friend istream &operator>> ( istream& ist, Cardio &);
 };
@@ -123,16 +119,13 @@ class WeightLoss: public Session
 public:
     WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     WeightLoss ();
-    ~WeightLoss() { cout << "destructor de weightloss" << endl;}
+    virtual ~WeightLoss() { cout << "destructor de weightloss" << endl;}
     virtual void Start ();
     virtual bool Pause () ;
     virtual void End ();
-    virtual void ViewReport () const;
     virtual void WriteReport () const;
     virtual void ReadReport ();
     virtual void Sample ();
-    float calories;
-    float distance;
     virtual double CalcCalories ( ) const ;
 private:
     float timeRef; //Está para el ejemplo 1 de 2 horas continuas, se puede agregar los otros ejemplos
@@ -140,11 +133,9 @@ private:
     float intensityMaxFc;
     float intensityMinFc;
     float sampleTime = 1;
-    double velMed;
-    double velMax;
     bool NoRutAlm();
     virtual void LoadConfig ();
-    virtual bool AlarmPpm (const int &age);
+    virtual bool AlarmPpm (const int& age);
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
 };
@@ -158,18 +149,19 @@ class Free: public Session
 public:
     Free (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Free();
-    ~Free () { cout << "destructor de free"  << endl;}
+    virtual ~Free () { cout << "destructor de free"  << endl;}
     virtual void Start ();
+    virtual bool Pause ();
     virtual void End ();
-    virtual void ViewReport () const ;
-    //virtual double CalcCalories ( const double &tim, const double &pes, const double &vel ) const;
+    virtual void Sample ();
+    virtual void WriteReport () const;
+    virtual void ReadReport ();
     virtual double CalcCalories ( )const ;
 private:
-    float calories;
-    float distance;
-    virtual void Sample ();
-    virtual void LoadConfig ();
-    virtual bool AlarmPpm ( const int& ) ;
+    float sampleTime = 1;
+    virtual bool AlarmPpm ( const int& age ) ;
+    friend ostream& operator<< (ostream& ios, const Free& free);
+    friend istream& operator>> ( istream& ist, Free& free);
 };
 
 

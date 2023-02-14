@@ -132,12 +132,6 @@ void Cardio::End()
 }
 
 //---------------------------------------------------------------------------------------------------------
-void Cardio::ViewReport() const
-{
-
-}
-
-//---------------------------------------------------------------------------------------------------------
 void Cardio::WriteReport() const
 {
     //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
@@ -211,7 +205,12 @@ void Cardio::Sample()
             sesAct = false;
             paused = true;
         }
-        AlarmPpm(dataUser.age); //evalúo PPM
+
+        //Evalúo PPM
+        if(AlarmPpm(dataUser.age))
+        {
+            screenMessage = "Frecuencia cardíaca alta";
+        }
     }
     if (paused)
     {
@@ -577,7 +576,7 @@ void WeightLoss::Sample ()
         }
 
         //Evalúo PPM
-        if(AlarmPpm(dataUser->age))
+        if(AlarmPpm(dataUser.age))
         {
             screenMessage = "Frecuencia cardíaca alta";
         }
@@ -641,12 +640,12 @@ void WeightLoss::LoadConfig ()
     {
         if ( contInt == 0)
         {
-            intensityMinFc = ( inteAux * ( 220 - dataUser->age ) ) / 100;
+            intensityMinFc = ( inteAux * ( 220 - dataUser.age ) ) / 100;
             contInt++;
         }
         else
         {
-            intensityMaxFc = ( inteAux * ( 220 - dataUser->age ) ) / 100;
+            intensityMaxFc = ( inteAux * ( 220 - dataUser.age ) ) / 100;
             contInt = 0;
         }
     }
@@ -670,13 +669,9 @@ void WeightLoss::WriteReport () const
     filename+= string ("_") += dataUser.name;
     // apertura del archivo de texto para posterior guardado de los datos de la sesión
     sessionFile.open(filename, ios::app);
-//    sessionFile << *this;
+    sessionFile << *this;
 }
 //--------------------------------------------------------------------------------------------------------
-void WeightLoss::ViewReport () const
-{
-
-}
 
 void WeightLoss::ReadReport()
 {
@@ -702,7 +697,7 @@ bool WeightLoss::AlarmPpm (const int &age)
 
 double WeightLoss::CalcCalories ( ) const
 {
-    double cal = 0;
+    double cal = 0.0;
     static double ind1 = 0.049;
     static double indWeig = 2.2;
     static double ind2 = 0.071;
@@ -710,11 +705,11 @@ double WeightLoss::CalcCalories ( ) const
 
     if (velocData.back() <= 16.00)
     {
-        cal = ind1 * ( dataUser->weight * indWeig ) * ( timeSes * 0.016667 );
+        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
     }
     else
     {
-        cal = ind2 * ( dataUser->weight * indWeig ) * ( timeSes * 0.016667 );
+        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
     }
     return cal;
 }
@@ -854,4 +849,262 @@ ostream& operator<< (ostream& ios, const WeightLoss& wei)
     }
     ios << "FIN_DATOS" << endl;
     return ios;
+}
+
+Free::Free():Session ()
+{
+    SessionType = "Free";
+    //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
+    //esto despues se utiliza despúes para guardar la sesión del usuario
+    time_t now;
+    time (&now);
+    char *c = ctime (&now);
+    string localDate (c);
+    date = localDate;
+    cout << "En constructor de free" << endl;
+}
+
+void Free::Start()
+{
+    //Método de inicio de entrenamiento
+    try {
+        sesAct = true;
+        LoadConfig(); //cargo configuraciones del archivo
+        distance = 0.0;
+        if (!bike.sensorsConfigured) bike.ConfigSerial(); //Configura el puerto serie
+        screenMessage = "Entrenamiento iniciado";
+    }  catch (int e) {
+        if (e == ERROR_SERIAL_OPEN)
+        {
+            cout << "ERROR SERIAL" << endl;
+            sesAct = false; //No inicia si no puede abrir el puerto serie
+        }
+    }
+}
+
+bool Free::Pause()
+{
+    //Evalúo los últimos 5 valores de velocidad. Si la suma de los mismos es cero retorna verdadero para pausar el entrenamiento automáticamente
+    if (velocData.size()>5)
+    {
+        double auxData = 0.0;
+        for (vector<double>::iterator it = velocData.end()-1; it!= velocData.end()-5; it--)
+        {
+            auxData+= *it;
+        }
+        if (auxData == 0.0)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Free::End()
+{
+    //Se desactiva las variables para evitar que siga realizando el muestreo de datos
+    sesAct = false;
+    paused = false;
+}
+
+void Free::Sample()
+{
+    //-----------------------------MÉTODO DE MUESTREO A EJECUTARSE REITERADAMENTE DURANTE LA SESIÓN ----------------------------
+    if (sesAct == true)
+    {
+        //operaciones de muestreo de datos
+        //una forma de usar esta función es que en la clase haya un objeto timer interno que se inicialice con
+        //el método start - Encontré en internet el QTimer pero no se si usar ese
+
+        timeSes++;
+        //Actualizo datos de sensores
+        bike.vSensor->GetValue();
+        bike.pSensor->GetValue();
+        bike.lSensor->GetValue();
+
+        //Obtengo valores y guardo en vector
+        velocData.push_back(bike.vSensor->GetVeloc());
+        pulseData.push_back(bike.pSensor->GetPulse());
+        dataOfLoad.push_back(bike.lSensor->GetLoad());
+        distance+= bike.vSensor->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
+
+        velMax = bike.vSensor->GetVelocMax();
+        velMed = bike.vSensor->GetVelocProm();
+
+        //Evaluo velocidad en un rango de variación del 10%
+        if (Pause())
+        {
+            cout << "Entrenamiento pausado" << endl;
+            sesAct = false;
+            paused = true;
+        }
+
+        //evalúo PPM
+        if(AlarmPpm(dataUser.age))
+        {
+            screenMessage = "Frecuencia cardíaca alta";
+        }
+
+    }
+    if (paused)
+    {
+        bike.vSensor->GetValue();
+        screenMessage = "Entrenamiento pausado";
+        if (bike.vSensor->GetVeloc()!= 0.0)
+        {
+            paused = false;
+            sesAct = true;
+        }
+    }
+}
+
+void Free::WriteReport() const
+{
+    //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
+    fstream sessionFile;
+    string filename;
+    filename = dataUser.name + string ("_") + date;
+    filename.pop_back();
+    sessionFile.open(filename, ios::app);
+    sessionFile << *this;
+}
+
+void Free::ReadReport()
+{
+    string filename;
+    filename = date;
+    filename+= string ("_") += dataUser.name;
+    fstream sessionFile;
+    sessionFile.open(filename, ios::in);
+    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
+    sessionFile >> *this;
+}
+
+
+bool Free::AlarmPpm (const int& age)
+{
+    float freqMaxRef = (220 - age)*0.85;
+    if (pulseData.back() > freqMaxRef)
+    {
+        return true;
+    }
+    return false;
+}
+
+double Free::CalcCalories() const
+{
+    double cal = 0.0;
+    static double ind1 = 0.049;
+    static double indWeig = 2.2;
+    static double ind2 = 0.071;
+    //corroborar que el número de la condición este en rpm
+
+    if (velocData.back() <= 16.00)
+    {
+        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
+    }
+    else
+    {
+        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
+    }
+    return cal;
+}
+
+ostream& operator<< (ostream& ios, const Free& free)
+{
+    ios << "-----ENTRENAMIENTO:FREE-----" << endl;
+    ios << "Usuario: " << free.dataUser.name << endl;
+    ios << "DATOS DE ENTRENAMIENTO: " << endl;
+    ios << "Fecha: " << free.date << endl;
+    ios << "Tiempo: " << free.timeSes << endl;
+    ios << "Velocidad máxima: " << free.bike.vSensor->GetVelocMax() << endl;
+    ios << "Velocidad promedio: " << free.bike.vSensor->GetVelocProm() << endl;
+    ios << "Distancia estimada: " << free.distance << endl;
+    ios << endl << endl << endl;
+    ios << "Datos instantáneos:" << endl;
+    ios << "VELOCIDAD" <<endl;
+    for (int i = 0; i < (int) free.velocData.size(); i++)
+    {
+        ios << free.velocData [i] << endl;
+    }
+    ios << "PPM" <<endl;
+    for (int i = 0; i < (int) free.pulseData.size(); i++)
+    {
+        ios << free.pulseData [i] << endl;
+    }
+    ios << "CARGA" <<endl;
+    for (int i = 0; i < (int) free.dataOfLoad.size(); i++)
+    {
+        ios << free.dataOfLoad [i] << endl;
+    }
+    ios << "FIN_DATOS" << endl;
+    return ios;
+}
+
+istream& operator>> (istream& ist, Free& free)
+{
+    //---------------OPERADOR >> PARA SESSION FREE -------------------------------------------
+    // Permite armar el stream de entrada con los datos de entrenamiento de una sesión free y cargarlos en un objeto free
+
+    string line, aux;
+    while (line.find("Usuario") == string::npos )
+    {
+        getline (ist, line);
+    }
+    if (line.substr(line.find_first_of(" ")+1) != free.dataUser.name)
+    {
+        //Si el usuario del archivo no es coincidente con el usuario que inició sesión
+        throw int (INVALID_USER);
+        return ist;
+    }
+    std::setlocale(LC_NUMERIC,"C"); //Con esta linea permite reconocer al "." de los strings como delimitador de punto flotante
+                                    //de lo contrario, tomaba "," entonces recortaba los números a su parte entera
+
+    while (line.find("Datos instantáneos") == string::npos)
+    {
+        getline (ist,line);
+        if (line.find("Tiempo") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            free.timeSes = stoi (aux);
+            cout << "Tiempo = " << free.timeSes << endl;
+        }
+        if (line.find("Velocidad máxima") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            free.velMax = stod (aux);
+            cout << "Velocidad máxima: " << free.velMax << endl;
+        }
+        if (line.find("Velocidad promedio") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            free.velMed = atof (aux.c_str());
+            cout << "Velocidad promedio: " << free.velMed << endl;
+        }
+        if (line.find("Distancia") != string::npos)
+        {
+            aux = line.substr(line.find_last_of(" ") +1);
+            free.distance = stof (aux);
+            cout << "Distancia estimada: " << free.distance << endl;
+        }
+    }
+
+    // Líneas para mostrar los datos cargados, comentar si es necesario...
+
+    cout << "Datos de velocidad cargados: " << endl;
+    for (int i = 0; i < (int) free.velocData.size(); i++)
+    {
+        cout << free.velocData[i] << endl;
+    }
+    cout << "Datos de pulso cargados: " << endl;
+    for (int i = 0; i < (int) free.pulseData.size(); i++)
+    {
+        cout << free.pulseData[i] << endl;
+    }
+    cout << "Datos de carga cargados: " << endl;
+    for (int i = 0; i < (int) free.dataOfLoad.size(); i++)
+    {
+        cout << free.dataOfLoad[i] << endl;
+    }
+    return ist;
 }

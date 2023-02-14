@@ -21,7 +21,6 @@ public:
     User *usReg;
 private:
     Ui::RegWindow *ui;
-    QCryptographicHash* hash;
 private slots:
     void RegisterUser ();
     void CancelRegister () { delete this;}

@@ -74,6 +74,8 @@ void CardioWindow::UiSample()
     ui->lcdNumber_2->display(car->GetLastData(1));
     ui->lcdNumber_3->display(car->GetLastData(2));
     ui->lcdNumber_4->display(car->GetLastData(0));
+    ui->lcdNumber_5->display(car->GetDistance());
+    ui->lcdNumber_6->display(car->GetCalories());
     ui->label_5->setText(QString::fromStdString(car->screenMessage));
 }
 
