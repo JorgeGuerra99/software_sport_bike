@@ -12,32 +12,32 @@ CONFIG += c++11
 SOURCES += \
     Source_Files/accesswindow.cpp \
     Source_Files/bike.cpp \
+    Source_Files/cardiowindow.cpp \
     Source_Files/configwindow.cpp \
+    Source_Files/datawindow.cpp \
+    Source_Files/dialogwin.cpp \
     Source_Files/main.cpp \
     Source_Files/mainwindow.cpp \
     Source_Files/qcustomplot.cpp \
     Source_Files/regwindow.cpp \
     Source_Files/session.cpp \
     Source_Files/user.cpp \
-    cardiowindow.cpp \
-    datawindow.cpp \
-    dialogwin.cpp \
-    weightwindow.cpp
+    Source_Files/weightwindow.cpp
 
 HEADERS += \
     Header_Files/accesswindow.h \
     Header_Files/bike.h \
+    Header_Files/cardiowindow.h \
     Header_Files/configwindow.h \
+    Header_Files/datawindow.h \
+    Header_Files/dialogwin.h \
     Header_Files/mainwindow.h \
     Header_Files/qcustomplot.h \
     Header_Files/regwindow.h \
     Header_Files/sensors.h \
     Header_Files/session.h \
     Header_Files/user.h \
-    cardiowindow.h \
-    datawindow.h \
-    dialogwin.h \
-    weightwindow.h
+    Header_Files/weightwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -46,13 +46,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     UI_Files/accesswindow.ui \
+    UI_Files/cardiowindow.ui \
     UI_Files/configwindow.ui \
+    UI_Files/datawindow.ui \
+    UI_Files/dialogwin.ui \
     UI_Files/mainwindow.ui \
     UI_Files/regwindow.ui \
-    cardiowindow.ui \
-    datawindow.ui \
-    dialogwin.ui \
-    weightwindow.ui
+    UI_Files/weightwindow.ui
 
 DISTFILES += \
     5742154.png
