@@ -7,6 +7,7 @@ datawindow::datawindow(Session*& mySes, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::datawindow)
 {
+    ses = mySes;
     ui->setupUi(this);
     connect (ui->pushButton_2, SIGNAL (clicked()), this, SLOT (deleteLater()));
     connect (ui->pushButton, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
@@ -76,4 +77,6 @@ datawindow::~datawindow()
 void datawindow::ExportDataButton()
 {
     ses->WriteReport();
+    diaWin = new DialogWin ("El archivo ha sido exportado con éxito");
+    diaWin->show();
 }

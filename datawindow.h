@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include "Header_Files/session.h"
+#include "dialogwin.h"
 
 using namespace std;
 namespace Ui {
@@ -23,6 +24,7 @@ public:
 private:
     Ui::datawindow *ui;
     Session* ses;
+    DialogWin* diaWin;
 private slots:
     void ExportDataButton ();
 };

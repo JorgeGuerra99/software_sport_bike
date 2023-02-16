@@ -17,7 +17,7 @@ class weightwindow : public QMainWindow
     Q_OBJECT
 
 public:
-    weightwindow(User* us, QWidget *parent = nullptr);
+    weightwindow(User*& usu, QWidget *parent = nullptr);
     ~weightwindow();
 
 private:

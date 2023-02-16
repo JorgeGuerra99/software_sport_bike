@@ -2,11 +2,12 @@
 #include "ui_weightwindow.h"
 
 
-weightwindow::weightwindow(User* us, QWidget *parent) :
+weightwindow::weightwindow(User*& usu, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::weightwindow)
 {
     ui->setupUi(this);
+    us = usu;
     wei = new WeightLoss (us->nameUsr, us->age, us->sex, us->weight, us->height);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT (UiSample()));
@@ -20,7 +21,6 @@ weightwindow::weightwindow(User* us, QWidget *parent) :
     ui->pushButton_3->setDisabled(true);
     ui->pushButton_4->setDisabled(true);
     ui->pushButton_5->setDisabled(true);
-    ui->pushButton_7->setDisabled(true);
 }
 
 weightwindow::~weightwindow()
@@ -37,6 +37,7 @@ void weightwindow::StartButton()
     ui->pushButton->setDisabled(true);
     ui->pushButton_3->setEnabled(true);
     ui->pushButton_5->setEnabled(true);
+    ui->pushButton_7->setDisabled(true);
 
 }
 
