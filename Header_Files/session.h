@@ -31,7 +31,7 @@ public:
      */
     int timeSes = 0;
     string screenMessage = "Sesión de entrenamiento";
-    string SessionType;
+    string sessionType;
     StateBike bike;
     //esta bien esto?
     /**

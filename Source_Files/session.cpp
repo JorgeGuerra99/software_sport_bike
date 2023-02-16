@@ -75,7 +75,7 @@ double Session::GetVelocMaxMed(const int &s)
 
 Cardio::Cardio(const string& name, const int& age, const char& sex, const float& weight, const float& height): Session (name, age, sex, weight, height)
 {
-    SessionType = "Cardio";
+    sessionType = "Cardio";
     time_t now;
     time (&now);
     char *c = ctime (&now);
@@ -137,7 +137,7 @@ void Cardio::WriteReport() const
     //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
     fstream sessionFile;
     string filename;
-    filename = dataUser.name + string ("_") + date;
+    filename =  sessionType + string ("_") + dataUser.name + string ("_") + date;
     filename.pop_back();
     sessionFile.open(filename, ios::app);
     sessionFile << *this;
@@ -463,7 +463,7 @@ istream& operator>> (istream& ist, Cardio& car)
 
 WeightLoss::WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height): Session (name, age, sex, weight, height)
 {
-    SessionType = "Weightloss";
+    sessionType = "Weightloss";
     //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
     //esto despues se utiliza despúes para guardar la sesión del usuario
     time_t now;
@@ -553,7 +553,10 @@ void WeightLoss::Sample ()
         velocData.push_back(bike.vSensor->GetVeloc());
         pulseData.push_back(bike.pSensor->GetPulse());
         dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(1)*timeSes/sampleTime* 3.6; //obtengo distancia en km
+        distance+= bike.vSensor->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
+
+        velMax = bike.vSensor->GetVelocMax();
+        velMed = bike.vSensor->GetVelocProm();
 
         //obtengo el calculo de calorias
         calories += CalcCalories();
@@ -665,8 +668,7 @@ void WeightLoss::WriteReport () const
     fstream sessionFile;
     string filename;
     //definición del nombre de archivo en el que se guarda la sesión en formato "fecha-usuario.txt"
-    filename = date;
-    filename+= string ("_") += dataUser.name;
+    filename =  sessionType + string ("_") + dataUser.name + string ("_") + date;
     // apertura del archivo de texto para posterior guardado de los datos de la sesión
     sessionFile.open(filename, ios::app);
     sessionFile << *this;
@@ -853,7 +855,7 @@ ostream& operator<< (ostream& ios, const WeightLoss& wei)
 
 Free::Free():Session ()
 {
-    SessionType = "Free";
+    sessionType = "Free";
     //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
     //esto despues se utiliza despúes para guardar la sesión del usuario
     time_t now;
@@ -963,7 +965,7 @@ void Free::WriteReport() const
     //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
     fstream sessionFile;
     string filename;
-    filename = dataUser.name + string ("_") + date;
+    filename =  sessionType + string ("_") + dataUser.name + string ("_") + date;
     filename.pop_back();
     sessionFile.open(filename, ios::app);
     sessionFile << *this;

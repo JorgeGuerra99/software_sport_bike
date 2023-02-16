@@ -21,6 +21,7 @@ SOURCES += \
     Source_Files/user.cpp \
     cardiowindow.cpp \
     datawindow.cpp \
+    dialogwin.cpp \
     weightwindow.cpp
 
 HEADERS += \
@@ -35,6 +36,7 @@ HEADERS += \
     Header_Files/user.h \
     cardiowindow.h \
     datawindow.h \
+    dialogwin.h \
     weightwindow.h
 
 # Default rules for deployment.
@@ -49,6 +51,7 @@ FORMS += \
     UI_Files/regwindow.ui \
     cardiowindow.ui \
     datawindow.ui \
+    dialogwin.ui \
     weightwindow.ui
 
 DISTFILES += \

@@ -103,7 +103,7 @@ bool User::LoadData()
 void User::SaveLastSession(Session * ses)
 {
     sessions.push_back(ses);
-    SaveData();
+    //SaveData();
 }
 
 void User::ExtractData()
@@ -147,6 +147,8 @@ void User::ExtractData()
 bool User::VerifReg(string &name)
 {
     //Método que devuelve un valor booleano indicativo si el usuario se encuentra o no ya registrado
+    userData.open ("UserData.txt", ios::app);
+    userData.close();
     userData.open("UserData.txt", ios::in);
     if (!userData)
     {
