@@ -1,4 +1,4 @@
-#include "cardiowindow.h"
+#include "Header_Files/cardiowindow.h"
 #include "ui_cardiowindow.h"
 
 CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
@@ -14,14 +14,12 @@ CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
     connect(ui->pushButton_2, SIGNAL (clicked()), this, SLOT(PauseButton()));
     connect(ui->pushButton_3, SIGNAL (clicked()), this, SLOT(StopButton()));
     connect (ui->pushButton_5, SIGNAL (clicked()), this, SLOT (deleteLater()));
-    connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT (ExportDataButton()));
     connect(ui->pushButton_6, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
     connect(ui->pushButton_7, SIGNAL (clicked()), this, SLOT (SerialConfigButton()));
     connect(ui->pushButton_8, SIGNAL (clicked()), this, SLOT (ReportButton()));
 
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_3->setDisabled(true);
-    ui->pushButton_4->setDisabled(true);
     ui->pushButton_8->setDisabled(true);
 
 }
@@ -61,7 +59,6 @@ void CardioWindow::StopButton()
 {
     timer.stop();
     ui->pushButton_2->setDisabled(true);
-    ui->pushButton_4->setEnabled(true);
     ui->pushButton_8->setEnabled(true);
     car->End();
     us->SaveLastSession(car);
