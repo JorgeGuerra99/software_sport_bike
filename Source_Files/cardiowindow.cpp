@@ -38,6 +38,7 @@ void CardioWindow::StartButton()
     ui->pushButton->setDisabled(true);
     ui->pushButton_2->setEnabled(true);
     ui->pushButton_3->setEnabled(true);
+
 }
 
 void CardioWindow::PauseButton()

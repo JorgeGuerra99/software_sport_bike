@@ -3,26 +3,7 @@
 //-----------------------------------------------------------------------------------------
 //------------------------------- MÉTODOS DE SESSION --------------------------------------
 //-----------------------------------------------------------------------------------------
-//double Session ::CalcCalories (const double &time, const double &weig, const double &vel ) const
-double Session::CalcCalories ( )const
-{
-    double aux = 0;
-    static double ind1 = 49 / 1000;
-    static double indWeig = 22 / 10;
-    static double ind2 = 71 / 1000;
-    //corroborar que el número de la condición este en rpm
-    if (velocData.back() <= 16.00)
-    {
-        aux = ind1 * ( dataUser.weight * indWeig ) * ( timeSes / 60 );
-    }
-    else
-    {
-        aux = ind2 * ( dataUser.weight * indWeig ) * ( timeSes / 60 );
-    }
-    return aux;
-}
 
-//----------------------------------------------------------------------------------------------------------------------
 double Session::GetLastData(int a) const
 {
     switch (a) {
@@ -89,7 +70,6 @@ Cardio::Cardio(const string& name, const int& age, const char& sex, const float&
 void Cardio::Start()
 {
     //Método de inicio de entrenamiento
-
     try {
         sesAct = true;
         LoadConfig(); //cargo configuraciones del archivo
@@ -136,38 +116,35 @@ void Cardio::WriteReport() const
 {
     //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
     fstream sessionFile;
-    string filename;
-    filename =  sessionType + string ("_") + dataUser.name + string ("_") + date;
-    filename.pop_back();
-    sessionFile.open(filename, ios::app);
+    string fileName;
+    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
+    fileName.pop_back();
+    sessionFile.open(fileName, ios::app);
     sessionFile << *this;
 }
 //-----------------------------------------------------------------------------------------------------------
 void Cardio::ReadReport()
 {
     fstream sessionFile;
-    sessionFile.open("JorgeGuerra_Mon Jan 23 11:44:27 2023", ios::in);
+    string fileName;
+    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
+    sessionFile.open( fileName, ios::in);
     if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
     sessionFile >> *this;
 }
-//double Cardio::CalcCalories(const double &tim, const double &pes, const double &vel) const
+
 double Cardio::CalcCalories() const
 
 {
     double cal = 0.0;
-    static double ind1 = 0.049;
-    static double indWeig = 2.2;
-    static double ind2 = 0.071;
-    //corroborar que el número de la condición este en rpm
-
-    if (velocData.back() <= 16.00)
-    {
-        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
-    }
-    else
-    {
-        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
-    }
+    double ind1 = 0.049;
+    double indWeig = 2.2;
+    double ind2 = 0.071;
+    static int intLow=0, intHigh=0;
+    if (velocData.back()<=70) intLow++;
+    else intHigh++;
+    cal = ind1 * ( dataUser.weight * indWeig ) * ( intLow * 0.016667 );
+    cal += ind2 * ( dataUser.weight * indWeig ) * ( intHigh * 0.016667 );
     return cal;
 }
 
@@ -196,6 +173,9 @@ void Cardio::Sample()
         velMax = bike.vSensor->GetVelocMax();
         velMed = bike.vSensor->GetVelocProm();
 
+        //obtengo las calorias
+        calories = CalcCalories();
+
         //Evalúo etapa actual
         StageEval(timeSes);
         if (timeSes > 10 and !NoRutAlm()) screenMessage = "Va a buen ritmo";
@@ -211,6 +191,7 @@ void Cardio::Sample()
         if(AlarmPpm(dataUser.age))
         {
             screenMessage = "Frecuencia cardíaca alta";
+            alarm = true;
         }
     }
     if (paused)
@@ -318,10 +299,16 @@ void Cardio::LoadConfig()
 //------------------------------------------------------------------------------------------------------
 bool Cardio::AlarmPpm(const int &age)
 {
-    float freqMaxRef = (220 - age)*0.85;
+    float freqMaxRef;
+    if(dataUser.sex=='M')
+    {
+        freqMaxRef = 180 + ( 0.5 * age );
+    } else
+    {
+        freqMaxRef = 210.7 - ( 0.8 * age );
+    }
     if (pulseData.back() > freqMaxRef)
     {
-        screenMessage = "Frecuencia cardíaca alta";
         return true;
     }
     return false;
@@ -466,7 +453,6 @@ WeightLoss::WeightLoss (const string& name, const int& age, const char& sex, con
 {
     sessionType = "Weightloss";
     //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
-    //esto despues se utiliza despúes para guardar la sesión del usuario
     time_t now;
     time (&now);
     char *c = ctime (&now);
@@ -560,9 +546,7 @@ void WeightLoss::Sample ()
         velMed = bike.vSensor->GetVelocProm();
 
         //obtengo el calculo de calorias
-        calories += CalcCalories();
-        cout<<"calorias"<<endl;
-        cout<<calories<<endl;
+        calories = CalcCalories();
 
         //Evalúo el tiempo que va transcurriendo
         if (sampleTime == timeRef)
@@ -654,35 +638,35 @@ void WeightLoss::LoadConfig ()
         }
     }
 
-    //-------------Lineas para mostrar los datos que se cargan - solo para pruebas --------------------
-
+   //-------------Lineas para mostrar los datos que se cargan - solo para pruebas --------------------
+/*
     cout << "Datos cargados de tiempo: " << endl;
     cout << timeRef << endl;
     cout << "Datos cargados de intensidad minima y maxima: " << endl;
     cout << intensityMinFc << endl;
     cout << intensityMaxFc << endl;
+    */
 }
 //--------------------------------------------------------------------------------------------------------
 void WeightLoss::WriteReport () const
 {
     //este método permite exportar unicamente la sesión realizada
     fstream sessionFile;
-    string filename;
+    string fileName;
     //definición del nombre de archivo en el que se guarda la sesión en formato "fecha-usuario.txt"
-    filename =  sessionType + string ("_") + dataUser.name + string ("_") + date;
+    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
     // apertura del archivo de texto para posterior guardado de los datos de la sesión
-    sessionFile.open(filename, ios::app);
+    sessionFile.open(fileName, ios::app);
     sessionFile << *this;
 }
 //--------------------------------------------------------------------------------------------------------
 
 void WeightLoss::ReadReport()
 {
-    string filename;
-    filename = date;
-    filename+= string ("_") += dataUser.name;
+    string fileName;
+    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
     fstream sessionFile;
-    sessionFile.open(filename, ios::in);
+    sessionFile.open(fileName, ios::in);
     if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
     sessionFile >> *this;
 }
@@ -690,7 +674,14 @@ void WeightLoss::ReadReport()
 //--------------------------------------------------------------------------------------------------------
 bool WeightLoss::AlarmPpm (const int &age)
 {
-    float freqMaxRef = (220 - age)*0.85;
+    float freqMaxRef;
+    if(dataUser.sex=='M')
+    {
+        freqMaxRef = 180 + ( 0.5 * age );
+    } else
+    {
+        freqMaxRef = 210.7 - ( 0.8 * age );
+    }
     if (pulseData.back() > freqMaxRef)
     {
         return true;
@@ -701,16 +692,12 @@ bool WeightLoss::AlarmPpm (const int &age)
 double WeightLoss::CalcCalories ( ) const
 {
     double cal = 0.0;
-    static double ind1 = 0.049;
-    static double indWeig = 2.2;
-    static double ind2 = 0.071;
-    int intLow=0, intHigh=0;
-    //corroborar que el número de la condición este en rpm
-    for (int i = 0; i < (int) velocData.size(); i++)
-    {
-        if (velocData[i]<= 70 and velocData [i]!= 0) intLow++;
-        else intHigh++;
-    }
+    double ind1 = 0.049;
+    double indWeig = 2.2;
+    double ind2 = 0.071;
+    static int intLow=0, intHigh=0;
+    if (velocData.back()<=70) intLow++;
+    else intHigh++;
     cal = ind1 * ( dataUser.weight * indWeig ) * ( intLow * 0.016667 );
     cal += ind2 * ( dataUser.weight * indWeig ) * ( intHigh * 0.016667 );
     return cal;
@@ -802,7 +789,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
     }
 
     // Líneas para mostrar los datos cargados, comentar si es necesario...
-
+/*
     cout << "Datos de velocidad cargados: " << endl;
     for (int i = 0; i < (int) wei.velocData.size(); i++)
     {
@@ -818,6 +805,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
     {
         cout << wei.dataOfLoad[i] << endl;
     }
+*/
     return ist;
 }
 //--------------------------------------------------------------------------------------------------------
@@ -932,6 +920,10 @@ void Free::Sample()
         velMax = bike.vSensor->GetVelocMax();
         velMed = bike.vSensor->GetVelocProm();
 
+        //obtengo los valores de calorias
+        calories = CalcCalories();
+
+        //Evaluo velocidad en un rango de variación del 10%
         if (Pause())
         {
             cout << "Entrenamiento pausado" << endl;
@@ -962,22 +954,20 @@ void Free::WriteReport() const
 {
     //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
     fstream sessionFile;
-    string filename;
-    filename =  sessionType + string ("_") + dataUser.name + string ("_") + date;
-    filename.pop_back();
-    sessionFile.open(filename, ios::app);
+    string fileName;
+    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
+    fileName.pop_back();
+    sessionFile.open(fileName, ios::app);
     sessionFile << *this;
 }
 
 void Free::ReadReport()
 {
-    //REVISAR
-
-    string filename;
-    filename = date;
-    filename+= string ("_") += dataUser.name;
+    string fileName;
+    fileName = date;
+    fileName+= string ("_") += dataUser.name;
     fstream sessionFile;
-    sessionFile.open(filename, ios::in);
+    sessionFile.open(fileName, ios::in);
     if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
     sessionFile >> *this;
 }
@@ -985,7 +975,14 @@ void Free::ReadReport()
 
 bool Free::AlarmPpm (const int& age)
 {
-    float freqMaxRef = (220 - age)*0.85;
+    float freqMaxRef;
+    if(dataUser.sex=='M')
+    {
+        freqMaxRef = 180 + ( 0.5 * age );
+    } else
+    {
+        freqMaxRef = 210.7 - ( 0.8 * age );
+    }
     if (pulseData.back() > freqMaxRef)
     {
         return true;
@@ -996,19 +993,14 @@ bool Free::AlarmPpm (const int& age)
 double Free::CalcCalories() const
 {
     double cal = 0.0;
-    static double ind1 = 0.049;
-    static double indWeig = 2.2;
-    static double ind2 = 0.071;
-    //corroborar que el número de la condición este en rpm
-
-    if (velocData.back() <= 16.00)
-    {
-        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
-    }
-    else
-    {
-        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
-    }
+    double ind1 = 0.049;
+    double indWeig = 2.2;
+    double ind2 = 0.071;
+    static int intLow=0, intHigh=0;
+    if (velocData.back()<=70) intLow++;
+    else intHigh++;
+    cal = ind1 * ( dataUser.weight * indWeig ) * ( intLow * 0.016667 );
+    cal += ind2 * ( dataUser.weight * indWeig ) * ( intHigh * 0.016667 );
     return cal;
 }
 
@@ -1092,7 +1084,7 @@ istream& operator>> (istream& ist, Free& free)
     }
 
     // Líneas para mostrar los datos cargados, comentar si es necesario...
-
+/*
     cout << "Datos de velocidad cargados: " << endl;
     for (int i = 0; i < (int) free.velocData.size(); i++)
     {
@@ -1108,5 +1100,6 @@ istream& operator>> (istream& ist, Free& free)
     {
         cout << free.dataOfLoad[i] << endl;
     }
+   */
     return ist;
 }

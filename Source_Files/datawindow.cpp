@@ -1,7 +1,6 @@
 #include "Header_Files/datawindow.h"
 #include "ui_datawindow.h"
 
-
 datawindow::datawindow(Session*& mySes, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::datawindow)
