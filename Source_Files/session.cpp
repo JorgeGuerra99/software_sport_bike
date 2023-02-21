@@ -811,7 +811,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
 //--------------------------------------------------------------------------------------------------------
 ostream& operator<< (ostream& ios, const WeightLoss& wei)
 {
-    ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
+    ios << "-----ENTRENAMIENTO:WEIGHTLOSS-----" << endl;
     ios << "Usuario: " << wei.dataUser.name<< endl;
     ios << "DATOS DE ENTRENAMIENTO: " << endl;
     ios << "Fecha: " << wei.date << endl;
@@ -859,7 +859,6 @@ void Free::Start()
     //Método de inicio de entrenamiento
     try {
         sesAct = true;
-        LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
         if (!bike.sensorsConfigured) bike.ConfigSerial(); //Configura el puerto serie
         screenMessage = "Entrenamiento iniciado";

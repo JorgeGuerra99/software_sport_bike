@@ -31,7 +31,9 @@ void accesswindow::AccessUser ()
     }  catch (int e) {
         if ( e == US_PASS_INCORRECT)
         {
-            ui->label_2->setText("Los datos ingresados no son válidos. Intente nuevamente.");
+            DialogWin* msj;
+            msj = new DialogWin ("Los datos ingresados no son válidos. Intente nuevamente");
+            msj->show();
         }
     }
 }

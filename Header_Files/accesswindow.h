@@ -7,6 +7,7 @@
 #include <QByteArray>
 #include <QCryptographicHash>
 #include "user.h"
+#include "dialogwin.h"
 
 namespace Ui {
 class accesswindow;
