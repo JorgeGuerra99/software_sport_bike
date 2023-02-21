@@ -154,18 +154,19 @@ void Cardio::ReadReport()
 double Cardio::CalcCalories() const
 
 {
-    double cal = 0;
-    static double ind1 = 49 / 1000;
-    static double indWeig = 22 / 10;
-    static double ind2 = 71 / 1000;
+    double cal = 0.0;
+    static double ind1 = 0.049;
+    static double indWeig = 2.2;
+    static double ind2 = 0.071;
     //corroborar que el número de la condición este en rpm
+
     if (velocData.back() <= 16.00)
     {
-        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes / 60 );
+        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
     }
     else
     {
-        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes / 60 );
+        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
     }
     return cal;
 }
@@ -703,16 +704,15 @@ double WeightLoss::CalcCalories ( ) const
     static double ind1 = 0.049;
     static double indWeig = 2.2;
     static double ind2 = 0.071;
+    int intLow=0, intHigh=0;
     //corroborar que el número de la condición este en rpm
-
-    if (velocData.back() <= 16.00)
+    for (int i = 0; i < (int) velocData.size(); i++)
     {
-        cal = ind1 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
+        if (velocData[i]<= 70) intLow++;
+        else intHigh++;
     }
-    else
-    {
-        cal = ind2 * ( dataUser.weight * indWeig ) * ( timeSes * 0.016667 );
-    }
+    cal = ind1 * ( dataUser.weight * indWeig ) * ( intLow * 0.016667 );
+    cal += ind2 * ( dataUser.weight * indWeig ) * ( intHigh * 0.016667 );
     return cal;
 }
 
@@ -853,7 +853,7 @@ ostream& operator<< (ostream& ios, const WeightLoss& wei)
     return ios;
 }
 
-Free::Free():Session ()
+Free::Free(const string& name, const int& age, const char& sex, const float& weight, const float& height):Session (name, age, sex, weight, height)
 {
     sessionType = "Free";
     //Se obtiene de forma automática la fecha la fecha en la que el usuario realiza la sesión
