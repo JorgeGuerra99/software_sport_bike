@@ -1,7 +1,6 @@
-#include "datawindow.h"
+#include "Header_Files/datawindow.h"
 #include "ui_datawindow.h"
-//In included file: 'qcustoplot.h' file not found
-//#include "Header_Files/qcustomplot.h"
+
 
 datawindow::datawindow(Session*& mySes, QWidget *parent) :
     QMainWindow(parent),

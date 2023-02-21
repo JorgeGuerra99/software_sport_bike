@@ -708,7 +708,7 @@ double WeightLoss::CalcCalories ( ) const
     //corroborar que el número de la condición este en rpm
     for (int i = 0; i < (int) velocData.size(); i++)
     {
-        if (velocData[i]<= 70) intLow++;
+        if (velocData[i]<= 70 and velocData [i]!= 0) intLow++;
         else intHigh++;
     }
     cal = ind1 * ( dataUser.weight * indWeig ) * ( intLow * 0.016667 );
@@ -823,7 +823,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
 //--------------------------------------------------------------------------------------------------------
 ostream& operator<< (ostream& ios, const WeightLoss& wei)
 {
-    ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
+    ios << "-----ENTRENAMIENTO:WEIGHTLOSS-----" << endl;
     ios << "Usuario: " << wei.dataUser.name<< endl;
     ios << "DATOS DE ENTRENAMIENTO: " << endl;
     ios << "Fecha: " << wei.date << endl;
@@ -871,7 +871,6 @@ void Free::Start()
     //Método de inicio de entrenamiento
     try {
         sesAct = true;
-        LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
         if (!bike.sensorsConfigured) bike.ConfigSerial(); //Configura el puerto serie
         screenMessage = "Entrenamiento iniciado";
@@ -933,7 +932,6 @@ void Free::Sample()
         velMax = bike.vSensor->GetVelocMax();
         velMed = bike.vSensor->GetVelocProm();
 
-        //Evaluo velocidad en un rango de variación del 10%
         if (Pause())
         {
             cout << "Entrenamiento pausado" << endl;
@@ -973,6 +971,8 @@ void Free::WriteReport() const
 
 void Free::ReadReport()
 {
+    //REVISAR
+
     string filename;
     filename = date;
     filename+= string ("_") += dataUser.name;
