@@ -4,15 +4,11 @@
  * @date 2023
  * @title Clase Session
  * @authors Bazán Maria, Guerra Jorge
+ * @brief Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas correspondientes a los diferentes tipos de sesión, c/u con sus características
  */
-
-//-----------------------------CLASE SESSION ------------------------------------------------------------------
-// Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas
-// correspondientes a los diferentes tipos de sesión, c/u con sus características
 
 #ifndef SESSION_H
 #define SESSION_H
-
 #include <string>
 #include <vector>
 #include <iostream>
@@ -30,19 +26,35 @@ public:
      * @brief timeSes Contador de MUESTRAS de la sesión
      */
     int timeSes = 0;
+    /**
+     * @brief screenMessage se guardan diferentes mensajes los cuales después son mostrados en las ventanas
+     */
     string screenMessage = "Sesión de entrenamiento";
+    /**
+     * @brief sessionType se asigna el tipo de sesión que vaya a elegir el usuario
+     */
     string sessionType;
+    bool alarm = false;
     StateBike bike;
-    //esta bien esto?
     /**
      * @brief GetLastData Retorna el último valor en alguno de los vectores de los datos sensados
-     * @param a Indica de que sensor se extraerá el último dato
+     * @param a Indica de que sensor se extraerá el último dato, a='0' para sensor de pulso, a='1' para sensor de veocidad y a='2' para sensor de carga
      * @return Valor double con el último dato leído del sensor
      */
     double GetLastData (int a = 0) const;
     float GetCalories () const { return calories; }
     float GetDistance () const { return distance; }
+    /**
+     * @brief GetVelocMaxMed permite obtener el valor de la velociada máxima o media del entrenamiento
+     * @param s su valor puede ser 0, 1 u cualquier otro valor
+     * @return se retorna un valor del tipo double si s='0' devuelve la velocidad máxima, para s='1' retorna la velocidad media, en caso contrario retorna un -1
+     */
     double GetVelocMaxMed (const int& s = 0);
+    /**
+     * @brief GetAllData permite extraer todos los datos obtenidos del sensor que se desee
+     * @param sel puede ser los valores 'P', 'V' o 'L'
+     * @return para sel='P' para el sensor de pulsos, sel='V' con el de velocidad y sel='L' para el sensor de carga
+     */
     const vector <double> GetAllData (char sel = 'P') const;
     virtual void WriteReport () const = 0;
 protected:
@@ -66,7 +78,6 @@ protected:
     float distance = 0.0;
     double velMax = 0.0;
     double velMed = 0.0;
-    //------- Métodos de sesión ------------
     virtual void Start () = 0; //iniciar entrenamiento - habilito sample
     virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
     virtual void LoadConfig () = 0;
@@ -82,7 +93,9 @@ protected:
 //----------------------------------------------------------------------------------------------------------------------------------
 //--------------------SESIÓN DE ENTRENAMIENTO: "CARDIO" ----------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
-// Velocidad constante de a tramos. Se incrementa la velocidad gradualmente dando avisos y activando alertas
+/**
+ * @brief The Cardio class con la rutina ya realizada que consta de tramos de tiempo donde se debe ir aumentando la velocidad graudalmente
+ */
 class Cardio :public Session
 {
 public:
@@ -113,7 +126,9 @@ private:
 //---------------------------------------------------------------------------------------------------------------------------------
 //---------------------SESIÓN DE ENTRENAMIENTO: "WEIGHTLOSS" ----------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
-// En esta rutina se trata de mantener un ritmo constante durante cierto período de tiempo
+/**
+ * @brief The WeightLoss class la idea es de cumplir con una cierta rutina ya configurada con una velocidad media constante durante un prologado tiempo
+ */
 class WeightLoss: public Session
 {
 public:
@@ -143,7 +158,9 @@ private:
 //---------------------------------------------------------------------------------------------------------------------------------
 //---------------------SESIÓN DE ENTRENAMIENTO: "FREE" ----------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
-// Libre uso sin restricciones
+/**
+ * @brief The Free class permite hacer un entrenamiento sin la necesidad de una rutina ya que solo obtiene los valores de los sensores a medida que el usuario entrena
+ */
 class Free: public Session
 {
 public:

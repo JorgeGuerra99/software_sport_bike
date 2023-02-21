@@ -25,7 +25,6 @@
 
 #include "Header_Files/qcustomplot.h"
 
-
 /* including file 'src/vector2d.cpp'       */
 /* modified 2022-11-06T12:45:56, size 7973 */
 
