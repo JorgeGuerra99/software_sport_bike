@@ -1,4 +1,4 @@
-#include "dialogwin.h"
+#include "Header_Files/dialogwin.h"
 #include "ui_dialogwin.h"
 
 DialogWin::DialogWin(string msj, QWidget *parent) :

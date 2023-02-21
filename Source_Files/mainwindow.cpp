@@ -64,6 +64,8 @@ void MainWindow::startSession()
         break;
     case 2:
         cout << "Seleccionado libre" << endl;
+        winFre = new FreeWindow (us, this);
+        winFre->show ();
         break;
     default:
         cout << "No se ha seleccionado nada" << endl;

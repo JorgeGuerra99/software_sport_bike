@@ -160,6 +160,7 @@ public:
 private:
     float sampleTime = 1;
     virtual bool AlarmPpm ( const int& age ) ;
+    virtual void LoadConfig () {}
     friend ostream& operator<< (ostream& ios, const Free& free);
     friend istream& operator>> ( istream& ist, Free& free);
 };

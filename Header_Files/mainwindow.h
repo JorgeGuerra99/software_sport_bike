@@ -8,6 +8,7 @@
 #include "accesswindow.h"
 #include "cardiowindow.h"
 #include "weightwindow.h"
+#include "freewindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,12 +22,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     User *us = nullptr; //objeto User vacío
+
+private:
+    Ui::MainWindow *ui;
     RegWindow *winReg;
     accesswindow *winAcc;
     CardioWindow *winCar;
     weightwindow *winWei;
-private:
-    Ui::MainWindow *ui;
+    FreeWindow *winFre;
 private slots:
     void buttReg ();
     void usReg ();

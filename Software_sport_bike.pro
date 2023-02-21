@@ -22,7 +22,8 @@ SOURCES += \
     Source_Files/regwindow.cpp \
     Source_Files/session.cpp \
     Source_Files/user.cpp \
-    Source_Files/weightwindow.cpp
+    Source_Files/weightwindow.cpp \
+    freewindow.cpp
 
 HEADERS += \
     Header_Files/accesswindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     Header_Files/sensors.h \
     Header_Files/session.h \
     Header_Files/user.h \
-    Header_Files/weightwindow.h
+    Header_Files/weightwindow.h \
+    freewindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -52,7 +54,8 @@ FORMS += \
     UI_Files/dialogwin.ui \
     UI_Files/mainwindow.ui \
     UI_Files/regwindow.ui \
-    UI_Files/weightwindow.ui
+    UI_Files/weightwindow.ui \
+    freewindow.ui
 
 DISTFILES += \
     5742154.png
