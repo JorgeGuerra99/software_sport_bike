@@ -1,7 +1,11 @@
-//---------------------------------CLASE SENSORS -----------------------------------------------------
-// Template para que pueda ser utilizada dependiendo del tipo de dato que entrega cada sensor
-// Este archivo contiene ademas las clases derivadas de la clase abstracta Sensors, donde cada clase derivada
-// está adaptada de acuerdo a los diferentes tipos de sensores a utilizar
+
+/**
+ * @file sensors.h
+ * @brief Clase sensors y sus derivadas
+ * @details Template para que pueda ser utilizada dependiendo del tipo de dato que entrega cada sensor
+ * @date 2023
+ * @authors Bazán María, Guerra Jorge
+ */
 
 #ifndef SENSORS_H
 #define SENSORS_H
@@ -14,52 +18,119 @@
 #include <unistd.h>
 
 using namespace std;
+/**
+ * @note ERROR_SERIAL_OPEN: Utilizado para contener errores al abrir el puerto serie
+ */
 enum {ERROR_SERIAL_OPEN};
 
 template < class T >
+/**
+ * @brief The Sensors class
+ */
 class Sensors
 {
 protected:
     T currentValue = 0;
+    /**
+     * @brief Sensors
+     * @param p : Objeto puerto serie asociado al sensor
+     */
     Sensors ( QSerialPort *p);
     virtual ~Sensors ();
     virtual void GetValue () = 0;
 public:
-    QSerialPort *port; //de momento, se utiliza el objeto serialport de Qt
+    QSerialPort *port;
 };
 
+
 template < class T >
+/**
+ * @brief The PulseSensor class
+ */
 class PulseSensor: public Sensors < T >
 {
 public:
     PulseSensor (QSerialPort *p);
     virtual ~PulseSensor () {};
+    /**
+     * @brief GetValue
+     * @note Envía la orden al puerto serie y obtiene el dato respectivo
+     */
     virtual void GetValue ();
+    /**
+     * @brief UpdateValue
+     * @note Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual
+     * de acuerdo a las últimas lecturas
+     */
     void UpdateValue ();
+    /**
+     * @brief GetPulse
+     * @return Valor actual de pulso
+     */
     const T GetPulse () const { return Sensors <T>::currentValue; }
+    /**
+     * @brief GetFreqMax
+     * @return Valor máximo de pulso leído
+     */
     const T GetFreqMax () const { return maxFrequency; }
 private:
     T maxFrequency = 0;
+    /**
+     * @brief instantData
+     * @note Almacena datos instantáneos para luego promediar y actualizar currentValue
+     */
     vector < T > instantData;
 };
 
 template < class T >
+/**
+ * @brief The VelocitySensor class
+ */
 class VelocitySensor: public Sensors < T >
 {
 public:
     VelocitySensor (QSerialPort *p);
     virtual ~VelocitySensor () {};
+    /**
+     * @brief GetValue
+     * @note Actualiza valor actual del sensor
+     */
     virtual void GetValue ();
+    /**
+     * @brief GetVeloc
+     * @param sel : Si sel = 0 retorna velocidad RPM, si sel = 1 retorna velocidad en km/h
+     * @return valor actual
+     */
     const T GetVeloc ( const int &sel = 0) const { if ( sel == 1) return kmh; else return this->currentValue; }
+    /**
+     * @brief GetVelocMax
+     * @return Velocidad máxima leída
+     */
     const T GetVelocMax () const { return velocMax; }
+    /**
+     * @brief GetVelocProm
+     * @return Velocidad promedio leída
+     */
     const T GetVelocProm () const { return velocMed; }
 private:
     //currentValue almacena el valor en RPM
     T velocMax = 0;
     T velocMed;
+    /**
+     * @brief dataRead
+     * @note Cantidad de datos leídos. Utilizado para calcular la velocidad media
+     */
     int dataRead = 0;
+    /**
+     * @brief sumData
+     * @note Acumulador de datos
+     */
     T sumData = 0;
     T kmh;
+    /**
+     * @brief radius
+     * @note Valor de radio de la rueda de la bicicleta estática
+     */
     T radius = 0.2; //en metro
 };
 
@@ -69,15 +140,30 @@ class LoadSensor: public Sensors < T >
 public:
     LoadSensor (QSerialPort *p);
     virtual ~LoadSensor () {};
+    /**
+     * @brief GetValue
+     * @note Actualiza valor actual de carga
+     */
     virtual void GetValue ();
+    /**
+     * @brief GetLoad
+     * @return Valor actual de carga
+     */
     const T GetLoad () const { return Sensors <T>::currentValue; }
+    /**
+     * @brief GetMaxLoad
+     * @return Valor máximo registrado de carga
+     */
     const T GetMaxLoad () const { return maxLoad; }
 private:
     T maxLoad = 0;
 };
 
-// Definición de los métodos de la clase abstracta y las clases derivadas- Se incluyen en este archivo y no en cpp ya que se trabaja
-// con templates
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+
+/**
+ * DEFINICIÓN DE MÉTODOS DE CLASE - INCLUIDOS EN HEADER FILE POR SER TEMPLATE
+ */
 
 template<class T>
 Sensors<T>::Sensors(QSerialPort *p)
@@ -109,7 +195,6 @@ PulseSensor<T>::PulseSensor(QSerialPort *p):Sensors<T> (p)
 template<class T>
 void PulseSensor<T>::GetValue()
 {
-    // aca poner como lee los datos del sensor y luego...
     QByteArray buf;
     char velC = 'P';
     if (this->port->isWritable())
