@@ -1,6 +1,5 @@
 #ifndef DATAWINDOW_H
 #define DATAWINDOW_H
-
 #include <QMainWindow>
 #include "Header_Files/qcustomplot.h"
 //Include header qcustom.h is not udes (fix available)

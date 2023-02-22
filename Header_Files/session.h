@@ -1,11 +1,9 @@
 /**
  * @file session.h
- * @version 1.0
  * @date 2023
- * @title Clase Session
- * @authors Bazán Maria, Guerra Jorge
  * @brief Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas correspondientes a los diferentes tipos de sesión, c/u con sus características
- */
+ * @authors Bazán Maria, Guerra Jorge
+*/
 
 #ifndef SESSION_H
 #define SESSION_H
@@ -34,7 +32,6 @@ public:
      * @brief sessionType se asigna el tipo de sesión que vaya a elegir el usuario
      */
     string sessionType;
-    bool alarm = false;
     StateBike bike;
     /**
      * @brief GetLastData Retorna el último valor en alguno de los vectores de los datos sensados
@@ -58,14 +55,40 @@ public:
     const vector <double> GetAllData (char sel = 'P') const;
     virtual void WriteReport () const = 0;
 protected:
-    //-----Datos de sensores --------------
+    /**
+     * @brief velocData
+     * @note correspondiente al contenedor vector
+     * @detail es donde se van a guardar los valores provenientes del sensor de velocidad
+     */
     vector < double > velocData;
+    /**
+     * @brief pulseData
+     * @note correspondiente al contenedor vector
+     * @detail es donde se van a guardar los valores provenientes del sensor de pulsos
+     */
     vector < double > pulseData;
+    /**
+     * @brief dataOfLoad
+     * @note correspondiente al contenedor vector
+     * @detail es donde se van a guardar los valores provenientes del sensor de carga
+     */
     vector < double > dataOfLoad;
+    /**
+     * @brief Session - Constructor
+     * @param name : nombre del usuario
+     * @param age : edad del usuario
+     * @param sex : genero del usuario
+     * @param weight : peso del usurio
+     * @param height : altura del usuario
+     */
     Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Session () { cout << "Constructor por defecto: Session" << endl;};
     virtual ~Session () {cout << "Destructor de session" << endl;}
     string date;
+    /**
+     * @brief sesAct
+     * @note Flag que indica el estado de la sesión
+     */
     bool sesAct = false;
     struct {
         string name;
@@ -73,12 +96,16 @@ protected:
         char sex;
         float weight, height;
     } dataUser;
+    /**
+     * @brief paused
+     * @note flag correspondiente al pausado de la sesión
+     */
     bool paused = false;
     float calories = 0.0;
     float distance = 0.0;
     double velMax = 0.0;
     double velMed = 0.0;
-    virtual void Start () = 0; //iniciar entrenamiento - habilito sample
+    virtual void Start () = 0;
     virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
     virtual void LoadConfig () = 0;
     virtual bool Pause () = 0; //pausa de entrenamiento
@@ -94,30 +121,101 @@ protected:
 //--------------------SESIÓN DE ENTRENAMIENTO: "CARDIO" ----------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
 /**
- * @brief The Cardio class con la rutina ya realizada que consta de tramos de tiempo donde se debe ir aumentando la velocidad graudalmente
+ * @brief The Cardio class
+ * @note Con la rutina ya realizada que consta de tramos de tiempo donde se debe ir aumentando la velocidad graudalmente
  */
 class Cardio :public Session
 {
 public:
+    /**
+     * @brief Cardio - Constructor
+     * @param name : nombre del usuario
+     * @param age : edad del usaurio
+     * @param sex : genero del usuario
+     * @param weight : peso del usuario
+     * @param height : altura del usuario
+     */
     Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
     Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
     virtual ~Cardio() { cout << "destructor cardio" << endl;}
+    /**
+     * @brief Start
+     * @note inicia el entrenamiento - habilito sample y habilita el flag de sesAct
+     */
     virtual void Start ();
+    /**
+     * @brief Pause
+     * @note deshabilita el muestreo de datos
+     * @details evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos
+     * @return retorna verdadero en caso de que la suma de cero
+     */
     virtual bool Pause ();
+    /**
+     * @brief End
+     * @note se desactiva las variables para evitar que siga realizando el muestreo de datos
+     */
     virtual void End ();
+    /**
+     * @brief WriteReport
+     * @note Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
+     */
     virtual void WriteReport () const;
     virtual void ReadReport ();
+    /**
+     * @brief CalcCalories
+     * @return devuelve un doble con las calorias quemadas durante la sesión
+     */
     virtual double CalcCalories ( )const ;
+    /**
+     * @brief Sample
+     * @note método de muestreo a ejecutarse reiteradamente durante la sesión
+     */
     virtual void Sample ();
     Cardio* operator* () { return this;}
 private:
     int stage = 0;
-    float sampleTime = 1; //tiempo de muestreo
+    /**
+     * @brief sampleTime
+     * @note es el tiempo de muestreo
+     */
+    float sampleTime = 1;
+    /**
+     * @brief velocRef
+     * @note perteneciente al contenedor de vector
+     * @details es donde se asignan los valores pertenecientes a la configuración de sesión
+     */
     vector < int > velocRef;
+    /**
+     * @brief timerRef
+     * @note perteneciente al contenedor de vector
+     * @details es donde se asignan los valores pertenecientes a la configuración de sesión
+     */
     vector < int > timeRef;
-    bool NoRutAlm (); //Alerta de desvío de rutina
+    /**
+     * @brief NoRutAlm
+     * @note alerta de desvio de rutina
+     * @return retorna verdadero si no cumple con la rutina, en caso contrario retorna un falso
+     * @details Evalúa si la velocidad actual se mantiene dentro del rango del 10% de la velocidad de referencia
+     */
+    bool NoRutAlm ();
+    /**
+     * @brief StageEval
+     * @note Evalua etapa de entrenamiento de acuerdo al tiempo transcurrido
+     */
     void StageEval (const int&);
+    /**
+     * @brief LoadConfig
+     * @note asigna a los contenedores correspondientes la configuración de la sesión
+     * @details extrae de un archivo txt la configuración del entrenamiento
+     */
     virtual void LoadConfig ();
+    /**
+     * @brief AlarmPpm
+     * @note alerta de pulsaciones
+     * @details alerta al usuario de que tiene una frecuencia cardiaca que puede ser peligrosa
+     * @param age : edad
+     * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
+     */
     virtual bool AlarmPpm ( const int& age );
     friend ostream& operator<< (ostream& ios, const Cardio&);
     friend istream &operator>> ( istream& ist, Cardio &);
@@ -132,24 +230,80 @@ private:
 class WeightLoss: public Session
 {
 public:
+    /**
+     * @brief WeightLoss - Constructor
+     * @param name : nombre de usuario
+     * @param age : edad del usuario
+     * @param sex : genero del usuario
+     * @param weight : peso del usuario
+     * @param height : altura del usuario
+     */
     WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     WeightLoss ();
     virtual ~WeightLoss() { cout << "destructor de weightloss" << endl;}
+    /**
+     * @brief Start
+     * @note inicia el entrenamiento - habilito sample y habilita el flag de sesAct
+     */
     virtual void Start ();
+    /**
+     * @brief Pause
+     * @note deshabilita el muestreo de datos
+     * @details evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos
+     * @return retorna verdadero en caso de que la suma de cero
+     */
     virtual bool Pause () ;
+    /**
+     * @brief End
+     * @note se desactiva las variables para evitar que siga realizando el muestreo de datos
+     */
     virtual void End ();
+    /**
+     * @brief WriteReport
+     * @note Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
+     */
     virtual void WriteReport () const;
     virtual void ReadReport ();
+    /**
+     * @brief Sample
+     * @note método de muestreo a ejecutarse reiteradamente durante la sesión
+     */
     virtual void Sample ();
+    /**
+     * @brief CalcCalories
+     * @return devuelve un doble con las calorias quemadas durante la sesión
+     */
     virtual double CalcCalories ( ) const ;
 private:
-    float timeRef; //Está para el ejemplo 1 de 2 horas continuas, se puede agregar los otros ejemplos
+    float timeRef;
     vector < float > intensityRef;
     float intensityMaxFc;
     float intensityMinFc;
+    /**
+     * @brief sampleTime
+     * @note es el tiempo de muestreo
+     */
     float sampleTime = 1;
+    /**
+     * @brief NoRutAlm
+     * @note alerta de desvio de rutina
+     * @return retorna verdadero si no cumple con la rutina, en caso contrario retorna un falso
+     * @details Evalúa si la velocidad actual se mantiene dentro del rango del 10% de la velocidad de referencia
+     */
     bool NoRutAlm();
+    /**
+     * @brief LoadConfig
+     * @note asigna a los contenedores correspondientes la configuración de la sesión
+     * @details extrae de un archivo txt la configuración del entrenamiento
+     */
     virtual void LoadConfig ();
+    /**
+     * @brief AlarmPpm
+     * @note alerta de pulsaciones
+     * @details alerta al usuario de que tiene una frecuencia cardiaca que puede ser peligrosa
+     * @param age: edad
+     * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
+     */
     virtual bool AlarmPpm (const int& age);
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
@@ -164,18 +318,63 @@ private:
 class Free: public Session
 {
 public:
+    /**
+     * @brief Free - Contructor
+     * @param name : nombre de usuario
+     * @param age : edad del usuario
+     * @param sex : género del usuario
+     * @param weight : peso del usuario
+     * @param height : altura del usuario
+     */
     Free (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Free();
     virtual ~Free () { cout << "destructor de free"  << endl;}
+    /**
+     * @brief Start
+     * @note inicia el entrenamiento - habilito sample y habilita el flag de sesAct
+     */
     virtual void Start ();
+    /**
+     * @brief Pause
+     * @note deshabilita el muestreo de datos
+     * @details evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos
+     * @return retorna verdadero en caso de que la suma de cero
+     */
     virtual bool Pause ();
+    /**
+     * @brief End
+     * @note se desactiva las variables para evitar que siga realizando el muestreo de datos
+     */
     virtual void End ();
+    /**
+     * @brief Sample
+     * @note método de muestreo a ejecutarse reiteradamente durante la sesión
+     */
     virtual void Sample ();
+    /**
+     * @brief WriteReport
+     * @note Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
+     */
     virtual void WriteReport () const;
     virtual void ReadReport ();
+    /**
+     * @brief CalcCalories
+     * @return devuelve un doble con las calorias quemadas durante la sesión
+     */
     virtual double CalcCalories ( )const ;
 private:
+    /**
+     * @brief sampleTime
+     * @note es el tiempo de muestreo
+     */
     float sampleTime = 1;
+    /**
+     * @brief AlarmPpm
+     * @note alerta de pulsaciones
+     * @details alerta al usuario de que tiene una frecuencia cardiaca que puede ser peligrosa
+     * @param age : edad del usuario
+     * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
+     */
     virtual bool AlarmPpm ( const int& age ) ;
     virtual void LoadConfig () {}
     friend ostream& operator<< (ostream& ios, const Free& free);

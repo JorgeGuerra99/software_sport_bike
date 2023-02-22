@@ -1,7 +1,6 @@
 //-----------------------VENTANA DE ACCESO DE USUARIO -----------------------------------------------------------------
 #ifndef ACCESSWINDOW_H
 #define ACCESSWINDOW_H
-
 #include <QWidget>
 #include <QMainWindow>
 #include <QByteArray>
@@ -26,6 +25,10 @@ private:
     Ui::accesswindow *ui;
 
 private slots:
+    /**
+     * @brief AccessUser
+     * @
+     */
     void AccessUser ();
     void CancelAccess () { delete this; };
 signals:
