@@ -56,6 +56,9 @@ class StateBike: public Bike
 public:
     StateBike ();
     virtual ~StateBike ();
+    VelocitySensor < double > *vSensor;
+    LoadSensor < double > *lSensor;
+    PulseSensor < double > *pSensor;
     /**
      * @brief ConfigSerial
      * @note configura el puerto serie de acuerdo a valores seleccionados por el usuario

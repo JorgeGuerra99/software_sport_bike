@@ -1,10 +1,16 @@
+/**
+ * @file datawindow.h
+ * @brief Ventana de muestra de datos de entrenamiento (INTERFAZ GRÁFICA)
+ * @date 2023
+ * @authors Bazán María, Guerra Jorge
+ */
+
 #ifndef DATAWINDOW_H
 #define DATAWINDOW_H
 #include <QMainWindow>
-#include "Header_Files/qcustomplot.h"
-//Include header qcustom.h is not udes (fix available)
 #include <iostream>
 #include <vector>
+#include "Header_Files/qcustomplot.h"
 #include "Header_Files/session.h"
 #include "dialogwin.h"
 
@@ -18,13 +24,27 @@ class datawindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit datawindow(Session*&, QWidget *parent = nullptr);
+    /**
+     * @brief datawindow
+     * @param mySes Puntero a objeto de Session (clase base)
+     * @param parent
+     */
+    explicit datawindow(Session*& mySes, QWidget *parent = nullptr);
     ~datawindow();
 private:
     Ui::datawindow *ui;
     Session* ses;
+    /**
+     * @brief diaWin
+     * @note Puntero a objeto de ventana de cuadro de diálogo
+     */
     DialogWin* diaWin;
 private slots:
+    /**
+     * @brief ExportDataButton
+     * @note SLOT asociado al botón de Exportar datos
+     * @details Ejecuta el método WriteReport de la sesión
+     */
     void ExportDataButton ();
 };
 

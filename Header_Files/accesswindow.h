@@ -1,4 +1,10 @@
-//-----------------------VENTANA DE ACCESO DE USUARIO -----------------------------------------------------------------
+/**
+ * @file accesswindow.h
+ * @brief Clase de ventana de acceso de usuario (Ingreso de nombre de usuario y contraseña) (INTERFAZ GRÁFICA)
+ * @date 2023
+ * @authors Bazán María, Guerra Jorge
+*/
+
 #ifndef ACCESSWINDOW_H
 #define ACCESSWINDOW_H
 #include <QWidget>
@@ -17,7 +23,12 @@ class accesswindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit accesswindow (User*, QWidget *parent = nullptr);
+    /**
+     * @brief accesswindow
+     * @param us : Objeto usuario donde se iniciará sesión
+     * @param parent : Padre
+     */
+    explicit accesswindow (User* us, QWidget *parent = nullptr);
     ~accesswindow();
     User *usAccess;
 
@@ -26,14 +37,21 @@ private:
 
 private slots:
     /**
-     * @brief AccessUser
-     * @
+     * @brief AccessUser : Slot a ejecutar por el botón de acceder
+     * @note El slot toma los datos ingresados y crea el objeto User después de verificar password encriptada
      */
     void AccessUser ();
+    /**
+     * @brief CancelAccess
+     * @note Cancelar acceso: Elimina la ventana
+     */
     void CancelAccess () { delete this; };
 signals:
+    /**
+     * @brief UserAccess
+     * @note Señal emitida cuando se accede exitosamente
+     */
     void UserAccess ();
 };
 
 #endif // ACCESSWINDOW_H
-//hola

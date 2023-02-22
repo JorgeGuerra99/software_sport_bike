@@ -77,10 +77,6 @@ void CardioWindow::UiSample()
     ui->label_5->setText(QString::fromStdString(car->screenMessage));
 }
 
-void CardioWindow::ExportDataButton()
-{
-    car->WriteReport();
-}
 
 void CardioWindow::OpenSessionButton()
 {
