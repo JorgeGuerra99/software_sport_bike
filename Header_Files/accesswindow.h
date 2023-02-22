@@ -7,7 +7,6 @@
 
 #ifndef ACCESSWINDOW_H
 #define ACCESSWINDOW_H
-
 #include <QWidget>
 #include <QMainWindow>
 #include <QByteArray>

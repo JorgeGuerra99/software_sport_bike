@@ -1,12 +1,8 @@
-//---------------------- CLASE BIKE--------------------------------------------------------------
-//Contiene los diferentes sensores disponibles y el puerto serie de bike.
 /**
  * @file bike.h
- * @brief Clase abstracta de bicicleta y sus derivadas
- * @version 1.0
- * @date
+ * @brief Contiene los diferentes sensores disponibles y el puerto serie de bike.
+ * @date 2023
  * @authors Bazán María, Guerra Jorge
- * @title bicicleta
 */
 
 #ifndef BIKE_H
@@ -21,22 +17,29 @@
 
 using namespace std;
 /**
- * @brief The Bike class clase abstracta
+ * @brief The Bike class
+ * @note Clase abstracta
+ * @
  */
 class Bike
 {
 protected:
-    /**
-     * @brief Bike constructor de la clase abstracta
-     */
     Bike () { cout << "En constructor de bike "<< endl; };
-    /**
-     * @brief ~Bike destructor de la clase abstracta
-     */
     virtual ~Bike () {cout << "En destructor de bike "<< endl; };
     virtual void ConfigSensors () = 0;
 public:
+    VelocitySensor < double > *vSensor;
+    LoadSensor < double > *lSensor;
+    PulseSensor < double > *pSensor;
+    /**
+     * @brief portBikeInfo
+     * @note Contiene la información de los puertos serie disponibles
+     */
     QSerialPortInfo portBikeInfo;
+    /**
+     * @brief portBike
+     * @note Objeto del puerto serie a utilizar
+     */
     QSerialPort portBike;
     virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
     virtual void ConfigSerial () = 0;
@@ -44,44 +47,44 @@ public:
 
 
 /**
- * @brief The StateBike class clase derivada de bike
+ * @brief The StateBike class
+ * @note Clase derivada de bike
+ * @details Esta clase corresponde a una bicicleta estática
  */
-class StateBike: public Bike //Bicicleta fija
+class StateBike: public Bike
 {
 public:
-    /**
-     * @brief StateBike constructor de la clase derivada de bike para una bicicleta fija
-     */
     StateBike ();
-    /**
-     * @brief ~StateBike destructor de la clase derivada de bike para bicicleta fija
-     */
     virtual ~StateBike ();
-
     VelocitySensor < double > *vSensor;
     LoadSensor < double > *lSensor;
     PulseSensor < double > *pSensor;
     /**
-     * @brief ConfigSerial configura el puerto serie de acuerdo a valores seleccionados por el usuario
-     * @param portname
-     * @param baud
-     * @param data
-     * @param par
-     * @param stop
+     * @brief ConfigSerial
+     * @note configura el puerto serie de acuerdo a valores seleccionados por el usuario
+     * @param portname : Nombre del puerto serie
+     * @param baud : Velocidad (BaudRate)
+     * @param data : Bits de datos
+     * @param par : Bit de paridad
+     * @param stop : Bit de stop
      */
     virtual void ConfigSerial (const QString &portname, const int &baud, const int &data, const int &par, const int &stop);
     /**
-     * @brief ConfigSerial configura el puerto serie de acuerdo a valores predeterminados
+     * @brief ConfigSerial
+     * @note configura el puerto serie de acuerdo a valores predeterminados
+     * @details portName "/dev/ttyACM0", baudRate 9600, data 8, noParity, stop 1
      */
     virtual void ConfigSerial ();
     /**
-     * @brief sensorsConfigured flag que establece si los sensores ya fueron configurados
+     * @brief sensorsConfigured
+     * @note flag que indica si los sensores ya fueron configurados
      */
     bool sensorsConfigured = false;
 
 private:
     /**
-     * @brief ConfigSensors permite la configuración de los sensores que va a utilizar el puerto serie
+     * @brief ConfigSensors
+     * @note crea los objetos de los diferentes sensores y los asocia al puerto serie
      */
     virtual void ConfigSensors ();
 };

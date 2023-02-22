@@ -69,7 +69,6 @@ Cardio::Cardio(const string& name, const int& age, const char& sex, const float&
 //-------------------------------------------------------------------------------------------------------
 void Cardio::Start()
 {
-    //Método de inicio de entrenamiento
     try {
         sesAct = true;
         LoadConfig(); //cargo configuraciones del archivo
@@ -88,7 +87,6 @@ void Cardio::Start()
 //----------------------------------------------------------------------------------------------------------------
 bool Cardio::Pause()
 {
-    //Evalúo los últimos 5 valores de velocidad. Si la suma de los mismos es cero retorna verdadero para pausar el entrenamiento automáticamente
     if (velocData.size()>5)
     {
         double auxData = 0.0;
@@ -106,7 +104,7 @@ bool Cardio::Pause()
 //--------------------------------------------------------------------------------------------------------
 void Cardio::End()
 {
-    //Se desactiva las variables para evitar que siga realizando el muestreo de datos
+
     sesAct = false;
     paused = false;
 }
@@ -114,7 +112,6 @@ void Cardio::End()
 //---------------------------------------------------------------------------------------------------------
 void Cardio::WriteReport() const
 {
-    //Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
     fstream sessionFile;
     string fileName;
     fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
@@ -151,10 +148,8 @@ double Cardio::CalcCalories() const
 //-------------------------------------------------------------------------------------------------------------
 void Cardio::Sample()
 {
-    //-----------------------------MÉTODO DE MUESTREO A EJECUTARSE REITERADAMENTE DURANTE LA SESIÓN ----------------------------
     if (sesAct == true)
     {
-        //operaciones de muestreo de datos
         //una forma de usar esta función es que en la clase haya un objeto timer interno que se inicialice con
         //el método start - Encontré en internet el QTimer pero no se si usar ese
 
@@ -191,7 +186,6 @@ void Cardio::Sample()
         if(AlarmPpm(dataUser.age))
         {
             screenMessage = "Frecuencia cardíaca alta";
-            alarm = true;
         }
     }
     if (paused)
@@ -208,9 +202,6 @@ void Cardio::Sample()
 //_-------------------------------------------------------------------------------------------------------------
 bool Cardio::NoRutAlm()
 {
-    //---------------------------------------------------------------------------------------------------------
-    //Evalúa si la velocidad actual se mantiene dentro del rango del 10% de la velocidad de referencia
-    //---------------------------------------------------------------------------------------------------------
     if (velocData.back() > velocRef[stage]+ velocRef[stage]*0.1)
     {
         screenMessage = "Reduzca la velocidad";
@@ -227,7 +218,6 @@ bool Cardio::NoRutAlm()
 //------------------------------------------------------------------------------------------------------------------
 void Cardio::StageEval(const int &tim)
 {
-    //Evalua etapa de entrenamiento de acuerdo al tiempo transcurrido
     for (int i=0; i < (int) timeRef.size(); i++)
     {
         if ((int) tim/sampleTime > timeRef[i])

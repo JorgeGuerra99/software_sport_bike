@@ -7,7 +7,6 @@
 
 #ifndef DATAWINDOW_H
 #define DATAWINDOW_H
-
 #include <QMainWindow>
 #include <iostream>
 #include <vector>
