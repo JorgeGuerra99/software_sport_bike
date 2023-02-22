@@ -66,7 +66,6 @@ bool User::LoadData()
     sessionsData.open(filename, ios::in);
     if (!sessionsData)
     {
-        fileExist = false;
         return false;
     }
     string line;

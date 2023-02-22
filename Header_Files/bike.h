@@ -57,6 +57,7 @@ public:
      * @brief ~StateBike destructor de la clase derivada de bike para bicicleta fija
      */
     virtual ~StateBike ();
+
     VelocitySensor < double > *vSensor;
     LoadSensor < double > *lSensor;
     PulseSensor < double > *pSensor;
