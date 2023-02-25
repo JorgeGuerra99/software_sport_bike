@@ -287,15 +287,15 @@ void Cardio::LoadConfig()
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Cardio::AlarmPpm(const int &age)
+bool Cardio::AlarmPpm()
 {
     float freqMaxRef;
     if(dataUser.sex=='M')
     {
-        freqMaxRef = 180 + ( 0.5 * age );
+        freqMaxRef = 180 + ( 0.5 * dataUser.age );
     } else
     {
-        freqMaxRef = 210.7 - ( 0.8 * age );
+        freqMaxRef = 210.7 - ( 0.8 * dataUser.age );
     }
     if (pulseData.back() > freqMaxRef)
     {
@@ -662,15 +662,15 @@ void WeightLoss::ReadReport()
 }
 
 //--------------------------------------------------------------------------------------------------------
-bool WeightLoss::AlarmPpm (const int &age)
+bool WeightLoss::AlarmPpm ()
 {
     float freqMaxRef;
     if(dataUser.sex=='M')
     {
-        freqMaxRef = 180 + ( 0.5 * age );
+        freqMaxRef = 180 + ( 0.5 * dataUser.age );
     } else
     {
-        freqMaxRef = 210.7 - ( 0.8 * age );
+        freqMaxRef = 210.7 - ( 0.8 * dataUser.age );
     }
     if (pulseData.back() > freqMaxRef)
     {
@@ -963,15 +963,15 @@ void Free::ReadReport()
 }
 
 
-bool Free::AlarmPpm (const int& age)
+bool Free::AlarmPpm ()
 {
     float freqMaxRef;
     if(dataUser.sex=='M')
     {
-        freqMaxRef = 180 + ( 0.5 * age );
+        freqMaxRef = 180 + ( 0.5 * dataUser.age );
     } else
     {
-        freqMaxRef = 210.7 - ( 0.8 * age );
+        freqMaxRef = 210.7 - ( 0.8 * dataUser.age );
     }
     if (pulseData.back() > freqMaxRef)
     {

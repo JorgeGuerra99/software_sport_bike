@@ -28,6 +28,8 @@ protected:
     virtual ~Bike () {cout << "En destructor de bike "<< endl; };
     virtual void ConfigSensors () = 0;
 public:
+    virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
+    virtual void ConfigSerial () = 0;
     VelocitySensor < double > *vSensor;
     LoadSensor < double > *lSensor;
     PulseSensor < double > *pSensor;
@@ -41,8 +43,6 @@ public:
      * @note Objeto del puerto serie a utilizar
      */
     QSerialPort portBike;
-    virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
-    virtual void ConfigSerial () = 0;
 };
 
 
@@ -56,9 +56,6 @@ class StateBike: public Bike
 public:
     StateBike ();
     virtual ~StateBike ();
-    VelocitySensor < double > *vSensor;
-    LoadSensor < double > *lSensor;
-    PulseSensor < double > *pSensor;
     /**
      * @brief ConfigSerial
      * @note configura el puerto serie de acuerdo a valores seleccionados por el usuario
@@ -80,6 +77,9 @@ public:
      * @note flag que indica si los sensores ya fueron configurados
      */
     bool sensorsConfigured = false;
+    VelocitySensor < double > *vSensor;
+    LoadSensor < double > *lSensor;
+    PulseSensor < double > *pSensor;
 
 private:
     /**

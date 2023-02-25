@@ -1,6 +1,3 @@
-//------------------------------------ CLASE USUARIO --------------------------------------------------------
-// Contiene los datos de cada usuario y los métodos de inicio de sesión o registro.
-// Contiene el objeto sessions
 /**
  * @file user.h
  * @brief Clase Usuario
@@ -9,10 +6,8 @@
  * @authors Bazán María, Guerra Jorge
  */
 
-
 #ifndef USER_H
 #define USER_H
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -63,7 +58,6 @@ public:
      * @note Almacena la última sesión en el vector de punteros
      */
     void SaveLastSession (Session*);
-
     /**
      * @note Datos de usuario
      */
@@ -107,7 +101,6 @@ private:
      * @note Vector de punteros a sesión utilizado para almacenar las diferentes clases de sesión
      */
     vector <Session *> sessions;
-
     Cardio* auxCardio;
     Session* auxSession;
     int numSessions = 0;
