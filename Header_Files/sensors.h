@@ -30,7 +30,6 @@ template < class T >
 class Sensors
 {
 protected:
-    T currentValue = 0;
     /**
      * @brief Sensors
      * @param p : Objeto puerto serie asociado al sensor
@@ -38,6 +37,7 @@ protected:
     Sensors ( QSerialPort *p);
     virtual ~Sensors ();
     virtual void GetValue () = 0;
+    T currentValue = 0;
 public:
     QSerialPort *port;
 };
@@ -130,6 +130,7 @@ private:
     /**
      * @brief radius
      * @note Valor de radio de la rueda de la bicicleta estática
+     * @details el valor en el que está instanciado es en metros
      */
     T radius = 0.2; //en metro
 };

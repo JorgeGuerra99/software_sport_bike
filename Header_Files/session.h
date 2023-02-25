@@ -21,19 +21,6 @@ class Session
 {
 public:
     /**
-     * @brief timeSes Contador de MUESTRAS de la sesión
-     */
-    int timeSes = 0;
-    /**
-     * @brief screenMessage se guardan diferentes mensajes los cuales después son mostrados en las ventanas
-     */
-    string screenMessage = "Sesión de entrenamiento";
-    /**
-     * @brief sessionType se asigna el tipo de sesión que vaya a elegir el usuario
-     */
-    string sessionType;
-    StateBike bike;
-    /**
      * @brief GetLastData Retorna el último valor en alguno de los vectores de los datos sensados
      * @param a Indica de que sensor se extraerá el último dato, a='0' para sensor de pulso, a='1' para sensor de veocidad y a='2' para sensor de carga
      * @return Valor double con el último dato leído del sensor
@@ -54,7 +41,41 @@ public:
      */
     const vector <double> GetAllData (char sel = 'P') const;
     virtual void WriteReport () const = 0;
+    /**
+     * @brief timeSes Contador de MUESTRAS de la sesión
+     */
+    int timeSes = 0;
+    /**
+     * @brief screenMessage se guardan diferentes mensajes los cuales después son mostrados en las ventanas
+     */
+    string screenMessage = "Sesión de entrenamiento";
+    /**
+     * @brief sessionType se asigna el tipo de sesión que vaya a elegir el usuario
+     */
+    string sessionType;
+    StateBike bike;
 protected:
+    /**
+     * @brief Session - Constructor
+     * @param name : nombre del usuario
+     * @param age : edad del usuario
+     * @param sex : genero del usuario
+     * @param weight : peso del usurio
+     * @param height : altura del usuario
+     */
+    Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
+    Session () { cout << "Constructor por defecto: Session" << endl;};
+    virtual ~Session () {cout << "Destructor de session" << endl;}
+    virtual void Start () = 0;
+    virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
+    virtual void LoadConfig () = 0;
+    virtual bool Pause () = 0; //pausa de entrenamiento
+    virtual void End () = 0;
+    virtual void ReadReport () = 0;
+    virtual bool AlarmPpm () = 0;
+    virtual double CalcCalories ( )const = 0;
+    //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
+    bool IsPaused () const { return paused; };
     /**
      * @brief velocData
      * @note correspondiente al contenedor vector
@@ -73,17 +94,6 @@ protected:
      * @detail es donde se van a guardar los valores provenientes del sensor de carga
      */
     vector < double > dataOfLoad;
-    /**
-     * @brief Session - Constructor
-     * @param name : nombre del usuario
-     * @param age : edad del usuario
-     * @param sex : genero del usuario
-     * @param weight : peso del usurio
-     * @param height : altura del usuario
-     */
-    Session (const string& name, const int& age, const char& sex, const float& weight, const float& height);
-    Session () { cout << "Constructor por defecto: Session" << endl;};
-    virtual ~Session () {cout << "Destructor de session" << endl;}
     string date;
     /**
      * @brief sesAct
@@ -105,16 +115,6 @@ protected:
     float distance = 0.0;
     double velMax = 0.0;
     double velMed = 0.0;
-    virtual void Start () = 0;
-    virtual void Sample () = 0; //muestreo: lectura de datos en conjunto con el timer
-    virtual void LoadConfig () = 0;
-    virtual bool Pause () = 0; //pausa de entrenamiento
-    virtual void End () = 0;
-    virtual void ReadReport () = 0;
-    virtual bool AlarmPpm ( const int& age) = 0;
-    virtual double CalcCalories ( )const = 0;
-    //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
-    bool IsPaused () const { return paused; };
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -173,24 +173,6 @@ public:
     virtual void Sample ();
     Cardio* operator* () { return this;}
 private:
-    int stage = 0;
-    /**
-     * @brief sampleTime
-     * @note es el tiempo de muestreo
-     */
-    float sampleTime = 1;
-    /**
-     * @brief velocRef
-     * @note perteneciente al contenedor de vector
-     * @details es donde se asignan los valores pertenecientes a la configuración de sesión
-     */
-    vector < int > velocRef;
-    /**
-     * @brief timerRef
-     * @note perteneciente al contenedor de vector
-     * @details es donde se asignan los valores pertenecientes a la configuración de sesión
-     */
-    vector < int > timeRef;
     /**
      * @brief NoRutAlm
      * @note alerta de desvio de rutina
@@ -216,9 +198,28 @@ private:
      * @param age : edad
      * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
-    virtual bool AlarmPpm ( const int& age );
+    virtual bool AlarmPpm ( );
     friend ostream& operator<< (ostream& ios, const Cardio&);
     friend istream &operator>> ( istream& ist, Cardio &);
+    int stage = 0;
+    /**
+     * @brief sampleTime
+     * @note es el tiempo de muestreo
+     */
+    float sampleTime = 1;
+    /**
+     * @brief velocRef
+     * @note perteneciente al contenedor de vector
+     * @details es donde se asignan los valores pertenecientes a la configuración de sesión
+     */
+    vector < int > velocRef;
+    /**
+     * @brief timerRef
+     * @note perteneciente al contenedor de vector
+     * @details es donde se asignan los valores pertenecientes a la configuración de sesión
+     */
+    vector < int > timeRef;
+
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -275,15 +276,6 @@ public:
      */
     virtual double CalcCalories ( ) const ;
 private:
-    float timeRef;
-    vector < float > intensityRef;
-    float intensityMaxFc;
-    float intensityMinFc;
-    /**
-     * @brief sampleTime
-     * @note es el tiempo de muestreo
-     */
-    float sampleTime = 1;
     /**
      * @brief NoRutAlm
      * @note alerta de desvio de rutina
@@ -304,9 +296,19 @@ private:
      * @param age: edad
      * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
-    virtual bool AlarmPpm (const int& age);
+    virtual bool AlarmPpm ();
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
+    float timeRef;
+    vector < float > intensityRef;
+    float intensityMaxFc;
+    float intensityMinFc;
+    /**
+     * @brief sampleTime
+     * @note es el tiempo de muestreo
+     */
+    float sampleTime = 1;
+
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -364,21 +366,21 @@ public:
     virtual double CalcCalories ( )const ;
 private:
     /**
-     * @brief sampleTime
-     * @note es el tiempo de muestreo
-     */
-    float sampleTime = 1;
-    /**
      * @brief AlarmPpm
      * @note alerta de pulsaciones
      * @details alerta al usuario de que tiene una frecuencia cardiaca que puede ser peligrosa
      * @param age : edad del usuario
      * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
-    virtual bool AlarmPpm ( const int& age ) ;
+    virtual bool AlarmPpm ( ) ;
     virtual void LoadConfig () {}
     friend ostream& operator<< (ostream& ios, const Free& free);
     friend istream& operator>> ( istream& ist, Free& free);
+    /**
+     * @brief sampleTime
+     * @note es el tiempo de muestreo
+     */
+    float sampleTime = 1;
 };
 
 
