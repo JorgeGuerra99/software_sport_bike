@@ -169,7 +169,10 @@ void Cardio::Sample()
         velMed = bike.vSensor->GetVelocProm();
 
         //obtengo las calorias
-        calories = CalcCalories();
+        if(velocData.back()!=0.0)
+        {
+            calories = CalcCalories();
+        }
 
         //Evalúo etapa actual
         StageEval(timeSes);
@@ -183,7 +186,7 @@ void Cardio::Sample()
         }
 
         //Evalúo PPM
-        if(AlarmPpm(dataUser.age))
+        if(AlarmPpm())
         {
             screenMessage = "Frecuencia cardíaca alta";
         }
@@ -554,7 +557,7 @@ void WeightLoss::Sample ()
         }
 
         //Evalúo PPM
-        if(AlarmPpm(dataUser.age))
+        if(AlarmPpm())
         {
             screenMessage = "Frecuencia cardíaca alta";
         }
@@ -922,7 +925,7 @@ void Free::Sample()
         }
 
         //evalúo PPM
-        if(AlarmPpm(dataUser.age))
+        if(AlarmPpm())
         {
             screenMessage = "Frecuencia cardíaca alta";
         }
