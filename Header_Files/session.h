@@ -54,6 +54,8 @@ public:
      */
     string sessionType;
     StateBike bike;
+
+    friend ostream& operator<< (ostream& os, const Session& session);
 protected:
     /**
      * @brief Session - Constructor
@@ -74,7 +76,7 @@ protected:
     virtual void ReadReport () = 0;
     virtual bool AlarmPpm () = 0;
     virtual double CalcCalories ( )const = 0;
-    //consultar: ¿Todos los métodos de una clase abstracta tienen que ser =0 ? ¿Pueden haber métodos en común?
+    virtual void Print (ostream& os) const = 0;
     bool IsPaused () const { return paused; };
     /**
      * @brief velocData
@@ -108,7 +110,7 @@ protected:
     } dataUser;
     /**
      * @brief paused
-     * @note flag correspondiente al pausado de la sesión
+     * @note flag correspondiente a la pausa de la sesión
      */
     bool paused = false;
     float calories = 0.0;
@@ -130,12 +132,12 @@ public:
     /**
      * @brief Cardio - Constructor
      * @param name : nombre del usuario
-     * @param age : edad del usaurio
+     * @param age : edad del usuario
      * @param sex : genero del usuario
      * @param weight : peso del usuario
      * @param height : altura del usuario
      */
-    Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height); //por ahora necesitaría estos datos
+    Cardio (const string& name, const int& age, const char& sex, const float& weight, const float& height);
     Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
     virtual ~Cardio() { cout << "destructor cardio" << endl;}
     /**
@@ -199,14 +201,16 @@ private:
      * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
     virtual bool AlarmPpm ( );
-    friend ostream& operator<< (ostream& ios, const Cardio&);
+    void Print (ostream& os) const;
+
+    friend ostream& operator<< (ostream& ios, const Cardio& car);
     friend istream &operator>> ( istream& ist, Cardio &);
     int stage = 0;
     /**
      * @brief sampleTime
      * @note es el tiempo de muestreo
      */
-    float sampleTime = 1;
+    const float sampleTime = 1;
     /**
      * @brief velocRef
      * @note perteneciente al contenedor de vector
@@ -297,6 +301,8 @@ private:
      * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
     virtual bool AlarmPpm ();
+    void Print (ostream& os) const {}
+
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
     float timeRef;
@@ -374,6 +380,8 @@ private:
      */
     virtual bool AlarmPpm ( ) ;
     virtual void LoadConfig () {}
+    void Print (ostream& os) const {}
+
     friend ostream& operator<< (ostream& ios, const Free& free);
     friend istream& operator>> ( istream& ist, Free& free);
     /**
