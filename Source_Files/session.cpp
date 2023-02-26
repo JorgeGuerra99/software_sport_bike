@@ -50,6 +50,13 @@ double Session::GetVelocMaxMed(const int &s)
     else return -1;
 }
 
+ostream& operator<< (ostream& os, const Session& session)
+{
+    cout << "en operador << de session" << endl;
+    session.Print (os);
+    return os;
+}
+
 //-----------------------------------------------------------------------------------------
 //------------------------------- MÉTODOS DE CARDIO ---------------------------------------
 //-----------------------------------------------------------------------------------------
@@ -183,7 +190,7 @@ void Cardio::Sample()
         }
 
         //Evalúo PPM
-        if(AlarmPpm(dataUser.age))
+        if(AlarmPpm())
         {
             screenMessage = "Frecuencia cardíaca alta";
         }
@@ -304,16 +311,29 @@ bool Cardio::AlarmPpm()
     return false;
 }
 
+void Cardio::Print(ostream &os) const
+{
+    cout << "por aca" << endl;
+    os << *this;
+}
+
 //-----------------------------------------------------------------------------------------------------
 ostream& operator<< (ostream& ios, const Cardio& car)
-{
+{        
+    cout << "aca entra" << endl;
     ios << "-----ENTRENAMIENTO:CARDIO-----" << endl;
+    ios << "DATOS DE USUARIO: " << endl;
     ios << "Usuario: " << car.dataUser.name << endl;
+    ios << "Edad: " << car.dataUser.age << endl;
+    ios << "Sexo: " << car.dataUser.sex << endl;
+    ios << "Peso: " << car.dataUser.weight << endl;
+    ios << "Altura: " << car.dataUser.height << endl << endl;
+
     ios << "DATOS DE ENTRENAMIENTO: " << endl;
     ios << "Fecha: " << car.date << endl;
     ios << "Tiempo: " << car.timeSes << endl;
-    ios << "Velocidad máxima: " << car.bike.vSensor->GetVelocMax() << endl;
-    ios << "Velocidad promedio: " << car.bike.vSensor->GetVelocProm() << endl;
+    ios << "Velocidad máxima: " << car.velMax<< endl;
+    ios << "Velocidad promedio: " << car.velMed << endl;
     ios << "Distancia estimada: " << car.distance << endl;
     ios << endl << endl << endl;
     ios << "Datos instantáneos:" << endl;
@@ -342,24 +362,53 @@ istream& operator>> (istream& ist, Cardio& car)
     // Permite armar el stream de entrada con los datos de entrenamiento de una sesión cardio y cargarlos en un objeto cardio
 
     string line, aux;
-    while (line.find("Usuario") == string::npos )
-    {
-        getline (ist, line);
-    }
-    if (line.substr(line.find_first_of(" ")+1) != car.dataUser.name)
-    {
-        //Si el usuario del archivo no es coincidente con el usuario que inició sesión
-        throw int (INVALID_USER);
-        return ist;
-    }
     std::setlocale(LC_NUMERIC,"C"); //Con esta linea permite reconocer al "." de los strings como delimitador de punto flotante
                                     //de lo contrario, tomaba "," entonces recortaba los números a su parte entera
 
+    while (line.find("DATOS DE ENTRENAMIENTO") == string::npos)
+    {
+        getline (ist,line);
+        if (line.find("Usuario") != string::npos)
+        {
+          aux = line.substr(line.find_last_of(" ") +1);
+          car.dataUser.name = aux;
+          cout << "Usuario: " << car.dataUser.name << endl;
+        }
+        if (line.find("Edad") != string::npos)
+        {
+          aux = line.substr(line.find_last_of(" ") +1);
+          car.dataUser.age = stoi (aux);
+          cout << "Edad: " << car.dataUser.age << endl;
+        }
+        if (line.find("Sexo") != string::npos)
+        {
+          aux = line.substr(line.find_last_of(" ") +1);
+          car.dataUser.sex = aux[0];
+          cout << "Sexo: " << car.dataUser.sex << endl;
+        }
+        if (line.find("Peso") != string::npos)
+        {
+          aux = line.substr(line.find_last_of(" ") +1);
+          car.dataUser.weight = stof (aux);
+          cout << "Peso: " << car.dataUser.weight << endl;
+        }
+        if (line.find("Altura") != string::npos)
+        {
+          aux = line.substr(line.find_last_of(" ") +1);
+          car.dataUser.height = stof (aux);
+          cout << "Altura: " << car.dataUser.height << endl;
+        }
+    }
     //Extracción de datos
-
     while (line.find("Datos instantáneos") == string::npos)
     {
         getline (ist,line);
+        if (line.find("Fecha") != string::npos)
+        {
+            aux = line.substr(line.find_first_of(" ") +1);
+            car.date = aux;
+            cout << "Fecha = " << car.date << endl;
+        }
         if (line.find("Tiempo") != string::npos)
         {
             aux = line.substr(line.find_last_of(" ") +1);
@@ -385,9 +434,10 @@ istream& operator>> (istream& ist, Cardio& car)
             cout << "Distancia estimada: " << car.distance << endl;
         }
     }
+
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline (ist,line);
-    while (!ist.eof())
+    while (line.find("FIN_DATOS") == string::npos)
     {
         if (line.find("VELOCIDAD") != string::npos)
         {
@@ -407,7 +457,7 @@ istream& operator>> (istream& ist, Cardio& car)
         } else if (line.find("CARGA") != string::npos)
         {
             getline (ist,line);
-            while (!ist.eof())
+            while (line.find("FIN_DATOS") == string::npos)
             {
                 car.dataOfLoad.push_back(stod (line));
                 getline (ist, line);
@@ -417,21 +467,21 @@ istream& operator>> (istream& ist, Cardio& car)
 
     // Líneas para mostrar los datos cargados, comentar si es necesario...
 
-//    cout << "Datos de velocidad cargados: " << endl;
-//    for (int i = 0; i < (int) car.velocData.size(); i++)
-//    {
-//        cout << car.velocData[i] << endl;
-//    }
-//    cout << "Datos de pulso cargados: " << endl;
-//    for (int i = 0; i < (int) car.pulseData.size(); i++)
-//    {
-//        cout << car.pulseData[i] << endl;
-//    }
-//    cout << "Datos de carga cargados: " << endl;
-//    for (int i = 0; i < (int) car.dataOfLoad.size(); i++)
-//    {
-//        cout << car.dataOfLoad[i] << endl;
-//    }
+    cout << "Datos de velocidad cargados: " << endl;
+    for (int i = 0; i < (int) car.velocData.size(); i++)
+    {
+        cout << car.velocData[i] << endl;
+    }
+    cout << "Datos de pulso cargados: " << endl;
+    for (int i = 0; i < (int) car.pulseData.size(); i++)
+    {
+        cout << car.pulseData[i] << endl;
+    }
+    cout << "Datos de carga cargados: " << endl;
+    for (int i = 0; i < (int) car.dataOfLoad.size(); i++)
+    {
+        cout << car.dataOfLoad[i] << endl;
+    }
     return ist;
 }
 
@@ -554,7 +604,7 @@ void WeightLoss::Sample ()
         }
 
         //Evalúo PPM
-        if(AlarmPpm(dataUser.age))
+        if(AlarmPpm())
         {
             screenMessage = "Frecuencia cardíaca alta";
         }
@@ -922,7 +972,7 @@ void Free::Sample()
         }
 
         //evalúo PPM
-        if(AlarmPpm(dataUser.age))
+        if(AlarmPpm())
         {
             screenMessage = "Frecuencia cardíaca alta";
         }

@@ -25,7 +25,7 @@ public:
      * @param msj mensaje que se le desea mostrar al usuario
      * @param parent
      */
-    explicit DialogWin(string msj, QWidget *parent = nullptr);
+    DialogWin(string msj, QWidget *parent = nullptr);
     ~DialogWin();
 
 private:

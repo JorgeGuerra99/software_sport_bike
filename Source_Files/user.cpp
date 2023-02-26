@@ -28,7 +28,7 @@ User::User(string &name, string &pass)
         nameUsr = name;
         password = pass;
         ExtractData();
-        LoadData();
+        if (LoadData()) cout << "Sesión iniciada" << endl;
     }
     else
     {
@@ -50,13 +50,15 @@ void User::SaveData()
     string filename = "data_";
     filename += nameUsr;
     filename += ".txt";
-    sessionsData.open (filename, ios::app);
-     //ESte metodo no puede funcionar como tal, ya que para usar el operador << tiene que ser una de las clases derivadas
-    // y sessions<> contiene punteros a clase base. Consultar:
-    //- Se puede implementar el operador << para clase abstracta?
-    // - Otra alternativa es que el llenado del archivo sea automático y se haga una vez que se finalice la sesión, es decir
-    //pasando el fstream al objeto Session correspondiente y ejecutando allí el operador <<.
-
+    sessionsData.open (filename, ios::out);
+    if (!sessionsData)
+    {
+        cout << "Error al abrir el archivo" << endl;
+    }
+    for (int i = 0; i < (int) sessions.size(); i++)
+    {
+        sessionsData << *sessions [i];
+    }
 }
 
 bool User::LoadData()
@@ -69,31 +71,21 @@ bool User::LoadData()
         return false;
     }
     string line;
-//    while (!sessionsData.eof())
-//    {
-//        getline (sessionsData, line);
-//        if (line.find("CARDIO")) numCardio++;
-//        if (line.find("WEIGHTLOSS")) numWei++;
-//        if (line.find("FREE")) numFree++;
-//    }
-//    numSessions = numCardio + numWei + numFree;
 
     while (!sessionsData.eof())
     {
         getline (sessionsData,line);
-        if (line.find("CARDIO"))
+        if (line.find("CARDIO") != string::npos)
         {
             cout << "Se creo una cardio" << endl;
             auxCardio = new Cardio ();
             sessionsData >> *auxCardio;
             sessions.push_back(auxCardio);
-            delete auxCardio;
-        } else if (line.find("WEIGHTLOSS"))
+        } else if (line.find("WEIGHTLOSS") != string::npos)
         {
             cout << "Se creo una weightloss" << endl;
         }
     }
-
 
     sessionsData.close();
     return true;
@@ -102,7 +94,7 @@ bool User::LoadData()
 void User::SaveLastSession(Session * ses)
 {
     sessions.push_back(ses);
-    //SaveData();
+    SaveData();
 }
 
 void User::ExtractData()

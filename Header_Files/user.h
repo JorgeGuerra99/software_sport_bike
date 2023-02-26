@@ -14,6 +14,7 @@
 #include <fstream>
 #include <filesystem>
 #include "session.h"
+#include "dialogwin.h"
 
 /**
  * @details
