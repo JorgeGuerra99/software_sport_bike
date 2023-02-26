@@ -54,7 +54,6 @@ public:
      */
     string sessionType;
     StateBike bike;
-
     friend ostream& operator<< (ostream& os, const Session& session);
 protected:
     /**
@@ -202,7 +201,6 @@ private:
      */
     virtual bool AlarmPpm ( );
     void Print (ostream& os) const;
-
     friend ostream& operator<< (ostream& ios, const Cardio& car);
     friend istream &operator>> ( istream& ist, Cardio &);
     int stage = 0;
@@ -244,7 +242,7 @@ public:
      * @param height : altura del usuario
      */
     WeightLoss (const string& name, const int& age, const char& sex, const float& weight, const float& height);
-    WeightLoss ();
+    WeightLoss (){ cout << "Constructor por defecto: WeightLoss" << endl; }
     virtual ~WeightLoss() { cout << "destructor de weightloss" << endl;}
     /**
      * @brief Start
@@ -301,8 +299,7 @@ private:
      * @return retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
     virtual bool AlarmPpm ();
-    void Print (ostream& os) const {}
-
+    void Print (ostream& os) const;
     friend ostream& operator<< (ostream& ios, const WeightLoss& wei);
     friend istream& operator>> ( istream& ist, WeightLoss& wei);
     float timeRef;
@@ -313,7 +310,7 @@ private:
      * @brief sampleTime
      * @note es el tiempo de muestreo
      */
-    float sampleTime = 1;
+    const float sampleTime = 1;
 
 };
 
@@ -335,7 +332,7 @@ public:
      * @param height : altura del usuario
      */
     Free (const string& name, const int& age, const char& sex, const float& weight, const float& height);
-    Free();
+    Free(){ cout << "Constructor por defecto: Free" << endl; }
     virtual ~Free () { cout << "destructor de free"  << endl;}
     /**
      * @brief Start
@@ -380,15 +377,14 @@ private:
      */
     virtual bool AlarmPpm ( ) ;
     virtual void LoadConfig () {}
-    void Print (ostream& os) const {}
-
+    void Print (ostream& os) const ;
     friend ostream& operator<< (ostream& ios, const Free& free);
     friend istream& operator>> ( istream& ist, Free& free);
     /**
      * @brief sampleTime
      * @note es el tiempo de muestreo
      */
-    float sampleTime = 1;
+    const float sampleTime = 1;
 };
 
 

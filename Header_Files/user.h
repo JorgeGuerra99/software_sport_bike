@@ -103,6 +103,8 @@ private:
      */
     vector <Session *> sessions;
     Cardio* auxCardio;
+    WeightLoss* auxWeightLoss;
+    Free* auxFree;
     Session* auxSession;
     int numSessions = 0;
     int numCardio = 0;
