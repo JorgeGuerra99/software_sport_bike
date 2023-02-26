@@ -176,7 +176,10 @@ void Cardio::Sample()
         velMed = bike.vSensor->GetVelocProm();
 
         //obtengo las calorias
-        calories = CalcCalories();
+        if(velocData.back()!=0.0)
+        {
+            calories = CalcCalories();
+        }
 
         //Evalúo etapa actual
         StageEval(timeSes);
