@@ -59,6 +59,8 @@ public:
      * @note Almacena la última sesión en el vector de punteros
      */
     void SaveLastSession (Session*);
+    vector <string> NameSessions ();
+    Session* GetSession (const int& posSession) const { return sessions[posSession];}
     /**
      * @note Datos de usuario
      */

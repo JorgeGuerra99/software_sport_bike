@@ -43,12 +43,13 @@ Session::Session(const string& name, const int& age, const char& sex, const floa
     cout << "En constructor de session" << endl;
 }
 
-double Session::GetVelocMaxMed(const int &s)
+double Session::GetVelocMaxMed(const int &s) const
 {
     if (s == 0) return velMax;
     else if (s == 1) return velMed;
     else return -1;
 }
+
 
 ostream& operator<< (ostream& os, const Session& session)
 {
@@ -68,6 +69,7 @@ Cardio::Cardio(const string& name, const int& age, const char& sex, const float&
     char *c = ctime (&now);
     string localDate (c);
     date = localDate;
+    nameSession = sessionType + "-" + date;
     cout << "En constructor de cardio" << endl;
 }
 
@@ -79,7 +81,7 @@ void Cardio::Start()
         sesAct = true;
         LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
-        if (!bike.sensorsConfigured) bike.ConfigSerial(); //Configura el puerto serie
+        if (!bike.IsConfigured()) bike.ConfigSerial(); //Configura el puerto serie
         screenMessage = "Entrenamiento iniciado";
     }  catch (int e) {
         if (e == ERROR_SERIAL_OPEN)
@@ -397,7 +399,7 @@ istream& operator>> (istream& ist, Cardio& car)
         }
     }
     //Extracción de datos
-    while (line.find("Datos instantáneos") == string::npos)
+    while (line.find("DATOS INSTANTANEOS") == string::npos)
     {
         getline (ist,line);
         if (line.find("Fecha") != string::npos)
@@ -432,12 +434,12 @@ istream& operator>> (istream& ist, Cardio& car)
         }
         if (line.find("Calorias") != string::npos)
         {
-            aux =line.substr(line.find_last_of(" ") +1);
+            aux = line.substr(line.find_last_of(" ") +1);
             car.calories = atof (aux.c_str());
             cout << "Calorias quemadas: " << car.calories << endl;
         }
     }
-
+    car.nameSession = "Cardio-"+car.date;
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline (ist,line);
     while (line.find("FIN_DATOS") == string::npos)
@@ -500,6 +502,7 @@ WeightLoss::WeightLoss (const string& name, const int& age, const char& sex, con
     char *c = ctime (&now);
     string localDate (c);
     date = localDate;
+    nameSession = sessionType + "-" + date;
     cout << "En constructor de weightloss" << endl;
 }
 //--------------------------------------------------------------------------------------------------------
@@ -509,7 +512,7 @@ void WeightLoss::Start ()
         sesAct = true;
         LoadConfig(); //cargo configuraciones del archivo
         distance = 0.0;
-        if (!bike.sensorsConfigured) bike.ConfigSerial();
+        if (!bike.IsConfigured()) bike.ConfigSerial();
         screenMessage = "Entrenamiento iniciado";
         cout << "Sesión iniciada" << endl;
     }  catch (int e) {
@@ -834,6 +837,7 @@ istream& operator>> (istream& ist, WeightLoss& wei)
             cout << "Calorias quemadas: " << wei.calories << endl;
         }
     }
+    wei.nameSession = "WeightLoss-"+wei.date;
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline (ist,line);
     while (line.find("FIN_DATOS") == string::npos)
@@ -933,6 +937,7 @@ Free::Free(const string& name, const int& age, const char& sex, const float& wei
     char *c = ctime (&now);
     string localDate (c);
     date = localDate;
+    nameSession = sessionType + "-" + date;
     cout << "En constructor de free" << endl;
 }
 
@@ -942,7 +947,7 @@ void Free::Start()
     try {
         sesAct = true;
         distance = 0.0;
-        if (!bike.sensorsConfigured) bike.ConfigSerial(); //Configura el puerto serie
+        if (!bike.IsConfigured()) bike.ConfigSerial(); //Configura el puerto serie
         screenMessage = "Entrenamiento iniciado";
     }  catch (int e) {
         if (e == ERROR_SERIAL_OPEN)
@@ -1211,6 +1216,7 @@ istream& operator>> (istream& ist, Free& free)
             cout << "Calorias quemadas: " << free.calories << endl;
         }
     }
+    free.nameSession = "Free-"+free.date;
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline (ist,line);
     while (line.find("FIN_DATOS") == string::npos)

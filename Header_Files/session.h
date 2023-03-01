@@ -33,7 +33,7 @@ public:
      * @param s su valor puede ser 0, 1 u cualquier otro valor
      * @return se retorna un valor del tipo double si s='0' devuelve la velocidad máxima, para s='1' retorna la velocidad media, en caso contrario retorna un -1
      */
-    double GetVelocMaxMed (const int& s = 0);
+    double GetVelocMaxMed (const int& s = 0) const;
     /**
      * @brief GetAllData permite extraer todos los datos obtenidos del sensor que se desee
      * @param sel puede ser los valores 'P', 'V' o 'L'
@@ -41,6 +41,7 @@ public:
      */
     const vector <double> GetAllData (char sel = 'P') const;
     virtual void WriteReport () const = 0;
+    string nameSession;
     /**
      * @brief timeSes Contador de MUESTRAS de la sesión
      */

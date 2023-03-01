@@ -13,6 +13,8 @@
 #include "cardiowindow.h"
 #include "weightwindow.h"
 #include "freewindow.h"
+#include "datawindow.h"
+#include <QStringList>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -58,41 +60,44 @@ private:
      * @note puntero del objeto ventana de la sesión Free
      */
     FreeWindow *winFre;
+    datawindow *winData;
+    QStringList nameSessions;
 private slots:
     /**
      * @brief buttReg
      * @note SLOT asociado al botón de registrar un nuevo usuario
      * @details crea y ejecuta la ventana regwindow
      */
-    void buttReg ();
+    void ButtReg ();
     /**
      * @brief usReg
      * @note SLOT asociado a la señal de usuario registrado
      * @details asigna al punterio del objeto usuario la información ingresada en la ventana correspondiente
      */
-    void usReg ();
+    void UsReg ();
     /**
      * @brief buttAcc
      * @note SLOT asociado al botón de acceder a un usuario ya existente
      * @details crea y ejecita la ventana de accesswindow
      */
-    void buttAcc ();
+    void ButtAcc ();
     /**
      * @brief usAcc
      * @note SLOT asociado a la señal de ingreso de un usuario existente
      * @details asigna al puntero del objeto usuario la información obtenida de la ventana correspondiente
      */
-    void usAcc ();
+    void UsAcc ();
     /**
      * @brief startSession
      * @note SLOT asociado al botón iniciar entrenamiento
      * @details crea y ejecuta la ventana correspondiente a la sesión elegida por el usuario
      */
-    void startSession();
+    void StartSession();
+    void ViewReport();
     /**
      * @brief closedWindow
      * @note cierra el programa
      */
-    void closedWindow () {cout << "ventana cerrada" << endl;}
+    void ClosedWindow () {cout << "ventana cerrada" << endl;}
 };
 #endif // MAINWINDOW_H

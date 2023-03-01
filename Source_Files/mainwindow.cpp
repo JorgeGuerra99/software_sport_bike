@@ -6,9 +6,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect (ui->pushButton, SIGNAL (clicked()), this, SLOT (buttReg()));
-    connect (ui->pushButton_2, SIGNAL (clicked()), this, SLOT (buttAcc()));
-    connect (ui->pushButton_4, SIGNAL (clicked()), this, SLOT (startSession()));
+    connect (ui->pushButton, SIGNAL (clicked()), this, SLOT (ButtReg()));
+    connect (ui->pushButton_2, SIGNAL (clicked()), this, SLOT (ButtAcc()));
+    connect (ui->pushButton_4, SIGNAL (clicked()), this, SLOT (StartSession()));
+    connect (ui->pushButton_5, SIGNAL (clicked()), this, SLOT (ViewReport()));
 }
 
 MainWindow::~MainWindow()
@@ -19,16 +20,23 @@ MainWindow::~MainWindow()
     exit(1);
 }
 
-void MainWindow::buttReg()
+void MainWindow::ButtReg()
 {
    winReg = new RegWindow (us, this);
-   connect(winReg, SIGNAL (UserRegistered()), this, SLOT (usReg()));
+   connect(winReg, SIGNAL (UserRegistered()), this, SLOT (UsReg()));
    winReg->show();
 }
 
-void MainWindow::usReg()
+void MainWindow::UsReg()
 {
     us = winReg->usReg;
+    QString auxNameSession;
+    vector<string> aux = us->NameSessions();
+    for (int i =0 ; i< (int)aux.size();i++)
+    {
+      auxNameSession = QString::fromStdString(aux[i]);
+      ui->comboBox_2->addItem(auxNameSession);
+    }
     QString nam;
     nam = QString::fromStdString(us->nameUsr);
     ui->label->setText(nam);
@@ -36,19 +44,30 @@ void MainWindow::usReg()
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
     ui->comboBox->setEnabled(true);
+    ui->comboBox_2->setEnabled(true);
+    ui->pushButton_5->setEnabled(true);
 }
 
-void MainWindow::usAcc()
+void MainWindow::UsAcc()
 {
     us = winAcc->usAccess;
     ui->label->setText(QString::fromStdString(us->nameUsr));
+    QString auxNameSession;
+    vector<string> aux = us->NameSessions();
+    for (int i =0 ; i< (int)aux.size();i++)
+    {
+      auxNameSession = QString::fromStdString(aux[i]);
+      ui->comboBox_2->addItem(auxNameSession);
+    }
     ui->pushButton->setDisabled(true);
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
     ui->comboBox->setEnabled(true);
+    ui->comboBox_2->setEnabled(true);
+    ui->pushButton_5->setEnabled(true);
 }
 
-void MainWindow::startSession()
+void MainWindow::StartSession()
 {
     const int selectedSession = ui->comboBox->currentIndex();
     switch (selectedSession) {
@@ -73,12 +92,19 @@ void MainWindow::startSession()
     }
 }
 
-void MainWindow::buttAcc()
+void MainWindow::ButtAcc()
 {
     winAcc = new accesswindow (us, this);
-    connect (winAcc, SIGNAL (UserAccess()), this, SLOT (usAcc()));
+    connect (winAcc, SIGNAL (UserAccess()), this, SLOT (UsAcc()));
     winAcc->show();
 }
 
+void MainWindow::ViewReport()
+{
+    const int indice = ui->comboBox_2->currentIndex();
+    Session* auxSes = us->GetSession(indice);
+    winData = new datawindow (auxSes);
+    winData->show();
+}
 
 

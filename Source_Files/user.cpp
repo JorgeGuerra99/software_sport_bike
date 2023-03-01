@@ -210,4 +210,12 @@ bool User::VerifUser (string &name, string &pass)
     return false;
 }
 
-
+vector <string> User::NameSessions ()
+{
+    vector <string> aux;
+    for ( int i = 0 ; i < (int) sessions.size(); i++ )
+    {
+        aux.push_back(sessions[i]->nameSession) ;
+    }
+    return aux;
+}

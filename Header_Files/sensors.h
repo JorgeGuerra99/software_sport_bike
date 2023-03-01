@@ -36,10 +36,10 @@ protected:
      */
     Sensors ( QSerialPort *p);
     virtual ~Sensors ();
-    virtual void GetValue () = 0;
     T currentValue = 0;
-public:
     QSerialPort *port;
+public:
+    virtual void GetValue () = 0;
 };
 
 
@@ -205,11 +205,6 @@ void PulseSensor<T>::GetValue()
 
     while(this->port->waitForReadyRead(100));
     buf = this->port->readAll();
-
-    //    if (sizeof(T) == sizeof (double))
-    //    {
-            //consultar
-    //    }
 
     this->port->clear();
 
