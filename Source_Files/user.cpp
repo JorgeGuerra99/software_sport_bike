@@ -84,6 +84,14 @@ bool User::LoadData()
         } else if (line.find("WEIGHTLOSS") != string::npos)
         {
             cout << "Se creo una weightloss" << endl;
+            auxWeightLoss = new WeightLoss ();
+            sessionsData >> * auxWeightLoss;
+            sessions.push_back(auxWeightLoss);
+        } else if (line.find("FREE") != string::npos)
+        {
+            auxFree = new Free ();
+            sessionsData >> * auxFree;
+            sessions.push_back(auxFree);
         }
     }
 
@@ -202,4 +210,12 @@ bool User::VerifUser (string &name, string &pass)
     return false;
 }
 
-
+vector <string> User::NameSessions ()
+{
+    vector <string> aux;
+    for ( int i = 0 ; i < (int) sessions.size(); i++ )
+    {
+        aux.push_back(sessions[i]->nameSession) ;
+    }
+    return aux;
+}

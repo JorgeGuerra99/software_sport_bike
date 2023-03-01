@@ -23,11 +23,9 @@ using namespace std;
  */
 class Bike
 {
-protected:
+public:
     Bike () { cout << "En constructor de bike "<< endl; };
     virtual ~Bike () {cout << "En destructor de bike "<< endl; };
-    virtual void ConfigSensors () = 0;
-public:
     virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
     virtual void ConfigSerial () = 0;
     VelocitySensor < double > *vSensor;
@@ -43,6 +41,11 @@ public:
      * @note Objeto del puerto serie a utilizar
      */
     QSerialPort portBike;
+
+protected:
+    virtual void ConfigSensors () = 0;
+
+
 };
 
 
@@ -73,19 +76,16 @@ public:
      */
     virtual void ConfigSerial ();
     /**
+     * @brief ConfigSensors
+     * @note crea los objetos de los diferentes sensores y los asocia al puerto serie
+     */
+    bool IsConfigured () const {return sensorsConfigured;}
+private:
+    virtual void ConfigSensors ();
+    /**
      * @brief sensorsConfigured
      * @note flag que indica si los sensores ya fueron configurados
      */
     bool sensorsConfigured = false;
-    VelocitySensor < double > *vSensor;
-    LoadSensor < double > *lSensor;
-    PulseSensor < double > *pSensor;
-
-private:
-    /**
-     * @brief ConfigSensors
-     * @note crea los objetos de los diferentes sensores y los asocia al puerto serie
-     */
-    virtual void ConfigSensors ();
 };
 #endif // BIKE_H
