@@ -30,13 +30,6 @@ void MainWindow::ButtReg()
 void MainWindow::UsReg()
 {
     us = winReg->usReg;
-    QString auxNameSession;
-    vector<string> aux = us->NameSessions();
-    for (int i =0 ; i< (int)aux.size();i++)
-    {
-      auxNameSession = QString::fromStdString(aux[i]);
-      ui->comboBox_2->addItem(auxNameSession);
-    }
     QString nam;
     nam = QString::fromStdString(us->nameUsr);
     ui->label->setText(nam);
@@ -44,14 +37,24 @@ void MainWindow::UsReg()
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
     ui->comboBox->setEnabled(true);
-    ui->comboBox_2->setEnabled(true);
-    ui->pushButton_5->setEnabled(true);
+/*    QString auxNameSession;
+    vector<string> aux = us->NameSessions();
+    for (int i =0 ; i< (int)aux.size();i++)
+    {
+      auxNameSession = QString::fromStdString(aux[i]);
+      ui->comboBox_2->addItem(auxNameSession);
+    }
+*/
 }
 
 void MainWindow::UsAcc()
 {
     us = winAcc->usAccess;
     ui->label->setText(QString::fromStdString(us->nameUsr));
+    ui->pushButton->setDisabled(true);
+    ui->pushButton_2->setDisabled(true);
+    ui->pushButton_4->setEnabled(true);
+    ui->comboBox->setEnabled(true);
     QString auxNameSession;
     vector<string> aux = us->NameSessions();
     for (int i =0 ; i< (int)aux.size();i++)
@@ -59,10 +62,6 @@ void MainWindow::UsAcc()
       auxNameSession = QString::fromStdString(aux[i]);
       ui->comboBox_2->addItem(auxNameSession);
     }
-    ui->pushButton->setDisabled(true);
-    ui->pushButton_2->setDisabled(true);
-    ui->pushButton_4->setEnabled(true);
-    ui->comboBox->setEnabled(true);
     ui->comboBox_2->setEnabled(true);
     ui->pushButton_5->setEnabled(true);
 }
@@ -80,13 +79,13 @@ void MainWindow::StartSession()
     case 1:
         cout << "Seleccionado perdida de peso" << endl;
         winWei = new weightwindow (us, this);
-        connect (winWei, SIGNAL(NewSession()), this, SLOT (UsReg()));
+        connect (winWei, SIGNAL(NewSession()), this, SLOT (RefreshSession()));
         winWei->show();
         break;
     case 2:
         cout << "Seleccionado libre" << endl;
         winFre = new FreeWindow (us, this);
-        connect (winFre, SIGNAL(NewSession()), this, SLOT (UsReg()));
+        connect (winFre, SIGNAL(NewSession()), this, SLOT (RefreshSession()));
         winFre->show ();
         break;
     default:
@@ -115,4 +114,6 @@ void MainWindow::RefreshSession ()
     QString auxNameSession;
    auxNameSession = QString::fromStdString (us->NameSessions().back());
    ui->comboBox_2->addItem(auxNameSession);
+   ui->comboBox_2->setEnabled(true);
+   ui->pushButton_5->setEnabled(true);
 }

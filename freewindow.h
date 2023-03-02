@@ -36,6 +36,8 @@ private slots:
     void ExportDataButton ();
     void SerialConfigButton ();
     void ReportButton ();
+signals:
+    void NewSession ();
 };
 
 #endif // FREEWINDOW_H
