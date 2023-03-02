@@ -26,6 +26,7 @@ weightwindow::weightwindow(User*& usu, QWidget *parent) :
 
 weightwindow::~weightwindow()
 {
+    emit NewSession ();
     delete ui;
     delete wei;
     cout << "destructor de weightwindow" << endl;

@@ -25,6 +25,7 @@ FreeWindow::FreeWindow(User*& usu, QWidget *parent) :
 
 FreeWindow::~FreeWindow()
 {
+    emit NewSession ();
     delete fre;
     delete ui;
 }
