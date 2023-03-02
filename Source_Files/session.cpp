@@ -128,15 +128,6 @@ void Cardio::WriteReport() const
     sessionFile << *this;
 }
 //-----------------------------------------------------------------------------------------------------------
-void Cardio::ReadReport()
-{
-    fstream sessionFile;
-    string fileName;
-    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
-    sessionFile.open( fileName, ios::in);
-    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
-    sessionFile >> *this;
-}
 
 double Cardio::CalcCalories() const
 
@@ -163,18 +154,18 @@ void Cardio::Sample()
 
         timeSes++;
         //Actualizo datos de sensores
-        bike.vSensor->GetValue();
-        bike.pSensor->GetValue();
-        bike.lSensor->GetValue();
+        bike.GetVelocitySensor()->GetValue();
+        bike.GetPulseSensor()->GetValue();
+        bike.GetLoadSensor()->GetValue();
 
         //Obtengo valores y guardo en vector
-        velocData.push_back(bike.vSensor->GetVeloc());
-        pulseData.push_back(bike.pSensor->GetPulse());
-        dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
+        velocData.push_back(bike.GetVelocitySensor()->GetVeloc());
+        pulseData.push_back(bike.GetPulseSensor()->GetPulse());
+        dataOfLoad.push_back(bike.GetLoadSensor()->GetLoad());
+        distance+= bike.GetVelocitySensor()->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
 
-        velMax = bike.vSensor->GetVelocMax();
-        velMed = bike.vSensor->GetVelocProm();
+        velMax = bike.GetVelocitySensor()->GetVelocMax();
+        velMed = bike.GetVelocitySensor()->GetVelocProm();
 
         //obtengo las calorias
         if(velocData.back()!=0.0)
@@ -201,9 +192,9 @@ void Cardio::Sample()
     }
     if (paused)
     {
-        bike.vSensor->GetValue();
+        bike.GetVelocitySensor()->GetValue();
         screenMessage = "Entrenamiento pausado";
-        if (bike.vSensor->GetVeloc()!= 0.0)
+        if (bike.GetVelocitySensor()->GetVeloc()!= 0.0)
         {
             paused = false;
             sesAct = true;
@@ -577,18 +568,18 @@ void WeightLoss::Sample ()
 
         timeSes++;
         //Actualizo datos de sensores
-        bike.vSensor->GetValue();
-        bike.pSensor->GetValue();
-        bike.lSensor->GetValue();
+        bike.GetVelocitySensor()->GetValue();
+        bike.GetPulseSensor()->GetValue();
+        bike.GetLoadSensor()->GetValue();
 
         //Obtengo valores y guardo en vector
-        velocData.push_back(bike.vSensor->GetVeloc());
-        pulseData.push_back(bike.pSensor->GetPulse());
-        dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
+        velocData.push_back(bike.GetVelocitySensor()->GetVeloc());
+        pulseData.push_back(bike.GetPulseSensor()->GetPulse());
+        dataOfLoad.push_back(bike.GetLoadSensor()->GetLoad());
+        distance+= bike.GetVelocitySensor()->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
 
-        velMax = bike.vSensor->GetVelocMax();
-        velMed = bike.vSensor->GetVelocProm();
+        velMax = bike.GetVelocitySensor()->GetVelocMax();
+        velMed = bike.GetVelocitySensor()->GetVelocProm();
 
         //obtengo el calculo de calorias
         if(velocData.back()!=0.0)
@@ -620,9 +611,9 @@ void WeightLoss::Sample ()
     }
     if (paused)
     {
-        bike.vSensor->GetValue();
+        bike.GetVelocitySensor()->GetValue();
         screenMessage = "Entrenamiento pausado";
-        if (bike.vSensor->GetVeloc()!= 0.0)
+        if (bike.GetVelocitySensor()->GetVeloc()!= 0.0)
         {
             paused = false;
             sesAct = true;
@@ -709,15 +700,6 @@ void WeightLoss::WriteReport () const
 }
 //--------------------------------------------------------------------------------------------------------
 
-void WeightLoss::ReadReport()
-{
-    fstream sessionFile;
-    string fileName;
-    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
-    sessionFile.open( fileName, ios::in);
-    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
-    sessionFile >> *this;
-}
 
 //--------------------------------------------------------------------------------------------------------
 bool WeightLoss::AlarmPpm ()
@@ -994,19 +976,18 @@ void Free::Sample()
 
         timeSes++;
         //Actualizo datos de sensores
-        bike.vSensor->GetValue();
-        bike.pSensor->GetValue();
-        bike.lSensor->GetValue();
+        bike.GetVelocitySensor()->GetValue();
+        bike.GetPulseSensor()->GetValue();
+        bike.GetLoadSensor()->GetValue();
 
         //Obtengo valores y guardo en vector
-        velocData.push_back(bike.vSensor->GetVeloc());
-        pulseData.push_back(bike.pSensor->GetPulse());
-        dataOfLoad.push_back(bike.lSensor->GetLoad());
-        distance+= bike.vSensor->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
+        velocData.push_back(bike.GetVelocitySensor()->GetVeloc());
+        pulseData.push_back(bike.GetPulseSensor()->GetPulse());
+        dataOfLoad.push_back(bike.GetLoadSensor()->GetLoad());
+        distance+= bike.GetVelocitySensor()->GetVeloc(1)*sampleTime/3600; //obtengo distancia en km
 
-        velMax = bike.vSensor->GetVelocMax();
-        velMed = bike.vSensor->GetVelocProm();
-
+        velMax = bike.GetVelocitySensor()->GetVelocMax();
+        velMed = bike.GetVelocitySensor()->GetVelocProm();
         //obtengo los valores de calorias
         if(velocData.back()!=0.0)
         {
@@ -1030,9 +1011,9 @@ void Free::Sample()
     }
     if (paused)
     {
-        bike.vSensor->GetValue();
+        bike.GetVelocitySensor()->GetValue();
         screenMessage = "Entrenamiento pausado";
-        if (bike.vSensor->GetVeloc()!= 0.0)
+        if (bike.GetVelocitySensor()->GetVeloc()!= 0.0)
         {
             paused = false;
             sesAct = true;
@@ -1050,17 +1031,6 @@ void Free::WriteReport() const
     sessionFile.open(fileName, ios::app);
     sessionFile << *this;
 }
-
-void Free::ReadReport()
-{
-    string fileName;
-    fstream sessionFile;
-    fileName =  sessionType + string ("_") + dataUser.name + string ("_") + date;
-    sessionFile.open( fileName, ios::in);
-    if (!sessionFile) cout << "ERROR AL ABRIR EL ARCHIVO" << endl;
-    sessionFile >> *this;
-}
-
 
 bool Free::AlarmPpm ()
 {

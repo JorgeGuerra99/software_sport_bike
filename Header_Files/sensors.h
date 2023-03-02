@@ -58,12 +58,6 @@ public:
      */
     virtual void GetValue ();
     /**
-     * @brief UpdateValue
-     * @note Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual
-     * de acuerdo a las últimas lecturas
-     */
-    void UpdateValue ();
-    /**
      * @brief GetPulse
      * @return Valor actual de pulso
      */
@@ -80,6 +74,12 @@ private:
      * @note Almacena datos instantáneos para luego promediar y actualizar currentValue
      */
     vector < T > instantData;
+    /**
+     * @brief UpdateValue
+     * @note Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual
+     * de acuerdo a las últimas lecturas
+     */
+    void UpdateValue ();
 };
 
 template < class T >

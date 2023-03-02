@@ -602,19 +602,6 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>400</y>
-      <width>181</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Abrir otra Sesión</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
@@ -812,14 +799,14 @@
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>41</width>
-      <height>41</height>
+      <x>270</x>
+      <y>400</y>
+      <width>181</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>Configurar puerto serie</string>
     </property>
     <property name="icon">
      <iconset>

@@ -73,7 +73,6 @@ protected:
     virtual void LoadConfig () = 0;
     virtual bool Pause () = 0; //pausa de entrenamiento
     virtual void End () = 0;
-    virtual void ReadReport () = 0;
     virtual bool AlarmPpm () = 0;
     virtual double CalcCalories ( )const = 0;
     virtual void Print (ostream& os) const = 0;
@@ -162,12 +161,6 @@ public:
      * @note Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
      */
     virtual void WriteReport () const;
-    virtual void ReadReport ();
-    /**
-     * @brief CalcCalories
-     * @return devuelve un doble con las calorias quemadas durante la sesión
-     */
-    virtual double CalcCalories ( )const ;
     /**
      * @brief Sample
      * @note método de muestreo a ejecutarse reiteradamente durante la sesión
@@ -175,6 +168,11 @@ public:
     virtual void Sample ();
     Cardio* operator* () { return this;}
 private:
+    /**
+     * @brief CalcCalories
+     * @return devuelve un doble con las calorias quemadas durante la sesión
+     */
+    virtual double CalcCalories ( ) const ;
     /**
      * @brief NoRutAlm
      * @note alerta de desvio de rutina
@@ -267,7 +265,6 @@ public:
      * @note Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
      */
     virtual void WriteReport () const;
-    virtual void ReadReport ();
     /**
      * @brief Sample
      * @note método de muestreo a ejecutarse reiteradamente durante la sesión
@@ -362,7 +359,6 @@ public:
      * @note Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
      */
     virtual void WriteReport () const;
-    virtual void ReadReport ();
     /**
      * @brief CalcCalories
      * @return devuelve un doble con las calorias quemadas durante la sesión

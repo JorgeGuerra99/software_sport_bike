@@ -34,7 +34,6 @@ private slots:
     void StopButton();
     void UiSample ();
     void ExportDataButton ();
-    void OpenSessionButton ();
     void SerialConfigButton ();
     void ReportButton ();
 };
