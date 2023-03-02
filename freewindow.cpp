@@ -14,7 +14,6 @@ FreeWindow::FreeWindow(User*& usu, QWidget *parent) :
     connect(ui->pushButton_3, SIGNAL (clicked()), this, SLOT(PauseButton()));
     connect(ui->pushButton_5, SIGNAL (clicked()), this, SLOT(StopButton()));
     connect (ui->pushButton_6, SIGNAL (clicked()), this, SLOT (deleteLater()));
-    connect(ui->pushButton_2, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
     connect(ui->pushButton_7, SIGNAL (clicked()), this, SLOT (SerialConfigButton()));
     connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT (ReportButton()));
 
@@ -79,11 +78,6 @@ void FreeWindow::UiSample()
 void FreeWindow::ExportDataButton()
 {
     fre->WriteReport();
-}
-
-void FreeWindow::OpenSessionButton()
-{
-    fre->ReadReport();
 }
 
 void FreeWindow::SerialConfigButton()

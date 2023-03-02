@@ -59,6 +59,8 @@ void User::SaveData()
     {
         sessionsData << *sessions [i];
     }
+    sessionsData.close();
+    this->LoadData();
 }
 
 bool User::LoadData()
@@ -71,7 +73,7 @@ bool User::LoadData()
         return false;
     }
     string line;
-
+    sessions.clear();
     while (!sessionsData.eof())
     {
         getline (sessionsData,line);

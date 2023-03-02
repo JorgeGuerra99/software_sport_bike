@@ -14,7 +14,6 @@ weightwindow::weightwindow(User*& usu, QWidget *parent) :
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT (UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT (StartButton()));
-    connect(ui->pushButton_2, SIGNAL (clicked()), this,SLOT(OpenSessionButton()));
     connect(ui->pushButton_3, SIGNAL (clicked()), this, SLOT(PauseButton()));
     connect(ui->pushButton_4, SIGNAL (clicked()), this, SLOT(ReportButton()));
     connect(ui->pushButton_5, SIGNAL (clicked()), this, SLOT(StopButton()));
@@ -79,11 +78,6 @@ void weightwindow::UiSample()
     ui->lcdNumber_6->display(wei->GetCalories());
     ui->label_7->setText(QString::fromStdString(wei->screenMessage));
 
-}
-
-void weightwindow::OpenSessionButton()
-{
-    wei->ReadReport();
 }
 
 void weightwindow::SerialConfigButton()

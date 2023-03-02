@@ -722,6 +722,7 @@
       <font>
        <family>Source Code Pro</family>
        <pointsize>14</pointsize>
+       <weight>75</weight>
        <italic>false</italic>
        <bold>true</bold>
       </font>
@@ -737,30 +738,17 @@
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>360</y>
-      <width>121</width>
+      <x>290</x>
+      <y>370</y>
+      <width>221</width>
       <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Abrir otra sesion</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
+     <string>Configurar puerto serie</string>
     </property>
     <property name="icon">
      <iconset>
@@ -776,9 +764,9 @@
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>360</y>
-      <width>121</width>
+      <x>580</x>
+      <y>370</y>
+      <width>221</width>
       <height>61</height>
      </rect>
     </property>

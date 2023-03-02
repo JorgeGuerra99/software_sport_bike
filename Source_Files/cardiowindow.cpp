@@ -14,7 +14,6 @@ CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
     connect(ui->pushButton_2, SIGNAL (clicked()), this, SLOT(PauseButton()));
     connect(ui->pushButton_3, SIGNAL (clicked()), this, SLOT(StopButton()));
     connect (ui->pushButton_5, SIGNAL (clicked()), this, SLOT (deleteLater()));
-    connect(ui->pushButton_6, SIGNAL (clicked()), this, SLOT (OpenSessionButton()));
     connect(ui->pushButton_7, SIGNAL (clicked()), this, SLOT (SerialConfigButton()));
     connect(ui->pushButton_8, SIGNAL (clicked()), this, SLOT (ReportButton()));
 
@@ -75,12 +74,6 @@ void CardioWindow::UiSample()
     ui->lcdNumber_5->display(car->GetDistance());
     ui->lcdNumber_6->display(car->GetCalories());
     ui->label_5->setText(QString::fromStdString(car->screenMessage));
-}
-
-
-void CardioWindow::OpenSessionButton()
-{
-    car->ReadReport();
 }
 
 void CardioWindow::SerialConfigButton()

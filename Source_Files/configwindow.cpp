@@ -21,7 +21,7 @@ ConfigWindow::~ConfigWindow()
 
 void ConfigWindow::ListPorts()
 {
-    QList <QSerialPortInfo> ports = ses->bike.portBikeInfo.availablePorts();
+    QList <QSerialPortInfo> ports = ses->bike.GetPortInfo()->availablePorts();
     portList.resize(ports.size());
     int i = 0;
     if (!ports.empty())
@@ -70,10 +70,10 @@ void ConfigWindow::SaveConfig()
 
     ses->bike.ConfigSerial(ui->comboBox->currentText(), baud, wdata, wpar, wstop);
 
-    cout << "Puerto seleccionado: " << ses->bike.portBike.portName().toStdString() << endl;
-    cout << "BaudRate: " << ses->bike.portBike.baudRate() << endl;
-    cout << "Paridad: " << ses->bike.portBike.parity() << endl;
-    cout << "Stop: " << ses->bike.portBike.stopBits() << endl;
-    cout << "Data: " << ses->bike.portBike.dataBits() << endl;
+    cout << "Puerto seleccionado: " << ses->bike.GetPort()->portName().toStdString() << endl;
+    cout << "BaudRate: " << ses->bike.GetPort()->baudRate() << endl;
+    cout << "Paridad: " << ses->bike.GetPort()->parity() << endl;
+    cout << "Stop: " << ses->bike.GetPort()->stopBits() << endl;
+    cout << "Data: " << ses->bike.GetPort()->dataBits() << endl;
     this->close();
 }

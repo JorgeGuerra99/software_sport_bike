@@ -28,6 +28,15 @@ public:
     virtual ~Bike () {cout << "En destructor de bike "<< endl; };
     virtual void ConfigSerial ( const QString &portname, const int &baud, const int &data, const int &par, const int &stop) = 0;
     virtual void ConfigSerial () = 0;
+    virtual VelocitySensor <double>* GetVelocitySensor () const = 0;
+    virtual PulseSensor <double>* GetPulseSensor () const = 0;
+    virtual LoadSensor <double>* GetLoadSensor () const = 0;
+    virtual const QSerialPort* GetPort () const = 0;
+    virtual const QSerialPortInfo* GetPortInfo () const = 0;
+
+
+
+protected:
     VelocitySensor < double > *vSensor;
     LoadSensor < double > *lSensor;
     PulseSensor < double > *pSensor;
@@ -41,8 +50,6 @@ public:
      * @note Objeto del puerto serie a utilizar
      */
     QSerialPort portBike;
-
-protected:
     virtual void ConfigSensors () = 0;
 
 
@@ -80,11 +87,28 @@ public:
      * @note crea los objetos de los diferentes sensores y los asocia al puerto serie
      */
     bool IsConfigured () const {return sensorsConfigured;}
+    /**
+     * @brief GetVelocitySensor
+     * @return Puntero a sensor de velocidad
+     */
+    virtual VelocitySensor <double>* GetVelocitySensor () const { return vSensor;}
+    /**
+     * @brief GetPulseSensor
+     * @return Puntero a sensor de pulso
+     */
+    virtual PulseSensor <double>* GetPulseSensor () const { return pSensor;};
+    /**
+     * @brief GetLoadSensor
+     * @return Puntero a sensor de carga
+     */
+    virtual LoadSensor <double>* GetLoadSensor () const { return lSensor;};
+    virtual const QSerialPort* GetPort () const { return &portBike;}
+    virtual const QSerialPortInfo* GetPortInfo () const { return &portBikeInfo;}
 private:
     virtual void ConfigSensors ();
     /**
      * @brief sensorsConfigured
-     * @note flag que indica si los sensores ya fueron configurados
+     * @note booleano que indica si los sensores ya fueron configurados
      */
     bool sensorsConfigured = false;
 };

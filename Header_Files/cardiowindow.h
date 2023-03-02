@@ -91,11 +91,6 @@ private slots:
      */
     void UiSample ();
     /**
-     * @brief OpenSessionButton
-     * @note SLOT asociado al botón de abrir otra sesión existente
-     */
-    void OpenSessionButton ();
-    /**
      * @brief SerialConfigButton
      * @note SLOT asociado al botón de configurar puerto serie
      * @details Crea y ejecuta la ventana de configuración del puerto serie
