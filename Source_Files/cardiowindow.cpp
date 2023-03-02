@@ -25,6 +25,7 @@ CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
 
 CardioWindow::~CardioWindow()
 {
+    emit NewSession ();
     delete ui;
     delete car;
     cout << "destructor de cardiowindow" << endl;

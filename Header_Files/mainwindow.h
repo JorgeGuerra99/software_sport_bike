@@ -94,6 +94,7 @@ private slots:
      */
     void StartSession();
     void ViewReport();
+    void RefreshSession ();
     /**
      * @brief closedWindow
      * @note cierra el programa

@@ -102,6 +102,8 @@ private slots:
      * @details Crea y ejecuta la ventana de reporte de sesión
      */
     void ReportButton ();
+signals:
+    void NewSession ();
 };
 
 #endif // CARDIOWINDOW_H

@@ -74,16 +74,19 @@ void MainWindow::StartSession()
     case 0:
         cout << "Seleccionado cardio" << endl;
         winCar = new CardioWindow (us, this);
+        connect (winCar, SIGNAL(NewSession()), this, SLOT (RefreshSession()));
         winCar->show();
         break;
     case 1:
         cout << "Seleccionado perdida de peso" << endl;
         winWei = new weightwindow (us, this);
+        connect (winWei, SIGNAL(NewSession()), this, SLOT (UsReg()));
         winWei->show();
         break;
     case 2:
         cout << "Seleccionado libre" << endl;
         winFre = new FreeWindow (us, this);
+        connect (winFre, SIGNAL(NewSession()), this, SLOT (UsReg()));
         winFre->show ();
         break;
     default:
@@ -107,4 +110,9 @@ void MainWindow::ViewReport()
     winData->show();
 }
 
-
+void MainWindow::RefreshSession ()
+{
+    QString auxNameSession;
+   auxNameSession = QString::fromStdString (us->NameSessions().back());
+   ui->comboBox_2->addItem(auxNameSession);
+}
