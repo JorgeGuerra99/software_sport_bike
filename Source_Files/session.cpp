@@ -417,7 +417,7 @@ istream& operator>> ( istream& ist, Cardio& car )
             car.calories = atof ( aux.c_str() );
         }
     }
-    car.nameSession = "Cardio-" + car.date;
+    car.nameSession = car.sessionType + ( "-" ) + car.date;
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline ( ist, line );
     while ( line.find( "FIN_DATOS" ) == string::npos )
@@ -770,7 +770,7 @@ istream& operator>> ( istream& ist, WeightLoss& wei )
             wei.calories = atof( aux.c_str() );
         }
     }
-    wei.nameSession = "WeightLoss-" + wei.date;
+    wei.nameSession = wei.sessionType + ( "-" ) + wei.date;
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline ( ist, line );
     while ( line.find( "FIN_DATOS" ) == string::npos )
@@ -1111,7 +1111,7 @@ istream& operator>> ( istream& ist, Free& free )
             free.calories = atof( aux.c_str() );
         }
     }
-    free.nameSession = free.sessionType + free.date;
+    free.nameSession = free.sessionType + ( "-" ) + free.date;
     //Extracción de datos instantáneos: Llenado de los vectores con los datos instantáneos
     getline ( ist, line );
     while ( line.find( "FIN_DATOS" ) == string::npos )

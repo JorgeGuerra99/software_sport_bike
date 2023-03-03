@@ -5,8 +5,8 @@ DialogWin::DialogWin(string msj, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogWin)
 {
-    ui->setupUi(this);
-    ui->label->setText(QString::fromStdString(msj));
+    ui->setupUi( this );
+    ui->label->setText( QString::fromStdString( msj ) );
 }
 
 DialogWin::~DialogWin()

@@ -2,13 +2,12 @@
 
 StateBike::StateBike(): Bike ()
 {
-    //state bike constructor
     cout << "En constructor de StateBike" << endl;
 }
 
 StateBike::~StateBike()
 {
-    if (sensorsConfigured){
+    if ( sensorsConfigured ){
         delete pSensor;
         delete vSensor;
         delete lSensor;
@@ -19,19 +18,17 @@ StateBike::~StateBike()
 
 void StateBike::ConfigSerial(const QString &portname, const int &baud, const int &data, const int &par, const int &stop)
 {
-    portBike.setPortName(portname);
-    portBike.setBaudRate( (QSerialPort::BaudRate) baud);
-    portBike.setDataBits( (QSerialPort::DataBits) data);
-    portBike.setParity( (QSerialPort::Parity) par);
-    portBike.setStopBits( (QSerialPort::StopBits) stop);
+    portBike.setPortName( portname );
+    portBike.setBaudRate( ( QSerialPort::BaudRate ) baud);
+    portBike.setDataBits( ( QSerialPort::DataBits ) data);
+    portBike.setParity( ( QSerialPort::Parity ) par);
+    portBike.setStopBits( ( QSerialPort::StopBits ) stop);
     ConfigSensors();
 }
 
-void StateBike::ConfigSerial ()
+void StateBike::ConfigSerial()
 {
-    //---------CONFIGURACIÓN POR DEFECTO DEL PUERTO SERIE-----------------------------------------
-
-    portBike.setPortName ("/dev/ttyACM0");
+    portBike.setPortName( "/dev/ttyACM0" );
     cout << "PUERTO "<< portBike.portName().toStdString() << endl;
     portBike.setBaudRate ( QSerialPort::Baud9600 );
     portBike.setDataBits ( QSerialPort::Data8 );
@@ -43,8 +40,8 @@ void StateBike::ConfigSerial ()
 
 void StateBike::ConfigSensors()
 {
-    pSensor = new PulseSensor <double> (&portBike);
-    vSensor = new VelocitySensor <double> (&portBike);
-    lSensor = new LoadSensor <double> (&portBike);
+    pSensor = new PulseSensor< double >( &portBike );
+    vSensor = new VelocitySensor< double >( &portBike );
+    lSensor = new LoadSensor< double >( &portBike );
     sensorsConfigured = true;
 }

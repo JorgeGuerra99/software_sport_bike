@@ -133,22 +133,6 @@ private:
      * @brief auxSession: Puntero auxiliar del objeto Session
      */
     Session* auxSession;
-    /**
-     * @brief numSessions: Propiedad con la cantidad de sesiones realizadas por el usuario
-     */
-    int numSessions = 0;
-    /**
-     * @brief numCardio: Propiedad con la cantidad de sesiones cardio realizadas por el usuario
-     */
-    int numCardio = 0;
-    /**
-     * @brief numWei: Propiedad con la cantidad de sesiones weightloss realizadas por el usuario
-     */
-    int numWei = 0;
-    /**
-     * @brief numFree: Propiedad con la cantidad de sesiones free realizadas por el usuario
-     */
-    int numFree = 0;
 };
 
 
