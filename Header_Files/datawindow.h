@@ -25,24 +25,25 @@ class datawindow : public QMainWindow
 
 public:
     /**
-     * @brief datawindow
-     * @param mySes Puntero a objeto de Session (clase base)
+     * @brief datawindow - Constructor
+     * @param mySes: Puntero a objeto de Session (clase base)
      * @param parent
      */
     explicit datawindow(Session*& mySes, QWidget *parent = nullptr);
     ~datawindow();
 private:
     Ui::datawindow *ui;
+    /**
+     * @brief ses: Puntero a objeto de sesión
+     */
     Session* ses;
     /**
-     * @brief diaWin
-     * @note Puntero a objeto de ventana de cuadro de diálogo
+     * @brief diaWin: Puntero a objeto de ventana de cuadro de diálogo
      */
     DialogWin* diaWin;
 private slots:
     /**
-     * @brief ExportDataButton
-     * @note SLOT asociado al botón de Exportar datos
+     * @brief ExportDataButton: SLOT asociado al botón de Exportar datos
      * @details Ejecuta el método WriteReport de la sesión
      */
     void ExportDataButton ();

@@ -20,7 +20,7 @@ class CardioWindow;
 }
 
 /**
- * @brief The CardioWindow class
+ * @brief The CardioWindow class: Clase abstracta
  */
 class CardioWindow : public QMainWindow
 {
@@ -37,72 +37,66 @@ public:
 
 private:
     Ui::CardioWindow *ui;
+    /**
+     * @brief us: Puntero a objeto de usuario
+     */
     User* us = nullptr;
     /**
-     * @brief car
-     * @note Puntero a objeto de sesión de entrenamiento (Cardio)
+     * @brief car: Puntero a objeto de sesión de entrenamiento (Cardio)
      */
     Cardio* car;
     /**
-     * @brief timer
-     * @note Objeto utilizado como timer para la sesión
+     * @brief timer: Objeto utilizado como timer para la sesión
      */
     QTimer timer;
-
     /**
-     * @brief pause
-     * @note Flag indicador de pausa de entrenamiento
+     * @brief pause: Flag indicador de pausa de entrenamiento
      */
     bool pause = false;
     /**
-     * @brief confWin
-     * @note Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie
+     * @brief confWin: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie
      */
     ConfigWindow* confWin;
     /**
-     * @brief datWin
-     * @note Puntero a objeto de interfaz gráfica de la ventana de reporte de datos
+     * @brief datWin: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos
      */
     datawindow* datWin;
 
 private slots:
     /**
-     * @brief StartButton
-     * @note SLOT asociado al botón de inicio de entrenamiento
+     * @brief StartButton: SLOT asociado al botón de inicio de entrenamiento
      * @details Ejecuta los métodos de start de la sesión y el timer
      */
     void StartButton();
     /**
-     * @brief PauseButton
-     * @note SLOT asociado al botón de pausar/reanudar entrenamiento
+     * @brief PauseButton: SLOT asociado al botón de pausar/reanudar entrenamiento
      * @details Modifica el flag "pause" del objeto de sesión - Detiene/Inicia el timer
      */
     void PauseButton();
     /**
-     * @brief StopButton
-     * @note SLOT asociado al botón de detener entrenamiento
+     * @brief StopButton: SLOT asociado al botón de detener entrenamiento
      * @details Detiene el timer y la sesión. Ejecuta el método de guardado de sesión
      */
     void StopButton();
     /**
-     * @brief UiSample
-     * @note SLOT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta
+     * @brief UiSample: SLOT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta
      * @details Se usa para ejecutar el método de muestreo de la sesión
      */
     void UiSample ();
     /**
-     * @brief SerialConfigButton
-     * @note SLOT asociado al botón de configurar puerto serie
+     * @brief SerialConfigButton: SLOT asociado al botón de configurar puerto serie
      * @details Crea y ejecuta la ventana de configuración del puerto serie
      */
     void SerialConfigButton ();
     /**
-     * @brief ReportButton
-     * @note SLOT asociado al botón de ver reporte
+     * @brief ReportButton: SLOT asociado al botón de ver reporte
      * @details Crea y ejecuta la ventana de reporte de sesión
      */
     void ReportButton ();
 signals:
+    /**
+     * @brief NewSession: Señal que es emitida para indicar que se realizó una sesión
+     */
     void NewSession ();
 };
 

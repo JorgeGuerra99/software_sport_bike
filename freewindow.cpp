@@ -7,7 +7,7 @@ FreeWindow::FreeWindow(User*& usu, QWidget *parent) :
 {
     ui->setupUi(this);
     us = usu;
-    fre = new Free (us->nameUsr, us->age, us->sex, us->weight, us->height);
+    fre = new Free (us->dataUser.name, us->dataUser.age, us->dataUser.sex, us->dataUser.weight, us->dataUser.height);
     timer.setInterval(1000);
     connect(&timer, SIGNAL (timeout()), this, SLOT(UiSample()));
     connect(ui->pushButton, SIGNAL (clicked()), this, SLOT(StartButton()));
@@ -74,11 +74,6 @@ void FreeWindow::UiSample()
     ui->lcdNumber_5->display(fre->GetLastData(2));
     ui->lcdNumber_6->display(fre->GetCalories());
     ui->label_7->setText(QString::fromStdString(fre->screenMessage));
-}
-
-void FreeWindow::ExportDataButton()
-{
-    fre->WriteReport();
 }
 
 void FreeWindow::SerialConfigButton()

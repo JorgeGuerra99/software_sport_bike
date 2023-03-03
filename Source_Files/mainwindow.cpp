@@ -37,14 +37,6 @@ void MainWindow::UsReg()
     ui->pushButton_2->setDisabled(true);
     ui->pushButton_4->setEnabled(true);
     ui->comboBox->setEnabled(true);
-/*    QString auxNameSession;
-    vector<string> aux = us->NameSessions();
-    for (int i =0 ; i< (int)aux.size();i++)
-    {
-      auxNameSession = QString::fromStdString(aux[i]);
-      ui->comboBox_2->addItem(auxNameSession);
-    }
-*/
 }
 
 void MainWindow::UsAcc()

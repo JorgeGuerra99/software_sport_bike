@@ -24,12 +24,15 @@ class accesswindow : public QMainWindow
 
 public:
     /**
-     * @brief accesswindow
-     * @param us : Objeto usuario donde se iniciará sesión
-     * @param parent : Padre
+     * @brief accesswindow - Constructor
+     * @param us: Objeto usuario donde se iniciará sesión
+     * @param parent
      */
     explicit accesswindow (User* us, QWidget *parent = nullptr);
     ~accesswindow();
+    /**
+     * @brief usAccess: Objeto del tipo usuario para poder iniciar sesión
+     */
     User *usAccess;
 
 private:
@@ -42,14 +45,12 @@ private slots:
      */
     void AccessUser ();
     /**
-     * @brief CancelAccess
-     * @note Cancelar acceso: Elimina la ventana
+     * @brief CancelAccess: Elimina la ventana
      */
     void CancelAccess () { delete this; };
 signals:
     /**
-     * @brief UserAccess
-     * @note Señal emitida cuando se accede exitosamente
+     * @brief UserAccess: Señal emitida cuando se accede exitosamente
      */
     void UserAccess ();
 };

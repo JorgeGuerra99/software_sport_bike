@@ -30,38 +30,35 @@ public:
     ~ConfigWindow();
 private:
     /**
-     * @brief ListPorts
-     * @note Utilizado para llenar la lista de los puertos serie disponibles
+     * @brief ListPorts: Utilizado para llenar la lista de los puertos serie disponibles
      */
     void ListPorts ();
     Ui::ConfigWindow *ui;
     /**
-     * @brief ses
-     * @note puntero del objeto sesión
+     * @brief ses: Puntero del objeto sesión
      */
     Session* ses;
     /**
-     * @brief portList
-     * @ note objeto utilizado para almacenar los puertos serie disponible
+     * @brief portList: Objeto utilizado para almacenar los puertos serie disponible
      */
     QStringList portList;
+    /**
+     * @brief baud: Es el valor de baudios por defectos que se muestra y utiliza el puerto serie para configurarlo
+     */
     int baud = QSerialPort::Baud9600;
 private slots:
     /**
-     * @brief BaudRateChanged
-     * @param value : valor extraido del slider
-     * @note SLOT asociado al slider de selección de baudRate
+     * @brief BaudRateChanged: SLOT asociado al slider de selección de baudRate
+     * @param value: Valor extraido del slider
      */
     void BaudRateChanged (int value);
     /**
-     * @brief SaveConfig
-     * @note SLOT asociado al botón de guardar la configuración
+     * @brief SaveConfig: SLOT asociado al botón de guardar la configuración
      * @details asigna al puerto serie los valores seleccionado por el usuario
      */
     void SaveConfig ();
     /**
-     * @brief Cancel
-     * @note cierra la ventana de configuración del puerto serie
+     * @brief Cancel: Cierra la ventana de configuración del puerto serie
      */
     void Cancel () { this->close(); }
 };

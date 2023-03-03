@@ -22,7 +22,7 @@ class DialogWin : public QDialog
 public:
     /**
      * @brief DialogWin - Constructor
-     * @param msj mensaje que se le desea mostrar al usuario
+     * @param msj: Mensaje que se le desea mostrar al usuario
      * @param parent
      */
     DialogWin(string msj, QWidget *parent = nullptr);
