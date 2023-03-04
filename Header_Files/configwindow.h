@@ -43,7 +43,7 @@ private:
      */
     QStringList portList;
     /**
-     * @brief baud: Es el valor de baudios por defectos que se muestra y utiliza el puerto serie para configurarlo
+     * @brief baud: Es el valor de baudios por defecto para asignar al puerto serie
      */
     int baud = QSerialPort::Baud9600;
 private slots:
