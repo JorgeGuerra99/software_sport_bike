@@ -20,7 +20,7 @@ class CardioWindow;
 }
 
 /**
- * @brief The CardioWindow class: Clase abstracta
+ * @brief The CardioWindow class
  */
 class CardioWindow : public QMainWindow
 {
