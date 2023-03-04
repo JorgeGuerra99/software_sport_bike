@@ -95,7 +95,7 @@ private slots:
     void ReportButton ();
 signals:
     /**
-     * @brief NewSession: Señal que es emitida para indicar que se realizó una sesión
+     * @brief NewSession: Señal emitida cuando se ha finalizado una nueva sesión
      */
     void NewSession ();
 };
