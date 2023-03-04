@@ -22,6 +22,9 @@
 enum {REGISTERED_USER, FILE_ERROR, US_PASS_INCORRECT, FILE_USER_NO_EXISTENT};
 using namespace std;
 
+/**
+ * @brief The User class: Objeto de usuario
+ */
 class User
 {
 public:

@@ -1,0 +1,240 @@
+\hypertarget{classCardioWindow}{}\doxysection{Referencia de la Clase Cardio\+Window}
+\label{classCardioWindow}\index{CardioWindow@{CardioWindow}}
+
+
+The \mbox{\hyperlink{classCardioWindow}{Cardio\+Window}} class\+: Ventana de sesión de entrenamiento del tipo \mbox{\hyperlink{classCardio}{Cardio}} (I\+N\+T\+E\+R\+F\+AZ G\+RÁ\+F\+I\+CA)  
+
+
+
+
+{\ttfamily \#include $<$cardiowindow.\+h$>$}
+
+
+
+Diagrama de herencias de Cardio\+Window
+% FIG 0
+
+
+Diagrama de colaboración para Cardio\+Window\+:
+% FIG 1
+\doxysubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCardioWindow_ad956cdb3632f87bc3043c264906ae599}{New\+Session}} ()
+\begin{DoxyCompactList}\small\item\em New\+Session\+: Señal emitida cuando se ha finalizado una nueva sesión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCardioWindow_a82a4aae4172de0f419372b2501d811ce}{Cardio\+Window}} (\mbox{\hyperlink{classUser}{User}} $\ast$\&usu, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCardioWindow}{Cardio\+Window}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCardioWindow_a5e6c414ea51811dbb7a0b0186b21db98}{$\sim$\+Cardio\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCardioWindow_a0273495872c9ce81ba61a8f612a169e3}{Start\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Start\+Button\+: S\+L\+OT asociado al botón de inicio de entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardioWindow_a9bd41279eb9ce7c2d36689cdd05f0d6a}{Pause\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Pause\+Button\+: S\+L\+OT asociado al botón de pausar/reanudar entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardioWindow_abfed7122df308a1ad93a766a0a0f0d10}{Stop\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Stop\+Button\+: S\+L\+OT asociado al botón de detener entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardioWindow_a91ccfe6a2b1976500ce08cec187da4ec}{Ui\+Sample}} ()
+\begin{DoxyCompactList}\small\item\em Ui\+Sample\+: S\+L\+OT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardioWindow_aed3a3092518413671462ad5ec9dda5f7}{Serial\+Config\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Serial\+Config\+Button\+: S\+L\+OT asociado al botón de configurar puerto serie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardioWindow_a349726872d9fa15242971492c007877b}{Report\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Report\+Button\+: S\+L\+OT asociado al botón de ver reporte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Cardio\+Window $\ast$ \mbox{\hyperlink{classCardioWindow_af74418e6b571fcd6bd29453d782a8df4}{ui}}
+\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classCardioWindow_aa57ce742fae60dd899ec0e487664421b}{us}} = nullptr
+\begin{DoxyCompactList}\small\item\em us\+: Puntero a objeto de usuario \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCardio}{Cardio}} $\ast$ \mbox{\hyperlink{classCardioWindow_aeff75203be6a1fc8779205d35418410f}{car}}
+\begin{DoxyCompactList}\small\item\em car\+: Puntero a objeto de sesión de entrenamiento (\mbox{\hyperlink{classCardio}{Cardio}}) \end{DoxyCompactList}\item 
+Q\+Timer \mbox{\hyperlink{classCardioWindow_a864a6b7005b77d1400b3cdcc621776af}{timer}}
+\begin{DoxyCompactList}\small\item\em timer\+: Objeto utilizado como timer para la sesión \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCardioWindow_af70e172daac2787064d3dad481bfa997}{pause}} = false
+\begin{DoxyCompactList}\small\item\em pause\+: Flag indicador de pausa de entrenamiento \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConfigWindow}{Config\+Window}} $\ast$ \mbox{\hyperlink{classCardioWindow_a175700c0b3c763c929aef758ca8a1e37}{conf\+Win}}
+\begin{DoxyCompactList}\small\item\em conf\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdatawindow}{datawindow}} $\ast$ \mbox{\hyperlink{classCardioWindow_a4e257b9f0677e7949f96bee0ac2814dc}{dat\+Win}}
+\begin{DoxyCompactList}\small\item\em dat\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classCardioWindow}{Cardio\+Window}} class\+: Ventana de sesión de entrenamiento del tipo \mbox{\hyperlink{classCardio}{Cardio}} (I\+N\+T\+E\+R\+F\+AZ G\+RÁ\+F\+I\+CA) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classCardioWindow_a82a4aae4172de0f419372b2501d811ce}\label{classCardioWindow_a82a4aae4172de0f419372b2501d811ce}} 
+\index{CardioWindow@{CardioWindow}!CardioWindow@{CardioWindow}}
+\index{CardioWindow@{CardioWindow}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{CardioWindow()}{CardioWindow()}}
+{\footnotesize\ttfamily Cardio\+Window\+::\+Cardio\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$\&}]{usu,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classCardioWindow}{Cardio\+Window}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em usu} & \+: Puntero a objeto Usuario \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCardioWindow_a5e6c414ea51811dbb7a0b0186b21db98}\label{classCardioWindow_a5e6c414ea51811dbb7a0b0186b21db98}} 
+\index{CardioWindow@{CardioWindow}!````~CardioWindow@{$\sim$CardioWindow}}
+\index{````~CardioWindow@{$\sim$CardioWindow}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$CardioWindow()}{~CardioWindow()}}
+{\footnotesize\ttfamily Cardio\+Window\+::$\sim$\+Cardio\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classCardioWindow_ad956cdb3632f87bc3043c264906ae599}\label{classCardioWindow_ad956cdb3632f87bc3043c264906ae599}} 
+\index{CardioWindow@{CardioWindow}!NewSession@{NewSession}}
+\index{NewSession@{NewSession}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{NewSession}{NewSession}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+New\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+New\+Session\+: Señal emitida cuando se ha finalizado una nueva sesión. 
+
+\mbox{\Hypertarget{classCardioWindow_a9bd41279eb9ce7c2d36689cdd05f0d6a}\label{classCardioWindow_a9bd41279eb9ce7c2d36689cdd05f0d6a}} 
+\index{CardioWindow@{CardioWindow}!PauseButton@{PauseButton}}
+\index{PauseButton@{PauseButton}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{PauseButton}{PauseButton}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+Pause\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Pause\+Button\+: S\+L\+OT asociado al botón de pausar/reanudar entrenamiento. 
+
+Modifica el flag \char`\"{}pause\char`\"{} del objeto de sesión -\/ Detiene/\+Inicia el timer \mbox{\Hypertarget{classCardioWindow_a349726872d9fa15242971492c007877b}\label{classCardioWindow_a349726872d9fa15242971492c007877b}} 
+\index{CardioWindow@{CardioWindow}!ReportButton@{ReportButton}}
+\index{ReportButton@{ReportButton}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{ReportButton}{ReportButton}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+Report\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Report\+Button\+: S\+L\+OT asociado al botón de ver reporte. 
+
+Crea y ejecuta la ventana de reporte de sesión \mbox{\Hypertarget{classCardioWindow_aed3a3092518413671462ad5ec9dda5f7}\label{classCardioWindow_aed3a3092518413671462ad5ec9dda5f7}} 
+\index{CardioWindow@{CardioWindow}!SerialConfigButton@{SerialConfigButton}}
+\index{SerialConfigButton@{SerialConfigButton}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{SerialConfigButton}{SerialConfigButton}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+Serial\+Config\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Serial\+Config\+Button\+: S\+L\+OT asociado al botón de configurar puerto serie. 
+
+Crea y ejecuta la ventana de configuración del puerto serie \mbox{\Hypertarget{classCardioWindow_a0273495872c9ce81ba61a8f612a169e3}\label{classCardioWindow_a0273495872c9ce81ba61a8f612a169e3}} 
+\index{CardioWindow@{CardioWindow}!StartButton@{StartButton}}
+\index{StartButton@{StartButton}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{StartButton}{StartButton}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+Start\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Start\+Button\+: S\+L\+OT asociado al botón de inicio de entrenamiento. 
+
+Ejecuta los métodos de start de la sesión y el timer \mbox{\Hypertarget{classCardioWindow_abfed7122df308a1ad93a766a0a0f0d10}\label{classCardioWindow_abfed7122df308a1ad93a766a0a0f0d10}} 
+\index{CardioWindow@{CardioWindow}!StopButton@{StopButton}}
+\index{StopButton@{StopButton}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{StopButton}{StopButton}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+Stop\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Stop\+Button\+: S\+L\+OT asociado al botón de detener entrenamiento. 
+
+Detiene el timer y la sesión. Ejecuta el método de guardado de sesión \mbox{\Hypertarget{classCardioWindow_a91ccfe6a2b1976500ce08cec187da4ec}\label{classCardioWindow_a91ccfe6a2b1976500ce08cec187da4ec}} 
+\index{CardioWindow@{CardioWindow}!UiSample@{UiSample}}
+\index{UiSample@{UiSample}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{UiSample}{UiSample}}
+{\footnotesize\ttfamily void Cardio\+Window\+::\+Ui\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Ui\+Sample\+: S\+L\+OT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta. 
+
+Se usa para ejecutar el método de muestreo de la sesión 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classCardioWindow_aeff75203be6a1fc8779205d35418410f}\label{classCardioWindow_aeff75203be6a1fc8779205d35418410f}} 
+\index{CardioWindow@{CardioWindow}!car@{car}}
+\index{car@{car}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{car}{car}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCardio}{Cardio}}$\ast$ Cardio\+Window\+::car\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+car\+: Puntero a objeto de sesión de entrenamiento (\mbox{\hyperlink{classCardio}{Cardio}}) 
+
+\mbox{\Hypertarget{classCardioWindow_a175700c0b3c763c929aef758ca8a1e37}\label{classCardioWindow_a175700c0b3c763c929aef758ca8a1e37}} 
+\index{CardioWindow@{CardioWindow}!confWin@{confWin}}
+\index{confWin@{confWin}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{confWin}{confWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigWindow}{Config\+Window}}$\ast$ Cardio\+Window\+::conf\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+conf\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie 
+
+\mbox{\Hypertarget{classCardioWindow_a4e257b9f0677e7949f96bee0ac2814dc}\label{classCardioWindow_a4e257b9f0677e7949f96bee0ac2814dc}} 
+\index{CardioWindow@{CardioWindow}!datWin@{datWin}}
+\index{datWin@{datWin}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{datWin}{datWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdatawindow}{datawindow}}$\ast$ Cardio\+Window\+::dat\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+dat\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos 
+
+\mbox{\Hypertarget{classCardioWindow_af70e172daac2787064d3dad481bfa997}\label{classCardioWindow_af70e172daac2787064d3dad481bfa997}} 
+\index{CardioWindow@{CardioWindow}!pause@{pause}}
+\index{pause@{pause}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily bool Cardio\+Window\+::pause = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pause\+: Flag indicador de pausa de entrenamiento 
+
+\mbox{\Hypertarget{classCardioWindow_a864a6b7005b77d1400b3cdcc621776af}\label{classCardioWindow_a864a6b7005b77d1400b3cdcc621776af}} 
+\index{CardioWindow@{CardioWindow}!timer@{timer}}
+\index{timer@{timer}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily Q\+Timer Cardio\+Window\+::timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+timer\+: Objeto utilizado como timer para la sesión 
+
+\mbox{\Hypertarget{classCardioWindow_af74418e6b571fcd6bd29453d782a8df4}\label{classCardioWindow_af74418e6b571fcd6bd29453d782a8df4}} 
+\index{CardioWindow@{CardioWindow}!ui@{ui}}
+\index{ui@{ui}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Cardio\+Window$\ast$ Cardio\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classCardioWindow_aa57ce742fae60dd899ec0e487664421b}\label{classCardioWindow_aa57ce742fae60dd899ec0e487664421b}} 
+\index{CardioWindow@{CardioWindow}!us@{us}}
+\index{us@{us}!CardioWindow@{CardioWindow}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ Cardio\+Window\+::us = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+us\+: Puntero a objeto de usuario 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{cardiowindow_8h}{cardiowindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{cardiowindow_8cpp}{cardiowindow.\+cpp}}\end{DoxyCompactItemize}

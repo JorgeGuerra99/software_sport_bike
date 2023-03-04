@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/accesswindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">accesswindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="accesswindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef ACCESSWINDOW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define ACCESSWINDOW_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QByteArray&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QCryptographicHash&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dialogwin_8h.html">dialogwin.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceUi.html">Ui</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="classaccesswindow.html">accesswindow</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classaccesswindow.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classaccesswindow.html">accesswindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classaccesswindow.html#a3d40d3873992f6a5f4549c0b2bcdffdf">accesswindow</a> (<a class="code" href="classUser.html">User</a>* us, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classaccesswindow.html#a7ec5d6077bdebefeb3207b078e401d3a">~accesswindow</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classaccesswindow.html#aba52150b7bad7b325ba01615a3eaae2c">   40</a></span>&#160;    <a class="code" href="classUser.html">User</a> *<a class="code" href="classaccesswindow.html#aba52150b7bad7b325ba01615a3eaae2c">usAccess</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classaccesswindow.html#a8f7e36a882d123045ae1540aefe4cfa8">   43</a></span>&#160;    Ui::accesswindow *<a class="code" href="classaccesswindow.html#a8f7e36a882d123045ae1540aefe4cfa8">ui</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classaccesswindow.html#abab9dcbf63837ccead14f990e0715306">AccessUser</a> ();</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classaccesswindow.html#a5663684ef9483b633525e0d83cf6e559">   54</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classaccesswindow.html#a5663684ef9483b633525e0d83cf6e559">CancelAccess</a> () { <span class="keyword">delete</span> <span class="keyword">this</span>; };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;signals:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classaccesswindow.html#a774535ea60a7df9ec72da1429532c796">UserAccess</a> ();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // ACCESSWINDOW_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="adialogwin_8h_html"><div class="ttname"><a href="dialogwin_8h.html">dialogwin.h</a></div><div class="ttdoc">Ventana para mostrar mensajes al usuario.</div></div>
+<div class="ttc" id="aclassaccesswindow_html_a8f7e36a882d123045ae1540aefe4cfa8"><div class="ttname"><a href="classaccesswindow.html#a8f7e36a882d123045ae1540aefe4cfa8">accesswindow::ui</a></div><div class="ttdeci">Ui::accesswindow * ui</div><div class="ttdef"><b>Definition:</b> accesswindow.h:43</div></div>
+<div class="ttc" id="aclassaccesswindow_html_a3d40d3873992f6a5f4549c0b2bcdffdf"><div class="ttname"><a href="classaccesswindow.html#a3d40d3873992f6a5f4549c0b2bcdffdf">accesswindow::accesswindow</a></div><div class="ttdeci">accesswindow(User *us, QWidget *parent=nullptr)</div><div class="ttdoc">accesswindow - Constructor</div><div class="ttdef"><b>Definition:</b> accesswindow.cpp:4</div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> freewindow.h:18</div></div>
+<div class="ttc" id="aclassaccesswindow_html_a7ec5d6077bdebefeb3207b078e401d3a"><div class="ttname"><a href="classaccesswindow.html#a7ec5d6077bdebefeb3207b078e401d3a">accesswindow::~accesswindow</a></div><div class="ttdeci">~accesswindow()</div><div class="ttdef"><b>Definition:</b> accesswindow.cpp:14</div></div>
+<div class="ttc" id="aclassaccesswindow_html"><div class="ttname"><a href="classaccesswindow.html">accesswindow</a></div><div class="ttdoc">The accesswindow class: Clase de ventana de acceso a usuario (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> accesswindow.h:25</div></div>
+<div class="ttc" id="aclassaccesswindow_html_abab9dcbf63837ccead14f990e0715306"><div class="ttname"><a href="classaccesswindow.html#abab9dcbf63837ccead14f990e0715306">accesswindow::AccessUser</a></div><div class="ttdeci">void AccessUser()</div><div class="ttdoc">AccessUser : Slot a ejecutar por el botón de acceder.</div><div class="ttdef"><b>Definition:</b> accesswindow.cpp:19</div></div>
+<div class="ttc" id="aclassaccesswindow_html_a774535ea60a7df9ec72da1429532c796"><div class="ttname"><a href="classaccesswindow.html#a774535ea60a7df9ec72da1429532c796">accesswindow::UserAccess</a></div><div class="ttdeci">void UserAccess()</div><div class="ttdoc">UserAccess: Señal emitida cuando se accede exitosamente.</div></div>
+<div class="ttc" id="aclassaccesswindow_html_a5663684ef9483b633525e0d83cf6e559"><div class="ttname"><a href="classaccesswindow.html#a5663684ef9483b633525e0d83cf6e559">accesswindow::CancelAccess</a></div><div class="ttdeci">void CancelAccess()</div><div class="ttdoc">CancelAccess: Elimina la ventana.</div><div class="ttdef"><b>Definition:</b> accesswindow.h:54</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">Clase Usuario: Contiene los datos y métodos de un usuario.</div></div>
+<div class="ttc" id="aclassaccesswindow_html_aba52150b7bad7b325ba01615a3eaae2c"><div class="ttname"><a href="classaccesswindow.html#aba52150b7bad7b325ba01615a3eaae2c">accesswindow::usAccess</a></div><div class="ttdeci">User * usAccess</div><div class="ttdoc">usAccess: Objeto del tipo usuario para poder iniciar sesión</div><div class="ttdef"><b>Definition:</b> accesswindow.h:40</div></div>
+<div class="ttc" id="aclassUser_html"><div class="ttname"><a href="classUser.html">User</a></div><div class="ttdoc">The User class: Objeto de usuario.</div><div class="ttdef"><b>Definition:</b> user.h:28</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/configwindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">configwindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="configwindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef CONFIGWINDOW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define CONFIGWINDOW_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="session_8h.html">session.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceUi.html">Ui</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="classConfigWindow.html">ConfigWindow</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classConfigWindow.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConfigWindow.html">ConfigWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classConfigWindow.html#afb8c42353d2db7da76f4f55bccfb02c4">ConfigWindow</a>(<a class="code" href="classSession.html">Session</a>*&amp; sesBike, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classConfigWindow.html#adceebb7cd8424669760354cd6e96ad3a">~ConfigWindow</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConfigWindow.html#a7c993f22e586e0ed8f6397cf3a6b9112">ListPorts</a> ();</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classConfigWindow.html#acee65b724be8b132279a1e7192496419">   39</a></span>&#160;    Ui::ConfigWindow *<a class="code" href="classConfigWindow.html#acee65b724be8b132279a1e7192496419">ui</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classConfigWindow.html#a55d6de2d524037cb1d7f23fa8ce97bfc">   43</a></span>&#160;    <a class="code" href="classSession.html">Session</a>* <a class="code" href="classConfigWindow.html#a55d6de2d524037cb1d7f23fa8ce97bfc">ses</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classConfigWindow.html#ae6cf50e58085d1284774d19c3e432f40">   47</a></span>&#160;    QStringList <a class="code" href="classConfigWindow.html#ae6cf50e58085d1284774d19c3e432f40">portList</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classConfigWindow.html#a522022a25e0183e60a54ec3fa5dab343">   51</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classConfigWindow.html#a522022a25e0183e60a54ec3fa5dab343">baud</a> = QSerialPort::Baud9600;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConfigWindow.html#a938c48f219d44dffcb0a9ae6e7f7cfc0">BaudRateChanged</a> (<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConfigWindow.html#ae973259506ead104393d4cf7bfc4ded8">SaveConfig</a> ();</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classConfigWindow.html#a37c5c3482d880839257339b2272042a2">   66</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConfigWindow.html#a37c5c3482d880839257339b2272042a2">Cancel</a> () { this-&gt;close(); }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif // CONFIGWINDOW_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassConfigWindow_html_ae6cf50e58085d1284774d19c3e432f40"><div class="ttname"><a href="classConfigWindow.html#ae6cf50e58085d1284774d19c3e432f40">ConfigWindow::portList</a></div><div class="ttdeci">QStringList portList</div><div class="ttdoc">portList: Objeto utilizado para almacenar los puertos serie disponible</div><div class="ttdef"><b>Definition:</b> configwindow.h:47</div></div>
+<div class="ttc" id="aclassConfigWindow_html_a7c993f22e586e0ed8f6397cf3a6b9112"><div class="ttname"><a href="classConfigWindow.html#a7c993f22e586e0ed8f6397cf3a6b9112">ConfigWindow::ListPorts</a></div><div class="ttdeci">void ListPorts()</div><div class="ttdoc">ListPorts: Utilizado para llenar la lista de los puertos serie disponibles.</div><div class="ttdef"><b>Definition:</b> configwindow.cpp:22</div></div>
+<div class="ttc" id="aclassConfigWindow_html_a55d6de2d524037cb1d7f23fa8ce97bfc"><div class="ttname"><a href="classConfigWindow.html#a55d6de2d524037cb1d7f23fa8ce97bfc">ConfigWindow::ses</a></div><div class="ttdeci">Session * ses</div><div class="ttdoc">ses: Puntero del objeto sesión</div><div class="ttdef"><b>Definition:</b> configwindow.h:43</div></div>
+<div class="ttc" id="aclassConfigWindow_html_afb8c42353d2db7da76f4f55bccfb02c4"><div class="ttname"><a href="classConfigWindow.html#afb8c42353d2db7da76f4f55bccfb02c4">ConfigWindow::ConfigWindow</a></div><div class="ttdeci">ConfigWindow(Session *&amp;sesBike, QWidget *parent=nullptr)</div><div class="ttdoc">ConfigWindow - Constructor.</div><div class="ttdef"><b>Definition:</b> configwindow.cpp:4</div></div>
+<div class="ttc" id="aclassSession_html"><div class="ttname"><a href="classSession.html">Session</a></div><div class="ttdoc">The Session class: Clase abstracta para sesión de entrenamiento genérica.</div><div class="ttdef"><b>Definition:</b> session.h:26</div></div>
+<div class="ttc" id="aclassConfigWindow_html_acee65b724be8b132279a1e7192496419"><div class="ttname"><a href="classConfigWindow.html#acee65b724be8b132279a1e7192496419">ConfigWindow::ui</a></div><div class="ttdeci">Ui::ConfigWindow * ui</div><div class="ttdef"><b>Definition:</b> configwindow.h:39</div></div>
+<div class="ttc" id="aclassConfigWindow_html_a37c5c3482d880839257339b2272042a2"><div class="ttname"><a href="classConfigWindow.html#a37c5c3482d880839257339b2272042a2">ConfigWindow::Cancel</a></div><div class="ttdeci">void Cancel()</div><div class="ttdoc">Cancel: Cierra la ventana de configuración del puerto serie.</div><div class="ttdef"><b>Definition:</b> configwindow.h:66</div></div>
+<div class="ttc" id="aclassConfigWindow_html"><div class="ttname"><a href="classConfigWindow.html">ConfigWindow</a></div><div class="ttdoc">The ConfigWindow class: Ventana de configuración del puerto serie (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> configwindow.h:21</div></div>
+<div class="ttc" id="aclassConfigWindow_html_ae973259506ead104393d4cf7bfc4ded8"><div class="ttname"><a href="classConfigWindow.html#ae973259506ead104393d4cf7bfc4ded8">ConfigWindow::SaveConfig</a></div><div class="ttdeci">void SaveConfig()</div><div class="ttdoc">SaveConfig: SLOT asociado al botón de guardar la configuración.</div><div class="ttdef"><b>Definition:</b> configwindow.cpp:60</div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> freewindow.h:18</div></div>
+<div class="ttc" id="aclassConfigWindow_html_adceebb7cd8424669760354cd6e96ad3a"><div class="ttname"><a href="classConfigWindow.html#adceebb7cd8424669760354cd6e96ad3a">ConfigWindow::~ConfigWindow</a></div><div class="ttdeci">~ConfigWindow()</div><div class="ttdef"><b>Definition:</b> configwindow.cpp:17</div></div>
+<div class="ttc" id="aclassConfigWindow_html_a938c48f219d44dffcb0a9ae6e7f7cfc0"><div class="ttname"><a href="classConfigWindow.html#a938c48f219d44dffcb0a9ae6e7f7cfc0">ConfigWindow::BaudRateChanged</a></div><div class="ttdeci">void BaudRateChanged(int value)</div><div class="ttdoc">BaudRateChanged: SLOT asociado al slider de selección de baudRate.</div><div class="ttdef"><b>Definition:</b> configwindow.cpp:36</div></div>
+<div class="ttc" id="aclassConfigWindow_html_a522022a25e0183e60a54ec3fa5dab343"><div class="ttname"><a href="classConfigWindow.html#a522022a25e0183e60a54ec3fa5dab343">ConfigWindow::baud</a></div><div class="ttdeci">int baud</div><div class="ttdoc">baud: Es el valor de baudios por defecto para asignar al puerto serie</div><div class="ttdef"><b>Definition:</b> configwindow.h:51</div></div>
+<div class="ttc" id="asession_8h_html"><div class="ttname"><a href="session_8h.html">session.h</a></div><div class="ttdoc">Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas...</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

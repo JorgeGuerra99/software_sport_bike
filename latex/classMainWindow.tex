@@ -1,0 +1,262 @@
+\hypertarget{classMainWindow}{}\doxysection{Referencia de la Clase Main\+Window}
+\label{classMainWindow}\index{MainWindow@{MainWindow}}
+
+
+The \mbox{\hyperlink{classMainWindow}{Main\+Window}} class\+: Ventana principal (Interfaz gráfica)  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Diagrama de herencias de Main\+Window
+% FIG 0
+
+
+Diagrama de colaboración para Main\+Window\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classMainWindow}{Main\+Window}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classMainWindow_a329d11426aae539fc23f7add1b7f8555}{us}} = nullptr
+\begin{DoxyCompactList}\small\item\em us\+: Puntero del objeto usuario \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainWindow_a29a49a3a4112abafb9ea61028314f7a1}{Butt\+Reg}} ()
+\begin{DoxyCompactList}\small\item\em butt\+Reg\+: S\+L\+OT asociado al botón de registrar un nuevo usuario \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a711b749c0980fc4c01d36b338bb6c9d7}{Us\+Reg}} ()
+\begin{DoxyCompactList}\small\item\em us\+Reg\+: S\+L\+OT asociado a la señal de usuario registrado \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a75f0572ff3f3a75be112fcc82941a4b0}{Butt\+Acc}} ()
+\begin{DoxyCompactList}\small\item\em butt\+Acc\+: S\+L\+OT asociado al botón de acceder a un usuario ya existente \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a0693510a032ff0c9b366d644da4444e5}{Us\+Acc}} ()
+\begin{DoxyCompactList}\small\item\em us\+Acc\+: S\+L\+OT asociado a la señal de ingreso de un usuario existente \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_adc133b34d8b102cc516f95be8aa7b30a}{Start\+Session}} ()
+\begin{DoxyCompactList}\small\item\em start\+Session\+: S\+L\+OT asociado al botón iniciar entrenamiento \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a0c7eff3162c42bc85d760f41f5622250}{View\+Report}} ()
+\begin{DoxyCompactList}\small\item\em View\+Report\+: S\+L\+OT asociado al botón de ver reporte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a22392bd964b753dc87871297a0320471}{Refresh\+Session}} ()
+\begin{DoxyCompactList}\small\item\em Refresh\+Session\+: S\+L\+OT asociado a la señal New\+Session () \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a6ef751c78b2be1fb843cc877581cddb5}{Closed\+Window}} ()
+\begin{DoxyCompactList}\small\item\em closed\+Window\+: Cierra el programa \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Main\+Window $\ast$ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}
+\item 
+\mbox{\hyperlink{classRegWindow}{Reg\+Window}} $\ast$ \mbox{\hyperlink{classMainWindow_a85ab439fdf9984c157d0b31ff408bc30}{win\+Reg}}
+\begin{DoxyCompactList}\small\item\em win\+Reg\+: Puntero del objeto ventana de registro \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classaccesswindow}{accesswindow}} $\ast$ \mbox{\hyperlink{classMainWindow_a9e643c2d8369807efe024a7f665b1543}{win\+Acc}}
+\begin{DoxyCompactList}\small\item\em win\+Acc\+: Puntero del objeto ventana de acceso \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCardioWindow}{Cardio\+Window}} $\ast$ \mbox{\hyperlink{classMainWindow_a1fdc6cd74eae0619545317ee607b7278}{win\+Car}}
+\begin{DoxyCompactList}\small\item\em win\+Car\+: Puntero del objeto ventana de sesión \mbox{\hyperlink{classCardio}{Cardio}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classweightwindow}{weightwindow}} $\ast$ \mbox{\hyperlink{classMainWindow_a833b107527cd7adb9d141e4898224e3e}{win\+Wei}}
+\begin{DoxyCompactList}\small\item\em win\+Wei\+: Puntero del objeto ventana de sesión \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFreeWindow}{Free\+Window}} $\ast$ \mbox{\hyperlink{classMainWindow_aa9524a05b54f158f3da686af2c806e80}{win\+Fre}}
+\begin{DoxyCompactList}\small\item\em win\+Fre\+: Puntero del objeto ventana de la sesión \mbox{\hyperlink{classFree}{Free}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdatawindow}{datawindow}} $\ast$ \mbox{\hyperlink{classMainWindow_ad76f000ed2fd23080504339ecd7676d2}{win\+Data}}
+\begin{DoxyCompactList}\small\item\em win\+Data\+: Puntero del objeto ventana de mostrar datos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classMainWindow}{Main\+Window}} class\+: Ventana principal (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classMainWindow_a996c5a2b6f77944776856f08ec30858d}\label{classMainWindow_a996c5a2b6f77944776856f08ec30858d}} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classMainWindow}{Main\+Window}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}\label{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{MainWindow@{MainWindow}!````~MainWindow@{$\sim$MainWindow}}
+\index{````~MainWindow@{$\sim$MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$MainWindow()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classMainWindow_a75f0572ff3f3a75be112fcc82941a4b0}\label{classMainWindow_a75f0572ff3f3a75be112fcc82941a4b0}} 
+\index{MainWindow@{MainWindow}!ButtAcc@{ButtAcc}}
+\index{ButtAcc@{ButtAcc}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{ButtAcc}{ButtAcc}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Butt\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+butt\+Acc\+: S\+L\+OT asociado al botón de acceder a un usuario ya existente 
+
+Crea y ejecita la ventana de accesswindow \mbox{\Hypertarget{classMainWindow_a29a49a3a4112abafb9ea61028314f7a1}\label{classMainWindow_a29a49a3a4112abafb9ea61028314f7a1}} 
+\index{MainWindow@{MainWindow}!ButtReg@{ButtReg}}
+\index{ButtReg@{ButtReg}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{ButtReg}{ButtReg}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Butt\+Reg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+butt\+Reg\+: S\+L\+OT asociado al botón de registrar un nuevo usuario 
+
+Crea y ejecuta la ventana regwindow \mbox{\Hypertarget{classMainWindow_a6ef751c78b2be1fb843cc877581cddb5}\label{classMainWindow_a6ef751c78b2be1fb843cc877581cddb5}} 
+\index{MainWindow@{MainWindow}!ClosedWindow@{ClosedWindow}}
+\index{ClosedWindow@{ClosedWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{ClosedWindow}{ClosedWindow}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Closed\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+closed\+Window\+: Cierra el programa 
+
+\mbox{\Hypertarget{classMainWindow_a22392bd964b753dc87871297a0320471}\label{classMainWindow_a22392bd964b753dc87871297a0320471}} 
+\index{MainWindow@{MainWindow}!RefreshSession@{RefreshSession}}
+\index{RefreshSession@{RefreshSession}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{RefreshSession}{RefreshSession}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Refresh\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Refresh\+Session\+: S\+L\+OT asociado a la señal New\+Session () 
+
+Se utiliza al detectar la señal emitida por las ventanas correspondientes a las sesiones, permitiendo actualizar la sesión que acaba de terminar de realizar el usuario \mbox{\Hypertarget{classMainWindow_adc133b34d8b102cc516f95be8aa7b30a}\label{classMainWindow_adc133b34d8b102cc516f95be8aa7b30a}} 
+\index{MainWindow@{MainWindow}!StartSession@{StartSession}}
+\index{StartSession@{StartSession}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{StartSession}{StartSession}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Start\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+start\+Session\+: S\+L\+OT asociado al botón iniciar entrenamiento 
+
+Crea y ejecuta la ventana correspondiente a la sesión elegida por el usuario \mbox{\Hypertarget{classMainWindow_a0693510a032ff0c9b366d644da4444e5}\label{classMainWindow_a0693510a032ff0c9b366d644da4444e5}} 
+\index{MainWindow@{MainWindow}!UsAcc@{UsAcc}}
+\index{UsAcc@{UsAcc}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{UsAcc}{UsAcc}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Us\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+us\+Acc\+: S\+L\+OT asociado a la señal de ingreso de un usuario existente 
+
+Asigna al puntero del objeto usuario la información obtenida de la ventana correspondiente \mbox{\Hypertarget{classMainWindow_a711b749c0980fc4c01d36b338bb6c9d7}\label{classMainWindow_a711b749c0980fc4c01d36b338bb6c9d7}} 
+\index{MainWindow@{MainWindow}!UsReg@{UsReg}}
+\index{UsReg@{UsReg}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{UsReg}{UsReg}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Us\+Reg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+us\+Reg\+: S\+L\+OT asociado a la señal de usuario registrado 
+
+Asigna al punterio del objeto usuario la información ingresada en la ventana correspondiente \mbox{\Hypertarget{classMainWindow_a0c7eff3162c42bc85d760f41f5622250}\label{classMainWindow_a0c7eff3162c42bc85d760f41f5622250}} 
+\index{MainWindow@{MainWindow}!ViewReport@{ViewReport}}
+\index{ViewReport@{ViewReport}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{ViewReport}{ViewReport}}
+{\footnotesize\ttfamily void Main\+Window\+::\+View\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+View\+Report\+: S\+L\+OT asociado al botón de ver reporte. 
+
+Crea y ejecuta la ventana correspondiente para mostrar los datos de sesión elegida por el usuario 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classMainWindow_a35466a70ed47252a0191168126a352a5}\label{classMainWindow_a35466a70ed47252a0191168126a352a5}} 
+\index{MainWindow@{MainWindow}!ui@{ui}}
+\index{ui@{ui}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Main\+Window$\ast$ Main\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classMainWindow_a329d11426aae539fc23f7add1b7f8555}\label{classMainWindow_a329d11426aae539fc23f7add1b7f8555}} 
+\index{MainWindow@{MainWindow}!us@{us}}
+\index{us@{us}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ Main\+Window\+::us = nullptr}
+
+
+
+us\+: Puntero del objeto usuario 
+
+\mbox{\Hypertarget{classMainWindow_a9e643c2d8369807efe024a7f665b1543}\label{classMainWindow_a9e643c2d8369807efe024a7f665b1543}} 
+\index{MainWindow@{MainWindow}!winAcc@{winAcc}}
+\index{winAcc@{winAcc}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{winAcc}{winAcc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classaccesswindow}{accesswindow}}$\ast$ Main\+Window\+::win\+Acc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+win\+Acc\+: Puntero del objeto ventana de acceso 
+
+\mbox{\Hypertarget{classMainWindow_a1fdc6cd74eae0619545317ee607b7278}\label{classMainWindow_a1fdc6cd74eae0619545317ee607b7278}} 
+\index{MainWindow@{MainWindow}!winCar@{winCar}}
+\index{winCar@{winCar}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{winCar}{winCar}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCardioWindow}{Cardio\+Window}}$\ast$ Main\+Window\+::win\+Car\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+win\+Car\+: Puntero del objeto ventana de sesión \mbox{\hyperlink{classCardio}{Cardio}} 
+
+\mbox{\Hypertarget{classMainWindow_ad76f000ed2fd23080504339ecd7676d2}\label{classMainWindow_ad76f000ed2fd23080504339ecd7676d2}} 
+\index{MainWindow@{MainWindow}!winData@{winData}}
+\index{winData@{winData}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{winData}{winData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdatawindow}{datawindow}}$\ast$ Main\+Window\+::win\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+win\+Data\+: Puntero del objeto ventana de mostrar datos 
+
+\mbox{\Hypertarget{classMainWindow_aa9524a05b54f158f3da686af2c806e80}\label{classMainWindow_aa9524a05b54f158f3da686af2c806e80}} 
+\index{MainWindow@{MainWindow}!winFre@{winFre}}
+\index{winFre@{winFre}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{winFre}{winFre}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFreeWindow}{Free\+Window}}$\ast$ Main\+Window\+::win\+Fre\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+win\+Fre\+: Puntero del objeto ventana de la sesión \mbox{\hyperlink{classFree}{Free}} 
+
+\mbox{\Hypertarget{classMainWindow_a85ab439fdf9984c157d0b31ff408bc30}\label{classMainWindow_a85ab439fdf9984c157d0b31ff408bc30}} 
+\index{MainWindow@{MainWindow}!winReg@{winReg}}
+\index{winReg@{winReg}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{winReg}{winReg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRegWindow}{Reg\+Window}}$\ast$ Main\+Window\+::win\+Reg\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+win\+Reg\+: Puntero del objeto ventana de registro 
+
+\mbox{\Hypertarget{classMainWindow_a833b107527cd7adb9d141e4898224e3e}\label{classMainWindow_a833b107527cd7adb9d141e4898224e3e}} 
+\index{MainWindow@{MainWindow}!winWei@{winWei}}
+\index{winWei@{winWei}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{winWei}{winWei}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classweightwindow}{weightwindow}}$\ast$ Main\+Window\+::win\+Wei\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+win\+Wei\+: Puntero del objeto ventana de sesión \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

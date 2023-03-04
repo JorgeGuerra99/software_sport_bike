@@ -1,0 +1,62 @@
+\hypertarget{sensors_8h}{}\doxysection{Referencia del Archivo Header\+\_\+\+Files/sensors.h}
+\label{sensors_8h}\index{Header\_Files/sensors.h@{Header\_Files/sensors.h}}
+
+
+Clase sensors y sus derivadas.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$Qt\+Serial\+Port/\+Q\+Serial\+Port$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$Qt\+Serial\+Port/\+Q\+Serial\+Port\+Info$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Dependencia gráfica adjunta para sensors.\+h\+:
+% FIG 0
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo\+:
+% FIG 1
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSensors}{Sensors$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classSensors}{Sensors}} class\+: Clase abstracta para sensor genérico. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} class\+: Clase derivada de sensor para sensor de pulso. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} class\+: Clase derivada de sensor para sensor de velocidad. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classLoadSensor}{Load\+Sensor$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} class\+: Clase derivada de sensor para sensor de carga. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{sensors_8h_a06fc87d81c62e9abb8790b6e5713c55baf7e5beacd7ca7bf57436e8c39aade8c8}{E\+R\+R\+O\+R\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+O\+P\+EN}}
+ \}
+\begin{DoxyCompactList}\small\item\em enum\+: Utilizado para contener errores de diferentes tipos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase sensors y sus derivadas. 
+
+Template para que pueda ser utilizada dependiendo del tipo de dato que entrega cada sensor \begin{DoxyDate}{Fecha}
+2023 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autores}
+Bazán María, Guerra Jorge 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las enumeraciones}
+\mbox{\Hypertarget{sensors_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{sensors_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+
+
+enum\+: Utilizado para contener errores de diferentes tipos 
+
+Errores al abrir el puerto serie \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_SERIAL\_OPEN@{ERROR\_SERIAL\_OPEN}!sensors.h@{sensors.h}}\index{sensors.h@{sensors.h}!ERROR\_SERIAL\_OPEN@{ERROR\_SERIAL\_OPEN}}}\mbox{\Hypertarget{sensors_8h_a06fc87d81c62e9abb8790b6e5713c55baf7e5beacd7ca7bf57436e8c39aade8c8}\label{sensors_8h_a06fc87d81c62e9abb8790b6e5713c55baf7e5beacd7ca7bf57436e8c39aade8c8}} 
+E\+R\+R\+O\+R\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+O\+P\+EN&\\
+\hline
+
+\end{DoxyEnumFields}

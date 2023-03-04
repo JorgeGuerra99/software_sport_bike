@@ -19,6 +19,9 @@ namespace Ui {
 class datawindow;
 }
 
+/**
+ * @brief The datawindow class: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)
+ */
 class datawindow : public QMainWindow
 {
     Q_OBJECT

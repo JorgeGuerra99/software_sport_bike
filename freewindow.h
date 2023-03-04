@@ -19,6 +19,9 @@ namespace Ui {
 class FreeWindow;
 }
 
+/**
+ * @brief The FreeWindow class: Ventana de sesión de entrenamiento del tipo Free (Interfaz gráfica)
+ */
 class FreeWindow : public QMainWindow
 {
     Q_OBJECT

@@ -1,0 +1,32 @@
+digraph "User"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="User",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="The User class: Objeto de usuario."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxCardio" ,fontname="Helvetica"];
+  Node2 [label="Cardio",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCardio.html",tooltip="The Cardio class: Clase de sesión de entrenamiento del tipo cardio."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Session",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html",tooltip="The Session class: Clase abstracta para sesión de entrenamiento genérica."];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bike" ,fontname="Helvetica"];
+  Node4 [label="StateBike",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classStateBike.html",tooltip="The StateBike class: Esta clase corresponde a una bicicleta estática."];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Bike",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBike.html",tooltip="The Bike class: Clase abstracta de objeto Bike."];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vSensor" ,fontname="Helvetica"];
+  Node6 [label="VelocitySensor\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVelocitySensor.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Sensors\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSensors.html",tooltip=" "];
+  Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pSensor" ,fontname="Helvetica"];
+  Node8 [label="PulseSensor\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPulseSensor.html",tooltip=" "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lSensor" ,fontname="Helvetica"];
+  Node9 [label="LoadSensor\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLoadSensor.html",tooltip=" "];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxWeightLoss" ,fontname="Helvetica"];
+  Node10 [label="WeightLoss",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWeightLoss.html",tooltip="The WeightLoss class: Sesión de entrenamiento de pérdida de peso."];
+  Node3 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxFree" ,fontname="Helvetica"];
+  Node11 [label="Free",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFree.html",tooltip="The Free class: Sesión de entrenamiento libre."];
+  Node3 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxSession" ,fontname="Helvetica"];
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/session.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">session.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="session_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef SESSION_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SESSION_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bike_8h.html">bike.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="session_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a1dbf923bd60da7209a684ed484935973">   21</a></span>&#160;<span class="keyword">enum</span> {<a class="code" href="session_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a54877f710ed02e24ba2d10ed2881a026">FILE_CONFIG_ERROR</a>, <a class="code" href="session_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a1dbf923bd60da7209a684ed484935973">INVALID_USER</a>};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classSession.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSession.html">Session</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> GetLastData (<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; a = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classSession.html#aef5333781f549e9ff2b1c939c1d6d14f">   39</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classSession.html#aef5333781f549e9ff2b1c939c1d6d14f">GetCalories</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> calories; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classSession.html#ae7b216f8f06b683520ac23fab4ea8f8a">   44</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classSession.html#ae7b216f8f06b683520ac23fab4ea8f8a">GetDistance</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> distance; }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">double</span> GetVelocMaxMed (<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; s = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> vector &lt;double&gt; GetAllData (<span class="keyword">const</span> <span class="keywordtype">char</span>&amp; sel = <span class="charliteral">&#39;P&#39;</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> WriteReport () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classSession.html#a774f58fff9a5932030ffaf255ec46d7f">   64</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSession.html#a774f58fff9a5932030ffaf255ec46d7f">nameSession</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classSession.html#afcc880c7a69d680ea9be70dd39c40d21">   68</a></span>&#160;    <span class="keywordtype">int</span> timeSes = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classSession.html#a7dbd907ff4bfd8ce37539774964009d6">   72</a></span>&#160;    <span class="keywordtype">string</span> screenMessage = <span class="stringliteral">&quot;Sesión de entrenamiento&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classSession.html#abc3def220e3cb53ac4924dd92cb84b85">   76</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSession.html#abc3def220e3cb53ac4924dd92cb84b85">sessionType</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classSession.html#a794e4b9b546a0be0d973393a97d6abbe">   80</a></span>&#160;    <a class="code" href="classStateBike.html">StateBike</a> <a class="code" href="classSession.html#a794e4b9b546a0be0d973393a97d6abbe">bike</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="session_8cpp.html#a03b9bfc0e85f9f2d321f7ddcb5adc38e">operator&lt;&lt; </a>(ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classSession.html">Session</a>&amp; session);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classSession.html">Session</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; age, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; sex, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; weight, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; height);</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classSession.html#ad92ef09b872c9227e38a6efdd4d8a837">   95</a></span>&#160;    <a class="code" href="classSession.html#ad92ef09b872c9227e38a6efdd4d8a837">Session</a> () { cout &lt;&lt; <span class="stringliteral">&quot;Constructor por defecto: Session&quot;</span> &lt;&lt; endl;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classSession.html#ac44f83f3472d320993e4d28d16846cc8">   96</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classSession.html#ac44f83f3472d320993e4d28d16846cc8">~Session</a> () {cout &lt;&lt; <span class="stringliteral">&quot;Destructor de session&quot;</span> &lt;&lt; endl;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Start () = 0;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Sample () = 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> LoadConfig () = 0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Pause () = 0;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> End () = 0;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> AlarmPpm ();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> CalcCalories ( )<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Print (ostream&amp; os) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classSession.html#a4f25acf81f5dff3fbe9cca81567aabc8">  139</a></span>&#160;    <span class="keywordtype">bool</span> IsPaused ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> paused; };</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    vector &lt; double &gt; velocData;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classSession.html#a23a157599645938ba94a411220799b66">  147</a></span>&#160;    vector &lt; double &gt; <a class="code" href="classSession.html#a23a157599645938ba94a411220799b66">pulseData</a>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classSession.html#a7f2aa64b56b4d0839053c4fdb28ce585">  151</a></span>&#160;    vector &lt; double &gt; <a class="code" href="classSession.html#a7f2aa64b56b4d0839053c4fdb28ce585">dataOfLoad</a>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classSession.html#ae805ea4fb2594f3362f6d8ba96ba3198">  155</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSession.html#ae805ea4fb2594f3362f6d8ba96ba3198">date</a>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="classSession.html#a761de2b7785bed3cc73a1038e4fa4dda">  159</a></span>&#160;    <span class="keywordtype">bool</span> sesAct = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classSession.html#aa0f52e870f6919cae73a6dfa6b5c823b">  164</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classSession.html#aa0f52e870f6919cae73a6dfa6b5c823b">name</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classSession.html#aca4eb847251e09c13a2d418490e07ca0">  165</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSession.html#aca4eb847251e09c13a2d418490e07ca0">age</a>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classSession.html#a2ffea959fde6a8d7858c62183a69b2f6">  166</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="classSession.html#a2ffea959fde6a8d7858c62183a69b2f6">sex</a>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classSession.html#a95f7b8b2c32d3a3749d35ec7b50b961e">  167</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classSession.html#a95f7b8b2c32d3a3749d35ec7b50b961e">weight</a>, height;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    } dataUser;</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classSession.html#a59af1f8cae26ca30f12a49623bf68d3e">  172</a></span>&#160;    <span class="keywordtype">bool</span> paused = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classSession.html#aae641068e27e26107eeb1f0a99ab5d7e">  176</a></span>&#160;    <span class="keywordtype">float</span> calories = 0.0;</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classSession.html#a33faeb8297848b6a2ccb0a1d37f09e22">  180</a></span>&#160;    <span class="keywordtype">float</span> distance = 0.0;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classSession.html#affba46191eb9e99d13076d9204cfa2bf">  184</a></span>&#160;    <span class="keywordtype">double</span> velMax = 0.0;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classSession.html#a0eb33652119216cc00ab673ca2d0eb22">  188</a></span>&#160;    <span class="keywordtype">double</span> velMed = 0.0;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="classSession.html#abaaeb55509c052622b6013cc4801399f">  192</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> sampleTime = 1;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classSession.html#a597c04e40a72006d67bbb18f1358df65">  196</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classSession.html#a597c04e40a72006d67bbb18f1358df65">ppmMax</a>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;};</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">//--------------------SESIÓN DE ENTRENAMIENTO: &quot;CARDIO&quot; ----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="classCardio.html">  206</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classCardio.html">Cardio</a> :<span class="keyword">public</span> <a class="code" href="classSession.html">Session</a></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;{</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <a class="code" href="classCardio.html">Cardio</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; age, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; sex, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; weight, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; height);</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="classCardio.html#a8db83907c89597b1e3b160e3929e78f1">  221</a></span>&#160;    <a class="code" href="classCardio.html#a8db83907c89597b1e3b160e3929e78f1">Cardio</a> () { cout &lt;&lt; <span class="stringliteral">&quot;Constructor por defecto: Cardio&quot;</span> &lt;&lt; endl; }</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="classCardio.html#abd9cf0cf2aa0c7f61ab35f0e35297ea8">  222</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCardio.html#abd9cf0cf2aa0c7f61ab35f0e35297ea8">~Cardio</a>() { cout &lt;&lt; <span class="stringliteral">&quot;destructor cardio&quot;</span> &lt;&lt; endl;}</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Start ();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Pause ();</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> End ();</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> WriteReport () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Sample ();</div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="classCardio.html#ab703c3b5b5340f233ac92271650fea93">  245</a></span>&#160;    <a class="code" href="classCardio.html">Cardio</a>* operator* () { <span class="keywordflow">return</span> <span class="keyword">this</span>;}</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">bool</span> NoRutAlm ();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">void</span> StageEval (<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; tim);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> LoadConfig ();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">void</span> Print (ostream&amp; os) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="session_8cpp.html#a03b9bfc0e85f9f2d321f7ddcb5adc38e">operator&lt;&lt; </a>(ostream&amp; ios, <span class="keyword">const</span> <a class="code" href="classCardio.html">Cardio</a>&amp; car);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keyword">friend</span> istream &amp;<a class="code" href="session_8cpp.html#a8b6c46246e080b6430c211eab692008f">operator&gt;&gt; </a>( istream&amp; ist, <a class="code" href="classCardio.html">Cardio</a>&amp; car);</div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="classCardio.html#ac5e230499020d21efb5f282a2b762433">  271</a></span>&#160;    <span class="keywordtype">int</span> stage = 0;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="classCardio.html#aa5f7b7051434f02ecfb556777800e0d6">  275</a></span>&#160;    vector &lt; int &gt; <a class="code" href="classCardio.html#aa5f7b7051434f02ecfb556777800e0d6">velocRef</a>;</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="classCardio.html#a3b28eae92adc17f3a5eff6a31a1a548b">  279</a></span>&#160;    vector &lt; int &gt; <a class="code" href="classCardio.html#a3b28eae92adc17f3a5eff6a31a1a548b">timeRef</a>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;};</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">//---------------------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">//---------------------SESIÓN DE ENTRENAMIENTO: &quot;WEIGHTLOSS&quot; ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">//---------------------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="classWeightLoss.html">  290</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classWeightLoss.html">WeightLoss</a>: <span class="keyword">public</span> <a class="code" href="classSession.html">Session</a></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <a class="code" href="classWeightLoss.html">WeightLoss</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; age, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; sex, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; weight, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; height);</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="classWeightLoss.html#a278b80dd3b5bec3df3d23be18080884f">  305</a></span>&#160;    <a class="code" href="classWeightLoss.html#a278b80dd3b5bec3df3d23be18080884f">WeightLoss</a> (){ cout &lt;&lt; <span class="stringliteral">&quot;Constructor por defecto: WeightLoss&quot;</span> &lt;&lt; endl; }</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="classWeightLoss.html#a317cc8689f77640a7bfec335380b8af1">  306</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classWeightLoss.html#a317cc8689f77640a7bfec335380b8af1">~WeightLoss</a>() { cout &lt;&lt; <span class="stringliteral">&quot;destructor de weightloss&quot;</span> &lt;&lt; endl;}</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Start ();</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Pause () ;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> End ();</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> WriteReport () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Sample ();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">bool</span> NoRutAlm();</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> LoadConfig ();</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordtype">void</span> Print (ostream&amp; os) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="session_8cpp.html#a03b9bfc0e85f9f2d321f7ddcb5adc38e">operator&lt;&lt; </a>(ostream&amp; ios, <span class="keyword">const</span> <a class="code" href="classWeightLoss.html">WeightLoss</a>&amp; wei);</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keyword">friend</span> istream&amp; <a class="code" href="session_8cpp.html#a8b6c46246e080b6430c211eab692008f">operator&gt;&gt; </a>( istream&amp; ist, <a class="code" href="classWeightLoss.html">WeightLoss</a>&amp; wei);</div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="classWeightLoss.html#a14e29df8f27e90024939771c5aaf5a1e">  351</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classWeightLoss.html#a14e29df8f27e90024939771c5aaf5a1e">timeRef</a>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">//vector &lt; float &gt; intensityRef;</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="classWeightLoss.html#a196df7e38d65efef80c9f22356b82655">  360</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span> <a class="code" href="classWeightLoss.html#a196df7e38d65efef80c9f22356b82655">intensityMaxFc</a>;</div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="classWeightLoss.html#a2067e01ab557ff1ee3d5e302549589e4">  365</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classWeightLoss.html#a2067e01ab557ff1ee3d5e302549589e4">intensityMinFc</a>;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;};</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">//---------------------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">//---------------------SESIÓN DE ENTRENAMIENTO: &quot;FREE&quot; ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">//---------------------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="classFree.html">  375</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classFree.html">Free</a>: <span class="keyword">public</span> <a class="code" href="classSession.html">Session</a></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;{</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <a class="code" href="classFree.html">Free</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; age, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; sex, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; weight, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; height);</div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="classFree.html#a4a847fee0a934284fc4581282706e885">  390</a></span>&#160;    <a class="code" href="classFree.html#a4a847fee0a934284fc4581282706e885">Free</a>(){ cout &lt;&lt; <span class="stringliteral">&quot;Constructor por defecto: Free&quot;</span> &lt;&lt; endl; }</div>
+<div class="line"><a name="l00391"></a><span class="lineno"><a class="line" href="classFree.html#a79b1d37583b37c288bdb60e0425b2ccd">  391</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classFree.html#a79b1d37583b37c288bdb60e0425b2ccd">~Free</a> () { cout &lt;&lt; <span class="stringliteral">&quot;destructor de free&quot;</span>  &lt;&lt; endl;}</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Start ();</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Pause ();</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> End ();</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Sample ();</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> WriteReport () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00415"></a><span class="lineno"><a class="line" href="classFree.html#aad5ff896480402a53480fe50ad20dd83">  415</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classFree.html#aad5ff896480402a53480fe50ad20dd83">LoadConfig</a> () {}</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keywordtype">void</span> Print (ostream&amp; os) <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="session_8cpp.html#a03b9bfc0e85f9f2d321f7ddcb5adc38e">operator&lt;&lt; </a>(ostream&amp; ios, <span class="keyword">const</span> <a class="code" href="classFree.html">Free</a>&amp; free);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keyword">friend</span> istream&amp; <a class="code" href="session_8cpp.html#a8b6c46246e080b6430c211eab692008f">operator&gt;&gt; </a>( istream&amp; ist, <a class="code" href="classFree.html">Free</a>&amp; free);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;};</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="preprocessor">#endif // SESSION_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassWeightLoss_html_a278b80dd3b5bec3df3d23be18080884f"><div class="ttname"><a href="classWeightLoss.html#a278b80dd3b5bec3df3d23be18080884f">WeightLoss::WeightLoss</a></div><div class="ttdeci">WeightLoss()</div><div class="ttdoc">WeightLoss - Constructor.</div><div class="ttdef"><b>Definition:</b> session.h:305</div></div>
+<div class="ttc" id="aclassSession_html_a774f58fff9a5932030ffaf255ec46d7f"><div class="ttname"><a href="classSession.html#a774f58fff9a5932030ffaf255ec46d7f">Session::nameSession</a></div><div class="ttdeci">string nameSession</div><div class="ttdoc">nameSession: Propiedad donde se almacena el nombre de la sesión realizada</div><div class="ttdef"><b>Definition:</b> session.h:64</div></div>
+<div class="ttc" id="aclassSession_html_aca4eb847251e09c13a2d418490e07ca0"><div class="ttname"><a href="classSession.html#aca4eb847251e09c13a2d418490e07ca0">Session::age</a></div><div class="ttdeci">int age</div><div class="ttdef"><b>Definition:</b> session.h:165</div></div>
+<div class="ttc" id="aclassSession_html_a7f2aa64b56b4d0839053c4fdb28ce585"><div class="ttname"><a href="classSession.html#a7f2aa64b56b4d0839053c4fdb28ce585">Session::dataOfLoad</a></div><div class="ttdeci">vector&lt; double &gt; dataOfLoad</div><div class="ttdoc">dataOfLoad: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del ...</div><div class="ttdef"><b>Definition:</b> session.h:151</div></div>
+<div class="ttc" id="asession_8h_html_adf764cbdea00d65edcd07bb9953ad2b7a54877f710ed02e24ba2d10ed2881a026"><div class="ttname"><a href="session_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a54877f710ed02e24ba2d10ed2881a026">FILE_CONFIG_ERROR</a></div><div class="ttdeci">@ FILE_CONFIG_ERROR</div><div class="ttdef"><b>Definition:</b> session.h:21</div></div>
+<div class="ttc" id="aclassCardio_html_a8db83907c89597b1e3b160e3929e78f1"><div class="ttname"><a href="classCardio.html#a8db83907c89597b1e3b160e3929e78f1">Cardio::Cardio</a></div><div class="ttdeci">Cardio()</div><div class="ttdoc">Cardio - Constructor.</div><div class="ttdef"><b>Definition:</b> session.h:221</div></div>
+<div class="ttc" id="aclassSession_html_a794e4b9b546a0be0d973393a97d6abbe"><div class="ttname"><a href="classSession.html#a794e4b9b546a0be0d973393a97d6abbe">Session::bike</a></div><div class="ttdeci">StateBike bike</div><div class="ttdoc">bike: Objeto de la clase StateBike</div><div class="ttdef"><b>Definition:</b> session.h:80</div></div>
+<div class="ttc" id="aclassWeightLoss_html_a2067e01ab557ff1ee3d5e302549589e4"><div class="ttname"><a href="classWeightLoss.html#a2067e01ab557ff1ee3d5e302549589e4">WeightLoss::intensityMinFc</a></div><div class="ttdeci">float intensityMinFc</div><div class="ttdoc">intensityMinFc: Propiedad donde se almacena el valor de intensidad mínimo que debe realizar el usario</div><div class="ttdef"><b>Definition:</b> session.h:365</div></div>
+<div class="ttc" id="aclassFree_html_a79b1d37583b37c288bdb60e0425b2ccd"><div class="ttname"><a href="classFree.html#a79b1d37583b37c288bdb60e0425b2ccd">Free::~Free</a></div><div class="ttdeci">virtual ~Free()</div><div class="ttdef"><b>Definition:</b> session.h:391</div></div>
+<div class="ttc" id="aclassWeightLoss_html"><div class="ttname"><a href="classWeightLoss.html">WeightLoss</a></div><div class="ttdoc">The WeightLoss class: Sesión de entrenamiento de pérdida de peso.</div><div class="ttdef"><b>Definition:</b> session.h:290</div></div>
+<div class="ttc" id="aclassWeightLoss_html_a317cc8689f77640a7bfec335380b8af1"><div class="ttname"><a href="classWeightLoss.html#a317cc8689f77640a7bfec335380b8af1">WeightLoss::~WeightLoss</a></div><div class="ttdeci">virtual ~WeightLoss()</div><div class="ttdef"><b>Definition:</b> session.h:306</div></div>
+<div class="ttc" id="aclassFree_html"><div class="ttname"><a href="classFree.html">Free</a></div><div class="ttdoc">The Free class: Sesión de entrenamiento libre.</div><div class="ttdef"><b>Definition:</b> session.h:375</div></div>
+<div class="ttc" id="aclassSession_html_a2ffea959fde6a8d7858c62183a69b2f6"><div class="ttname"><a href="classSession.html#a2ffea959fde6a8d7858c62183a69b2f6">Session::sex</a></div><div class="ttdeci">char sex</div><div class="ttdef"><b>Definition:</b> session.h:166</div></div>
+<div class="ttc" id="aclassSession_html_abc3def220e3cb53ac4924dd92cb84b85"><div class="ttname"><a href="classSession.html#abc3def220e3cb53ac4924dd92cb84b85">Session::sessionType</a></div><div class="ttdeci">string sessionType</div><div class="ttdoc">sessionType: Se asigna el tipo de sesión que vaya a elegir el usuario</div><div class="ttdef"><b>Definition:</b> session.h:76</div></div>
+<div class="ttc" id="aclassFree_html_aad5ff896480402a53480fe50ad20dd83"><div class="ttname"><a href="classFree.html#aad5ff896480402a53480fe50ad20dd83">Free::LoadConfig</a></div><div class="ttdeci">virtual void LoadConfig()</div><div class="ttdoc">LoadConfig: Asigna a los contenedores correspondientes la configuración de la sesión.</div><div class="ttdef"><b>Definition:</b> session.h:415</div></div>
+<div class="ttc" id="aclassCardio_html"><div class="ttname"><a href="classCardio.html">Cardio</a></div><div class="ttdoc">The Cardio class: Clase de sesión de entrenamiento del tipo cardio.</div><div class="ttdef"><b>Definition:</b> session.h:206</div></div>
+<div class="ttc" id="aclassSession_html"><div class="ttname"><a href="classSession.html">Session</a></div><div class="ttdoc">The Session class: Clase abstracta para sesión de entrenamiento genérica.</div><div class="ttdef"><b>Definition:</b> session.h:26</div></div>
+<div class="ttc" id="aclassSession_html_aef5333781f549e9ff2b1c939c1d6d14f"><div class="ttname"><a href="classSession.html#aef5333781f549e9ff2b1c939c1d6d14f">Session::GetCalories</a></div><div class="ttdeci">float GetCalories() const</div><div class="ttdoc">GetCalories: Permite obtener el valor de las calorias quemadas en la sesión.</div><div class="ttdef"><b>Definition:</b> session.h:39</div></div>
+<div class="ttc" id="abike_8h_html"><div class="ttname"><a href="bike_8h.html">bike.h</a></div><div class="ttdoc">Contiene los diferentes sensores disponibles y el puerto serie de bike.</div></div>
+<div class="ttc" id="asession_8h_html_adf764cbdea00d65edcd07bb9953ad2b7a1dbf923bd60da7209a684ed484935973"><div class="ttname"><a href="session_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a1dbf923bd60da7209a684ed484935973">INVALID_USER</a></div><div class="ttdeci">@ INVALID_USER</div><div class="ttdef"><b>Definition:</b> session.h:21</div></div>
+<div class="ttc" id="aclassSession_html_ad92ef09b872c9227e38a6efdd4d8a837"><div class="ttname"><a href="classSession.html#ad92ef09b872c9227e38a6efdd4d8a837">Session::Session</a></div><div class="ttdeci">Session()</div><div class="ttdoc">Session - Constructor.</div><div class="ttdef"><b>Definition:</b> session.h:95</div></div>
+<div class="ttc" id="aclassStateBike_html"><div class="ttname"><a href="classStateBike.html">StateBike</a></div><div class="ttdoc">The StateBike class: Esta clase corresponde a una bicicleta estática.</div><div class="ttdef"><b>Definition:</b> bike.h:102</div></div>
+<div class="ttc" id="aclassSession_html_a95f7b8b2c32d3a3749d35ec7b50b961e"><div class="ttname"><a href="classSession.html#a95f7b8b2c32d3a3749d35ec7b50b961e">Session::weight</a></div><div class="ttdeci">float weight</div><div class="ttdef"><b>Definition:</b> session.h:167</div></div>
+<div class="ttc" id="aclassSession_html_ac44f83f3472d320993e4d28d16846cc8"><div class="ttname"><a href="classSession.html#ac44f83f3472d320993e4d28d16846cc8">Session::~Session</a></div><div class="ttdeci">virtual ~Session()</div><div class="ttdef"><b>Definition:</b> session.h:96</div></div>
+<div class="ttc" id="aclassCardio_html_a3b28eae92adc17f3a5eff6a31a1a548b"><div class="ttname"><a href="classCardio.html#a3b28eae92adc17f3a5eff6a31a1a548b">Cardio::timeRef</a></div><div class="ttdeci">vector&lt; int &gt; timeRef</div><div class="ttdoc">timerRef: Perteneciente al contenedor de vector donde se asignan los valores pertenecientes a la conf...</div><div class="ttdef"><b>Definition:</b> session.h:279</div></div>
+<div class="ttc" id="aclassCardio_html_aa5f7b7051434f02ecfb556777800e0d6"><div class="ttname"><a href="classCardio.html#aa5f7b7051434f02ecfb556777800e0d6">Cardio::velocRef</a></div><div class="ttdeci">vector&lt; int &gt; velocRef</div><div class="ttdoc">velocRef: Perteneciente al contenedor de vector donde se asignan los valores pertenecientes a la conf...</div><div class="ttdef"><b>Definition:</b> session.h:275</div></div>
+<div class="ttc" id="aclassCardio_html_abd9cf0cf2aa0c7f61ab35f0e35297ea8"><div class="ttname"><a href="classCardio.html#abd9cf0cf2aa0c7f61ab35f0e35297ea8">Cardio::~Cardio</a></div><div class="ttdeci">virtual ~Cardio()</div><div class="ttdef"><b>Definition:</b> session.h:222</div></div>
+<div class="ttc" id="aclassSession_html_aa0f52e870f6919cae73a6dfa6b5c823b"><div class="ttname"><a href="classSession.html#aa0f52e870f6919cae73a6dfa6b5c823b">Session::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> session.h:164</div></div>
+<div class="ttc" id="aclassSession_html_a597c04e40a72006d67bbb18f1358df65"><div class="ttname"><a href="classSession.html#a597c04e40a72006d67bbb18f1358df65">Session::ppmMax</a></div><div class="ttdeci">float ppmMax</div><div class="ttdoc">ppmMax: Valor donde se asigna el máximo valor de pulsación para el usuario</div><div class="ttdef"><b>Definition:</b> session.h:196</div></div>
+<div class="ttc" id="aclassWeightLoss_html_a14e29df8f27e90024939771c5aaf5a1e"><div class="ttname"><a href="classWeightLoss.html#a14e29df8f27e90024939771c5aaf5a1e">WeightLoss::timeRef</a></div><div class="ttdeci">float timeRef</div><div class="ttdoc">timeRef: Permite el almacenamiento del tiempo que debe cumplir la sesión</div><div class="ttdef"><b>Definition:</b> session.h:351</div></div>
+<div class="ttc" id="asession_8cpp_html_a03b9bfc0e85f9f2d321f7ddcb5adc38e"><div class="ttname"><a href="session_8cpp.html#a03b9bfc0e85f9f2d321f7ddcb5adc38e">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, const Session &amp;session)</div><div class="ttdef"><b>Definition:</b> session.cpp:89</div></div>
+<div class="ttc" id="aclassSession_html_ae7b216f8f06b683520ac23fab4ea8f8a"><div class="ttname"><a href="classSession.html#ae7b216f8f06b683520ac23fab4ea8f8a">Session::GetDistance</a></div><div class="ttdeci">float GetDistance() const</div><div class="ttdoc">GetDistance: Permite obterner el valor de la distancia realizada en la sesión.</div><div class="ttdef"><b>Definition:</b> session.h:44</div></div>
+<div class="ttc" id="aclassFree_html_a4a847fee0a934284fc4581282706e885"><div class="ttname"><a href="classFree.html#a4a847fee0a934284fc4581282706e885">Free::Free</a></div><div class="ttdeci">Free()</div><div class="ttdoc">Free - Constructor.</div><div class="ttdef"><b>Definition:</b> session.h:390</div></div>
+<div class="ttc" id="aclassSession_html_a23a157599645938ba94a411220799b66"><div class="ttname"><a href="classSession.html#a23a157599645938ba94a411220799b66">Session::pulseData</a></div><div class="ttdeci">vector&lt; double &gt; pulseData</div><div class="ttdoc">pulseData: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del s...</div><div class="ttdef"><b>Definition:</b> session.h:147</div></div>
+<div class="ttc" id="asession_8cpp_html_a8b6c46246e080b6430c211eab692008f"><div class="ttname"><a href="session_8cpp.html#a8b6c46246e080b6430c211eab692008f">operator&gt;&gt;</a></div><div class="ttdeci">istream &amp; operator&gt;&gt;(istream &amp;ist, Cardio &amp;car)</div><div class="ttdef"><b>Definition:</b> session.cpp:350</div></div>
+<div class="ttc" id="aclassWeightLoss_html_a196df7e38d65efef80c9f22356b82655"><div class="ttname"><a href="classWeightLoss.html#a196df7e38d65efef80c9f22356b82655">WeightLoss::intensityMaxFc</a></div><div class="ttdeci">float intensityMaxFc</div><div class="ttdoc">intensityRef: Vector que contiene en que porcentaje de la intensidad máxima se debe realizar la sesió...</div><div class="ttdef"><b>Definition:</b> session.h:360</div></div>
+<div class="ttc" id="aclassSession_html_ae805ea4fb2594f3362f6d8ba96ba3198"><div class="ttname"><a href="classSession.html#ae805ea4fb2594f3362f6d8ba96ba3198">Session::date</a></div><div class="ttdeci">string date</div><div class="ttdoc">date: Propiedad donde se almacena la fecha de la sesión realizada</div><div class="ttdef"><b>Definition:</b> session.h:155</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

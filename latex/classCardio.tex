@@ -1,0 +1,302 @@
+\hypertarget{classCardio}{}\doxysection{Referencia de la Clase Cardio}
+\label{classCardio}\index{Cardio@{Cardio}}
+
+
+The \mbox{\hyperlink{classCardio}{Cardio}} class\+: Clase de sesión de entrenamiento del tipo cardio.  
+
+
+
+
+{\ttfamily \#include $<$session.\+h$>$}
+
+
+
+Diagrama de herencias de Cardio
+% FIG 0
+
+
+Diagrama de colaboración para Cardio\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCardio_a131add9316e08e5d3f39371730ed3ec2}{Cardio}} (const string \&\mbox{\hyperlink{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}{name}}, const int \&\mbox{\hyperlink{classSession_aca4eb847251e09c13a2d418490e07ca0}{age}}, const char \&\mbox{\hyperlink{classSession_a2ffea959fde6a8d7858c62183a69b2f6}{sex}}, const float \&\mbox{\hyperlink{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}{weight}}, const float \&\mbox{\hyperlink{classSession_ac49151747b435cd6166b1a1de717c0cc}{height}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCardio}{Cardio}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCardio_a8db83907c89597b1e3b160e3929e78f1}{Cardio}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCardio}{Cardio}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classCardio_abd9cf0cf2aa0c7f61ab35f0e35297ea8}{$\sim$\+Cardio}} ()
+\item 
+virtual void \mbox{\hyperlink{classCardio_af310b6e4f541c07b1166b2d33205d754}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classCardio_a31349815c43065d8cd253a203ad8f31d}{Pause}} ()
+\begin{DoxyCompactList}\small\item\em Pause\+: Deshabilita el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCardio_a55f3f7cca1461e3aaf2b11d6b01e0835}{End}} ()
+\begin{DoxyCompactList}\small\item\em End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCardio_a66b4661097b4dc374f6e76f84b797fc7}{Write\+Report}} () const
+\begin{DoxyCompactList}\small\item\em Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCardio_ae90c46bdcc6514952b5d0baab3eacb89}{Sample}} ()
+\begin{DoxyCompactList}\small\item\em Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCardio}{Cardio}} $\ast$ \mbox{\hyperlink{classCardio_ab703c3b5b5340f233ac92271650fea93}{operator$\ast$}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classCardio_ab5c36d29bad3e2d65c5b294e30f3ed20}{No\+Rut\+Alm}} ()
+\begin{DoxyCompactList}\small\item\em No\+Rut\+Alm\+: Alerta de desvio de rutina. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardio_aa72a96933afa396ef92fdcb8d20eedc3}{Stage\+Eval}} (const int \&tim)
+\begin{DoxyCompactList}\small\item\em Stage\+Eval\+: Evalua etapa de entrenamiento de acuerdo al tiempo transcurrido. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCardio_a83e56a7ee2f6f024f12466c32c0ef027}{Load\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCardio_ad0994bc408d457df1d212b0984891673}{Print}} (ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print\+: Permite le ejecución de la sobrecarga del operador para esta clase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classCardio_ac5e230499020d21efb5f282a2b762433}{stage}} = 0
+\begin{DoxyCompactList}\small\item\em stage\+: Propiedad que indica la etapa de la sesión en la que se encuentra \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{classCardio_aa5f7b7051434f02ecfb556777800e0d6}{veloc\+Ref}}
+\begin{DoxyCompactList}\small\item\em veloc\+Ref\+: Perteneciente al contenedor de vector donde se asignan los valores pertenecientes a la configuración de sesión \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{classCardio_a3b28eae92adc17f3a5eff6a31a1a548b}{time\+Ref}}
+\begin{DoxyCompactList}\small\item\em timer\+Ref\+: Perteneciente al contenedor de vector donde se asignan los valores pertenecientes a la configuración de sesión \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{classCardio_a6b95bcbfc555cf23a7ce606643867396}{operator$<$$<$}} (ostream \&ios, const \mbox{\hyperlink{classCardio}{Cardio}} \&car)
+\item 
+istream \& \mbox{\hyperlink{classCardio_a8b6c46246e080b6430c211eab692008f}{operator$>$$>$}} (istream \&ist, \mbox{\hyperlink{classCardio}{Cardio}} \&car)
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classCardio}{Cardio}} class\+: Clase de sesión de entrenamiento del tipo cardio. 
+
+Con la rutina ya preestablecida que consta de tramos de tiempo donde se debe ir aumentando la velocidad graudalmente 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classCardio_a131add9316e08e5d3f39371730ed3ec2}\label{classCardio_a131add9316e08e5d3f39371730ed3ec2}} 
+\index{Cardio@{Cardio}!Cardio@{Cardio}}
+\index{Cardio@{Cardio}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{Cardio()}{Cardio()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Cardio\+::\+Cardio (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const int \&}]{age,  }\item[{const char \&}]{sex,  }\item[{const float \&}]{weight,  }\item[{const float \&}]{height }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classCardio}{Cardio}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em name} & \+: Nombre del usuario \\
+\hline
+{\em age} & \+: Edad del usuario \\
+\hline
+{\em sex} & \+: Genero del usuario \\
+\hline
+{\em weight} & \+: Peso del usuario \\
+\hline
+{\em height} & \+: Altura del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCardio_a8db83907c89597b1e3b160e3929e78f1}\label{classCardio_a8db83907c89597b1e3b160e3929e78f1}} 
+\index{Cardio@{Cardio}!Cardio@{Cardio}}
+\index{Cardio@{Cardio}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{Cardio()}{Cardio()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Cardio\+::\+Cardio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{classCardio}{Cardio}} -\/ Constructor. 
+
+\mbox{\Hypertarget{classCardio_abd9cf0cf2aa0c7f61ab35f0e35297ea8}\label{classCardio_abd9cf0cf2aa0c7f61ab35f0e35297ea8}} 
+\index{Cardio@{Cardio}!````~Cardio@{$\sim$Cardio}}
+\index{````~Cardio@{$\sim$Cardio}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{$\sim$Cardio()}{~Cardio()}}
+{\footnotesize\ttfamily virtual Cardio\+::$\sim$\+Cardio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classCardio_a55f3f7cca1461e3aaf2b11d6b01e0835}\label{classCardio_a55f3f7cca1461e3aaf2b11d6b01e0835}} 
+\index{Cardio@{Cardio}!End@{End}}
+\index{End@{End}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily void Cardio\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a84e61c9e93a3f27e1c83c18105c93bf6}{Session}}.
+
+\mbox{\Hypertarget{classCardio_a83e56a7ee2f6f024f12466c32c0ef027}\label{classCardio_a83e56a7ee2f6f024f12466c32c0ef027}} 
+\index{Cardio@{Cardio}!LoadConfig@{LoadConfig}}
+\index{LoadConfig@{LoadConfig}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{LoadConfig()}{LoadConfig()}}
+{\footnotesize\ttfamily void Cardio\+::\+Load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. 
+
+Extrae de un archivo txt la configuración del entrenamiento 
+
+Implementa \mbox{\hyperlink{classSession_a5b002cf9178ce0cd264f4bfa385c1fe1}{Session}}.
+
+\mbox{\Hypertarget{classCardio_ab5c36d29bad3e2d65c5b294e30f3ed20}\label{classCardio_ab5c36d29bad3e2d65c5b294e30f3ed20}} 
+\index{Cardio@{Cardio}!NoRutAlm@{NoRutAlm}}
+\index{NoRutAlm@{NoRutAlm}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{NoRutAlm()}{NoRutAlm()}}
+{\footnotesize\ttfamily bool Cardio\+::\+No\+Rut\+Alm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+No\+Rut\+Alm\+: Alerta de desvio de rutina. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna verdadero si no cumple con la rutina, en caso contrario retorna un falso
+\end{DoxyReturn}
+Evalúa si la velocidad actual se mantiene dentro del rango del 10\% de la velocidad de referencia \mbox{\Hypertarget{classCardio_ab703c3b5b5340f233ac92271650fea93}\label{classCardio_ab703c3b5b5340f233ac92271650fea93}} 
+\index{Cardio@{Cardio}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCardio}{Cardio}}$\ast$ Cardio\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCardio_a31349815c43065d8cd253a203ad8f31d}\label{classCardio_a31349815c43065d8cd253a203ad8f31d}} 
+\index{Cardio@{Cardio}!Pause@{Pause}}
+\index{Pause@{Pause}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily bool Cardio\+::\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pause\+: Deshabilita el muestreo de datos. 
+
+Evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos \begin{DoxyReturn}{Devuelve}
+Retorna verdadero en caso de que la suma de cero 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classSession_a7f5eead2ea6c0e480dee49b2f7512c06}{Session}}.
+
+\mbox{\Hypertarget{classCardio_ad0994bc408d457df1d212b0984891673}\label{classCardio_ad0994bc408d457df1d212b0984891673}} 
+\index{Cardio@{Cardio}!Print@{Print}}
+\index{Print@{Print}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Cardio\+::\+Print (\begin{DoxyParamCaption}\item[{ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Print\+: Permite le ejecución de la sobrecarga del operador para esta clase. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a2b13d967bd8655a8e0ebb6e96174402d}{Session}}.
+
+\mbox{\Hypertarget{classCardio_ae90c46bdcc6514952b5d0baab3eacb89}\label{classCardio_ae90c46bdcc6514952b5d0baab3eacb89}} 
+\index{Cardio@{Cardio}!Sample@{Sample}}
+\index{Sample@{Sample}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{Sample()}{Sample()}}
+{\footnotesize\ttfamily void Cardio\+::\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a15b8986466f5977333fb0800b9f59854}{Session}}.
+
+\mbox{\Hypertarget{classCardio_aa72a96933afa396ef92fdcb8d20eedc3}\label{classCardio_aa72a96933afa396ef92fdcb8d20eedc3}} 
+\index{Cardio@{Cardio}!StageEval@{StageEval}}
+\index{StageEval@{StageEval}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{StageEval()}{StageEval()}}
+{\footnotesize\ttfamily void Cardio\+::\+Stage\+Eval (\begin{DoxyParamCaption}\item[{const int \&}]{tim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stage\+Eval\+: Evalua etapa de entrenamiento de acuerdo al tiempo transcurrido. 
+
+\mbox{\Hypertarget{classCardio_af310b6e4f541c07b1166b2d33205d754}\label{classCardio_af310b6e4f541c07b1166b2d33205d754}} 
+\index{Cardio@{Cardio}!Start@{Start}}
+\index{Start@{Start}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Cardio\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a2a2d3e0c334d0aceec2a77cf28640142}{Session}}.
+
+\mbox{\Hypertarget{classCardio_a66b4661097b4dc374f6e76f84b797fc7}\label{classCardio_a66b4661097b4dc374f6e76f84b797fc7}} 
+\index{Cardio@{Cardio}!WriteReport@{WriteReport}}
+\index{WriteReport@{WriteReport}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{WriteReport()}{WriteReport()}}
+{\footnotesize\ttfamily void Cardio\+::\+Write\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}{Session}}.
+
+
+
+\doxysubsection{Documentación de las funciones relacionadas y clases amigas}
+\mbox{\Hypertarget{classCardio_a6b95bcbfc555cf23a7ce606643867396}\label{classCardio_a6b95bcbfc555cf23a7ce606643867396}} 
+\index{Cardio@{Cardio}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{ios,  }\item[{const \mbox{\hyperlink{classCardio}{Cardio}} \&}]{car }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classCardio_a8b6c46246e080b6430c211eab692008f}\label{classCardio_a8b6c46246e080b6430c211eab692008f}} 
+\index{Cardio@{Cardio}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{ist,  }\item[{\mbox{\hyperlink{classCardio}{Cardio}} \&}]{car }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classCardio_ac5e230499020d21efb5f282a2b762433}\label{classCardio_ac5e230499020d21efb5f282a2b762433}} 
+\index{Cardio@{Cardio}!stage@{stage}}
+\index{stage@{stage}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{stage}{stage}}
+{\footnotesize\ttfamily int Cardio\+::stage = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+stage\+: Propiedad que indica la etapa de la sesión en la que se encuentra 
+
+\mbox{\Hypertarget{classCardio_a3b28eae92adc17f3a5eff6a31a1a548b}\label{classCardio_a3b28eae92adc17f3a5eff6a31a1a548b}} 
+\index{Cardio@{Cardio}!timeRef@{timeRef}}
+\index{timeRef@{timeRef}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{timeRef}{timeRef}}
+{\footnotesize\ttfamily vector$<$ int $>$ Cardio\+::time\+Ref\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+timer\+Ref\+: Perteneciente al contenedor de vector donde se asignan los valores pertenecientes a la configuración de sesión 
+
+\mbox{\Hypertarget{classCardio_aa5f7b7051434f02ecfb556777800e0d6}\label{classCardio_aa5f7b7051434f02ecfb556777800e0d6}} 
+\index{Cardio@{Cardio}!velocRef@{velocRef}}
+\index{velocRef@{velocRef}!Cardio@{Cardio}}
+\doxysubsubsection{\texorpdfstring{velocRef}{velocRef}}
+{\footnotesize\ttfamily vector$<$ int $>$ Cardio\+::veloc\+Ref\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+veloc\+Ref\+: Perteneciente al contenedor de vector donde se asignan los valores pertenecientes a la configuración de sesión 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{session_8h}{session.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{session_8cpp}{session.\+cpp}}\end{DoxyCompactItemize}

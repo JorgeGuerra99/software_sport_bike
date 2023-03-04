@@ -1,0 +1,284 @@
+\hypertarget{classWeightLoss}{}\doxysection{Referencia de la Clase Weight\+Loss}
+\label{classWeightLoss}\index{WeightLoss@{WeightLoss}}
+
+
+The \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} class\+: Sesión de entrenamiento de pérdida de peso.  
+
+
+
+
+{\ttfamily \#include $<$session.\+h$>$}
+
+
+
+Diagrama de herencias de Weight\+Loss
+% FIG 0
+
+
+Diagrama de colaboración para Weight\+Loss\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWeightLoss_a721ca6cefc81997e2e148abd4a5197f5}{Weight\+Loss}} (const string \&\mbox{\hyperlink{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}{name}}, const int \&\mbox{\hyperlink{classSession_aca4eb847251e09c13a2d418490e07ca0}{age}}, const char \&\mbox{\hyperlink{classSession_a2ffea959fde6a8d7858c62183a69b2f6}{sex}}, const float \&\mbox{\hyperlink{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}{weight}}, const float \&\mbox{\hyperlink{classSession_ac49151747b435cd6166b1a1de717c0cc}{height}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWeightLoss_a278b80dd3b5bec3df3d23be18080884f}{Weight\+Loss}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classWeightLoss_a317cc8689f77640a7bfec335380b8af1}{$\sim$\+Weight\+Loss}} ()
+\item 
+virtual void \mbox{\hyperlink{classWeightLoss_a8e7fbc4d68af40137a9bbcd9ae4e5fa4}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classWeightLoss_a7bc276d3535d150156ce9c933c1438e0}{Pause}} ()
+\begin{DoxyCompactList}\small\item\em Pause\+: Deshabilita el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classWeightLoss_aaa3ba0abb49fab41946ecbb911594b28}{End}} ()
+\begin{DoxyCompactList}\small\item\em End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classWeightLoss_ac6be82acdaefc01839faebde9e7a376e}{Write\+Report}} () const
+\begin{DoxyCompactList}\small\item\em Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classWeightLoss_a4cff1c750b466a82afef60b3e3b89527}{Sample}} ()
+\begin{DoxyCompactList}\small\item\em Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classWeightLoss_a5b1ebe3b31885f1c0c6114a39d139667}{No\+Rut\+Alm}} ()
+\begin{DoxyCompactList}\small\item\em No\+Rut\+Alm\+: Alerta de desvio de rutina. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classWeightLoss_a047c0dc5ffe74f609f7385615994336c}{Load\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWeightLoss_a54bee4d37a48098fc40846e8afdd0627}{Print}} (ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print\+: Permite le ejecución de la sobrecarga del operador para esta clase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classWeightLoss_a14e29df8f27e90024939771c5aaf5a1e}{time\+Ref}}
+\begin{DoxyCompactList}\small\item\em time\+Ref\+: Permite el almacenamiento del tiempo que debe cumplir la sesión \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classWeightLoss_a196df7e38d65efef80c9f22356b82655}{intensity\+Max\+Fc}}
+\begin{DoxyCompactList}\small\item\em intensity\+Ref\+: Vector que contiene en que porcentaje de la intensidad máxima se debe realizar la sesión \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classWeightLoss_a2067e01ab557ff1ee3d5e302549589e4}{intensity\+Min\+Fc}}
+\begin{DoxyCompactList}\small\item\em intensity\+Min\+Fc\+: Propiedad donde se almacena el valor de intensidad mínimo que debe realizar el usario \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{classWeightLoss_a9be93c0d262394067cadad4cf9a74ade}{operator$<$$<$}} (ostream \&ios, const \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} \&wei)
+\item 
+istream \& \mbox{\hyperlink{classWeightLoss_a316ef0d9902c3cc6f08bae54128d83ca}{operator$>$$>$}} (istream \&ist, \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} \&wei)
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} class\+: Sesión de entrenamiento de pérdida de peso. 
+
+Consiste en rutina ya configurada con una velocidad media constante durante un prologado tiempo 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classWeightLoss_a721ca6cefc81997e2e148abd4a5197f5}\label{classWeightLoss_a721ca6cefc81997e2e148abd4a5197f5}} 
+\index{WeightLoss@{WeightLoss}!WeightLoss@{WeightLoss}}
+\index{WeightLoss@{WeightLoss}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{WeightLoss()}{WeightLoss()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Weight\+Loss\+::\+Weight\+Loss (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const int \&}]{age,  }\item[{const char \&}]{sex,  }\item[{const float \&}]{weight,  }\item[{const float \&}]{height }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em name} & Nombre de usuario \\
+\hline
+{\em age} & Edad del usuario \\
+\hline
+{\em sex} & Genero del usuario \\
+\hline
+{\em weight} & Peso del usuario \\
+\hline
+{\em height} & Altura del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWeightLoss_a278b80dd3b5bec3df3d23be18080884f}\label{classWeightLoss_a278b80dd3b5bec3df3d23be18080884f}} 
+\index{WeightLoss@{WeightLoss}!WeightLoss@{WeightLoss}}
+\index{WeightLoss@{WeightLoss}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{WeightLoss()}{WeightLoss()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Weight\+Loss\+::\+Weight\+Loss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} -\/ Constructor. 
+
+\mbox{\Hypertarget{classWeightLoss_a317cc8689f77640a7bfec335380b8af1}\label{classWeightLoss_a317cc8689f77640a7bfec335380b8af1}} 
+\index{WeightLoss@{WeightLoss}!````~WeightLoss@{$\sim$WeightLoss}}
+\index{````~WeightLoss@{$\sim$WeightLoss}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{$\sim$WeightLoss()}{~WeightLoss()}}
+{\footnotesize\ttfamily virtual Weight\+Loss\+::$\sim$\+Weight\+Loss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classWeightLoss_aaa3ba0abb49fab41946ecbb911594b28}\label{classWeightLoss_aaa3ba0abb49fab41946ecbb911594b28}} 
+\index{WeightLoss@{WeightLoss}!End@{End}}
+\index{End@{End}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily void Weight\+Loss\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a84e61c9e93a3f27e1c83c18105c93bf6}{Session}}.
+
+\mbox{\Hypertarget{classWeightLoss_a047c0dc5ffe74f609f7385615994336c}\label{classWeightLoss_a047c0dc5ffe74f609f7385615994336c}} 
+\index{WeightLoss@{WeightLoss}!LoadConfig@{LoadConfig}}
+\index{LoadConfig@{LoadConfig}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{LoadConfig()}{LoadConfig()}}
+{\footnotesize\ttfamily void Weight\+Loss\+::\+Load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. 
+
+Extrae de un archivo txt la configuración del entrenamiento 
+
+Implementa \mbox{\hyperlink{classSession_a5b002cf9178ce0cd264f4bfa385c1fe1}{Session}}.
+
+\mbox{\Hypertarget{classWeightLoss_a5b1ebe3b31885f1c0c6114a39d139667}\label{classWeightLoss_a5b1ebe3b31885f1c0c6114a39d139667}} 
+\index{WeightLoss@{WeightLoss}!NoRutAlm@{NoRutAlm}}
+\index{NoRutAlm@{NoRutAlm}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{NoRutAlm()}{NoRutAlm()}}
+{\footnotesize\ttfamily bool Weight\+Loss\+::\+No\+Rut\+Alm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+No\+Rut\+Alm\+: Alerta de desvio de rutina. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna verdadero si no cumple con la rutina, en caso contrario retorna un falso
+\end{DoxyReturn}
+Evalúa si la velocidad actual se mantiene dentro del rango del 10\% de la velocidad de referencia \mbox{\Hypertarget{classWeightLoss_a7bc276d3535d150156ce9c933c1438e0}\label{classWeightLoss_a7bc276d3535d150156ce9c933c1438e0}} 
+\index{WeightLoss@{WeightLoss}!Pause@{Pause}}
+\index{Pause@{Pause}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily bool Weight\+Loss\+::\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pause\+: Deshabilita el muestreo de datos. 
+
+Evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos \begin{DoxyReturn}{Devuelve}
+Retorna verdadero en caso de que la suma de cero 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classSession_a7f5eead2ea6c0e480dee49b2f7512c06}{Session}}.
+
+\mbox{\Hypertarget{classWeightLoss_a54bee4d37a48098fc40846e8afdd0627}\label{classWeightLoss_a54bee4d37a48098fc40846e8afdd0627}} 
+\index{WeightLoss@{WeightLoss}!Print@{Print}}
+\index{Print@{Print}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Weight\+Loss\+::\+Print (\begin{DoxyParamCaption}\item[{ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Print\+: Permite le ejecución de la sobrecarga del operador para esta clase. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a2b13d967bd8655a8e0ebb6e96174402d}{Session}}.
+
+\mbox{\Hypertarget{classWeightLoss_a4cff1c750b466a82afef60b3e3b89527}\label{classWeightLoss_a4cff1c750b466a82afef60b3e3b89527}} 
+\index{WeightLoss@{WeightLoss}!Sample@{Sample}}
+\index{Sample@{Sample}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{Sample()}{Sample()}}
+{\footnotesize\ttfamily void Weight\+Loss\+::\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a15b8986466f5977333fb0800b9f59854}{Session}}.
+
+\mbox{\Hypertarget{classWeightLoss_a8e7fbc4d68af40137a9bbcd9ae4e5fa4}\label{classWeightLoss_a8e7fbc4d68af40137a9bbcd9ae4e5fa4}} 
+\index{WeightLoss@{WeightLoss}!Start@{Start}}
+\index{Start@{Start}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Weight\+Loss\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a2a2d3e0c334d0aceec2a77cf28640142}{Session}}.
+
+\mbox{\Hypertarget{classWeightLoss_ac6be82acdaefc01839faebde9e7a376e}\label{classWeightLoss_ac6be82acdaefc01839faebde9e7a376e}} 
+\index{WeightLoss@{WeightLoss}!WriteReport@{WriteReport}}
+\index{WriteReport@{WriteReport}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{WriteReport()}{WriteReport()}}
+{\footnotesize\ttfamily void Weight\+Loss\+::\+Write\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}{Session}}.
+
+
+
+\doxysubsection{Documentación de las funciones relacionadas y clases amigas}
+\mbox{\Hypertarget{classWeightLoss_a9be93c0d262394067cadad4cf9a74ade}\label{classWeightLoss_a9be93c0d262394067cadad4cf9a74ade}} 
+\index{WeightLoss@{WeightLoss}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{ios,  }\item[{const \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} \&}]{wei }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classWeightLoss_a316ef0d9902c3cc6f08bae54128d83ca}\label{classWeightLoss_a316ef0d9902c3cc6f08bae54128d83ca}} 
+\index{WeightLoss@{WeightLoss}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{ist,  }\item[{\mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} \&}]{wei }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classWeightLoss_a196df7e38d65efef80c9f22356b82655}\label{classWeightLoss_a196df7e38d65efef80c9f22356b82655}} 
+\index{WeightLoss@{WeightLoss}!intensityMaxFc@{intensityMaxFc}}
+\index{intensityMaxFc@{intensityMaxFc}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{intensityMaxFc}{intensityMaxFc}}
+{\footnotesize\ttfamily float Weight\+Loss\+::intensity\+Max\+Fc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+intensity\+Ref\+: Vector que contiene en que porcentaje de la intensidad máxima se debe realizar la sesión 
+
+intensity\+Max\+Fc\+: Propiedad donde se almacena el valor de intensidad máxima que debe realizar el usario
+
+Este se determina de acuerdo a los datos de archivo de configuraciones y factores como edad y genero del usuario \mbox{\Hypertarget{classWeightLoss_a2067e01ab557ff1ee3d5e302549589e4}\label{classWeightLoss_a2067e01ab557ff1ee3d5e302549589e4}} 
+\index{WeightLoss@{WeightLoss}!intensityMinFc@{intensityMinFc}}
+\index{intensityMinFc@{intensityMinFc}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{intensityMinFc}{intensityMinFc}}
+{\footnotesize\ttfamily float Weight\+Loss\+::intensity\+Min\+Fc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+intensity\+Min\+Fc\+: Propiedad donde se almacena el valor de intensidad mínimo que debe realizar el usario 
+
+Este se determina de acuerdo a los datos de archivo de configuraciones y factores como edad y genero del usuario \mbox{\Hypertarget{classWeightLoss_a14e29df8f27e90024939771c5aaf5a1e}\label{classWeightLoss_a14e29df8f27e90024939771c5aaf5a1e}} 
+\index{WeightLoss@{WeightLoss}!timeRef@{timeRef}}
+\index{timeRef@{timeRef}!WeightLoss@{WeightLoss}}
+\doxysubsubsection{\texorpdfstring{timeRef}{timeRef}}
+{\footnotesize\ttfamily float Weight\+Loss\+::time\+Ref\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+time\+Ref\+: Permite el almacenamiento del tiempo que debe cumplir la sesión 
+
+El valor que se debe almacenar tiene que encontrarse en segundos 
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{session_8h}{session.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{session_8cpp}{session.\+cpp}}\end{DoxyCompactItemize}

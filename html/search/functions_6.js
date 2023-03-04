@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['getalldata_295',['GetAllData',['../classSession.html#a80c0646b299d9e5d70fd642ab86bb468',1,'Session']]],
+  ['getcalories_296',['GetCalories',['../classSession.html#aef5333781f549e9ff2b1c939c1d6d14f',1,'Session']]],
+  ['getdistance_297',['GetDistance',['../classSession.html#ae7b216f8f06b683520ac23fab4ea8f8a',1,'Session']]],
+  ['getfreqmax_298',['GetFreqMax',['../classPulseSensor.html#a16082b517bee9426f76a206ad5517a6f',1,'PulseSensor']]],
+  ['getlastdata_299',['GetLastData',['../classSession.html#a08190b14e9436c49b935854b37430914',1,'Session']]],
+  ['getload_300',['GetLoad',['../classLoadSensor.html#ac35a37fddece16e7e9bd436c64570f17',1,'LoadSensor']]],
+  ['getloadsensor_301',['GetLoadSensor',['../classBike.html#ac15f5d143fd2baf3c103940563e26ae9',1,'Bike::GetLoadSensor()'],['../classStateBike.html#ab3c56a87482f464bc642328590efe4c4',1,'StateBike::GetLoadSensor()']]],
+  ['getmaxload_302',['GetMaxLoad',['../classLoadSensor.html#a63d04d217802c6c4cb398fcdf005b0b7',1,'LoadSensor']]],
+  ['getport_303',['GetPort',['../classBike.html#a637b7225802f963aa2b723780ca3a447',1,'Bike::GetPort()'],['../classStateBike.html#a634f445c5bb4a208add446b15d02d890',1,'StateBike::GetPort()']]],
+  ['getportinfo_304',['GetPortInfo',['../classBike.html#a16c01918d3848b1bf2635c0578f5ec76',1,'Bike::GetPortInfo()'],['../classStateBike.html#a6d115964da7f0469772c2355f29dd1b8',1,'StateBike::GetPortInfo()']]],
+  ['getpulse_305',['GetPulse',['../classPulseSensor.html#a63e0c96f22f35b91ec76356cc0290ca1',1,'PulseSensor']]],
+  ['getpulsesensor_306',['GetPulseSensor',['../classBike.html#a9c1165d1c5255f974d8eb08eba2493e4',1,'Bike::GetPulseSensor()'],['../classStateBike.html#af11e37a4d9cf0d29d4820407f0729a0f',1,'StateBike::GetPulseSensor()']]],
+  ['getsession_307',['GetSession',['../classUser.html#a50c2d2dec6c0151cff2862b68e6635e7',1,'User']]],
+  ['getvalue_308',['GetValue',['../classSensors.html#aefcdb5ecbe0423bf5dadd54022f261af',1,'Sensors::GetValue()'],['../classPulseSensor.html#a7d699c425fe6a5e69217949ca0ec09b0',1,'PulseSensor::GetValue()'],['../classVelocitySensor.html#abd08fb9f326664607064fbb98032b61d',1,'VelocitySensor::GetValue()'],['../classLoadSensor.html#aa5c0193ca26ec4cb241d272de55b5d45',1,'LoadSensor::GetValue()']]],
+  ['getveloc_309',['GetVeloc',['../classVelocitySensor.html#a8d7e87418e1ffafdc9ce2a887186a542',1,'VelocitySensor']]],
+  ['getvelocitysensor_310',['GetVelocitySensor',['../classBike.html#a40dc480e99537003453cc847c5528806',1,'Bike::GetVelocitySensor()'],['../classStateBike.html#a639efb47af8e243ef30d072e83de9943',1,'StateBike::GetVelocitySensor()']]],
+  ['getvelocmax_311',['GetVelocMax',['../classVelocitySensor.html#a72f157f5b7828e7200a50fbcfe61652b',1,'VelocitySensor']]],
+  ['getvelocmaxmed_312',['GetVelocMaxMed',['../classSession.html#a1458b749c24954172b9408067afe3093',1,'Session']]],
+  ['getvelocprom_313',['GetVelocProm',['../classVelocitySensor.html#a98df5160b560e92022df2decf621e133',1,'VelocitySensor']]]
+];

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente freewindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">freewindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="freewindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef FREEWINDOW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define FREEWINDOW_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="session_8h.html">Header_Files/session.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">Header_Files/user.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="configwindow_8h.html">Header_Files/configwindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="datawindow_8h.html">Header_Files/datawindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespaceUi.html">   18</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceUi.html">Ui</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="classFreeWindow.html">FreeWindow</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classFreeWindow.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFreeWindow.html">FreeWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classFreeWindow.html#a47892c918936ca54b1a57f78c3705d58">FreeWindow</a>(<a class="code" href="classUser.html">User</a>*&amp; usu , QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classFreeWindow.html#a82e95863bf180e80ec903a2a5959440e">~FreeWindow</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classFreeWindow.html#a8138d792e66cdc32bfc634f4efb27ea0">   39</a></span>&#160;    Ui::FreeWindow *<a class="code" href="classFreeWindow.html#a8138d792e66cdc32bfc634f4efb27ea0">ui</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classFreeWindow.html#a9d947b6b7fa7e9d7309c3a59f0f23ae7">   43</a></span>&#160;    <a class="code" href="classFree.html">Free</a>* <a class="code" href="classFreeWindow.html#a9d947b6b7fa7e9d7309c3a59f0f23ae7">fre</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classFreeWindow.html#abf0e42e0e8b811bbc121ea8eea28585f">   47</a></span>&#160;    <a class="code" href="classUser.html">User</a>* <a class="code" href="classFreeWindow.html#abf0e42e0e8b811bbc121ea8eea28585f">us</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classFreeWindow.html#aad031cafe13425e265e56ac6688fd6a4">   51</a></span>&#160;    QTimer <a class="code" href="classFreeWindow.html#aad031cafe13425e265e56ac6688fd6a4">timer</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classFreeWindow.html#a30ad7a228b2ceaf921b67f70913b110e">   55</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classFreeWindow.html#a30ad7a228b2ceaf921b67f70913b110e">pause</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classFreeWindow.html#ae16b6fb6ce626be831f50ddf89da09e7">   59</a></span>&#160;    <a class="code" href="classConfigWindow.html">ConfigWindow</a>* <a class="code" href="classFreeWindow.html#ae16b6fb6ce626be831f50ddf89da09e7">confWin</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classFreeWindow.html#a89d3cbd66caac47c807857e5856fdc15">   63</a></span>&#160;    <a class="code" href="classdatawindow.html">datawindow</a>* <a class="code" href="classFreeWindow.html#a89d3cbd66caac47c807857e5856fdc15">datWin</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a4c4ff957b1dc86ad8576127fb99043fa">StartButton</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a34d1bcc7583ee7eef7373bb40ca6bda8">PauseButton</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a677d35d320c345b2c756fc3cab153c39">StopButton</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a896ea50a39cd5339adb1ff9c79554e8e">UiSample</a> ();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a5d6c2a832cbf8f53d7a8e919e19d8252">SerialConfigButton</a> ();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a7d96c45839ae66eabd6b86da5259ad59">ReportButton</a> ();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;signals:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFreeWindow.html#a8738eddb3bb2c9d917ff892ab6824c2b">NewSession</a> ();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // FREEWINDOW_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassFreeWindow_html_abf0e42e0e8b811bbc121ea8eea28585f"><div class="ttname"><a href="classFreeWindow.html#abf0e42e0e8b811bbc121ea8eea28585f">FreeWindow::us</a></div><div class="ttdeci">User * us</div><div class="ttdoc">us: Puntero a objeto de usuario</div><div class="ttdef"><b>Definition:</b> freewindow.h:47</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a5d6c2a832cbf8f53d7a8e919e19d8252"><div class="ttname"><a href="classFreeWindow.html#a5d6c2a832cbf8f53d7a8e919e19d8252">FreeWindow::SerialConfigButton</a></div><div class="ttdeci">void SerialConfigButton()</div><div class="ttdoc">SerialConfigButton: SLOT asociado al botón de configurar puerto serie.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:78</div></div>
+<div class="ttc" id="aclassFreeWindow_html_ae16b6fb6ce626be831f50ddf89da09e7"><div class="ttname"><a href="classFreeWindow.html#ae16b6fb6ce626be831f50ddf89da09e7">FreeWindow::confWin</a></div><div class="ttdeci">ConfigWindow * confWin</div><div class="ttdoc">confWin: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie</div><div class="ttdef"><b>Definition:</b> freewindow.h:59</div></div>
+<div class="ttc" id="aclassFreeWindow_html_aad031cafe13425e265e56ac6688fd6a4"><div class="ttname"><a href="classFreeWindow.html#aad031cafe13425e265e56ac6688fd6a4">FreeWindow::timer</a></div><div class="ttdeci">QTimer timer</div><div class="ttdoc">timer: Objeto utilizado como timer para la sesión</div><div class="ttdef"><b>Definition:</b> freewindow.h:51</div></div>
+<div class="ttc" id="aclassFreeWindow_html"><div class="ttname"><a href="classFreeWindow.html">FreeWindow</a></div><div class="ttdoc">The FreeWindow class: Ventana de sesión de entrenamiento del tipo Free (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> freewindow.h:25</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a8138d792e66cdc32bfc634f4efb27ea0"><div class="ttname"><a href="classFreeWindow.html#a8138d792e66cdc32bfc634f4efb27ea0">FreeWindow::ui</a></div><div class="ttdeci">Ui::FreeWindow * ui</div><div class="ttdef"><b>Definition:</b> freewindow.h:39</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a7d96c45839ae66eabd6b86da5259ad59"><div class="ttname"><a href="classFreeWindow.html#a7d96c45839ae66eabd6b86da5259ad59">FreeWindow::ReportButton</a></div><div class="ttdeci">void ReportButton()</div><div class="ttdoc">ReportButton: SLOT asociado al botón de ver reporte.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:86</div></div>
+<div class="ttc" id="aclassFree_html"><div class="ttname"><a href="classFree.html">Free</a></div><div class="ttdoc">The Free class: Sesión de entrenamiento libre.</div><div class="ttdef"><b>Definition:</b> session.h:375</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a30ad7a228b2ceaf921b67f70913b110e"><div class="ttname"><a href="classFreeWindow.html#a30ad7a228b2ceaf921b67f70913b110e">FreeWindow::pause</a></div><div class="ttdeci">bool pause</div><div class="ttdoc">pause: Flag indicador de pausa de entrenamiento</div><div class="ttdef"><b>Definition:</b> freewindow.h:55</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a34d1bcc7583ee7eef7373bb40ca6bda8"><div class="ttname"><a href="classFreeWindow.html#a34d1bcc7583ee7eef7373bb40ca6bda8">FreeWindow::PauseButton</a></div><div class="ttdeci">void PauseButton()</div><div class="ttdoc">PauseButton: SLOT asociado al botón de pausar/reanudar entrenamiento.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:41</div></div>
+<div class="ttc" id="aclassConfigWindow_html"><div class="ttname"><a href="classConfigWindow.html">ConfigWindow</a></div><div class="ttdoc">The ConfigWindow class: Ventana de configuración del puerto serie (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> configwindow.h:21</div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> freewindow.h:18</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a896ea50a39cd5339adb1ff9c79554e8e"><div class="ttname"><a href="classFreeWindow.html#a896ea50a39cd5339adb1ff9c79554e8e">FreeWindow::UiSample</a></div><div class="ttdeci">void UiSample()</div><div class="ttdoc">UiSample: SLOT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:66</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a4c4ff957b1dc86ad8576127fb99043fa"><div class="ttname"><a href="classFreeWindow.html#a4c4ff957b1dc86ad8576127fb99043fa">FreeWindow::StartButton</a></div><div class="ttdeci">void StartButton()</div><div class="ttdoc">StartButton: SLOT asociado al botón de inicio de entrenamiento.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:32</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a82e95863bf180e80ec903a2a5959440e"><div class="ttname"><a href="classFreeWindow.html#a82e95863bf180e80ec903a2a5959440e">FreeWindow::~FreeWindow</a></div><div class="ttdeci">~FreeWindow()</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:25</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a9d947b6b7fa7e9d7309c3a59f0f23ae7"><div class="ttname"><a href="classFreeWindow.html#a9d947b6b7fa7e9d7309c3a59f0f23ae7">FreeWindow::fre</a></div><div class="ttdeci">Free * fre</div><div class="ttdoc">fre: Puntero al objeto correspondiente a la sesión del tipo free</div><div class="ttdef"><b>Definition:</b> freewindow.h:43</div></div>
+<div class="ttc" id="aconfigwindow_8h_html"><div class="ttname"><a href="configwindow_8h.html">configwindow.h</a></div><div class="ttdoc">Ventana de configuración del puerto serie.</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a677d35d320c345b2c756fc3cab153c39"><div class="ttname"><a href="classFreeWindow.html#a677d35d320c345b2c756fc3cab153c39">FreeWindow::StopButton</a></div><div class="ttdeci">void StopButton()</div><div class="ttdoc">StopButton: SLOT asociado al botón de detener entrenamiento.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:56</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a8738eddb3bb2c9d917ff892ab6824c2b"><div class="ttname"><a href="classFreeWindow.html#a8738eddb3bb2c9d917ff892ab6824c2b">FreeWindow::NewSession</a></div><div class="ttdeci">void NewSession()</div><div class="ttdoc">NewSession: Señal que es emitida para indicar que se realizó una sesión.</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a89d3cbd66caac47c807857e5856fdc15"><div class="ttname"><a href="classFreeWindow.html#a89d3cbd66caac47c807857e5856fdc15">FreeWindow::datWin</a></div><div class="ttdeci">datawindow * datWin</div><div class="ttdoc">datWin: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos</div><div class="ttdef"><b>Definition:</b> freewindow.h:63</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">Clase Usuario: Contiene los datos y métodos de un usuario.</div></div>
+<div class="ttc" id="aclassdatawindow_html"><div class="ttname"><a href="classdatawindow.html">datawindow</a></div><div class="ttdoc">The datawindow class: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> datawindow.h:25</div></div>
+<div class="ttc" id="asession_8h_html"><div class="ttname"><a href="session_8h.html">session.h</a></div><div class="ttdoc">Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas...</div></div>
+<div class="ttc" id="aclassUser_html"><div class="ttname"><a href="classUser.html">User</a></div><div class="ttdoc">The User class: Objeto de usuario.</div><div class="ttdef"><b>Definition:</b> user.h:28</div></div>
+<div class="ttc" id="adatawindow_8h_html"><div class="ttname"><a href="datawindow_8h.html">datawindow.h</a></div><div class="ttdoc">Ventana de muestra de datos de entrenamiento (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassFreeWindow_html_a47892c918936ca54b1a57f78c3705d58"><div class="ttname"><a href="classFreeWindow.html#a47892c918936ca54b1a57f78c3705d58">FreeWindow::FreeWindow</a></div><div class="ttdeci">FreeWindow(User *&amp;usu, QWidget *parent=nullptr)</div><div class="ttdoc">FreeWindow - Constructor.</div><div class="ttdef"><b>Definition:</b> freewindow.cpp:4</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

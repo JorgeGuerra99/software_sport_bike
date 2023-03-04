@@ -1,0 +1,49 @@
+digraph "FreeWindow"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="FreeWindow",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="The FreeWindow class: Ventana de sesión de entrenamiento del tipo Free (Interfaz gráfica)"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="QMainWindow",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" datWin" ,fontname="Helvetica"];
+  Node3 [label="datawindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdatawindow.html",tooltip="The datawindow class: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" diaWin" ,fontname="Helvetica"];
+  Node4 [label="DialogWin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDialogWin.html",tooltip="The DialogWin class: Cuadro de diálogo."];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="QDialog",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ses" ,fontname="Helvetica"];
+  Node6 [label="Session",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html",tooltip="The Session class: Clase abstracta para sesión de entrenamiento genérica."];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bike" ,fontname="Helvetica"];
+  Node7 [label="StateBike",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classStateBike.html",tooltip="The StateBike class: Esta clase corresponde a una bicicleta estática."];
+  Node8 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Bike",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBike.html",tooltip="The Bike class: Clase abstracta de objeto Bike."];
+  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vSensor" ,fontname="Helvetica"];
+  Node9 [label="VelocitySensor\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVelocitySensor.html",tooltip=" "];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Sensors\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSensors.html",tooltip=" "];
+  Node11 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pSensor" ,fontname="Helvetica"];
+  Node11 [label="PulseSensor\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPulseSensor.html",tooltip=" "];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lSensor" ,fontname="Helvetica"];
+  Node12 [label="LoadSensor\< double \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLoadSensor.html",tooltip=" "];
+  Node10 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" us" ,fontname="Helvetica"];
+  Node13 [label="User",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUser.html",tooltip="The User class: Objeto de usuario."];
+  Node14 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxCardio" ,fontname="Helvetica"];
+  Node14 [label="Cardio",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCardio.html",tooltip="The Cardio class: Clase de sesión de entrenamiento del tipo cardio."];
+  Node6 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxWeightLoss" ,fontname="Helvetica"];
+  Node15 [label="WeightLoss",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWeightLoss.html",tooltip="The WeightLoss class: Sesión de entrenamiento de pérdida de peso."];
+  Node6 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxFree" ,fontname="Helvetica"];
+  Node16 [label="Free",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFree.html",tooltip="The Free class: Sesión de entrenamiento libre."];
+  Node6 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" auxSession" ,fontname="Helvetica"];
+  Node16 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fre" ,fontname="Helvetica"];
+  Node17 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" confWin" ,fontname="Helvetica"];
+  Node17 [label="ConfigWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classConfigWindow.html",tooltip="The ConfigWindow class: Ventana de configuración del puerto serie (Interfaz gráfica)"];
+  Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node17 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ses" ,fontname="Helvetica"];
+}

@@ -17,7 +17,7 @@
 
 using namespace std;
 /**
- * @brief The Bike class: Clase abstracta
+ * @brief The Bike class: Clase abstracta de objeto Bike
  */
 class Bike
 {

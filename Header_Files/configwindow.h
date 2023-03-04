@@ -15,6 +15,9 @@ namespace Ui {
 class ConfigWindow;
 }
 
+/**
+ * @brief The ConfigWindow class: Ventana de configuración del puerto serie (Interfaz gráfica)
+ */
 class ConfigWindow : public QMainWindow
 {
     Q_OBJECT
