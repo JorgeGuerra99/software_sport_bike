@@ -69,15 +69,15 @@ public:
 
 protected:
     /**
-     * @brief vSensor: Puntero del objeto sensor de velocidad utilizandolo como una propiedad del tipo double
+     * @brief vSensor: Puntero del objeto sensor de velocidad con template double
      */
     VelocitySensor < double > *vSensor;
     /**
-     * @brief lSensor: Puntero del objeto de sensor de carga utilizandolo como una propiedad del tipo double
+     * @brief lSensor: Puntero del objeto de sensor de carga con template double
      */
     LoadSensor < double > *lSensor;
     /**
-     * @brief pSensor: Puntero del objeto de sensor de pulso utilizandolo como una propiedad del tipo double
+     * @brief pSensor: Puntero del objeto de sensor de pulso con template double
      */
     PulseSensor < double > *pSensor;
     /**
