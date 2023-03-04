@@ -95,8 +95,8 @@ private slots:
      */
     void ViewReport();
     /**
-     * @brief RefreshSession: SLOT asociado a actualizar la lista de sesiones realizadas por el usuario
-     * @details Se utiliza al detectar la señal emitia por las ventanas correspondientes a las sesiones permitiendo agregar la que sesión que acaba de terminar de realizar el usuario
+     * @brief RefreshSession: SLOT asociado a la señal NewSession ()
+     * @details Se utiliza al detectar la señal emitida por las ventanas correspondientes a las sesiones, permitiendo actualizar la sesión que acaba de terminar de realizar el usuario
      */
     void RefreshSession ();
     /**
