@@ -25,79 +25,82 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief MainWindow - Constructor
+     * @param parent
+     */
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     /**
-     * @brief us
-     * @note puntero del objeto usuario
+     * @brief us: Puntero del objeto usuario
      */
     User *us = nullptr;
 
 private:
     Ui::MainWindow *ui;
     /**
-     * @brief winReg
-     * @note puntero del objeto ventana de registro
+     * @brief winReg: Puntero del objeto ventana de registro
      */
     RegWindow *winReg;
     /**
-     * @brief winAcc
-     * @note puntero del objeto ventana de acceso
+     * @brief winAcc: Puntero del objeto ventana de acceso
      */
     accesswindow *winAcc;
     /**
-     * @brief winCar
-     * @note puntero del objeto ventana de sesión Cardio
+     * @brief winCar: Puntero del objeto ventana de sesión Cardio
      */
     CardioWindow *winCar;
     /**
-     * @brief winWei
-     * @note puntero del objeto ventana de sesión WeightLoss
+     * @brief winWei: Puntero del objeto ventana de sesión WeightLoss
      */
     weightwindow *winWei;
     /**
-     * @brief winFre
-     * @note puntero del objeto ventana de la sesión Free
+     * @brief winFre: Puntero del objeto ventana de la sesión Free
      */
     FreeWindow *winFre;
+    /**
+     * @brief winData: Puntero del objeto ventana de mostrar datos
+     */
     datawindow *winData;
-    QStringList nameSessions;
+
 private slots:
     /**
-     * @brief buttReg
-     * @note SLOT asociado al botón de registrar un nuevo usuario
-     * @details crea y ejecuta la ventana regwindow
+     * @brief buttReg: SLOT asociado al botón de registrar un nuevo usuario
+     * @details Crea y ejecuta la ventana regwindow
      */
     void ButtReg ();
     /**
-     * @brief usReg
-     * @note SLOT asociado a la señal de usuario registrado
-     * @details asigna al punterio del objeto usuario la información ingresada en la ventana correspondiente
+     * @brief usReg: SLOT asociado a la señal de usuario registrado
+     * @details Asigna al punterio del objeto usuario la información ingresada en la ventana correspondiente
      */
     void UsReg ();
     /**
-     * @brief buttAcc
-     * @note SLOT asociado al botón de acceder a un usuario ya existente
-     * @details crea y ejecita la ventana de accesswindow
+     * @brief buttAcc: SLOT asociado al botón de acceder a un usuario ya existente
+     * @details Crea y ejecita la ventana de accesswindow
      */
     void ButtAcc ();
     /**
-     * @brief usAcc
-     * @note SLOT asociado a la señal de ingreso de un usuario existente
-     * @details asigna al puntero del objeto usuario la información obtenida de la ventana correspondiente
+     * @brief usAcc: SLOT asociado a la señal de ingreso de un usuario existente
+     * @details Asigna al puntero del objeto usuario la información obtenida de la ventana correspondiente
      */
     void UsAcc ();
     /**
-     * @brief startSession
-     * @note SLOT asociado al botón iniciar entrenamiento
-     * @details crea y ejecuta la ventana correspondiente a la sesión elegida por el usuario
+     * @brief startSession: SLOT asociado al botón iniciar entrenamiento
+     * @details Crea y ejecuta la ventana correspondiente a la sesión elegida por el usuario
      */
     void StartSession();
+    /**
+     * @brief ViewReport: SLOT asociado al botón de ver reporte
+     * @details Crea y ejecuta la ventana correspondiente para mostrar los datos de sesión elegida por el usuario
+     */
     void ViewReport();
+    /**
+     * @brief RefreshSession: SLOT asociado a la señal NewSession ()
+     * @details Se utiliza al detectar la señal emitida por las ventanas correspondientes a las sesiones, permitiendo actualizar la sesión que acaba de terminar de realizar el usuario
+     */
     void RefreshSession ();
     /**
-     * @brief closedWindow
-     * @note cierra el programa
+     * @brief closedWindow: Cierra el programa
      */
     void ClosedWindow () {cout << "ventana cerrada" << endl;}
 };

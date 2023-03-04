@@ -1,4 +1,3 @@
-
 /**
  * @file sensors.h
  * @brief Clase sensors y sus derivadas
@@ -19,144 +18,175 @@
 
 using namespace std;
 /**
- * @note ERROR_SERIAL_OPEN: Utilizado para contener errores al abrir el puerto serie
+ * @brief enum: Utilizado para contener errores de diferentes tipos
+ * @details Errores al abrir el puerto serie
  */
 enum {ERROR_SERIAL_OPEN};
 
 template < class T >
 /**
- * @brief The Sensors class
+ * @brief The Sensors class: Clase abstracta
  */
 class Sensors
 {
 protected:
     /**
-     * @brief Sensors
-     * @param p : Objeto puerto serie asociado al sensor
+     * @brief Sensors - Constructor
+     * @param p: Objeto puerto serie asociado al sensor
      */
     Sensors ( QSerialPort *p);
     virtual ~Sensors ();
+    /**
+     * @brief currentValue: Valor actual que presenta el sensor
+     */
     T currentValue = 0;
+    /**
+     * @brief port: Puntero del puerto serie
+     */
     QSerialPort *port;
 public:
+    /**
+     * @brief GetValue: Envía la orden al puerto serie y obtiene el dato respectivo
+     */
     virtual void GetValue () = 0;
 };
 
 
 template < class T >
 /**
- * @brief The PulseSensor class
+ * @brief The PulseSensor class: Clase derivada de sensor
  */
 class PulseSensor: public Sensors < T >
 {
 public:
-    PulseSensor (QSerialPort *p);
-    virtual ~PulseSensor () {};
     /**
-     * @brief GetValue
-     * @note Envía la orden al puerto serie y obtiene el dato respectivo
+     * @brief PulseSensor - Constructor
+     * @param p: Objeto puerto serie asociado al sensor
+     */
+    PulseSensor (QSerialPort *p);
+    virtual ~PulseSensor () { cout << "Destructor de PulseSensor" << endl; };
+    /**
+     * @brief GetValue: Envía la orden al puerto serie y obtiene el dato respectivo
      */
     virtual void GetValue ();
     /**
-     * @brief GetPulse
-     * @return Valor actual de pulso
+     * @brief GetPulse: Obtiene el dato respectivo del sensor
+     * @return Retorna el valor actual de pulso
      */
     const T GetPulse () const { return Sensors <T>::currentValue; }
     /**
-     * @brief GetFreqMax
-     * @return Valor máximo de pulso leído
+     * @brief GetFreqMax: Obtiene el dato respectivo a la máxima frecuencia
+     * @return Retorna el valor máximo de pulso leído
      */
     const T GetFreqMax () const { return maxFrequency; }
 private:
+    /**
+     * @brief maxFrequency: Propiedad donde se almacena la máxima frecuencia
+     */
     T maxFrequency = 0;
     /**
-     * @brief instantData
-     * @note Almacena datos instantáneos para luego promediar y actualizar currentValue
+     * @brief instantData: Almacena datos instantáneos para luego promediar y actualizar currentValue
      */
     vector < T > instantData;
     /**
-     * @brief UpdateValue
-     * @note Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual
-     * de acuerdo a las últimas lecturas
+     * @brief UpdateValue: Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual de acuerdo a las últimas lecturas
      */
     void UpdateValue ();
 };
 
 template < class T >
 /**
- * @brief The VelocitySensor class
+ * @brief The VelocitySensor class: Clase derivada de sensor
  */
 class VelocitySensor: public Sensors < T >
 {
 public:
-    VelocitySensor (QSerialPort *p);
-    virtual ~VelocitySensor () {};
     /**
-     * @brief GetValue
-     * @note Actualiza valor actual del sensor
+     * @brief VelocitySensor - Constructor
+     * @param p: Objeto puerto serie asociado al sensor
+     */
+    VelocitySensor (QSerialPort *p);
+    virtual ~VelocitySensor () { cout << "Destructor de VelocitySensor" << endl; };
+    /**
+     * @brief GetValue: Actualiza valor actual del sensor
      */
     virtual void GetValue ();
     /**
-     * @brief GetVeloc
-     * @param sel : Si sel = 0 retorna velocidad RPM, si sel = 1 retorna velocidad en km/h
-     * @return valor actual
+     * @brief GetVeloc: Permite obtener la velocidad del sensor en RPM o km/h de acuerdo al parámetro sel
+     * @param sel: Si sel = 0 retorna velocidad RPM, si sel = 1 retorna velocidad en km/h
+     * @return Retorna el valor actual en la unidad seleccionada
      */
     const T GetVeloc ( const int &sel = 0) const { if ( sel == 1) return kmh; else return this->currentValue; }
     /**
-     * @brief GetVelocMax
-     * @return Velocidad máxima leída
+     * @brief GetVelocMax: Permite obtener el valor de la velocidad máxima sensada
+     * @return Retorna la velocidad máxima leída
      */
     const T GetVelocMax () const { return velocMax; }
     /**
-     * @brief GetVelocProm
-     * @return Velocidad promedio leída
+     * @brief GetVelocProm: Permite obtener el valor promedio de los datos sensados
+     * @return Retorna la velocidad promedio leída
      */
     const T GetVelocProm () const { return velocMed; }
 private:
-    //currentValue almacena el valor en RPM
+    /**
+     * @brief velocMax: Propiedad donde se almacena la velocidad máxima
+     */
     T velocMax = 0;
+    /**
+     * @brief velocMed: Propiedad donde se almacena la velocidad media o promedio
+     */
     T velocMed;
     /**
-     * @brief dataRead
-     * @note Cantidad de datos leídos. Utilizado para calcular la velocidad media
+     * @brief dataRead: Cantidad de datos leídos.
+     * @details Utilizado para calcular la velocidad media
      */
     int dataRead = 0;
     /**
-     * @brief sumData
-     * @note Acumulador de datos
+     * @brief sumData: Acumulador de datos
      */
     T sumData = 0;
+    /**
+     * @brief kmh: Propiedad donde se almacena la velocidad cuya unidades son km/h
+     */
     T kmh;
     /**
-     * @brief radius
-     * @note Valor de radio de la rueda de la bicicleta estática
+     * @brief radius: Valor de radio de la rueda de la bicicleta estática
      * @details el valor en el que está instanciado es en metros
      */
     T radius = 0.2; //en metro
 };
 
 template < class T >
+/**
+ * @brief The LoadSensor class: Clase derivada de sensor
+ */
 class LoadSensor: public Sensors < T >
 {
 public:
-    LoadSensor (QSerialPort *p);
-    virtual ~LoadSensor () {};
     /**
-     * @brief GetValue
-     * @note Actualiza valor actual de carga
+     * @brief LoadSensor - Constructor
+     * @param p: Objeto puerto serie asociado al sensor
+     */
+    LoadSensor (QSerialPort *p);
+    virtual ~LoadSensor () { cout << "Destructor de LoadSensor" << endl;};
+    /**
+     * @brief GetValue: Actualiza valor actual de carga
      */
     virtual void GetValue ();
     /**
-     * @brief GetLoad
-     * @return Valor actual de carga
+     * @brief GetLoad: Permite obtener el valor actual del sensor
+     * @return Retorna el valor actual de carga
      */
     const T GetLoad () const { return Sensors <T>::currentValue; }
     /**
-     * @brief GetMaxLoad
-     * @return Valor máximo registrado de carga
+     * @brief GetMaxLoad: Permite obtener el máximo de valor de carga usado durante la sesión
+     * @return Retorna el valor máximo registrado de carga
      */
     const T GetMaxLoad () const { return maxLoad; }
 private:
+    /**
+     * @brief maxLoad: Propiedad donde se almacena el valor de la máxima carga sensada
+     */
     T maxLoad = 0;
 };
 

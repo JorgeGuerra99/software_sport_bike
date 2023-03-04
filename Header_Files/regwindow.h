@@ -23,31 +23,31 @@ class RegWindow : public QMainWindow
 
 public:
     /**
-     * @brief RegWindow
+     * @brief RegWindow - Constructor
      * @param us : Puntero a objeto User
      * @param parent
      */
     explicit RegWindow(User* us, QWidget *parent = nullptr);
     ~RegWindow();
+    /**
+     * @brief usReg: Puntero al objeto de usuario
+     */
     User *usReg;
 private:
     Ui::RegWindow *ui;
 private slots:
     /**
-     * @brief RegisterUser
-     * @note SLOT asociado al botón de registrar usuario
-     * @details toma los datos ingresados por el usuario en la interfaz y los utiliza para crear el objeto usuario correspondiente
+     * @brief RegisterUser: SLOT asociado al botón de registrar usuario
+     * @details Toma los datos ingresados por el usuario en la interfaz y los utiliza para crear el objeto usuario correspondiente
      */
     void RegisterUser ();
     /**
-     * @brief CancelRegister
-     * @note Cancelar registro. Cierra la ventana
+     * @brief CancelRegister: Cancelar registro y cierra la ventana
      */
     void CancelRegister () { delete this;}
 signals:
     /**
-     * @brief UserRegistered
-     * @note Señal emitida cuando un usuario se registra exitosamente
+     * @brief UserRegistered: Señal emitida cuando un usuario se registra exitosamente
      */
     void UserRegistered ();
 };
