@@ -53,17 +53,17 @@ double Session::GetVelocMaxMed( const int &s ) const
 }
 
 //------------------------------------------------------------------------------------------------------
-bool Session::AlarmPpm() const
+bool Session::AlarmPpm()
 {
-    float freqMaxRef;
     if( dataUser.sex == 'M' )
     {
-        freqMaxRef = 180 + ( 0.5 * dataUser.age );
+        ppmMax = 180 + ( 0.5 * dataUser.age );
     } else
     {
-        freqMaxRef = 210.7 - ( 0.8 * dataUser.age );
+        ppmMax = 210.7 - ( 0.8 * dataUser.age );
     }
-    if ( pulseData.back() > freqMaxRef )
+    if ( pulseData.back() > ppmMax
+         )
     {
         return true;
     }
@@ -556,7 +556,6 @@ bool WeightLoss::NoRutAlm ()
         screenMessage = "Incremente la velocidad";
         return true;
     }
-    cout << "Va a ritmo" << endl;
     return false;
 }
 
@@ -664,12 +663,12 @@ void WeightLoss::LoadConfig ()
     {
         if ( contInt == 0 )
         {
-            intensityMinFc = ( inteAux * ( 220 - dataUser.age ) ) / 100;
+            intensityMinFc = ( inteAux * ppmMax ) / 100;
             contInt++;
         }
         else
         {
-            intensityMaxFc = ( inteAux * ( 220 - dataUser.age ) ) / 100;
+            intensityMaxFc = ( inteAux * ppmMax ) / 100;
             contInt = 0;
         }
     }

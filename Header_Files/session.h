@@ -122,7 +122,7 @@ protected:
      * @details Alerta al usuario de que tiene una frecuencia cardiaca que puede ser peligrosa
      * @return Retorna un verdadero en caso de superar la frecuencia máxima determinada
      */
-    virtual bool AlarmPpm () const;
+    virtual bool AlarmPpm ();
     /**
      * @brief CalcCalories: Realiza el calculo de calorias quemadas mientras transcurre la sesión
      * @return Retorna un doble con las calorias quemadas durante la sesión
@@ -190,6 +190,10 @@ protected:
      * @brief sampleTime: Es el tiempo de muestreo
      */
     const float sampleTime = 1;
+    /**
+     * @brief ppmMax: Valor donde se asigna el máximo valor de pulsación para el usuario
+     */
+    float ppmMax;
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -346,7 +350,7 @@ private:
     /**
      * @brief intensityRef: Vector que contiene en que porcentaje de la intensidad máxima se debe realizar la sesión
      */
-    vector < float > intensityRef;
+    //vector < float > intensityRef;
     /**
      * @brief intensityMaxFc: Propiedad donde se almacena el valor de intensidad máxima que debe realizar el usario
      * @details Este se determina de acuerdo a los datos de archivo de configuraciones y factores como edad y genero del usuario
