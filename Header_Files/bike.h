@@ -147,13 +147,13 @@ public:
      */
     virtual const QSerialPort* GetPort () const { return &portBike;}
     /**
-     * @brief GetPortInfo: Permimte hacer visible los puertos serie disponibles
+     * @brief GetPortInfo: Permite hacer visible los puertos serie disponibles
      * @return Retorna un puntero al objeto del tipo QSerialPortInfo
      */
     virtual const QSerialPortInfo* GetPortInfo () const { return &portBikeInfo;}
 private:
     /**
-     * @brief ConfigSensors: Crea los objetos de los diferentes sensores y los asocia al puerto serie
+     * @brief ConfigSensors: Instancia los objetos de los diferentes sensores y los asocia al puerto serie
      */
     virtual void ConfigSensors ();
     /**
