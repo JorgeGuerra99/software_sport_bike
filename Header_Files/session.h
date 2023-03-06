@@ -352,10 +352,6 @@ private:
      */
     float timeRef;
     /**
-     * @brief intensityRef: Vector que contiene en que porcentaje de la intensidad máxima se debe realizar la sesión
-     */
-    //vector < float > intensityRef;
-    /**
      * @brief intensityMaxFc: Propiedad donde se almacena el valor de intensidad máxima que debe realizar el usario
      * @details Este se determina de acuerdo a los datos de archivo de configuraciones y factores como edad y genero del usuario
      */

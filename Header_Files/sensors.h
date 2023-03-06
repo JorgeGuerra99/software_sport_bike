@@ -29,13 +29,18 @@ template < class T >
  */
 class Sensors
 {
-protected:
+public:
     /**
      * @brief Sensors - Constructor
      * @param p: Objeto puerto serie asociado al sensor
      */
     Sensors ( QSerialPort *p);
     virtual ~Sensors ();
+    /**
+     * @brief GetValue: Envía la orden al puerto serie y obtiene el dato respectivo
+     */
+    virtual void GetValue () = 0;
+protected:
     /**
      * @brief currentValue: Valor actual que presenta el sensor
      */
@@ -44,11 +49,6 @@ protected:
      * @brief port: Puntero del puerto serie
      */
     QSerialPort *port;
-public:
-    /**
-     * @brief GetValue: Envía la orden al puerto serie y obtiene el dato respectivo
-     */
-    virtual void GetValue () = 0;
 };
 
 
