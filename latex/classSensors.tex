@@ -1,0 +1,114 @@
+\hypertarget{classSensors}{}\doxysection{Referencia de la plantilla de la Clase Sensors$<$ T $>$}
+\label{classSensors}\index{Sensors$<$ T $>$@{Sensors$<$ T $>$}}
+
+
+The \mbox{\hyperlink{classSensors}{Sensors}} class\+: Clase abstracta para sensor genérico.  
+
+
+
+
+{\ttfamily \#include $<$sensors.\+h$>$}
+
+
+
+Diagrama de herencias de Sensors$<$ T $>$
+% FIG 0
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classSensors_aefcdb5ecbe0423bf5dadd54022f261af}{Get\+Value}} ()=0
+\begin{DoxyCompactList}\small\item\em Get\+Value\+: Envía la orden al puerto serie y obtiene el dato respectivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSensors_a5051b98301fb5fe6dc786f2fff29ab2c}{Sensors}} (Q\+Serial\+Port $\ast$p)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSensors}{Sensors}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classSensors_a4d3e9b1b64fc7a5b4f29f56e698f4f78}{$\sim$\+Sensors}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classSensors_a1d46cdb9649c55b9dd2c1fee39742133}{current\+Value}} = 0
+\begin{DoxyCompactList}\small\item\em current\+Value\+: Valor actual que presenta el sensor \end{DoxyCompactList}\item 
+Q\+Serial\+Port $\ast$ \mbox{\hyperlink{classSensors_a48ee13e23835e1706fcf1565c48f0855}{port}}
+\begin{DoxyCompactList}\small\item\em port\+: Puntero del puerto serie \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class Sensors$<$ T $>$}
+
+The \mbox{\hyperlink{classSensors}{Sensors}} class\+: Clase abstracta para sensor genérico. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classSensors_a5051b98301fb5fe6dc786f2fff29ab2c}\label{classSensors_a5051b98301fb5fe6dc786f2fff29ab2c}} 
+\index{Sensors$<$ T $>$@{Sensors$<$ T $>$}!Sensors@{Sensors}}
+\index{Sensors@{Sensors}!Sensors$<$ T $>$@{Sensors$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Sensors()}{Sensors()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classSensors}{Sensors}}$<$ T $>$\+::\mbox{\hyperlink{classSensors}{Sensors}} (\begin{DoxyParamCaption}\item[{Q\+Serial\+Port $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{classSensors}{Sensors}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p} & Objeto puerto serie asociado al sensor\\
+\hline
+\end{DoxyParams}
+D\+E\+F\+I\+N\+I\+C\+IÓN DE MÉ\+T\+O\+D\+OS DE C\+L\+A\+SE -\/ I\+N\+C\+L\+U\+I\+D\+OS EN H\+E\+A\+D\+ER F\+I\+LE P\+OR S\+ER T\+E\+M\+P\+L\+A\+TE \mbox{\Hypertarget{classSensors_a4d3e9b1b64fc7a5b4f29f56e698f4f78}\label{classSensors_a4d3e9b1b64fc7a5b4f29f56e698f4f78}} 
+\index{Sensors$<$ T $>$@{Sensors$<$ T $>$}!````~Sensors@{$\sim$Sensors}}
+\index{````~Sensors@{$\sim$Sensors}!Sensors$<$ T $>$@{Sensors$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Sensors()}{~Sensors()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classSensors}{Sensors}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classSensors}{Sensors}}\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classSensors_aefcdb5ecbe0423bf5dadd54022f261af}\label{classSensors_aefcdb5ecbe0423bf5dadd54022f261af}} 
+\index{Sensors$<$ T $>$@{Sensors$<$ T $>$}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!Sensors$<$ T $>$@{Sensors$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+virtual void \mbox{\hyperlink{classSensors}{Sensors}}$<$ T $>$\+::Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get\+Value\+: Envía la orden al puerto serie y obtiene el dato respectivo. 
+
+
+
+Implementado en \mbox{\hyperlink{classLoadSensor_aa5c0193ca26ec4cb241d272de55b5d45}{Load\+Sensor$<$ T $>$}}, \mbox{\hyperlink{classLoadSensor_aa5c0193ca26ec4cb241d272de55b5d45}{Load\+Sensor$<$ double $>$}}, \mbox{\hyperlink{classVelocitySensor_abd08fb9f326664607064fbb98032b61d}{Velocity\+Sensor$<$ T $>$}}, \mbox{\hyperlink{classVelocitySensor_abd08fb9f326664607064fbb98032b61d}{Velocity\+Sensor$<$ double $>$}}, \mbox{\hyperlink{classPulseSensor_a7d699c425fe6a5e69217949ca0ec09b0}{Pulse\+Sensor$<$ T $>$}} y \mbox{\hyperlink{classPulseSensor_a7d699c425fe6a5e69217949ca0ec09b0}{Pulse\+Sensor$<$ double $>$}}.
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classSensors_a1d46cdb9649c55b9dd2c1fee39742133}\label{classSensors_a1d46cdb9649c55b9dd2c1fee39742133}} 
+\index{Sensors$<$ T $>$@{Sensors$<$ T $>$}!currentValue@{currentValue}}
+\index{currentValue@{currentValue}!Sensors$<$ T $>$@{Sensors$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{currentValue}{currentValue}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classSensors}{Sensors}}$<$ T $>$\+::current\+Value = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+current\+Value\+: Valor actual que presenta el sensor 
+
+\mbox{\Hypertarget{classSensors_a48ee13e23835e1706fcf1565c48f0855}\label{classSensors_a48ee13e23835e1706fcf1565c48f0855}} 
+\index{Sensors$<$ T $>$@{Sensors$<$ T $>$}!port@{port}}
+\index{port@{port}!Sensors$<$ T $>$@{Sensors$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+Q\+Serial\+Port$\ast$ \mbox{\hyperlink{classSensors}{Sensors}}$<$ T $>$\+::port\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+port\+: Puntero del puerto serie 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{sensors_8h}{sensors.\+h}}\end{DoxyCompactItemize}

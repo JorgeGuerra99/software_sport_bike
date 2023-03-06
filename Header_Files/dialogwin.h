@@ -15,6 +15,9 @@ namespace Ui {
 class DialogWin;
 }
 
+/**
+ * @brief The DialogWin class: Cuadro de diálogo
+ */
 class DialogWin : public QDialog
 {
     Q_OBJECT

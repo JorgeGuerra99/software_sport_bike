@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/mainwindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">mainwindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mainwindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef MAINWINDOW_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define MAINWINDOW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="regwindow_8h.html">regwindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="accesswindow_8h.html">accesswindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cardiowindow_8h.html">cardiowindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="weightwindow_8h.html">weightwindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="freewindow_8h.html">freewindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="datawindow_8h.html">datawindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QStringList&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;QT_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceUi.html">Ui</a> { <span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;QT_END_NAMESPACE</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classMainWindow.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classMainWindow.html#a329d11426aae539fc23f7add1b7f8555">   40</a></span>&#160;    <a class="code" href="classUser.html">User</a> *<a class="code" href="classMainWindow.html#a329d11426aae539fc23f7add1b7f8555">us</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classMainWindow.html#a35466a70ed47252a0191168126a352a5">   43</a></span>&#160;    Ui::MainWindow *<a class="code" href="classMainWindow.html#a35466a70ed47252a0191168126a352a5">ui</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classMainWindow.html#a85ab439fdf9984c157d0b31ff408bc30">   47</a></span>&#160;    <a class="code" href="classRegWindow.html">RegWindow</a> *<a class="code" href="classMainWindow.html#a85ab439fdf9984c157d0b31ff408bc30">winReg</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classMainWindow.html#a9e643c2d8369807efe024a7f665b1543">   51</a></span>&#160;    <a class="code" href="classaccesswindow.html">accesswindow</a> *<a class="code" href="classMainWindow.html#a9e643c2d8369807efe024a7f665b1543">winAcc</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classMainWindow.html#a1fdc6cd74eae0619545317ee607b7278">   55</a></span>&#160;    <a class="code" href="classCardioWindow.html">CardioWindow</a> *<a class="code" href="classMainWindow.html#a1fdc6cd74eae0619545317ee607b7278">winCar</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classMainWindow.html#a833b107527cd7adb9d141e4898224e3e">   59</a></span>&#160;    <a class="code" href="classweightwindow.html">weightwindow</a> *<a class="code" href="classMainWindow.html#a833b107527cd7adb9d141e4898224e3e">winWei</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classMainWindow.html#aa9524a05b54f158f3da686af2c806e80">   63</a></span>&#160;    <a class="code" href="classFreeWindow.html">FreeWindow</a> *<a class="code" href="classMainWindow.html#aa9524a05b54f158f3da686af2c806e80">winFre</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classMainWindow.html#ad76f000ed2fd23080504339ecd7676d2">   67</a></span>&#160;    <a class="code" href="classdatawindow.html">datawindow</a> *<a class="code" href="classMainWindow.html#ad76f000ed2fd23080504339ecd7676d2">winData</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a29a49a3a4112abafb9ea61028314f7a1">ButtReg</a> ();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a711b749c0980fc4c01d36b338bb6c9d7">UsReg</a> ();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a75f0572ff3f3a75be112fcc82941a4b0">ButtAcc</a> ();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a0693510a032ff0c9b366d644da4444e5">UsAcc</a> ();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#adc133b34d8b102cc516f95be8aa7b30a">StartSession</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a0c7eff3162c42bc85d760f41f5622250">ViewReport</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a22392bd964b753dc87871297a0320471">RefreshSession</a> ();</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classMainWindow.html#a6ef751c78b2be1fb843cc877581cddb5">  108</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a6ef751c78b2be1fb843cc877581cddb5">ClosedWindow</a> () {cout &lt;&lt; <span class="stringliteral">&quot;ventana cerrada&quot;</span> &lt;&lt; endl;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif // MAINWINDOW_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassMainWindow_html_ad76f000ed2fd23080504339ecd7676d2"><div class="ttname"><a href="classMainWindow.html#ad76f000ed2fd23080504339ecd7676d2">MainWindow::winData</a></div><div class="ttdeci">datawindow * winData</div><div class="ttdoc">winData: Puntero del objeto ventana de mostrar datos</div><div class="ttdef"><b>Definition:</b> mainwindow.h:67</div></div>
+<div class="ttc" id="aaccesswindow_8h_html"><div class="ttname"><a href="accesswindow_8h.html">accesswindow.h</a></div><div class="ttdoc">Clase de ventana de acceso de usuario (Ingreso de nombre de usuario y contraseña) (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassMainWindow_html_a711b749c0980fc4c01d36b338bb6c9d7"><div class="ttname"><a href="classMainWindow.html#a711b749c0980fc4c01d36b338bb6c9d7">MainWindow::UsReg</a></div><div class="ttdeci">void UsReg()</div><div class="ttdoc">usReg: SLOT asociado a la señal de usuario registrado</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:30</div></div>
+<div class="ttc" id="aregwindow_8h_html"><div class="ttname"><a href="regwindow_8h.html">regwindow.h</a></div><div class="ttdoc">Ventana de registro de usuario (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassweightwindow_html"><div class="ttname"><a href="classweightwindow.html">weightwindow</a></div><div class="ttdoc">The weightwindow class.</div><div class="ttdef"><b>Definition:</b> weightwindow.h:25</div></div>
+<div class="ttc" id="afreewindow_8h_html"><div class="ttname"><a href="freewindow_8h.html">freewindow.h</a></div><div class="ttdoc">Ventana de sesión de entrenamiento del tipo Free (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassFreeWindow_html"><div class="ttname"><a href="classFreeWindow.html">FreeWindow</a></div><div class="ttdoc">The FreeWindow class: Ventana de sesión de entrenamiento del tipo Free (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> freewindow.h:25</div></div>
+<div class="ttc" id="aclassMainWindow_html_a75f0572ff3f3a75be112fcc82941a4b0"><div class="ttname"><a href="classMainWindow.html#a75f0572ff3f3a75be112fcc82941a4b0">MainWindow::ButtAcc</a></div><div class="ttdeci">void ButtAcc()</div><div class="ttdoc">buttAcc: SLOT asociado al botón de acceder a un usuario ya existente</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:89</div></div>
+<div class="ttc" id="aclassMainWindow_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:15</div></div>
+<div class="ttc" id="acardiowindow_8h_html"><div class="ttname"><a href="cardiowindow_8h.html">cardiowindow.h</a></div><div class="ttdoc">Ventana de sesión de entrenamiento del tipo Cardio (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassMainWindow_html_a833b107527cd7adb9d141e4898224e3e"><div class="ttname"><a href="classMainWindow.html#a833b107527cd7adb9d141e4898224e3e">MainWindow::winWei</a></div><div class="ttdeci">weightwindow * winWei</div><div class="ttdoc">winWei: Puntero del objeto ventana de sesión WeightLoss</div><div class="ttdef"><b>Definition:</b> mainwindow.h:59</div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> accesswindow.h:17</div></div>
+<div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdoc">The MainWindow class: Ventana principal (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> mainwindow.h:26</div></div>
+<div class="ttc" id="aclassMainWindow_html_a1fdc6cd74eae0619545317ee607b7278"><div class="ttname"><a href="classMainWindow.html#a1fdc6cd74eae0619545317ee607b7278">MainWindow::winCar</a></div><div class="ttdeci">CardioWindow * winCar</div><div class="ttdoc">winCar: Puntero del objeto ventana de sesión Cardio</div><div class="ttdef"><b>Definition:</b> mainwindow.h:55</div></div>
+<div class="ttc" id="aclassMainWindow_html_a996c5a2b6f77944776856f08ec30858d"><div class="ttname"><a href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=nullptr)</div><div class="ttdoc">MainWindow - Constructor.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:4</div></div>
+<div class="ttc" id="aclassMainWindow_html_a29a49a3a4112abafb9ea61028314f7a1"><div class="ttname"><a href="classMainWindow.html#a29a49a3a4112abafb9ea61028314f7a1">MainWindow::ButtReg</a></div><div class="ttdeci">void ButtReg()</div><div class="ttdoc">buttReg: SLOT asociado al botón de registrar un nuevo usuario</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:23</div></div>
+<div class="ttc" id="aclassaccesswindow_html"><div class="ttname"><a href="classaccesswindow.html">accesswindow</a></div><div class="ttdoc">The accesswindow class: Clase de ventana de acceso a usuario (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> accesswindow.h:25</div></div>
+<div class="ttc" id="aweightwindow_8h_html"><div class="ttname"><a href="weightwindow_8h.html">weightwindow.h</a></div><div class="ttdoc">Ventana de sesión de entrenamiento del tipo Weightloss (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassMainWindow_html_a0c7eff3162c42bc85d760f41f5622250"><div class="ttname"><a href="classMainWindow.html#a0c7eff3162c42bc85d760f41f5622250">MainWindow::ViewReport</a></div><div class="ttdeci">void ViewReport()</div><div class="ttdoc">ViewReport: SLOT asociado al botón de ver reporte.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:96</div></div>
+<div class="ttc" id="aclassMainWindow_html_a9e643c2d8369807efe024a7f665b1543"><div class="ttname"><a href="classMainWindow.html#a9e643c2d8369807efe024a7f665b1543">MainWindow::winAcc</a></div><div class="ttdeci">accesswindow * winAcc</div><div class="ttdoc">winAcc: Puntero del objeto ventana de acceso</div><div class="ttdef"><b>Definition:</b> mainwindow.h:51</div></div>
+<div class="ttc" id="aclassMainWindow_html_aa9524a05b54f158f3da686af2c806e80"><div class="ttname"><a href="classMainWindow.html#aa9524a05b54f158f3da686af2c806e80">MainWindow::winFre</a></div><div class="ttdeci">FreeWindow * winFre</div><div class="ttdoc">winFre: Puntero del objeto ventana de la sesión Free</div><div class="ttdef"><b>Definition:</b> mainwindow.h:63</div></div>
+<div class="ttc" id="aclassMainWindow_html_adc133b34d8b102cc516f95be8aa7b30a"><div class="ttname"><a href="classMainWindow.html#adc133b34d8b102cc516f95be8aa7b30a">MainWindow::StartSession</a></div><div class="ttdeci">void StartSession()</div><div class="ttdoc">startSession: SLOT asociado al botón iniciar entrenamiento</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:61</div></div>
+<div class="ttc" id="aclassMainWindow_html_a329d11426aae539fc23f7add1b7f8555"><div class="ttname"><a href="classMainWindow.html#a329d11426aae539fc23f7add1b7f8555">MainWindow::us</a></div><div class="ttdeci">User * us</div><div class="ttdoc">us: Puntero del objeto usuario</div><div class="ttdef"><b>Definition:</b> mainwindow.h:40</div></div>
+<div class="ttc" id="aclassCardioWindow_html"><div class="ttname"><a href="classCardioWindow.html">CardioWindow</a></div><div class="ttdoc">The CardioWindow class: Ventana de sesión de entrenamiento del tipo Cardio (INTERFAZ GRÁFICA)</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:25</div></div>
+<div class="ttc" id="aclassMainWindow_html_a35466a70ed47252a0191168126a352a5"><div class="ttname"><a href="classMainWindow.html#a35466a70ed47252a0191168126a352a5">MainWindow::ui</a></div><div class="ttdeci">Ui::MainWindow * ui</div><div class="ttdef"><b>Definition:</b> mainwindow.h:43</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">Clase Usuario: Contiene los datos y métodos de un usuario.</div></div>
+<div class="ttc" id="aclassMainWindow_html_a85ab439fdf9984c157d0b31ff408bc30"><div class="ttname"><a href="classMainWindow.html#a85ab439fdf9984c157d0b31ff408bc30">MainWindow::winReg</a></div><div class="ttdeci">RegWindow * winReg</div><div class="ttdoc">winReg: Puntero del objeto ventana de registro</div><div class="ttdef"><b>Definition:</b> mainwindow.h:47</div></div>
+<div class="ttc" id="aclassdatawindow_html"><div class="ttname"><a href="classdatawindow.html">datawindow</a></div><div class="ttdoc">The datawindow class: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> datawindow.h:25</div></div>
+<div class="ttc" id="aclassMainWindow_html_a0693510a032ff0c9b366d644da4444e5"><div class="ttname"><a href="classMainWindow.html#a0693510a032ff0c9b366d644da4444e5">MainWindow::UsAcc</a></div><div class="ttdeci">void UsAcc()</div><div class="ttdoc">usAcc: SLOT asociado a la señal de ingreso de un usuario existente</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:42</div></div>
+<div class="ttc" id="aclassMainWindow_html_a6ef751c78b2be1fb843cc877581cddb5"><div class="ttname"><a href="classMainWindow.html#a6ef751c78b2be1fb843cc877581cddb5">MainWindow::ClosedWindow</a></div><div class="ttdeci">void ClosedWindow()</div><div class="ttdoc">closedWindow: Cierra el programa</div><div class="ttdef"><b>Definition:</b> mainwindow.h:108</div></div>
+<div class="ttc" id="aclassRegWindow_html"><div class="ttname"><a href="classRegWindow.html">RegWindow</a></div><div class="ttdoc">The RegWindow class: Ventana de registro de usuario (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> regwindow.h:23</div></div>
+<div class="ttc" id="aclassUser_html"><div class="ttname"><a href="classUser.html">User</a></div><div class="ttdoc">The User class: Objeto de usuario.</div><div class="ttdef"><b>Definition:</b> user.h:28</div></div>
+<div class="ttc" id="adatawindow_8h_html"><div class="ttname"><a href="datawindow_8h.html">datawindow.h</a></div><div class="ttdoc">Ventana de muestra de datos de entrenamiento (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassMainWindow_html_a22392bd964b753dc87871297a0320471"><div class="ttname"><a href="classMainWindow.html#a22392bd964b753dc87871297a0320471">MainWindow::RefreshSession</a></div><div class="ttdeci">void RefreshSession()</div><div class="ttdoc">RefreshSession: SLOT asociado a la señal NewSession ()</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:104</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

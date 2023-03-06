@@ -1,0 +1,255 @@
+\hypertarget{classStateBike}{}\doxysection{Referencia de la Clase State\+Bike}
+\label{classStateBike}\index{StateBike@{StateBike}}
+
+
+The \mbox{\hyperlink{classStateBike}{State\+Bike}} class\+: Esta clase corresponde a una bicicleta estática.  
+
+
+
+
+{\ttfamily \#include $<$bike.\+h$>$}
+
+
+
+Diagrama de herencias de State\+Bike
+% FIG 0
+
+
+Diagrama de colaboración para State\+Bike\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStateBike_a850c378a621c8f6f4146612b504267f4}{State\+Bike}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classStateBike}{State\+Bike}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classStateBike_a0e7a5f9e05fe526137767b7508851bf7}{$\sim$\+State\+Bike}} ()
+\item 
+virtual void \mbox{\hyperlink{classStateBike_a0900df850a8896914694b46ebfdb4854}{Config\+Serial}} (const Q\+String \&portname, const int \&baud, const int \&data, const int \&par, const int \&stop)
+\begin{DoxyCompactList}\small\item\em Config\+Serial\+: Configura el puerto serie de acuerdo a valores seleccionados por el usuario. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classStateBike_a7a2c99cb61561debbab4caab36303ee8}{Config\+Serial}} ()
+\begin{DoxyCompactList}\small\item\em Config\+Serial\+: Configura el puerto serie de acuerdo a valores predeterminados. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStateBike_a0222a19883b42ce4e419f23c06d99def}{Is\+Configured}} () const
+\begin{DoxyCompactList}\small\item\em Is\+Configured\+: Permite saber si los sensores están configurados permitiendo ver la propiedad privada de sensors\+Configured. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ double $>$ $\ast$ \mbox{\hyperlink{classStateBike_a639efb47af8e243ef30d072e83de9943}{Get\+Velocity\+Sensor}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Velocity\+Sensor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ double $>$ $\ast$ \mbox{\hyperlink{classStateBike_af11e37a4d9cf0d29d4820407f0729a0f}{Get\+Pulse\+Sensor}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Pulse\+Sensor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ double $>$ $\ast$ \mbox{\hyperlink{classStateBike_ab3c56a87482f464bc642328590efe4c4}{Get\+Load\+Sensor}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Load\+Sensor. \end{DoxyCompactList}\item 
+virtual const Q\+Serial\+Port $\ast$ \mbox{\hyperlink{classStateBike_a634f445c5bb4a208add446b15d02d890}{Get\+Port}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Port\+: Permite hacer visible la propiedad port\+Bike para ser utilizada por otra clase. \end{DoxyCompactList}\item 
+virtual const Q\+Serial\+Port\+Info $\ast$ \mbox{\hyperlink{classStateBike_a6d115964da7f0469772c2355f29dd1b8}{Get\+Port\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Port\+Info\+: Permite hacer visible los puertos serie disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classStateBike_ae3d8727a056883feb3564c865de53938}{Config\+Sensors}} ()
+\begin{DoxyCompactList}\small\item\em Config\+Sensors\+: Instancia los objetos de los diferentes sensores y los asocia al puerto serie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classStateBike_a329dd4bf3a19d49dc0d892720d8bca23}{sensors\+Configured}} = false
+\begin{DoxyCompactList}\small\item\em sensors\+Configured \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classStateBike}{State\+Bike}} class\+: Esta clase corresponde a una bicicleta estática. 
+
+Clase derivada de bike 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classStateBike_a850c378a621c8f6f4146612b504267f4}\label{classStateBike_a850c378a621c8f6f4146612b504267f4}} 
+\index{StateBike@{StateBike}!StateBike@{StateBike}}
+\index{StateBike@{StateBike}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{StateBike()}{StateBike()}}
+{\footnotesize\ttfamily State\+Bike\+::\+State\+Bike (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classStateBike}{State\+Bike}} -\/ Constructor. 
+
+\mbox{\Hypertarget{classStateBike_a0e7a5f9e05fe526137767b7508851bf7}\label{classStateBike_a0e7a5f9e05fe526137767b7508851bf7}} 
+\index{StateBike@{StateBike}!````~StateBike@{$\sim$StateBike}}
+\index{````~StateBike@{$\sim$StateBike}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{$\sim$StateBike()}{~StateBike()}}
+{\footnotesize\ttfamily State\+Bike\+::$\sim$\+State\+Bike (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classStateBike_ae3d8727a056883feb3564c865de53938}\label{classStateBike_ae3d8727a056883feb3564c865de53938}} 
+\index{StateBike@{StateBike}!ConfigSensors@{ConfigSensors}}
+\index{ConfigSensors@{ConfigSensors}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{ConfigSensors()}{ConfigSensors()}}
+{\footnotesize\ttfamily void State\+Bike\+::\+Config\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Config\+Sensors\+: Instancia los objetos de los diferentes sensores y los asocia al puerto serie. 
+
+
+
+Implementa \mbox{\hyperlink{classBike_a2e747df8a82b7f3658f3eaeb86dd17d5}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_a7a2c99cb61561debbab4caab36303ee8}\label{classStateBike_a7a2c99cb61561debbab4caab36303ee8}} 
+\index{StateBike@{StateBike}!ConfigSerial@{ConfigSerial}}
+\index{ConfigSerial@{ConfigSerial}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{ConfigSerial()}{ConfigSerial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void State\+Bike\+::\+Config\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Config\+Serial\+: Configura el puerto serie de acuerdo a valores predeterminados. 
+
+port\+Name \char`\"{}/dev/tty\+A\+C\+M0\char`\"{}, baud\+Rate 9600, data 8, no\+Parity, stop 1 
+
+Implementa \mbox{\hyperlink{classBike_aa4eebf505c1c7371e4a161785fb8992d}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_a0900df850a8896914694b46ebfdb4854}\label{classStateBike_a0900df850a8896914694b46ebfdb4854}} 
+\index{StateBike@{StateBike}!ConfigSerial@{ConfigSerial}}
+\index{ConfigSerial@{ConfigSerial}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{ConfigSerial()}{ConfigSerial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void State\+Bike\+::\+Config\+Serial (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{portname,  }\item[{const int \&}]{baud,  }\item[{const int \&}]{data,  }\item[{const int \&}]{par,  }\item[{const int \&}]{stop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Config\+Serial\+: Configura el puerto serie de acuerdo a valores seleccionados por el usuario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em portname} & \+: Nombre del puerto serie \\
+\hline
+{\em baud} & \+: Velocidad (Baud\+Rate) \\
+\hline
+{\em data} & \+: Bits de datos \\
+\hline
+{\em par} & \+: Bit de paridad \\
+\hline
+{\em stop} & \+: Bit de stop \\
+\hline
+\end{DoxyParams}
+
+
+Implementa \mbox{\hyperlink{classBike_a2e3c76f6546e420c2cdd0e3334ffc927}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_ab3c56a87482f464bc642328590efe4c4}\label{classStateBike_ab3c56a87482f464bc642328590efe4c4}} 
+\index{StateBike@{StateBike}!GetLoadSensor@{GetLoadSensor}}
+\index{GetLoadSensor@{GetLoadSensor}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{GetLoadSensor()}{GetLoadSensor()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$double$>$$\ast$ State\+Bike\+::\+Get\+Load\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get\+Load\+Sensor. 
+
+\begin{DoxyReturn}{Devuelve}
+Puntero a sensor de carga 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classBike_ac15f5d143fd2baf3c103940563e26ae9}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_a634f445c5bb4a208add446b15d02d890}\label{classStateBike_a634f445c5bb4a208add446b15d02d890}} 
+\index{StateBike@{StateBike}!GetPort@{GetPort}}
+\index{GetPort@{GetPort}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{GetPort()}{GetPort()}}
+{\footnotesize\ttfamily virtual const Q\+Serial\+Port$\ast$ State\+Bike\+::\+Get\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get\+Port\+: Permite hacer visible la propiedad port\+Bike para ser utilizada por otra clase. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna un puntero al objeto del tipo Q\+Serial\+Port 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classBike_a637b7225802f963aa2b723780ca3a447}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_a6d115964da7f0469772c2355f29dd1b8}\label{classStateBike_a6d115964da7f0469772c2355f29dd1b8}} 
+\index{StateBike@{StateBike}!GetPortInfo@{GetPortInfo}}
+\index{GetPortInfo@{GetPortInfo}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{GetPortInfo()}{GetPortInfo()}}
+{\footnotesize\ttfamily virtual const Q\+Serial\+Port\+Info$\ast$ State\+Bike\+::\+Get\+Port\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get\+Port\+Info\+: Permite hacer visible los puertos serie disponibles. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna un puntero al objeto del tipo Q\+Serial\+Port\+Info 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classBike_a16c01918d3848b1bf2635c0578f5ec76}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_af11e37a4d9cf0d29d4820407f0729a0f}\label{classStateBike_af11e37a4d9cf0d29d4820407f0729a0f}} 
+\index{StateBike@{StateBike}!GetPulseSensor@{GetPulseSensor}}
+\index{GetPulseSensor@{GetPulseSensor}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{GetPulseSensor()}{GetPulseSensor()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$double$>$$\ast$ State\+Bike\+::\+Get\+Pulse\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get\+Pulse\+Sensor. 
+
+\begin{DoxyReturn}{Devuelve}
+Puntero a sensor de pulso 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classBike_a9c1165d1c5255f974d8eb08eba2493e4}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_a639efb47af8e243ef30d072e83de9943}\label{classStateBike_a639efb47af8e243ef30d072e83de9943}} 
+\index{StateBike@{StateBike}!GetVelocitySensor@{GetVelocitySensor}}
+\index{GetVelocitySensor@{GetVelocitySensor}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{GetVelocitySensor()}{GetVelocitySensor()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$double$>$$\ast$ State\+Bike\+::\+Get\+Velocity\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get\+Velocity\+Sensor. 
+
+\begin{DoxyReturn}{Devuelve}
+Puntero a sensor de velocidad 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classBike_a40dc480e99537003453cc847c5528806}{Bike}}.
+
+\mbox{\Hypertarget{classStateBike_a0222a19883b42ce4e419f23c06d99def}\label{classStateBike_a0222a19883b42ce4e419f23c06d99def}} 
+\index{StateBike@{StateBike}!IsConfigured@{IsConfigured}}
+\index{IsConfigured@{IsConfigured}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{IsConfigured()}{IsConfigured()}}
+{\footnotesize\ttfamily bool State\+Bike\+::\+Is\+Configured (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Is\+Configured\+: Permite saber si los sensores están configurados permitiendo ver la propiedad privada de sensors\+Configured. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna un valor booleano donde si es verdadero ya se encuentran los sensores configurados 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classStateBike_a329dd4bf3a19d49dc0d892720d8bca23}\label{classStateBike_a329dd4bf3a19d49dc0d892720d8bca23}} 
+\index{StateBike@{StateBike}!sensorsConfigured@{sensorsConfigured}}
+\index{sensorsConfigured@{sensorsConfigured}!StateBike@{StateBike}}
+\doxysubsubsection{\texorpdfstring{sensorsConfigured}{sensorsConfigured}}
+{\footnotesize\ttfamily bool State\+Bike\+::sensors\+Configured = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sensors\+Configured 
+
+\begin{DoxyNote}{Nota}
+booleano que indica si los sensores ya fueron configurados 
+\end{DoxyNote}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{bike_8h}{bike.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{bike_8cpp}{bike.\+cpp}}\end{DoxyCompactItemize}

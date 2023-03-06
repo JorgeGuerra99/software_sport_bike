@@ -1,0 +1,117 @@
+\hypertarget{classdatawindow}{}\doxysection{Referencia de la Clase datawindow}
+\label{classdatawindow}\index{datawindow@{datawindow}}
+
+
+The datawindow class\+: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)  
+
+
+
+
+{\ttfamily \#include $<$datawindow.\+h$>$}
+
+
+
+Diagrama de herencias de datawindow
+% FIG 0
+
+
+Diagrama de colaboración para datawindow\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdatawindow_aed682587346b0bf7d5c8c207c01abde8}{datawindow}} (\mbox{\hyperlink{classSession}{Session}} $\ast$\&my\+Ses, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em datawindow -\/ Constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdatawindow_ab5db47581b7bec8063c7f202158a2093}{$\sim$datawindow}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdatawindow_aaf959a6077f22403ea00fa00c2d7a7d1}{Export\+Data\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Export\+Data\+Button\+: S\+L\+OT asociado al botón de Exportar datos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::datawindow $\ast$ \mbox{\hyperlink{classdatawindow_aa10ee2028884e326de6429e2aad5af66}{ui}}
+\item 
+\mbox{\hyperlink{classSession}{Session}} $\ast$ \mbox{\hyperlink{classdatawindow_a60bcafd479893d19a3b16f280151be7d}{ses}}
+\begin{DoxyCompactList}\small\item\em ses\+: Puntero a objeto de sesión \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDialogWin}{Dialog\+Win}} $\ast$ \mbox{\hyperlink{classdatawindow_a9e70ac724ee45672b931c33523936950}{dia\+Win}}
+\begin{DoxyCompactList}\small\item\em dia\+Win\+: Puntero a objeto de ventana de cuadro de diálogo \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The datawindow class\+: Ventana de muestra de datos de entrenamiento (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classdatawindow_aed682587346b0bf7d5c8c207c01abde8}\label{classdatawindow_aed682587346b0bf7d5c8c207c01abde8}} 
+\index{datawindow@{datawindow}!datawindow@{datawindow}}
+\index{datawindow@{datawindow}!datawindow@{datawindow}}
+\doxysubsubsection{\texorpdfstring{datawindow()}{datawindow()}}
+{\footnotesize\ttfamily datawindow\+::datawindow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSession}{Session}} $\ast$\&}]{my\+Ses,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+datawindow -\/ Constructor 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em my\+Ses} & Puntero a objeto de \mbox{\hyperlink{classSession}{Session}} (clase base) \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classdatawindow_ab5db47581b7bec8063c7f202158a2093}\label{classdatawindow_ab5db47581b7bec8063c7f202158a2093}} 
+\index{datawindow@{datawindow}!````~datawindow@{$\sim$datawindow}}
+\index{````~datawindow@{$\sim$datawindow}!datawindow@{datawindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$datawindow()}{~datawindow()}}
+{\footnotesize\ttfamily datawindow\+::$\sim$datawindow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classdatawindow_aaf959a6077f22403ea00fa00c2d7a7d1}\label{classdatawindow_aaf959a6077f22403ea00fa00c2d7a7d1}} 
+\index{datawindow@{datawindow}!ExportDataButton@{ExportDataButton}}
+\index{ExportDataButton@{ExportDataButton}!datawindow@{datawindow}}
+\doxysubsubsection{\texorpdfstring{ExportDataButton}{ExportDataButton}}
+{\footnotesize\ttfamily void datawindow\+::\+Export\+Data\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Export\+Data\+Button\+: S\+L\+OT asociado al botón de Exportar datos. 
+
+Ejecuta el método Write\+Report de la sesión 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classdatawindow_a9e70ac724ee45672b931c33523936950}\label{classdatawindow_a9e70ac724ee45672b931c33523936950}} 
+\index{datawindow@{datawindow}!diaWin@{diaWin}}
+\index{diaWin@{diaWin}!datawindow@{datawindow}}
+\doxysubsubsection{\texorpdfstring{diaWin}{diaWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDialogWin}{Dialog\+Win}}$\ast$ datawindow\+::dia\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+dia\+Win\+: Puntero a objeto de ventana de cuadro de diálogo 
+
+\mbox{\Hypertarget{classdatawindow_a60bcafd479893d19a3b16f280151be7d}\label{classdatawindow_a60bcafd479893d19a3b16f280151be7d}} 
+\index{datawindow@{datawindow}!ses@{ses}}
+\index{ses@{ses}!datawindow@{datawindow}}
+\doxysubsubsection{\texorpdfstring{ses}{ses}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSession}{Session}}$\ast$ datawindow\+::ses\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ses\+: Puntero a objeto de sesión 
+
+\mbox{\Hypertarget{classdatawindow_aa10ee2028884e326de6429e2aad5af66}\label{classdatawindow_aa10ee2028884e326de6429e2aad5af66}} 
+\index{datawindow@{datawindow}!ui@{ui}}
+\index{ui@{ui}!datawindow@{datawindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::datawindow$\ast$ datawindow\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{datawindow_8h}{datawindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{datawindow_8cpp}{datawindow.\+cpp}}\end{DoxyCompactItemize}

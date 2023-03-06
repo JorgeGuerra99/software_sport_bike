@@ -1,0 +1,225 @@
+\hypertarget{classFree}{}\doxysection{Referencia de la Clase Free}
+\label{classFree}\index{Free@{Free}}
+
+
+The \mbox{\hyperlink{classFree}{Free}} class\+: Sesión de entrenamiento libre.  
+
+
+
+
+{\ttfamily \#include $<$session.\+h$>$}
+
+
+
+Diagrama de herencias de Free
+% FIG 0
+
+
+Diagrama de colaboración para Free\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFree_ac681eba4bdc833362f513bc8742d0e43}{Free}} (const string \&\mbox{\hyperlink{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}{name}}, const int \&\mbox{\hyperlink{classSession_aca4eb847251e09c13a2d418490e07ca0}{age}}, const char \&\mbox{\hyperlink{classSession_a2ffea959fde6a8d7858c62183a69b2f6}{sex}}, const float \&\mbox{\hyperlink{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}{weight}}, const float \&\mbox{\hyperlink{classSession_ac49151747b435cd6166b1a1de717c0cc}{height}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classFree}{Free}} -\/ Contructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFree_a4a847fee0a934284fc4581282706e885}{Free}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classFree}{Free}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFree_a79b1d37583b37c288bdb60e0425b2ccd}{$\sim$\+Free}} ()
+\item 
+virtual void \mbox{\hyperlink{classFree_aed799ec43f16bcb4b918bca93c2eca24}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classFree_a223278096e8a111102a84724d014e686}{Pause}} ()
+\begin{DoxyCompactList}\small\item\em Pause\+: Deshabilita el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFree_a57310e12867aefb3917816870a4b2a62}{End}} ()
+\begin{DoxyCompactList}\small\item\em End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFree_a6bf443d5bec1f49e1b414338fb1f9228}{Sample}} ()
+\begin{DoxyCompactList}\small\item\em Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFree_a71469e9b48a967bc51eafdf35113bbff}{Write\+Report}} () const
+\begin{DoxyCompactList}\small\item\em Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classFree_aad5ff896480402a53480fe50ad20dd83}{Load\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFree_a0c1f3311c48f6ebec5a816023f785f32}{Print}} (ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print\+: Permite le ejecución de la sobrecarga del operador para esta clase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{classFree_afc2e04d4dd962d96e4ef9d18740df4b4}{operator$<$$<$}} (ostream \&ios, const \mbox{\hyperlink{classFree}{Free}} \&free)
+\item 
+istream \& \mbox{\hyperlink{classFree_a76de87091acdace2bffeaf30607cba3f}{operator$>$$>$}} (istream \&ist, \mbox{\hyperlink{classFree}{Free}} \&free)
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classFree}{Free}} class\+: Sesión de entrenamiento libre. 
+
+Permite hacer un entrenamiento sin la necesidad de una rutina ya que solo obtiene los valores de los sensores a medida que el usuario entrena 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classFree_ac681eba4bdc833362f513bc8742d0e43}\label{classFree_ac681eba4bdc833362f513bc8742d0e43}} 
+\index{Free@{Free}!Free@{Free}}
+\index{Free@{Free}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{Free()}{Free()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Free\+::\+Free (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const int \&}]{age,  }\item[{const char \&}]{sex,  }\item[{const float \&}]{weight,  }\item[{const float \&}]{height }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classFree}{Free}} -\/ Contructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em name} & \+: Nombre de usuario \\
+\hline
+{\em age} & \+: Edad del usuario \\
+\hline
+{\em sex} & \+: Género del usuario \\
+\hline
+{\em weight} & \+: Peso del usuario \\
+\hline
+{\em height} & \+: Altura del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFree_a4a847fee0a934284fc4581282706e885}\label{classFree_a4a847fee0a934284fc4581282706e885}} 
+\index{Free@{Free}!Free@{Free}}
+\index{Free@{Free}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{Free()}{Free()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Free\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{classFree}{Free}} -\/ Constructor. 
+
+\mbox{\Hypertarget{classFree_a79b1d37583b37c288bdb60e0425b2ccd}\label{classFree_a79b1d37583b37c288bdb60e0425b2ccd}} 
+\index{Free@{Free}!````~Free@{$\sim$Free}}
+\index{````~Free@{$\sim$Free}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{$\sim$Free()}{~Free()}}
+{\footnotesize\ttfamily virtual Free\+::$\sim$\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classFree_a57310e12867aefb3917816870a4b2a62}\label{classFree_a57310e12867aefb3917816870a4b2a62}} 
+\index{Free@{Free}!End@{End}}
+\index{End@{End}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily void Free\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a84e61c9e93a3f27e1c83c18105c93bf6}{Session}}.
+
+\mbox{\Hypertarget{classFree_aad5ff896480402a53480fe50ad20dd83}\label{classFree_aad5ff896480402a53480fe50ad20dd83}} 
+\index{Free@{Free}!LoadConfig@{LoadConfig}}
+\index{LoadConfig@{LoadConfig}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{LoadConfig()}{LoadConfig()}}
+{\footnotesize\ttfamily virtual void Free\+::\+Load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. 
+
+Extrae de un archivo txt la configuración del entrenamiento 
+
+Implementa \mbox{\hyperlink{classSession_a5b002cf9178ce0cd264f4bfa385c1fe1}{Session}}.
+
+\mbox{\Hypertarget{classFree_a223278096e8a111102a84724d014e686}\label{classFree_a223278096e8a111102a84724d014e686}} 
+\index{Free@{Free}!Pause@{Pause}}
+\index{Pause@{Pause}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily bool Free\+::\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pause\+: Deshabilita el muestreo de datos. 
+
+Evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos \begin{DoxyReturn}{Devuelve}
+Retorna verdadero en caso de que la suma de cero 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{classSession_a7f5eead2ea6c0e480dee49b2f7512c06}{Session}}.
+
+\mbox{\Hypertarget{classFree_a0c1f3311c48f6ebec5a816023f785f32}\label{classFree_a0c1f3311c48f6ebec5a816023f785f32}} 
+\index{Free@{Free}!Print@{Print}}
+\index{Print@{Print}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Free\+::\+Print (\begin{DoxyParamCaption}\item[{ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Print\+: Permite le ejecución de la sobrecarga del operador para esta clase. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a2b13d967bd8655a8e0ebb6e96174402d}{Session}}.
+
+\mbox{\Hypertarget{classFree_a6bf443d5bec1f49e1b414338fb1f9228}\label{classFree_a6bf443d5bec1f49e1b414338fb1f9228}} 
+\index{Free@{Free}!Sample@{Sample}}
+\index{Sample@{Sample}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{Sample()}{Sample()}}
+{\footnotesize\ttfamily void Free\+::\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a15b8986466f5977333fb0800b9f59854}{Session}}.
+
+\mbox{\Hypertarget{classFree_aed799ec43f16bcb4b918bca93c2eca24}\label{classFree_aed799ec43f16bcb4b918bca93c2eca24}} 
+\index{Free@{Free}!Start@{Start}}
+\index{Start@{Start}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Free\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_a2a2d3e0c334d0aceec2a77cf28640142}{Session}}.
+
+\mbox{\Hypertarget{classFree_a71469e9b48a967bc51eafdf35113bbff}\label{classFree_a71469e9b48a967bc51eafdf35113bbff}} 
+\index{Free@{Free}!WriteReport@{WriteReport}}
+\index{WriteReport@{WriteReport}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{WriteReport()}{WriteReport()}}
+{\footnotesize\ttfamily void Free\+::\+Write\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. 
+
+
+
+Implementa \mbox{\hyperlink{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}{Session}}.
+
+
+
+\doxysubsection{Documentación de las funciones relacionadas y clases amigas}
+\mbox{\Hypertarget{classFree_afc2e04d4dd962d96e4ef9d18740df4b4}\label{classFree_afc2e04d4dd962d96e4ef9d18740df4b4}} 
+\index{Free@{Free}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{ios,  }\item[{const \mbox{\hyperlink{classFree}{Free}} \&}]{free }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classFree_a76de87091acdace2bffeaf30607cba3f}\label{classFree_a76de87091acdace2bffeaf30607cba3f}} 
+\index{Free@{Free}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Free@{Free}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{ist,  }\item[{\mbox{\hyperlink{classFree}{Free}} \&}]{free }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{session_8h}{session.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{session_8cpp}{session.\+cpp}}\end{DoxyCompactItemize}

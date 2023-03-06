@@ -1,0 +1,72 @@
+\hypertarget{user_8h}{}\doxysection{Referencia del Archivo Header\+\_\+\+Files/user.h}
+\label{user_8h}\index{Header\_Files/user.h@{Header\_Files/user.h}}
+
+
+Clase Usuario\+: Contiene los datos y métodos de un usuario.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include \char`\"{}session.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dialogwin.\+h\char`\"{}}\newline
+Dependencia gráfica adjunta para user.\+h\+:
+% FIG 0
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo\+:
+% FIG 1
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classUser}{User}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classUser}{User}} class\+: Objeto de usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{user_8h_abc6126af1d45847bc59afa0aa3216b04ada93924b1f1f7be2e2763e21aed1d5af}{R\+E\+G\+I\+S\+T\+E\+R\+E\+D\+\_\+\+U\+S\+ER}}, 
+\mbox{\hyperlink{user_8h_abc6126af1d45847bc59afa0aa3216b04a452756e9e2581797c12ff67bab8e8bd4}{F\+I\+L\+E\+\_\+\+E\+R\+R\+OR}}, 
+\mbox{\hyperlink{user_8h_abc6126af1d45847bc59afa0aa3216b04acc4bc9dd8035137f53ba8e29de39bbdf}{U\+S\+\_\+\+P\+A\+S\+S\+\_\+\+I\+N\+C\+O\+R\+R\+E\+CT}}, 
+\mbox{\hyperlink{user_8h_abc6126af1d45847bc59afa0aa3216b04a672910f50c118c9a9fbfdacb48306dbd}{F\+I\+L\+E\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+\_\+\+E\+X\+I\+S\+T\+E\+NT}}
+ \}
+\begin{DoxyCompactList}\small\item\em enum\+: Utilizado para contener errores de diferentes tipos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase Usuario\+: Contiene los datos y métodos de un usuario. 
+
+\begin{DoxyDate}{Fecha}
+2023 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autores}
+Bazán María, Guerra Jorge 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las enumeraciones}
+\mbox{\Hypertarget{user_8h_abc6126af1d45847bc59afa0aa3216b04}\label{user_8h_abc6126af1d45847bc59afa0aa3216b04}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+
+
+enum\+: Utilizado para contener errores de diferentes tipos 
+
+Usuario ya registrado, archivo no encontrado, usuario/clave incorrecta. \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REGISTERED\_USER@{REGISTERED\_USER}!user.h@{user.h}}\index{user.h@{user.h}!REGISTERED\_USER@{REGISTERED\_USER}}}\mbox{\Hypertarget{user_8h_abc6126af1d45847bc59afa0aa3216b04ada93924b1f1f7be2e2763e21aed1d5af}\label{user_8h_abc6126af1d45847bc59afa0aa3216b04ada93924b1f1f7be2e2763e21aed1d5af}} 
+R\+E\+G\+I\+S\+T\+E\+R\+E\+D\+\_\+\+U\+S\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FILE\_ERROR@{FILE\_ERROR}!user.h@{user.h}}\index{user.h@{user.h}!FILE\_ERROR@{FILE\_ERROR}}}\mbox{\Hypertarget{user_8h_abc6126af1d45847bc59afa0aa3216b04a452756e9e2581797c12ff67bab8e8bd4}\label{user_8h_abc6126af1d45847bc59afa0aa3216b04a452756e9e2581797c12ff67bab8e8bd4}} 
+F\+I\+L\+E\+\_\+\+E\+R\+R\+OR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{US\_PASS\_INCORRECT@{US\_PASS\_INCORRECT}!user.h@{user.h}}\index{user.h@{user.h}!US\_PASS\_INCORRECT@{US\_PASS\_INCORRECT}}}\mbox{\Hypertarget{user_8h_abc6126af1d45847bc59afa0aa3216b04acc4bc9dd8035137f53ba8e29de39bbdf}\label{user_8h_abc6126af1d45847bc59afa0aa3216b04acc4bc9dd8035137f53ba8e29de39bbdf}} 
+U\+S\+\_\+\+P\+A\+S\+S\+\_\+\+I\+N\+C\+O\+R\+R\+E\+CT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FILE\_USER\_NO\_EXISTENT@{FILE\_USER\_NO\_EXISTENT}!user.h@{user.h}}\index{user.h@{user.h}!FILE\_USER\_NO\_EXISTENT@{FILE\_USER\_NO\_EXISTENT}}}\mbox{\Hypertarget{user_8h_abc6126af1d45847bc59afa0aa3216b04a672910f50c118c9a9fbfdacb48306dbd}\label{user_8h_abc6126af1d45847bc59afa0aa3216b04a672910f50c118c9a9fbfdacb48306dbd}} 
+F\+I\+L\+E\+\_\+\+U\+S\+E\+R\+\_\+\+N\+O\+\_\+\+E\+X\+I\+S\+T\+E\+NT&\\
+\hline
+
+\end{DoxyEnumFields}

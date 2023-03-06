@@ -16,14 +16,14 @@ SOURCES += \
     Source_Files/configwindow.cpp \
     Source_Files/datawindow.cpp \
     Source_Files/dialogwin.cpp \
+    Source_Files/freewindow.cpp \
     Source_Files/main.cpp \
     Source_Files/mainwindow.cpp \
     Source_Files/qcustomplot.cpp \
     Source_Files/regwindow.cpp \
     Source_Files/session.cpp \
     Source_Files/user.cpp \
-    Source_Files/weightwindow.cpp \
-    freewindow.cpp
+    Source_Files/weightwindow.cpp
 
 HEADERS += \
     Header_Files/accesswindow.h \
@@ -32,14 +32,14 @@ HEADERS += \
     Header_Files/configwindow.h \
     Header_Files/datawindow.h \
     Header_Files/dialogwin.h \
+    Header_Files/freewindow.h \
     Header_Files/mainwindow.h \
     Header_Files/qcustomplot.h \
     Header_Files/regwindow.h \
     Header_Files/sensors.h \
     Header_Files/session.h \
     Header_Files/user.h \
-    Header_Files/weightwindow.h \
-    freewindow.h
+    Header_Files/weightwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -52,10 +52,10 @@ FORMS += \
     UI_Files/configwindow.ui \
     UI_Files/datawindow.ui \
     UI_Files/dialogwin.ui \
+    UI_Files/freewindow.ui \
     UI_Files/mainwindow.ui \
     UI_Files/regwindow.ui \
-    UI_Files/weightwindow.ui \
-    freewindow.ui
+    UI_Files/weightwindow.ui
 
 DISTFILES += \
     5742154.png

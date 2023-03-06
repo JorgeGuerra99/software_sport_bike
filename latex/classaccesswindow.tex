@@ -1,0 +1,138 @@
+\hypertarget{classaccesswindow}{}\doxysection{Referencia de la Clase accesswindow}
+\label{classaccesswindow}\index{accesswindow@{accesswindow}}
+
+
+The accesswindow class\+: Clase de ventana de acceso a usuario (Interfaz gráfica)  
+
+
+
+
+{\ttfamily \#include $<$accesswindow.\+h$>$}
+
+
+
+Diagrama de herencias de accesswindow
+% FIG 0
+
+
+Diagrama de colaboración para accesswindow\+:
+% FIG 1
+\doxysubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classaccesswindow_a774535ea60a7df9ec72da1429532c796}{User\+Access}} ()
+\begin{DoxyCompactList}\small\item\em User\+Access\+: Señal emitida cuando se accede exitosamente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classaccesswindow_a3d40d3873992f6a5f4549c0b2bcdffdf}{accesswindow}} (\mbox{\hyperlink{classUser}{User}} $\ast$us, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em accesswindow -\/ Constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classaccesswindow_a7ec5d6077bdebefeb3207b078e401d3a}{$\sim$accesswindow}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classaccesswindow_aba52150b7bad7b325ba01615a3eaae2c}{us\+Access}}
+\begin{DoxyCompactList}\small\item\em us\+Access\+: Objeto del tipo usuario para poder iniciar sesión \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classaccesswindow_abab9dcbf63837ccead14f990e0715306}{Access\+User}} ()
+\begin{DoxyCompactList}\small\item\em Access\+User \+: Slot a ejecutar por el botón de acceder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classaccesswindow_a5663684ef9483b633525e0d83cf6e559}{Cancel\+Access}} ()
+\begin{DoxyCompactList}\small\item\em Cancel\+Access\+: Elimina la ventana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::accesswindow $\ast$ \mbox{\hyperlink{classaccesswindow_a8f7e36a882d123045ae1540aefe4cfa8}{ui}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The accesswindow class\+: Clase de ventana de acceso a usuario (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classaccesswindow_a3d40d3873992f6a5f4549c0b2bcdffdf}\label{classaccesswindow_a3d40d3873992f6a5f4549c0b2bcdffdf}} 
+\index{accesswindow@{accesswindow}!accesswindow@{accesswindow}}
+\index{accesswindow@{accesswindow}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{accesswindow()}{accesswindow()}}
+{\footnotesize\ttfamily accesswindow\+::accesswindow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{us,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+accesswindow -\/ Constructor 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em us} & Objeto usuario donde se iniciará sesión \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classaccesswindow_a7ec5d6077bdebefeb3207b078e401d3a}\label{classaccesswindow_a7ec5d6077bdebefeb3207b078e401d3a}} 
+\index{accesswindow@{accesswindow}!````~accesswindow@{$\sim$accesswindow}}
+\index{````~accesswindow@{$\sim$accesswindow}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$accesswindow()}{~accesswindow()}}
+{\footnotesize\ttfamily accesswindow\+::$\sim$accesswindow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classaccesswindow_abab9dcbf63837ccead14f990e0715306}\label{classaccesswindow_abab9dcbf63837ccead14f990e0715306}} 
+\index{accesswindow@{accesswindow}!AccessUser@{AccessUser}}
+\index{AccessUser@{AccessUser}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{AccessUser}{AccessUser}}
+{\footnotesize\ttfamily void accesswindow\+::\+Access\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Access\+User \+: Slot a ejecutar por el botón de acceder. 
+
+\begin{DoxyNote}{Nota}
+El slot toma los datos ingresados y crea el objeto \mbox{\hyperlink{classUser}{User}} después de verificar password encriptada 
+\end{DoxyNote}
+\mbox{\Hypertarget{classaccesswindow_a5663684ef9483b633525e0d83cf6e559}\label{classaccesswindow_a5663684ef9483b633525e0d83cf6e559}} 
+\index{accesswindow@{accesswindow}!CancelAccess@{CancelAccess}}
+\index{CancelAccess@{CancelAccess}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{CancelAccess}{CancelAccess}}
+{\footnotesize\ttfamily void accesswindow\+::\+Cancel\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Cancel\+Access\+: Elimina la ventana. 
+
+\mbox{\Hypertarget{classaccesswindow_a774535ea60a7df9ec72da1429532c796}\label{classaccesswindow_a774535ea60a7df9ec72da1429532c796}} 
+\index{accesswindow@{accesswindow}!UserAccess@{UserAccess}}
+\index{UserAccess@{UserAccess}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{UserAccess}{UserAccess}}
+{\footnotesize\ttfamily void accesswindow\+::\+User\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+User\+Access\+: Señal emitida cuando se accede exitosamente. 
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classaccesswindow_a8f7e36a882d123045ae1540aefe4cfa8}\label{classaccesswindow_a8f7e36a882d123045ae1540aefe4cfa8}} 
+\index{accesswindow@{accesswindow}!ui@{ui}}
+\index{ui@{ui}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::accesswindow$\ast$ accesswindow\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classaccesswindow_aba52150b7bad7b325ba01615a3eaae2c}\label{classaccesswindow_aba52150b7bad7b325ba01615a3eaae2c}} 
+\index{accesswindow@{accesswindow}!usAccess@{usAccess}}
+\index{usAccess@{usAccess}!accesswindow@{accesswindow}}
+\doxysubsubsection{\texorpdfstring{usAccess}{usAccess}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ accesswindow\+::us\+Access}
+
+
+
+us\+Access\+: Objeto del tipo usuario para poder iniciar sesión 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{accesswindow_8h}{accesswindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{accesswindow_8cpp}{accesswindow.\+cpp}}\end{DoxyCompactItemize}

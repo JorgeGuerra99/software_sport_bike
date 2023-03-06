@@ -1,0 +1,240 @@
+\hypertarget{classFreeWindow}{}\doxysection{Referencia de la Clase Free\+Window}
+\label{classFreeWindow}\index{FreeWindow@{FreeWindow}}
+
+
+The \mbox{\hyperlink{classFreeWindow}{Free\+Window}} class\+: Ventana de sesión de entrenamiento del tipo \mbox{\hyperlink{classFree}{Free}} (Interfaz gráfica)  
+
+
+
+
+{\ttfamily \#include $<$freewindow.\+h$>$}
+
+
+
+Diagrama de herencias de Free\+Window
+% FIG 0
+
+
+Diagrama de colaboración para Free\+Window\+:
+% FIG 1
+\doxysubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFreeWindow_a8738eddb3bb2c9d917ff892ab6824c2b}{New\+Session}} ()
+\begin{DoxyCompactList}\small\item\em New\+Session\+: Señal que es emitida para indicar que se realizó una sesión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFreeWindow_a47892c918936ca54b1a57f78c3705d58}{Free\+Window}} (\mbox{\hyperlink{classUser}{User}} $\ast$\&usu, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classFreeWindow}{Free\+Window}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFreeWindow_a82e95863bf180e80ec903a2a5959440e}{$\sim$\+Free\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFreeWindow_a4c4ff957b1dc86ad8576127fb99043fa}{Start\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Start\+Button\+: S\+L\+OT asociado al botón de inicio de entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeWindow_a34d1bcc7583ee7eef7373bb40ca6bda8}{Pause\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Pause\+Button\+: S\+L\+OT asociado al botón de pausar/reanudar entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeWindow_a677d35d320c345b2c756fc3cab153c39}{Stop\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Stop\+Button\+: S\+L\+OT asociado al botón de detener entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeWindow_a896ea50a39cd5339adb1ff9c79554e8e}{Ui\+Sample}} ()
+\begin{DoxyCompactList}\small\item\em Ui\+Sample\+: S\+L\+OT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeWindow_a5d6c2a832cbf8f53d7a8e919e19d8252}{Serial\+Config\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Serial\+Config\+Button\+: S\+L\+OT asociado al botón de configurar puerto serie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeWindow_a7d96c45839ae66eabd6b86da5259ad59}{Report\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Report\+Button\+: S\+L\+OT asociado al botón de ver reporte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Free\+Window $\ast$ \mbox{\hyperlink{classFreeWindow_a8138d792e66cdc32bfc634f4efb27ea0}{ui}}
+\item 
+\mbox{\hyperlink{classFree}{Free}} $\ast$ \mbox{\hyperlink{classFreeWindow_a9d947b6b7fa7e9d7309c3a59f0f23ae7}{fre}}
+\begin{DoxyCompactList}\small\item\em fre\+: Puntero al objeto correspondiente a la sesión del tipo free \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classFreeWindow_abf0e42e0e8b811bbc121ea8eea28585f}{us}} = nullptr
+\begin{DoxyCompactList}\small\item\em us\+: Puntero a objeto de usuario \end{DoxyCompactList}\item 
+Q\+Timer \mbox{\hyperlink{classFreeWindow_aad031cafe13425e265e56ac6688fd6a4}{timer}}
+\begin{DoxyCompactList}\small\item\em timer\+: Objeto utilizado como timer para la sesión \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFreeWindow_a30ad7a228b2ceaf921b67f70913b110e}{pause}}
+\begin{DoxyCompactList}\small\item\em pause\+: Flag indicador de pausa de entrenamiento \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConfigWindow}{Config\+Window}} $\ast$ \mbox{\hyperlink{classFreeWindow_ae16b6fb6ce626be831f50ddf89da09e7}{conf\+Win}}
+\begin{DoxyCompactList}\small\item\em conf\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdatawindow}{datawindow}} $\ast$ \mbox{\hyperlink{classFreeWindow_a89d3cbd66caac47c807857e5856fdc15}{dat\+Win}}
+\begin{DoxyCompactList}\small\item\em dat\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classFreeWindow}{Free\+Window}} class\+: Ventana de sesión de entrenamiento del tipo \mbox{\hyperlink{classFree}{Free}} (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classFreeWindow_a47892c918936ca54b1a57f78c3705d58}\label{classFreeWindow_a47892c918936ca54b1a57f78c3705d58}} 
+\index{FreeWindow@{FreeWindow}!FreeWindow@{FreeWindow}}
+\index{FreeWindow@{FreeWindow}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{FreeWindow()}{FreeWindow()}}
+{\footnotesize\ttfamily Free\+Window\+::\+Free\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$\&}]{usu,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classFreeWindow}{Free\+Window}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em } & Puntero a objeto Usuario \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFreeWindow_a82e95863bf180e80ec903a2a5959440e}\label{classFreeWindow_a82e95863bf180e80ec903a2a5959440e}} 
+\index{FreeWindow@{FreeWindow}!````~FreeWindow@{$\sim$FreeWindow}}
+\index{````~FreeWindow@{$\sim$FreeWindow}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$FreeWindow()}{~FreeWindow()}}
+{\footnotesize\ttfamily Free\+Window\+::$\sim$\+Free\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classFreeWindow_a8738eddb3bb2c9d917ff892ab6824c2b}\label{classFreeWindow_a8738eddb3bb2c9d917ff892ab6824c2b}} 
+\index{FreeWindow@{FreeWindow}!NewSession@{NewSession}}
+\index{NewSession@{NewSession}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{NewSession}{NewSession}}
+{\footnotesize\ttfamily void Free\+Window\+::\+New\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+New\+Session\+: Señal que es emitida para indicar que se realizó una sesión. 
+
+\mbox{\Hypertarget{classFreeWindow_a34d1bcc7583ee7eef7373bb40ca6bda8}\label{classFreeWindow_a34d1bcc7583ee7eef7373bb40ca6bda8}} 
+\index{FreeWindow@{FreeWindow}!PauseButton@{PauseButton}}
+\index{PauseButton@{PauseButton}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{PauseButton}{PauseButton}}
+{\footnotesize\ttfamily void Free\+Window\+::\+Pause\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Pause\+Button\+: S\+L\+OT asociado al botón de pausar/reanudar entrenamiento. 
+
+Modifica el flag \char`\"{}pause\char`\"{} del objeto de sesión -\/ Detiene/\+Inicia el timer \mbox{\Hypertarget{classFreeWindow_a7d96c45839ae66eabd6b86da5259ad59}\label{classFreeWindow_a7d96c45839ae66eabd6b86da5259ad59}} 
+\index{FreeWindow@{FreeWindow}!ReportButton@{ReportButton}}
+\index{ReportButton@{ReportButton}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{ReportButton}{ReportButton}}
+{\footnotesize\ttfamily void Free\+Window\+::\+Report\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Report\+Button\+: S\+L\+OT asociado al botón de ver reporte. 
+
+Crea y ejecuta la ventana de reporte de sesión \mbox{\Hypertarget{classFreeWindow_a5d6c2a832cbf8f53d7a8e919e19d8252}\label{classFreeWindow_a5d6c2a832cbf8f53d7a8e919e19d8252}} 
+\index{FreeWindow@{FreeWindow}!SerialConfigButton@{SerialConfigButton}}
+\index{SerialConfigButton@{SerialConfigButton}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{SerialConfigButton}{SerialConfigButton}}
+{\footnotesize\ttfamily void Free\+Window\+::\+Serial\+Config\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Serial\+Config\+Button\+: S\+L\+OT asociado al botón de configurar puerto serie. 
+
+Crea y ejecuta la ventana de configuración del puerto serie \mbox{\Hypertarget{classFreeWindow_a4c4ff957b1dc86ad8576127fb99043fa}\label{classFreeWindow_a4c4ff957b1dc86ad8576127fb99043fa}} 
+\index{FreeWindow@{FreeWindow}!StartButton@{StartButton}}
+\index{StartButton@{StartButton}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{StartButton}{StartButton}}
+{\footnotesize\ttfamily void Free\+Window\+::\+Start\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Start\+Button\+: S\+L\+OT asociado al botón de inicio de entrenamiento. 
+
+Ejecuta los métodos de start de la sesión y el timer \mbox{\Hypertarget{classFreeWindow_a677d35d320c345b2c756fc3cab153c39}\label{classFreeWindow_a677d35d320c345b2c756fc3cab153c39}} 
+\index{FreeWindow@{FreeWindow}!StopButton@{StopButton}}
+\index{StopButton@{StopButton}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{StopButton}{StopButton}}
+{\footnotesize\ttfamily void Free\+Window\+::\+Stop\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Stop\+Button\+: S\+L\+OT asociado al botón de detener entrenamiento. 
+
+Detiene el timer y la sesión. Ejecuta el método de guardado de sesión \mbox{\Hypertarget{classFreeWindow_a896ea50a39cd5339adb1ff9c79554e8e}\label{classFreeWindow_a896ea50a39cd5339adb1ff9c79554e8e}} 
+\index{FreeWindow@{FreeWindow}!UiSample@{UiSample}}
+\index{UiSample@{UiSample}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{UiSample}{UiSample}}
+{\footnotesize\ttfamily void Free\+Window\+::\+Ui\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Ui\+Sample\+: S\+L\+OT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta. 
+
+Se usa para ejecutar el método de muestreo de la sesión 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classFreeWindow_ae16b6fb6ce626be831f50ddf89da09e7}\label{classFreeWindow_ae16b6fb6ce626be831f50ddf89da09e7}} 
+\index{FreeWindow@{FreeWindow}!confWin@{confWin}}
+\index{confWin@{confWin}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{confWin}{confWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigWindow}{Config\+Window}}$\ast$ Free\+Window\+::conf\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+conf\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie 
+
+\mbox{\Hypertarget{classFreeWindow_a89d3cbd66caac47c807857e5856fdc15}\label{classFreeWindow_a89d3cbd66caac47c807857e5856fdc15}} 
+\index{FreeWindow@{FreeWindow}!datWin@{datWin}}
+\index{datWin@{datWin}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{datWin}{datWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdatawindow}{datawindow}}$\ast$ Free\+Window\+::dat\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+dat\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos 
+
+\mbox{\Hypertarget{classFreeWindow_a9d947b6b7fa7e9d7309c3a59f0f23ae7}\label{classFreeWindow_a9d947b6b7fa7e9d7309c3a59f0f23ae7}} 
+\index{FreeWindow@{FreeWindow}!fre@{fre}}
+\index{fre@{fre}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{fre}{fre}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFree}{Free}}$\ast$ Free\+Window\+::fre\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fre\+: Puntero al objeto correspondiente a la sesión del tipo free 
+
+\mbox{\Hypertarget{classFreeWindow_a30ad7a228b2ceaf921b67f70913b110e}\label{classFreeWindow_a30ad7a228b2ceaf921b67f70913b110e}} 
+\index{FreeWindow@{FreeWindow}!pause@{pause}}
+\index{pause@{pause}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily bool Free\+Window\+::pause\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pause\+: Flag indicador de pausa de entrenamiento 
+
+\mbox{\Hypertarget{classFreeWindow_aad031cafe13425e265e56ac6688fd6a4}\label{classFreeWindow_aad031cafe13425e265e56ac6688fd6a4}} 
+\index{FreeWindow@{FreeWindow}!timer@{timer}}
+\index{timer@{timer}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily Q\+Timer Free\+Window\+::timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+timer\+: Objeto utilizado como timer para la sesión 
+
+\mbox{\Hypertarget{classFreeWindow_a8138d792e66cdc32bfc634f4efb27ea0}\label{classFreeWindow_a8138d792e66cdc32bfc634f4efb27ea0}} 
+\index{FreeWindow@{FreeWindow}!ui@{ui}}
+\index{ui@{ui}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Free\+Window$\ast$ Free\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFreeWindow_abf0e42e0e8b811bbc121ea8eea28585f}\label{classFreeWindow_abf0e42e0e8b811bbc121ea8eea28585f}} 
+\index{FreeWindow@{FreeWindow}!us@{us}}
+\index{us@{us}!FreeWindow@{FreeWindow}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ Free\+Window\+::us = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+us\+: Puntero a objeto de usuario 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{freewindow_8h}{freewindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{freewindow_8cpp}{freewindow.\+cpp}}\end{DoxyCompactItemize}

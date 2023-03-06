@@ -25,7 +25,7 @@ enum {ERROR_SERIAL_OPEN};
 
 template < class T >
 /**
- * @brief The Sensors class: Clase abstracta
+ * @brief The Sensors class: Clase abstracta para sensor genérico
  */
 class Sensors
 {
@@ -54,7 +54,7 @@ public:
 
 template < class T >
 /**
- * @brief The PulseSensor class: Clase derivada de sensor
+ * @brief The PulseSensor class: Clase derivada de sensor para sensor de pulso
  */
 class PulseSensor: public Sensors < T >
 {
@@ -96,7 +96,7 @@ private:
 
 template < class T >
 /**
- * @brief The VelocitySensor class: Clase derivada de sensor
+ * @brief The VelocitySensor class: Clase derivada de sensor para sensor de velocidad
  */
 class VelocitySensor: public Sensors < T >
 {
@@ -158,7 +158,7 @@ private:
 
 template < class T >
 /**
- * @brief The LoadSensor class: Clase derivada de sensor
+ * @brief The LoadSensor class: Clase derivada de sensor para sensor de carga
  */
 class LoadSensor: public Sensors < T >
 {

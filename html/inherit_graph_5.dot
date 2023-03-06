@@ -1,0 +1,14 @@
+digraph "Representación gráfica de la clase"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Session",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html",tooltip="The Session class: Clase abstracta para sesión de entrenamiento genérica."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Cardio",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCardio.html",tooltip="The Cardio class: Clase de sesión de entrenamiento del tipo cardio."];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Free",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFree.html",tooltip="The Free class: Sesión de entrenamiento libre."];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="WeightLoss",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWeightLoss.html",tooltip="The WeightLoss class: Sesión de entrenamiento de pérdida de peso."];
+}

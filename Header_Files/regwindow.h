@@ -17,6 +17,9 @@ namespace Ui {
 class RegWindow;
 }
 
+/**
+ * @brief The RegWindow class: Ventana de registro de usuario (Interfaz gráfica)
+ */
 class RegWindow : public QMainWindow
 {
     Q_OBJECT

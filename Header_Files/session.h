@@ -13,6 +13,7 @@
 #include <fstream>
 #include <time.h>
 #include "bike.h"
+#include "dialogwin.h"
 
 /**
  *@brief enum: Utilizado para contener errores de diferentes tipos
@@ -21,7 +22,7 @@
 enum {FILE_CONFIG_ERROR, INVALID_USER};
 using namespace std;
 /**
- * @brief The Session class: Clase abstracta
+ * @brief The Session class: Clase abstracta para sesión de entrenamiento genérica
  */
 class Session
 {
@@ -58,6 +59,7 @@ public:
      * @brief WriteReport: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
      */
     virtual void WriteReport () const = 0;
+    bool IsActive () const { return sesAct;}
     /**
      * @brief nameSession: Propiedad donde se almacena el nombre de la sesión realizada
      */
@@ -200,7 +202,8 @@ protected:
 //--------------------SESIÓN DE ENTRENAMIENTO: "CARDIO" ----------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
 /**
- * @brief The Cardio class: Con la rutina ya realizada que consta de tramos de tiempo donde se debe ir aumentando la velocidad graudalmente
+ * @brief The Cardio class: Clase de sesión de entrenamiento del tipo cardio.
+ * @details Con la rutina ya preestablecida que consta de tramos de tiempo donde se debe ir aumentando la velocidad graudalmente
  */
 class Cardio :public Session
 {
@@ -217,7 +220,7 @@ public:
     /**
      * @brief Cardio - Constructor
      */
-    Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
+    Cardio () { sessionType = "Cardio";}
     virtual ~Cardio() { cout << "destructor cardio" << endl;}
     /**
      * @brief Start: Inicia el entrenamiento - habilito sample y habilita el flag de sesAct
@@ -283,7 +286,8 @@ private:
 //---------------------SESIÓN DE ENTRENAMIENTO: "WEIGHTLOSS" ----------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
 /**
- * @brief The WeightLoss class: La idea es de cumplir con una cierta rutina ya configurada con una velocidad media constante durante un prologado tiempo
+ * @brief The WeightLoss class: Sesión de entrenamiento de pérdida de peso
+ * @details Consiste en rutina ya configurada con una velocidad media constante durante un prologado tiempo
  */
 class WeightLoss: public Session
 {
@@ -300,7 +304,7 @@ public:
     /**
      * @brief WeightLoss - Constructor
      */
-    WeightLoss (){ cout << "Constructor por defecto: WeightLoss" << endl; }
+    WeightLoss (){ sessionType = "Weightloss";}
     virtual ~WeightLoss() { cout << "destructor de weightloss" << endl;}
     /**
      * @brief Start: Inicia el entrenamiento - habilito sample y habilita el flag de sesAct
@@ -367,7 +371,8 @@ private:
 //---------------------SESIÓN DE ENTRENAMIENTO: "FREE" ----------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------
 /**
- * @brief The Free class: Permite hacer un entrenamiento sin la necesidad de una rutina ya que solo obtiene los valores de los sensores a medida que el usuario entrena
+ * @brief The Free class: Sesión de entrenamiento libre
+ * @details Permite hacer un entrenamiento sin la necesidad de una rutina ya que solo obtiene los valores de los sensores a medida que el usuario entrena
  */
 class Free: public Session
 {
@@ -384,7 +389,7 @@ public:
     /**
      * @brief Free - Constructor
      */
-    Free(){ cout << "Constructor por defecto: Free" << endl; }
+    Free(){ sessionType = "Free";}
     virtual ~Free () { cout << "destructor de free"  << endl;}
     /**
      * @brief Start: Inicia el entrenamiento - habilito sample y habilita el flag de sesAct

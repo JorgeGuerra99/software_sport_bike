@@ -1,0 +1,173 @@
+\hypertarget{classConfigWindow}{}\doxysection{Referencia de la Clase Config\+Window}
+\label{classConfigWindow}\index{ConfigWindow@{ConfigWindow}}
+
+
+The \mbox{\hyperlink{classConfigWindow}{Config\+Window}} class\+: Ventana de configuración del puerto serie (Interfaz gráfica)  
+
+
+
+
+{\ttfamily \#include $<$configwindow.\+h$>$}
+
+
+
+Diagrama de herencias de Config\+Window
+% FIG 0
+
+
+Diagrama de colaboración para Config\+Window\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConfigWindow_afb8c42353d2db7da76f4f55bccfb02c4}{Config\+Window}} (\mbox{\hyperlink{classSession}{Session}} $\ast$\&ses\+Bike, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classConfigWindow}{Config\+Window}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConfigWindow_adceebb7cd8424669760354cd6e96ad3a}{$\sim$\+Config\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classConfigWindow_a938c48f219d44dffcb0a9ae6e7f7cfc0}{Baud\+Rate\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Baud\+Rate\+Changed\+: S\+L\+OT asociado al slider de selección de baud\+Rate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConfigWindow_ae973259506ead104393d4cf7bfc4ded8}{Save\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Save\+Config\+: S\+L\+OT asociado al botón de guardar la configuración. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConfigWindow_a37c5c3482d880839257339b2272042a2}{Cancel}} ()
+\begin{DoxyCompactList}\small\item\em Cancel\+: Cierra la ventana de configuración del puerto serie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classConfigWindow_a7c993f22e586e0ed8f6397cf3a6b9112}{List\+Ports}} ()
+\begin{DoxyCompactList}\small\item\em List\+Ports\+: Utilizado para llenar la lista de los puertos serie disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Config\+Window $\ast$ \mbox{\hyperlink{classConfigWindow_acee65b724be8b132279a1e7192496419}{ui}}
+\item 
+\mbox{\hyperlink{classSession}{Session}} $\ast$ \mbox{\hyperlink{classConfigWindow_a55d6de2d524037cb1d7f23fa8ce97bfc}{ses}}
+\begin{DoxyCompactList}\small\item\em ses\+: Puntero del objeto sesión \end{DoxyCompactList}\item 
+Q\+String\+List \mbox{\hyperlink{classConfigWindow_ae6cf50e58085d1284774d19c3e432f40}{port\+List}}
+\begin{DoxyCompactList}\small\item\em port\+List\+: Objeto utilizado para almacenar los puertos serie disponible \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classConfigWindow_a522022a25e0183e60a54ec3fa5dab343}{baud}} = Q\+Serial\+Port\+::\+Baud9600
+\begin{DoxyCompactList}\small\item\em baud\+: Es el valor de baudios por defecto para asignar al puerto serie \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classConfigWindow}{Config\+Window}} class\+: Ventana de configuración del puerto serie (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classConfigWindow_afb8c42353d2db7da76f4f55bccfb02c4}\label{classConfigWindow_afb8c42353d2db7da76f4f55bccfb02c4}} 
+\index{ConfigWindow@{ConfigWindow}!ConfigWindow@{ConfigWindow}}
+\index{ConfigWindow@{ConfigWindow}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{ConfigWindow()}{ConfigWindow()}}
+{\footnotesize\ttfamily Config\+Window\+::\+Config\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSession}{Session}} $\ast$\&}]{ses\+Bike,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classConfigWindow}{Config\+Window}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ses\+Bike} & \+: Puntero a objeto Sesión \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classConfigWindow_adceebb7cd8424669760354cd6e96ad3a}\label{classConfigWindow_adceebb7cd8424669760354cd6e96ad3a}} 
+\index{ConfigWindow@{ConfigWindow}!````~ConfigWindow@{$\sim$ConfigWindow}}
+\index{````~ConfigWindow@{$\sim$ConfigWindow}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$ConfigWindow()}{~ConfigWindow()}}
+{\footnotesize\ttfamily Config\+Window\+::$\sim$\+Config\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classConfigWindow_a938c48f219d44dffcb0a9ae6e7f7cfc0}\label{classConfigWindow_a938c48f219d44dffcb0a9ae6e7f7cfc0}} 
+\index{ConfigWindow@{ConfigWindow}!BaudRateChanged@{BaudRateChanged}}
+\index{BaudRateChanged@{BaudRateChanged}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{BaudRateChanged}{BaudRateChanged}}
+{\footnotesize\ttfamily void Config\+Window\+::\+Baud\+Rate\+Changed (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Baud\+Rate\+Changed\+: S\+L\+OT asociado al slider de selección de baud\+Rate. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & Valor extraido del slider \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classConfigWindow_a37c5c3482d880839257339b2272042a2}\label{classConfigWindow_a37c5c3482d880839257339b2272042a2}} 
+\index{ConfigWindow@{ConfigWindow}!Cancel@{Cancel}}
+\index{Cancel@{Cancel}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{Cancel}{Cancel}}
+{\footnotesize\ttfamily void Config\+Window\+::\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Cancel\+: Cierra la ventana de configuración del puerto serie. 
+
+\mbox{\Hypertarget{classConfigWindow_a7c993f22e586e0ed8f6397cf3a6b9112}\label{classConfigWindow_a7c993f22e586e0ed8f6397cf3a6b9112}} 
+\index{ConfigWindow@{ConfigWindow}!ListPorts@{ListPorts}}
+\index{ListPorts@{ListPorts}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{ListPorts()}{ListPorts()}}
+{\footnotesize\ttfamily void Config\+Window\+::\+List\+Ports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List\+Ports\+: Utilizado para llenar la lista de los puertos serie disponibles. 
+
+\mbox{\Hypertarget{classConfigWindow_ae973259506ead104393d4cf7bfc4ded8}\label{classConfigWindow_ae973259506ead104393d4cf7bfc4ded8}} 
+\index{ConfigWindow@{ConfigWindow}!SaveConfig@{SaveConfig}}
+\index{SaveConfig@{SaveConfig}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{SaveConfig}{SaveConfig}}
+{\footnotesize\ttfamily void Config\+Window\+::\+Save\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Save\+Config\+: S\+L\+OT asociado al botón de guardar la configuración. 
+
+asigna al puerto serie los valores seleccionado por el usuario 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classConfigWindow_a522022a25e0183e60a54ec3fa5dab343}\label{classConfigWindow_a522022a25e0183e60a54ec3fa5dab343}} 
+\index{ConfigWindow@{ConfigWindow}!baud@{baud}}
+\index{baud@{baud}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{baud}{baud}}
+{\footnotesize\ttfamily int Config\+Window\+::baud = Q\+Serial\+Port\+::\+Baud9600\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+baud\+: Es el valor de baudios por defecto para asignar al puerto serie 
+
+\mbox{\Hypertarget{classConfigWindow_ae6cf50e58085d1284774d19c3e432f40}\label{classConfigWindow_ae6cf50e58085d1284774d19c3e432f40}} 
+\index{ConfigWindow@{ConfigWindow}!portList@{portList}}
+\index{portList@{portList}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{portList}{portList}}
+{\footnotesize\ttfamily Q\+String\+List Config\+Window\+::port\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+port\+List\+: Objeto utilizado para almacenar los puertos serie disponible 
+
+\mbox{\Hypertarget{classConfigWindow_a55d6de2d524037cb1d7f23fa8ce97bfc}\label{classConfigWindow_a55d6de2d524037cb1d7f23fa8ce97bfc}} 
+\index{ConfigWindow@{ConfigWindow}!ses@{ses}}
+\index{ses@{ses}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{ses}{ses}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSession}{Session}}$\ast$ Config\+Window\+::ses\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ses\+: Puntero del objeto sesión 
+
+\mbox{\Hypertarget{classConfigWindow_acee65b724be8b132279a1e7192496419}\label{classConfigWindow_acee65b724be8b132279a1e7192496419}} 
+\index{ConfigWindow@{ConfigWindow}!ui@{ui}}
+\index{ui@{ui}!ConfigWindow@{ConfigWindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Config\+Window$\ast$ Config\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{configwindow_8h}{configwindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{configwindow_8cpp}{configwindow.\+cpp}}\end{DoxyCompactItemize}

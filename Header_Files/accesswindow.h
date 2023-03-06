@@ -18,6 +18,10 @@ namespace Ui {
 class accesswindow;
 }
 
+/**
+ * @brief The accesswindow class: Clase de ventana de acceso a usuario (Interfaz gráfica)
+ */
+
 class accesswindow : public QMainWindow
 {
     Q_OBJECT

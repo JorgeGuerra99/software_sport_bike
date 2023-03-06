@@ -1,0 +1,15 @@
+digraph "Header_Files/regwindow.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Header_Files/regwindow.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Ventana de registro de usuario (INTERFAZ GRÁFICA)"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Header_Files/mainwindow.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mainwindow_8h.html",tooltip="Ventana principal del programa."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Source_Files/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Source_Files/mainwindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mainwindow_8cpp.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Source_Files/regwindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$regwindow_8cpp.html",tooltip=" "];
+}

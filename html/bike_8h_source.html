@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/bike.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">bike.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bike_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef BIKE_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define BIKE_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QtSerialPort/QSerialPort&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QtSerialPort/QSerialPortInfo&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sensors_8h.html">sensors.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classBike.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBike.html">Bike</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classBike.html#a0ae353aaf9b269166b2c9d617d4261c9">   28</a></span>&#160;    <a class="code" href="classBike.html#a0ae353aaf9b269166b2c9d617d4261c9">Bike</a> () { cout &lt;&lt; <span class="stringliteral">&quot;En constructor de bike &quot;</span>&lt;&lt; endl; };</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classBike.html#ab2b0fab2f4aa7380db4977c34ed1f4b9">   29</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classBike.html#ab2b0fab2f4aa7380db4977c34ed1f4b9">~Bike</a> () {cout &lt;&lt; <span class="stringliteral">&quot;En destructor de bike &quot;</span>&lt;&lt; endl; };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> ConfigSerial ( <span class="keyword">const</span> QString &amp;portname, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;baud, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;par, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;stop) = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> ConfigSerial () = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classVelocitySensor.html">VelocitySensor &lt;double&gt;</a>* GetVelocitySensor () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPulseSensor.html">PulseSensor &lt;double&gt;</a>* GetPulseSensor () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classLoadSensor.html">LoadSensor &lt;double&gt;</a>* GetLoadSensor () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QSerialPort* GetPort () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QSerialPortInfo* GetPortInfo () <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classBike.html#a1aebe52a95ce85972bf108433c6c94b3">   74</a></span>&#160;    <a class="code" href="classVelocitySensor.html">VelocitySensor &lt; double &gt;</a> *<a class="code" href="classBike.html#a1aebe52a95ce85972bf108433c6c94b3">vSensor</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classBike.html#a8858565a464962f778a170081eae036c">   78</a></span>&#160;    <a class="code" href="classLoadSensor.html">LoadSensor &lt; double &gt;</a> *<a class="code" href="classBike.html#a8858565a464962f778a170081eae036c">lSensor</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classBike.html#a0d8f382837cb498b9e7de668f5f86282">   82</a></span>&#160;    <a class="code" href="classPulseSensor.html">PulseSensor &lt; double &gt;</a> *<a class="code" href="classBike.html#a0d8f382837cb498b9e7de668f5f86282">pSensor</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classBike.html#a3f7f16d59388af9e047bd649f5601e87">   86</a></span>&#160;    QSerialPortInfo <a class="code" href="classBike.html#a3f7f16d59388af9e047bd649f5601e87">portBikeInfo</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classBike.html#ac08c648d99eb8c6ff8efda76ee4ea5d0">   90</a></span>&#160;    QSerialPort <a class="code" href="classBike.html#ac08c648d99eb8c6ff8efda76ee4ea5d0">portBike</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> ConfigSensors () = 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classStateBike.html">  102</a></span>&#160;<span class="keyword">class </span><a class="code" href="classStateBike.html">StateBike</a>: <span class="keyword">public</span> <a class="code" href="classBike.html">Bike</a></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classStateBike.html">StateBike</a> ();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classStateBike.html">StateBike</a> ();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> ConfigSerial (<span class="keyword">const</span> QString &amp;portname, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;baud, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;par, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;stop);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> ConfigSerial ();</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classStateBike.html#a0222a19883b42ce4e419f23c06d99def">  128</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classStateBike.html#a0222a19883b42ce4e419f23c06d99def">IsConfigured</a> ()<span class="keyword"> const </span>{<span class="keywordflow">return</span> sensorsConfigured;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classStateBike.html#a639efb47af8e243ef30d072e83de9943">  133</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classVelocitySensor.html">VelocitySensor &lt;double&gt;</a>* <a class="code" href="classStateBike.html#a639efb47af8e243ef30d072e83de9943">GetVelocitySensor</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vSensor;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classStateBike.html#af11e37a4d9cf0d29d4820407f0729a0f">  138</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPulseSensor.html">PulseSensor &lt;double&gt;</a>* <a class="code" href="classStateBike.html#af11e37a4d9cf0d29d4820407f0729a0f">GetPulseSensor</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pSensor;};</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classStateBike.html#ab3c56a87482f464bc642328590efe4c4">  143</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classLoadSensor.html">LoadSensor &lt;double&gt;</a>* <a class="code" href="classStateBike.html#ab3c56a87482f464bc642328590efe4c4">GetLoadSensor</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lSensor;};</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classStateBike.html#a634f445c5bb4a208add446b15d02d890">  148</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QSerialPort* <a class="code" href="classStateBike.html#a634f445c5bb4a208add446b15d02d890">GetPort</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> &amp;portBike;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classStateBike.html#a6d115964da7f0469772c2355f29dd1b8">  153</a></span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> QSerialPortInfo* <a class="code" href="classStateBike.html#a6d115964da7f0469772c2355f29dd1b8">GetPortInfo</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> &amp;portBikeInfo;}</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> ConfigSensors ();</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classStateBike.html#a329dd4bf3a19d49dc0d892720d8bca23">  163</a></span>&#160;    <span class="keywordtype">bool</span> sensorsConfigured = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;};</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#endif // BIKE_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="asensors_8h_html"><div class="ttname"><a href="sensors_8h.html">sensors.h</a></div><div class="ttdoc">Clase sensors y sus derivadas.</div></div>
+<div class="ttc" id="aclassBike_html_a0ae353aaf9b269166b2c9d617d4261c9"><div class="ttname"><a href="classBike.html#a0ae353aaf9b269166b2c9d617d4261c9">Bike::Bike</a></div><div class="ttdeci">Bike()</div><div class="ttdoc">Bike - Constructor.</div><div class="ttdef"><b>Definition:</b> bike.h:28</div></div>
+<div class="ttc" id="aclassBike_html"><div class="ttname"><a href="classBike.html">Bike</a></div><div class="ttdoc">The Bike class: Clase abstracta de objeto Bike.</div><div class="ttdef"><b>Definition:</b> bike.h:22</div></div>
+<div class="ttc" id="aclassBike_html_a0d8f382837cb498b9e7de668f5f86282"><div class="ttname"><a href="classBike.html#a0d8f382837cb498b9e7de668f5f86282">Bike::pSensor</a></div><div class="ttdeci">PulseSensor&lt; double &gt; * pSensor</div><div class="ttdoc">pSensor: Puntero del objeto de sensor de pulso con template double</div><div class="ttdef"><b>Definition:</b> bike.h:82</div></div>
+<div class="ttc" id="aclassBike_html_ab2b0fab2f4aa7380db4977c34ed1f4b9"><div class="ttname"><a href="classBike.html#ab2b0fab2f4aa7380db4977c34ed1f4b9">Bike::~Bike</a></div><div class="ttdeci">virtual ~Bike()</div><div class="ttdef"><b>Definition:</b> bike.h:29</div></div>
+<div class="ttc" id="aclassBike_html_a3f7f16d59388af9e047bd649f5601e87"><div class="ttname"><a href="classBike.html#a3f7f16d59388af9e047bd649f5601e87">Bike::portBikeInfo</a></div><div class="ttdeci">QSerialPortInfo portBikeInfo</div><div class="ttdoc">portBikeInfo: Contiene la información de los puertos serie disponibles</div><div class="ttdef"><b>Definition:</b> bike.h:86</div></div>
+<div class="ttc" id="aclassStateBike_html"><div class="ttname"><a href="classStateBike.html">StateBike</a></div><div class="ttdoc">The StateBike class: Esta clase corresponde a una bicicleta estática.</div><div class="ttdef"><b>Definition:</b> bike.h:102</div></div>
+<div class="ttc" id="aclassStateBike_html_a0222a19883b42ce4e419f23c06d99def"><div class="ttname"><a href="classStateBike.html#a0222a19883b42ce4e419f23c06d99def">StateBike::IsConfigured</a></div><div class="ttdeci">bool IsConfigured() const</div><div class="ttdoc">IsConfigured: Permite saber si los sensores están configurados permitiendo ver la propiedad privada d...</div><div class="ttdef"><b>Definition:</b> bike.h:128</div></div>
+<div class="ttc" id="aclassVelocitySensor_html"><div class="ttname"><a href="classVelocitySensor.html">VelocitySensor&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassBike_html_a8858565a464962f778a170081eae036c"><div class="ttname"><a href="classBike.html#a8858565a464962f778a170081eae036c">Bike::lSensor</a></div><div class="ttdeci">LoadSensor&lt; double &gt; * lSensor</div><div class="ttdoc">lSensor: Puntero del objeto de sensor de carga con template double</div><div class="ttdef"><b>Definition:</b> bike.h:78</div></div>
+<div class="ttc" id="aclassStateBike_html_ab3c56a87482f464bc642328590efe4c4"><div class="ttname"><a href="classStateBike.html#ab3c56a87482f464bc642328590efe4c4">StateBike::GetLoadSensor</a></div><div class="ttdeci">virtual LoadSensor&lt; double &gt; * GetLoadSensor() const</div><div class="ttdoc">GetLoadSensor.</div><div class="ttdef"><b>Definition:</b> bike.h:143</div></div>
+<div class="ttc" id="aclassBike_html_ac08c648d99eb8c6ff8efda76ee4ea5d0"><div class="ttname"><a href="classBike.html#ac08c648d99eb8c6ff8efda76ee4ea5d0">Bike::portBike</a></div><div class="ttdeci">QSerialPort portBike</div><div class="ttdoc">portBike: Objeto del puerto serie a utilizar</div><div class="ttdef"><b>Definition:</b> bike.h:90</div></div>
+<div class="ttc" id="aclassStateBike_html_af11e37a4d9cf0d29d4820407f0729a0f"><div class="ttname"><a href="classStateBike.html#af11e37a4d9cf0d29d4820407f0729a0f">StateBike::GetPulseSensor</a></div><div class="ttdeci">virtual PulseSensor&lt; double &gt; * GetPulseSensor() const</div><div class="ttdoc">GetPulseSensor.</div><div class="ttdef"><b>Definition:</b> bike.h:138</div></div>
+<div class="ttc" id="aclassStateBike_html_a639efb47af8e243ef30d072e83de9943"><div class="ttname"><a href="classStateBike.html#a639efb47af8e243ef30d072e83de9943">StateBike::GetVelocitySensor</a></div><div class="ttdeci">virtual VelocitySensor&lt; double &gt; * GetVelocitySensor() const</div><div class="ttdoc">GetVelocitySensor.</div><div class="ttdef"><b>Definition:</b> bike.h:133</div></div>
+<div class="ttc" id="aclassBike_html_a1aebe52a95ce85972bf108433c6c94b3"><div class="ttname"><a href="classBike.html#a1aebe52a95ce85972bf108433c6c94b3">Bike::vSensor</a></div><div class="ttdeci">VelocitySensor&lt; double &gt; * vSensor</div><div class="ttdoc">vSensor: Puntero del objeto sensor de velocidad con template double</div><div class="ttdef"><b>Definition:</b> bike.h:74</div></div>
+<div class="ttc" id="aclassLoadSensor_html"><div class="ttname"><a href="classLoadSensor.html">LoadSensor&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassPulseSensor_html"><div class="ttname"><a href="classPulseSensor.html">PulseSensor&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassStateBike_html_a6d115964da7f0469772c2355f29dd1b8"><div class="ttname"><a href="classStateBike.html#a6d115964da7f0469772c2355f29dd1b8">StateBike::GetPortInfo</a></div><div class="ttdeci">virtual const QSerialPortInfo * GetPortInfo() const</div><div class="ttdoc">GetPortInfo: Permite hacer visible los puertos serie disponibles.</div><div class="ttdef"><b>Definition:</b> bike.h:153</div></div>
+<div class="ttc" id="aclassStateBike_html_a634f445c5bb4a208add446b15d02d890"><div class="ttname"><a href="classStateBike.html#a634f445c5bb4a208add446b15d02d890">StateBike::GetPort</a></div><div class="ttdeci">virtual const QSerialPort * GetPort() const</div><div class="ttdoc">GetPort: Permite hacer visible la propiedad portBike para ser utilizada por otra clase.</div><div class="ttdef"><b>Definition:</b> bike.h:148</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,135 @@
+\hypertarget{classRegWindow}{}\doxysection{Referencia de la Clase Reg\+Window}
+\label{classRegWindow}\index{RegWindow@{RegWindow}}
+
+
+The \mbox{\hyperlink{classRegWindow}{Reg\+Window}} class\+: Ventana de registro de usuario (Interfaz gráfica)  
+
+
+
+
+{\ttfamily \#include $<$regwindow.\+h$>$}
+
+
+
+Diagrama de herencias de Reg\+Window
+% FIG 0
+
+
+Diagrama de colaboración para Reg\+Window\+:
+% FIG 1
+\doxysubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRegWindow_a8de0673dffd5f1a5823c4fbad6bb9827}{User\+Registered}} ()
+\begin{DoxyCompactList}\small\item\em User\+Registered\+: Señal emitida cuando un usuario se registra exitosamente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRegWindow_a027e195719165d1fdbf6a1ebed7f4483}{Reg\+Window}} (\mbox{\hyperlink{classUser}{User}} $\ast$us, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classRegWindow}{Reg\+Window}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRegWindow_aa0eddd113281ae8968e40947643a7a68}{$\sim$\+Reg\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classRegWindow_a90bf1543500d2b56cc74f7ec26a1c776}{us\+Reg}}
+\begin{DoxyCompactList}\small\item\em us\+Reg\+: Puntero al objeto de usuario \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRegWindow_a21bfc6f0a0525f59e6b2be1704dcfbfd}{Register\+User}} ()
+\begin{DoxyCompactList}\small\item\em Register\+User\+: S\+L\+OT asociado al botón de registrar usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegWindow_afffbed05b3bd24cf475ae77f9da52a03}{Cancel\+Register}} ()
+\begin{DoxyCompactList}\small\item\em Cancel\+Register\+: Cancelar registro y cierra la ventana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Reg\+Window $\ast$ \mbox{\hyperlink{classRegWindow_a7d54d3c118830e5b3326361e7e928430}{ui}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classRegWindow}{Reg\+Window}} class\+: Ventana de registro de usuario (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classRegWindow_a027e195719165d1fdbf6a1ebed7f4483}\label{classRegWindow_a027e195719165d1fdbf6a1ebed7f4483}} 
+\index{RegWindow@{RegWindow}!RegWindow@{RegWindow}}
+\index{RegWindow@{RegWindow}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{RegWindow()}{RegWindow()}}
+{\footnotesize\ttfamily Reg\+Window\+::\+Reg\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{us,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{classRegWindow}{Reg\+Window}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em us} & \+: Puntero a objeto \mbox{\hyperlink{classUser}{User}} \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRegWindow_aa0eddd113281ae8968e40947643a7a68}\label{classRegWindow_aa0eddd113281ae8968e40947643a7a68}} 
+\index{RegWindow@{RegWindow}!````~RegWindow@{$\sim$RegWindow}}
+\index{````~RegWindow@{$\sim$RegWindow}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$RegWindow()}{~RegWindow()}}
+{\footnotesize\ttfamily Reg\+Window\+::$\sim$\+Reg\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classRegWindow_afffbed05b3bd24cf475ae77f9da52a03}\label{classRegWindow_afffbed05b3bd24cf475ae77f9da52a03}} 
+\index{RegWindow@{RegWindow}!CancelRegister@{CancelRegister}}
+\index{CancelRegister@{CancelRegister}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{CancelRegister}{CancelRegister}}
+{\footnotesize\ttfamily void Reg\+Window\+::\+Cancel\+Register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Cancel\+Register\+: Cancelar registro y cierra la ventana. 
+
+\mbox{\Hypertarget{classRegWindow_a21bfc6f0a0525f59e6b2be1704dcfbfd}\label{classRegWindow_a21bfc6f0a0525f59e6b2be1704dcfbfd}} 
+\index{RegWindow@{RegWindow}!RegisterUser@{RegisterUser}}
+\index{RegisterUser@{RegisterUser}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{RegisterUser}{RegisterUser}}
+{\footnotesize\ttfamily void Reg\+Window\+::\+Register\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Register\+User\+: S\+L\+OT asociado al botón de registrar usuario. 
+
+Toma los datos ingresados por el usuario en la interfaz y los utiliza para crear el objeto usuario correspondiente \mbox{\Hypertarget{classRegWindow_a8de0673dffd5f1a5823c4fbad6bb9827}\label{classRegWindow_a8de0673dffd5f1a5823c4fbad6bb9827}} 
+\index{RegWindow@{RegWindow}!UserRegistered@{UserRegistered}}
+\index{UserRegistered@{UserRegistered}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{UserRegistered}{UserRegistered}}
+{\footnotesize\ttfamily void Reg\+Window\+::\+User\+Registered (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+User\+Registered\+: Señal emitida cuando un usuario se registra exitosamente. 
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classRegWindow_a7d54d3c118830e5b3326361e7e928430}\label{classRegWindow_a7d54d3c118830e5b3326361e7e928430}} 
+\index{RegWindow@{RegWindow}!ui@{ui}}
+\index{ui@{ui}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::\+Reg\+Window$\ast$ Reg\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRegWindow_a90bf1543500d2b56cc74f7ec26a1c776}\label{classRegWindow_a90bf1543500d2b56cc74f7ec26a1c776}} 
+\index{RegWindow@{RegWindow}!usReg@{usReg}}
+\index{usReg@{usReg}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{usReg}{usReg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ Reg\+Window\+::us\+Reg}
+
+
+
+us\+Reg\+: Puntero al objeto de usuario 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{regwindow_8h}{regwindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{regwindow_8cpp}{regwindow.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/cardiowindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">cardiowindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="cardiowindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef CARDIOWINDOW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define CARDIOWINDOW_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="session_8h.html">Header_Files/session.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">Header_Files/user.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="configwindow_8h.html">Header_Files/configwindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="datawindow_8h.html">datawindow.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceUi.html">Ui</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="classCardioWindow.html">CardioWindow</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classCardioWindow.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCardioWindow.html">CardioWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;     <a class="code" href="classCardioWindow.html#a82a4aae4172de0f419372b2501d811ce">CardioWindow</a>(<a class="code" href="classUser.html">User</a>*&amp; usu, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classCardioWindow.html#a5e6c414ea51811dbb7a0b0186b21db98">~CardioWindow</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCardioWindow.html#af74418e6b571fcd6bd29453d782a8df4">   39</a></span>&#160;    Ui::CardioWindow *<a class="code" href="classCardioWindow.html#af74418e6b571fcd6bd29453d782a8df4">ui</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classCardioWindow.html#aa57ce742fae60dd899ec0e487664421b">   43</a></span>&#160;    <a class="code" href="classUser.html">User</a>* <a class="code" href="classCardioWindow.html#aa57ce742fae60dd899ec0e487664421b">us</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classCardioWindow.html#aeff75203be6a1fc8779205d35418410f">   47</a></span>&#160;    <a class="code" href="classCardio.html">Cardio</a>* <a class="code" href="classCardioWindow.html#aeff75203be6a1fc8779205d35418410f">car</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classCardioWindow.html#a864a6b7005b77d1400b3cdcc621776af">   51</a></span>&#160;    QTimer <a class="code" href="classCardioWindow.html#a864a6b7005b77d1400b3cdcc621776af">timer</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classCardioWindow.html#af70e172daac2787064d3dad481bfa997">   55</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCardioWindow.html#af70e172daac2787064d3dad481bfa997">pause</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classCardioWindow.html#a175700c0b3c763c929aef758ca8a1e37">   59</a></span>&#160;    <a class="code" href="classConfigWindow.html">ConfigWindow</a>* <a class="code" href="classCardioWindow.html#a175700c0b3c763c929aef758ca8a1e37">confWin</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classCardioWindow.html#a4e257b9f0677e7949f96bee0ac2814dc">   63</a></span>&#160;    <a class="code" href="classdatawindow.html">datawindow</a>* <a class="code" href="classCardioWindow.html#a4e257b9f0677e7949f96bee0ac2814dc">datWin</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#a0273495872c9ce81ba61a8f612a169e3">StartButton</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#a9bd41279eb9ce7c2d36689cdd05f0d6a">PauseButton</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#abfed7122df308a1ad93a766a0a0f0d10">StopButton</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#a91ccfe6a2b1976500ce08cec187da4ec">UiSample</a> ();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#aed3a3092518413671462ad5ec9dda5f7">SerialConfigButton</a> ();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#a349726872d9fa15242971492c007877b">ReportButton</a> ();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;signals:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCardioWindow.html#ad956cdb3632f87bc3043c264906ae599">NewSession</a> ();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // CARDIOWINDOW_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassCardioWindow_html_a91ccfe6a2b1976500ce08cec187da4ec"><div class="ttname"><a href="classCardioWindow.html#a91ccfe6a2b1976500ce08cec187da4ec">CardioWindow::UiSample</a></div><div class="ttdeci">void UiSample()</div><div class="ttdoc">UiSample: SLOT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:70</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a82a4aae4172de0f419372b2501d811ce"><div class="ttname"><a href="classCardioWindow.html#a82a4aae4172de0f419372b2501d811ce">CardioWindow::CardioWindow</a></div><div class="ttdeci">CardioWindow(User *&amp;usu, QWidget *parent=nullptr)</div><div class="ttdoc">CardioWindow - Constructor.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:4</div></div>
+<div class="ttc" id="aclassCardioWindow_html_aa57ce742fae60dd899ec0e487664421b"><div class="ttname"><a href="classCardioWindow.html#aa57ce742fae60dd899ec0e487664421b">CardioWindow::us</a></div><div class="ttdeci">User * us</div><div class="ttdoc">us: Puntero a objeto de usuario</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:43</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a9bd41279eb9ce7c2d36689cdd05f0d6a"><div class="ttname"><a href="classCardioWindow.html#a9bd41279eb9ce7c2d36689cdd05f0d6a">CardioWindow::PauseButton</a></div><div class="ttdeci">void PauseButton()</div><div class="ttdoc">PauseButton: SLOT asociado al botón de pausar/reanudar entrenamiento.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:46</div></div>
+<div class="ttc" id="aclassCardioWindow_html_ad956cdb3632f87bc3043c264906ae599"><div class="ttname"><a href="classCardioWindow.html#ad956cdb3632f87bc3043c264906ae599">CardioWindow::NewSession</a></div><div class="ttdeci">void NewSession()</div><div class="ttdoc">NewSession: Señal emitida cuando se ha finalizado una nueva sesión.</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a5e6c414ea51811dbb7a0b0186b21db98"><div class="ttname"><a href="classCardioWindow.html#a5e6c414ea51811dbb7a0b0186b21db98">CardioWindow::~CardioWindow</a></div><div class="ttdeci">~CardioWindow()</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:26</div></div>
+<div class="ttc" id="aclassCardio_html"><div class="ttname"><a href="classCardio.html">Cardio</a></div><div class="ttdoc">The Cardio class: Clase de sesión de entrenamiento del tipo cardio.</div><div class="ttdef"><b>Definition:</b> session.h:208</div></div>
+<div class="ttc" id="aclassConfigWindow_html"><div class="ttname"><a href="classConfigWindow.html">ConfigWindow</a></div><div class="ttdoc">The ConfigWindow class: Ventana de configuración del puerto serie (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> configwindow.h:21</div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> accesswindow.h:17</div></div>
+<div class="ttc" id="aclassCardioWindow_html_abfed7122df308a1ad93a766a0a0f0d10"><div class="ttname"><a href="classCardioWindow.html#abfed7122df308a1ad93a766a0a0f0d10">CardioWindow::StopButton</a></div><div class="ttdeci">void StopButton()</div><div class="ttdoc">StopButton: SLOT asociado al botón de detener entrenamiento.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:61</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a175700c0b3c763c929aef758ca8a1e37"><div class="ttname"><a href="classCardioWindow.html#a175700c0b3c763c929aef758ca8a1e37">CardioWindow::confWin</a></div><div class="ttdeci">ConfigWindow * confWin</div><div class="ttdoc">confWin: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:59</div></div>
+<div class="ttc" id="aclassCardioWindow_html_af70e172daac2787064d3dad481bfa997"><div class="ttname"><a href="classCardioWindow.html#af70e172daac2787064d3dad481bfa997">CardioWindow::pause</a></div><div class="ttdeci">bool pause</div><div class="ttdoc">pause: Flag indicador de pausa de entrenamiento</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:55</div></div>
+<div class="ttc" id="aconfigwindow_8h_html"><div class="ttname"><a href="configwindow_8h.html">configwindow.h</a></div><div class="ttdoc">Ventana de configuración del puerto serie.</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a349726872d9fa15242971492c007877b"><div class="ttname"><a href="classCardioWindow.html#a349726872d9fa15242971492c007877b">CardioWindow::ReportButton</a></div><div class="ttdeci">void ReportButton()</div><div class="ttdoc">ReportButton: SLOT asociado al botón de ver reporte.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:93</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a0273495872c9ce81ba61a8f612a169e3"><div class="ttname"><a href="classCardioWindow.html#a0273495872c9ce81ba61a8f612a169e3">CardioWindow::StartButton</a></div><div class="ttdeci">void StartButton()</div><div class="ttdoc">StartButton: SLOT asociado al botón de inicio de entrenamiento.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:34</div></div>
+<div class="ttc" id="aclassCardioWindow_html"><div class="ttname"><a href="classCardioWindow.html">CardioWindow</a></div><div class="ttdoc">The CardioWindow class: Ventana de sesión de entrenamiento del tipo Cardio (INTERFAZ GRÁFICA)</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:25</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a4e257b9f0677e7949f96bee0ac2814dc"><div class="ttname"><a href="classCardioWindow.html#a4e257b9f0677e7949f96bee0ac2814dc">CardioWindow::datWin</a></div><div class="ttdeci">datawindow * datWin</div><div class="ttdoc">datWin: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:63</div></div>
+<div class="ttc" id="aclassCardioWindow_html_aed3a3092518413671462ad5ec9dda5f7"><div class="ttname"><a href="classCardioWindow.html#aed3a3092518413671462ad5ec9dda5f7">CardioWindow::SerialConfigButton</a></div><div class="ttdeci">void SerialConfigButton()</div><div class="ttdoc">SerialConfigButton: SLOT asociado al botón de configurar puerto serie.</div><div class="ttdef"><b>Definition:</b> cardiowindow.cpp:85</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">Clase Usuario: Contiene los datos y métodos de un usuario.</div></div>
+<div class="ttc" id="aclassCardioWindow_html_a864a6b7005b77d1400b3cdcc621776af"><div class="ttname"><a href="classCardioWindow.html#a864a6b7005b77d1400b3cdcc621776af">CardioWindow::timer</a></div><div class="ttdeci">QTimer timer</div><div class="ttdoc">timer: Objeto utilizado como timer para la sesión</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:51</div></div>
+<div class="ttc" id="aclassdatawindow_html"><div class="ttname"><a href="classdatawindow.html">datawindow</a></div><div class="ttdoc">The datawindow class: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> datawindow.h:25</div></div>
+<div class="ttc" id="asession_8h_html"><div class="ttname"><a href="session_8h.html">session.h</a></div><div class="ttdoc">Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas...</div></div>
+<div class="ttc" id="aclassCardioWindow_html_af74418e6b571fcd6bd29453d782a8df4"><div class="ttname"><a href="classCardioWindow.html#af74418e6b571fcd6bd29453d782a8df4">CardioWindow::ui</a></div><div class="ttdeci">Ui::CardioWindow * ui</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:39</div></div>
+<div class="ttc" id="aclassUser_html"><div class="ttname"><a href="classUser.html">User</a></div><div class="ttdoc">The User class: Objeto de usuario.</div><div class="ttdef"><b>Definition:</b> user.h:28</div></div>
+<div class="ttc" id="adatawindow_8h_html"><div class="ttname"><a href="datawindow_8h.html">datawindow.h</a></div><div class="ttdoc">Ventana de muestra de datos de entrenamiento (INTERFAZ GRÁFICA)</div></div>
+<div class="ttc" id="aclassCardioWindow_html_aeff75203be6a1fc8779205d35418410f"><div class="ttname"><a href="classCardioWindow.html#aeff75203be6a1fc8779205d35418410f">CardioWindow::car</a></div><div class="ttdeci">Cardio * car</div><div class="ttdoc">car: Puntero a objeto de sesión de entrenamiento (Cardio)</div><div class="ttdef"><b>Definition:</b> cardiowindow.h:47</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

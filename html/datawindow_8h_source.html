@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Software de entrenamiento y registro de datos para una bicicleta estática: Fichero Fuente Header_Files/datawindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Software de entrenamiento y registro de datos para una bicicleta estática
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7fa601e68c2de4afaacab5d8ce270028.html">Header_Files</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">datawindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="datawindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef DATAWINDOW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define DATAWINDOW_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;Header_Files/qcustomplot.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="session_8h.html">Header_Files/session.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dialogwin_8h.html">dialogwin.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceUi.html">Ui</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="classdatawindow.html">datawindow</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classdatawindow.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdatawindow.html">datawindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classdatawindow.html">datawindow</a>(<a class="code" href="classSession.html">Session</a>*&amp; mySes, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ~<a class="code" href="classdatawindow.html">datawindow</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classdatawindow.html#aa10ee2028884e326de6429e2aad5af66">   38</a></span>&#160;    Ui::datawindow *<a class="code" href="classdatawindow.html#aa10ee2028884e326de6429e2aad5af66">ui</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classdatawindow.html#a60bcafd479893d19a3b16f280151be7d">   42</a></span>&#160;    <a class="code" href="classSession.html">Session</a>* <a class="code" href="classdatawindow.html#a60bcafd479893d19a3b16f280151be7d">ses</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classdatawindow.html#a9e70ac724ee45672b931c33523936950">   46</a></span>&#160;    <a class="code" href="classDialogWin.html">DialogWin</a>* <a class="code" href="classdatawindow.html#a9e70ac724ee45672b931c33523936950">diaWin</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> ExportDataButton ();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif // DATAWINDOW_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="adialogwin_8h_html"><div class="ttname"><a href="dialogwin_8h.html">dialogwin.h</a></div><div class="ttdoc">Ventana para mostrar mensajes al usuario.</div></div>
+<div class="ttc" id="aclassSession_html"><div class="ttname"><a href="classSession.html">Session</a></div><div class="ttdoc">The Session class: Clase abstracta para sesión de entrenamiento genérica.</div><div class="ttdef"><b>Definition:</b> session.h:27</div></div>
+<div class="ttc" id="aclassdatawindow_html_a9e70ac724ee45672b931c33523936950"><div class="ttname"><a href="classdatawindow.html#a9e70ac724ee45672b931c33523936950">datawindow::diaWin</a></div><div class="ttdeci">DialogWin * diaWin</div><div class="ttdoc">diaWin: Puntero a objeto de ventana de cuadro de diálogo</div><div class="ttdef"><b>Definition:</b> datawindow.h:46</div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> accesswindow.h:17</div></div>
+<div class="ttc" id="aclassdatawindow_html_aa10ee2028884e326de6429e2aad5af66"><div class="ttname"><a href="classdatawindow.html#aa10ee2028884e326de6429e2aad5af66">datawindow::ui</a></div><div class="ttdeci">Ui::datawindow * ui</div><div class="ttdef"><b>Definition:</b> datawindow.h:38</div></div>
+<div class="ttc" id="aclassDialogWin_html"><div class="ttname"><a href="classDialogWin.html">DialogWin</a></div><div class="ttdoc">The DialogWin class: Cuadro de diálogo.</div><div class="ttdef"><b>Definition:</b> dialogwin.h:21</div></div>
+<div class="ttc" id="aclassdatawindow_html"><div class="ttname"><a href="classdatawindow.html">datawindow</a></div><div class="ttdoc">The datawindow class: Ventana de muestra de datos de entrenamiento (Interfaz gráfica)</div><div class="ttdef"><b>Definition:</b> datawindow.h:25</div></div>
+<div class="ttc" id="asession_8h_html"><div class="ttname"><a href="session_8h.html">session.h</a></div><div class="ttdoc">Este archivo contiene la declaración de la clase abstracta Session y cada una de sus clases derivadas...</div></div>
+<div class="ttc" id="aclassdatawindow_html_a60bcafd479893d19a3b16f280151be7d"><div class="ttname"><a href="classdatawindow.html#a60bcafd479893d19a3b16f280151be7d">datawindow::ses</a></div><div class="ttdeci">Session * ses</div><div class="ttdoc">ses: Puntero a objeto de sesión</div><div class="ttdef"><b>Definition:</b> datawindow.h:42</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,242 @@
+\hypertarget{classweightwindow}{}\doxysection{Referencia de la Clase weightwindow}
+\label{classweightwindow}\index{weightwindow@{weightwindow}}
+
+
+The weightwindow class.  
+
+
+
+
+{\ttfamily \#include $<$weightwindow.\+h$>$}
+
+
+
+Diagrama de herencias de weightwindow
+% FIG 0
+
+
+Diagrama de colaboración para weightwindow\+:
+% FIG 1
+\doxysubsection*{Señales}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classweightwindow_a3cd428a822c82e8d1e9ff7b0390c2d40}{New\+Session}} ()
+\begin{DoxyCompactList}\small\item\em New\+Session\+: Señal que es emitida para indicar que se realizó una sesión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classweightwindow_a963b388e83427569ef8237ac69d266fe}{weightwindow}} (\mbox{\hyperlink{classUser}{User}} $\ast$\&usu, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em weightwindow -\/ Constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classweightwindow_aef5756e7626bd71d9a10366bb7aa6ad8}{$\sim$weightwindow}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Slots privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classweightwindow_ac49df375ceebec1157074ceaf9990b00}{Start\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Start\+Button\+: S\+L\+OT asociado al botón de inicio de entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classweightwindow_a7382be616f5ba74a3f9289141afc50c9}{Pause\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Pause\+Button\+: S\+L\+OT asociado al botón de pausar/reanudar entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classweightwindow_ac6e98fcf1c418ccf6e37913a5e5efca3}{Stop\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Stop\+Button\+: S\+L\+OT asociado al botón de detener entrenamiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classweightwindow_adc62c685fa735c5c4dac5f603d4d63fd}{Ui\+Sample}} ()
+\begin{DoxyCompactList}\small\item\em Ui\+Sample\+: S\+L\+OT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classweightwindow_a83a94949f48e396afa3afb220595f4c4}{Serial\+Config\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Serial\+Config\+Button\+: S\+L\+OT asociado al botón de configurar puerto serie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classweightwindow_a27a882b05253d8440e66becff8b7de90}{Report\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Report\+Button\+: S\+L\+OT asociado al botón de ver reporte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::weightwindow $\ast$ \mbox{\hyperlink{classweightwindow_a7bb2e0919081a3893fe4a1d6c91adfb4}{ui}}
+\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classweightwindow_a1d7425b5aaeebe3fc7d5145942e38340}{us}} = nullptr
+\begin{DoxyCompactList}\small\item\em us\+: Puntero a objeto de usuario \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} $\ast$ \mbox{\hyperlink{classweightwindow_af1dbdbf46d1b3f6c9e313bb3cbb6b995}{wei}}
+\begin{DoxyCompactList}\small\item\em wei\+: Puntero a objeto de sesión de entrenamiento del tipo Weightloss \end{DoxyCompactList}\item 
+Q\+Timer \mbox{\hyperlink{classweightwindow_ae46956576c6786aa0c53d10ee3707259}{timer}}
+\begin{DoxyCompactList}\small\item\em timer\+: Objeto utilizado como timer para la sesión \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classweightwindow_aa5c9880261005f6383805fea86ac0904}{pause}}
+\begin{DoxyCompactList}\small\item\em pause\+: Flag indicador de pausa de entrenamiento \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConfigWindow}{Config\+Window}} $\ast$ \mbox{\hyperlink{classweightwindow_a2c5fa2dbacfb87bedf2041d46c6f888c}{conf\+Win}}
+\begin{DoxyCompactList}\small\item\em conf\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdatawindow}{datawindow}} $\ast$ \mbox{\hyperlink{classweightwindow_a16ecaac7c2806998720663328705c199}{dat\+Win}}
+\begin{DoxyCompactList}\small\item\em dat\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The weightwindow class. 
+
+Ventana de sesión de entrenamiento del tipo Weightloss (Interfaz gráfica) 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classweightwindow_a963b388e83427569ef8237ac69d266fe}\label{classweightwindow_a963b388e83427569ef8237ac69d266fe}} 
+\index{weightwindow@{weightwindow}!weightwindow@{weightwindow}}
+\index{weightwindow@{weightwindow}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{weightwindow()}{weightwindow()}}
+{\footnotesize\ttfamily weightwindow\+::weightwindow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$\&}]{usu,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+weightwindow -\/ Constructor 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em usu} & Puntero a objeto Usuario \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classweightwindow_aef5756e7626bd71d9a10366bb7aa6ad8}\label{classweightwindow_aef5756e7626bd71d9a10366bb7aa6ad8}} 
+\index{weightwindow@{weightwindow}!````~weightwindow@{$\sim$weightwindow}}
+\index{````~weightwindow@{$\sim$weightwindow}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$weightwindow()}{~weightwindow()}}
+{\footnotesize\ttfamily weightwindow\+::$\sim$weightwindow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classweightwindow_a3cd428a822c82e8d1e9ff7b0390c2d40}\label{classweightwindow_a3cd428a822c82e8d1e9ff7b0390c2d40}} 
+\index{weightwindow@{weightwindow}!NewSession@{NewSession}}
+\index{NewSession@{NewSession}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{NewSession}{NewSession}}
+{\footnotesize\ttfamily void weightwindow\+::\+New\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+New\+Session\+: Señal que es emitida para indicar que se realizó una sesión. 
+
+\mbox{\Hypertarget{classweightwindow_a7382be616f5ba74a3f9289141afc50c9}\label{classweightwindow_a7382be616f5ba74a3f9289141afc50c9}} 
+\index{weightwindow@{weightwindow}!PauseButton@{PauseButton}}
+\index{PauseButton@{PauseButton}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{PauseButton}{PauseButton}}
+{\footnotesize\ttfamily void weightwindow\+::\+Pause\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Pause\+Button\+: S\+L\+OT asociado al botón de pausar/reanudar entrenamiento. 
+
+Modifica el flag \char`\"{}pause\char`\"{} del objeto de sesión -\/ Detiene/\+Inicia el timer \mbox{\Hypertarget{classweightwindow_a27a882b05253d8440e66becff8b7de90}\label{classweightwindow_a27a882b05253d8440e66becff8b7de90}} 
+\index{weightwindow@{weightwindow}!ReportButton@{ReportButton}}
+\index{ReportButton@{ReportButton}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{ReportButton}{ReportButton}}
+{\footnotesize\ttfamily void weightwindow\+::\+Report\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Report\+Button\+: S\+L\+OT asociado al botón de ver reporte. 
+
+Crea y ejecuta la ventana de reporte de sesión \mbox{\Hypertarget{classweightwindow_a83a94949f48e396afa3afb220595f4c4}\label{classweightwindow_a83a94949f48e396afa3afb220595f4c4}} 
+\index{weightwindow@{weightwindow}!SerialConfigButton@{SerialConfigButton}}
+\index{SerialConfigButton@{SerialConfigButton}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{SerialConfigButton}{SerialConfigButton}}
+{\footnotesize\ttfamily void weightwindow\+::\+Serial\+Config\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Serial\+Config\+Button\+: S\+L\+OT asociado al botón de configurar puerto serie. 
+
+Crea y ejecuta la ventana de configuración del puerto serie \mbox{\Hypertarget{classweightwindow_ac49df375ceebec1157074ceaf9990b00}\label{classweightwindow_ac49df375ceebec1157074ceaf9990b00}} 
+\index{weightwindow@{weightwindow}!StartButton@{StartButton}}
+\index{StartButton@{StartButton}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{StartButton}{StartButton}}
+{\footnotesize\ttfamily void weightwindow\+::\+Start\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Start\+Button\+: S\+L\+OT asociado al botón de inicio de entrenamiento. 
+
+Ejecuta los métodos de start de la sesión y el timer \mbox{\Hypertarget{classweightwindow_ac6e98fcf1c418ccf6e37913a5e5efca3}\label{classweightwindow_ac6e98fcf1c418ccf6e37913a5e5efca3}} 
+\index{weightwindow@{weightwindow}!StopButton@{StopButton}}
+\index{StopButton@{StopButton}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{StopButton}{StopButton}}
+{\footnotesize\ttfamily void weightwindow\+::\+Stop\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Stop\+Button\+: S\+L\+OT asociado al botón de detener entrenamiento. 
+
+Detiene el timer y la sesión. Ejecuta el método de guardado de sesión \mbox{\Hypertarget{classweightwindow_adc62c685fa735c5c4dac5f603d4d63fd}\label{classweightwindow_adc62c685fa735c5c4dac5f603d4d63fd}} 
+\index{weightwindow@{weightwindow}!UiSample@{UiSample}}
+\index{UiSample@{UiSample}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{UiSample}{UiSample}}
+{\footnotesize\ttfamily void weightwindow\+::\+Ui\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Ui\+Sample\+: S\+L\+OT asociado al timer. Se ejecuta cada vez que este finaliza su cuenta. 
+
+Se usa para ejecutar el método de muestreo de la sesión 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classweightwindow_a2c5fa2dbacfb87bedf2041d46c6f888c}\label{classweightwindow_a2c5fa2dbacfb87bedf2041d46c6f888c}} 
+\index{weightwindow@{weightwindow}!confWin@{confWin}}
+\index{confWin@{confWin}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{confWin}{confWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigWindow}{Config\+Window}}$\ast$ weightwindow\+::conf\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+conf\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de configuración del puerto serie 
+
+\mbox{\Hypertarget{classweightwindow_a16ecaac7c2806998720663328705c199}\label{classweightwindow_a16ecaac7c2806998720663328705c199}} 
+\index{weightwindow@{weightwindow}!datWin@{datWin}}
+\index{datWin@{datWin}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{datWin}{datWin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdatawindow}{datawindow}}$\ast$ weightwindow\+::dat\+Win\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+dat\+Win\+: Puntero a objeto de interfaz gráfica de la ventana de reporte de datos 
+
+\mbox{\Hypertarget{classweightwindow_aa5c9880261005f6383805fea86ac0904}\label{classweightwindow_aa5c9880261005f6383805fea86ac0904}} 
+\index{weightwindow@{weightwindow}!pause@{pause}}
+\index{pause@{pause}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily bool weightwindow\+::pause\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pause\+: Flag indicador de pausa de entrenamiento 
+
+\mbox{\Hypertarget{classweightwindow_ae46956576c6786aa0c53d10ee3707259}\label{classweightwindow_ae46956576c6786aa0c53d10ee3707259}} 
+\index{weightwindow@{weightwindow}!timer@{timer}}
+\index{timer@{timer}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily Q\+Timer weightwindow\+::timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+timer\+: Objeto utilizado como timer para la sesión 
+
+\mbox{\Hypertarget{classweightwindow_a7bb2e0919081a3893fe4a1d6c91adfb4}\label{classweightwindow_a7bb2e0919081a3893fe4a1d6c91adfb4}} 
+\index{weightwindow@{weightwindow}!ui@{ui}}
+\index{ui@{ui}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily Ui\+::weightwindow$\ast$ weightwindow\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classweightwindow_a1d7425b5aaeebe3fc7d5145942e38340}\label{classweightwindow_a1d7425b5aaeebe3fc7d5145942e38340}} 
+\index{weightwindow@{weightwindow}!us@{us}}
+\index{us@{us}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ weightwindow\+::us = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+us\+: Puntero a objeto de usuario 
+
+\mbox{\Hypertarget{classweightwindow_af1dbdbf46d1b3f6c9e313bb3cbb6b995}\label{classweightwindow_af1dbdbf46d1b3f6c9e313bb3cbb6b995}} 
+\index{weightwindow@{weightwindow}!wei@{wei}}
+\index{wei@{wei}!weightwindow@{weightwindow}}
+\doxysubsubsection{\texorpdfstring{wei}{wei}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}}$\ast$ weightwindow\+::wei\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+wei\+: Puntero a objeto de sesión de entrenamiento del tipo Weightloss 
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{weightwindow_8h}{weightwindow.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{weightwindow_8cpp}{weightwindow.\+cpp}}\end{DoxyCompactItemize}

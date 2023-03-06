@@ -20,7 +20,7 @@ class CardioWindow;
 }
 
 /**
- * @brief The CardioWindow class
+ * @brief The CardioWindow class: Ventana de sesión de entrenamiento del tipo Cardio (INTERFAZ GRÁFICA)
  */
 class CardioWindow : public QMainWindow
 {

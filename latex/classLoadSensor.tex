@@ -1,0 +1,135 @@
+\hypertarget{classLoadSensor}{}\doxysection{Referencia de la plantilla de la Clase Load\+Sensor$<$ T $>$}
+\label{classLoadSensor}\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+
+
+The \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} class\+: Clase derivada de sensor para sensor de carga.  
+
+
+
+
+{\ttfamily \#include $<$sensors.\+h$>$}
+
+
+
+Diagrama de herencias de Load\+Sensor$<$ T $>$
+% FIG 0
+
+
+Diagrama de colaboración para Load\+Sensor$<$ T $>$\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLoadSensor_aca7ed861d373653aa684e771942509f8}{Load\+Sensor}} (Q\+Serial\+Port $\ast$p)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classLoadSensor_aded683c9dfe8149ad8d28b336577e17a}{$\sim$\+Load\+Sensor}} ()
+\item 
+virtual void \mbox{\hyperlink{classLoadSensor_aa5c0193ca26ec4cb241d272de55b5d45}{Get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Get\+Value\+: Actualiza valor actual de carga. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classLoadSensor_ac35a37fddece16e7e9bd436c64570f17}{Get\+Load}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Load\+: Permite obtener el valor actual del sensor. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classLoadSensor_a63d04d217802c6c4cb398fcdf005b0b7}{Get\+Max\+Load}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Max\+Load\+: Permite obtener el máximo de valor de carga usado durante la sesión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classLoadSensor_a8119ef9899e83092e3277b3d23b5fc66}{max\+Load}} = 0
+\begin{DoxyCompactList}\small\item\em max\+Load\+: Propiedad donde se almacena el valor de la máxima carga sensada \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class Load\+Sensor$<$ T $>$}
+
+The \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} class\+: Clase derivada de sensor para sensor de carga. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classLoadSensor_aca7ed861d373653aa684e771942509f8}\label{classLoadSensor_aca7ed861d373653aa684e771942509f8}} 
+\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}!LoadSensor@{LoadSensor}}
+\index{LoadSensor@{LoadSensor}!LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LoadSensor()}{LoadSensor()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ T $>$\+::\mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} (\begin{DoxyParamCaption}\item[{Q\+Serial\+Port $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p} & Objeto puerto serie asociado al sensor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLoadSensor_aded683c9dfe8149ad8d28b336577e17a}\label{classLoadSensor_aded683c9dfe8149ad8d28b336577e17a}} 
+\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}!````~LoadSensor@{$\sim$LoadSensor}}
+\index{````~LoadSensor@{$\sim$LoadSensor}!LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$LoadSensor()}{~LoadSensor()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+virtual \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classLoadSensor}{Load\+Sensor}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classLoadSensor_ac35a37fddece16e7e9bd436c64570f17}\label{classLoadSensor_ac35a37fddece16e7e9bd436c64570f17}} 
+\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}!GetLoad@{GetLoad}}
+\index{GetLoad@{GetLoad}!LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetLoad()}{GetLoad()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ T $>$\+::Get\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Load\+: Permite obtener el valor actual del sensor. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor actual de carga 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoadSensor_a63d04d217802c6c4cb398fcdf005b0b7}\label{classLoadSensor_a63d04d217802c6c4cb398fcdf005b0b7}} 
+\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}!GetMaxLoad@{GetMaxLoad}}
+\index{GetMaxLoad@{GetMaxLoad}!LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetMaxLoad()}{GetMaxLoad()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ T $>$\+::Get\+Max\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Max\+Load\+: Permite obtener el máximo de valor de carga usado durante la sesión. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor máximo registrado de carga 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoadSensor_aa5c0193ca26ec4cb241d272de55b5d45}\label{classLoadSensor_aa5c0193ca26ec4cb241d272de55b5d45}} 
+\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ T $>$\+::Get\+Value\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get\+Value\+: Actualiza valor actual de carga. 
+
+
+
+Implementa \mbox{\hyperlink{classSensors_aefcdb5ecbe0423bf5dadd54022f261af}{Sensors$<$ T $>$}}.
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classLoadSensor_a8119ef9899e83092e3277b3d23b5fc66}\label{classLoadSensor_a8119ef9899e83092e3277b3d23b5fc66}} 
+\index{LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}!maxLoad@{maxLoad}}
+\index{maxLoad@{maxLoad}!LoadSensor$<$ T $>$@{LoadSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{maxLoad}{maxLoad}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classLoadSensor}{Load\+Sensor}}$<$ T $>$\+::max\+Load = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+max\+Load\+: Propiedad donde se almacena el valor de la máxima carga sensada 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{sensors_8h}{sensors.\+h}}\end{DoxyCompactItemize}

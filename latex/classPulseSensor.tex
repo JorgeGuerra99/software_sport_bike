@@ -1,0 +1,164 @@
+\hypertarget{classPulseSensor}{}\doxysection{Referencia de la plantilla de la Clase Pulse\+Sensor$<$ T $>$}
+\label{classPulseSensor}\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+
+
+The \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} class\+: Clase derivada de sensor para sensor de pulso.  
+
+
+
+
+{\ttfamily \#include $<$sensors.\+h$>$}
+
+
+
+Diagrama de herencias de Pulse\+Sensor$<$ T $>$
+% FIG 0
+
+
+Diagrama de colaboración para Pulse\+Sensor$<$ T $>$\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPulseSensor_add9236e8c47aeb5bdcc09b6c6f2b5074}{Pulse\+Sensor}} (Q\+Serial\+Port $\ast$p)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classPulseSensor_a0002e97c1f911b12aa448e5847885b1c}{$\sim$\+Pulse\+Sensor}} ()
+\item 
+virtual void \mbox{\hyperlink{classPulseSensor_a7d699c425fe6a5e69217949ca0ec09b0}{Get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Get\+Value\+: Envía la orden al puerto serie y obtiene el dato respectivo. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classPulseSensor_a63e0c96f22f35b91ec76356cc0290ca1}{Get\+Pulse}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Pulse\+: Obtiene el dato respectivo del sensor. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classPulseSensor_a16082b517bee9426f76a206ad5517a6f}{Get\+Freq\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Freq\+Max\+: Obtiene el dato respectivo a la máxima frecuencia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPulseSensor_ade42c46892737dd399d50b59caaaad2d}{Update\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Update\+Value\+: Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual de acuerdo a las últimas lecturas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classPulseSensor_a5b7ad2c9be24e8cd485880a66829978e}{max\+Frequency}} = 0
+\begin{DoxyCompactList}\small\item\em max\+Frequency\+: Propiedad donde se almacena la máxima frecuencia \end{DoxyCompactList}\item 
+vector$<$ T $>$ \mbox{\hyperlink{classPulseSensor_afd03163c460706e3308a0662f92f3f73}{instant\+Data}}
+\begin{DoxyCompactList}\small\item\em instant\+Data\+: Almacena datos instantáneos para luego promediar y actualizar current\+Value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class Pulse\+Sensor$<$ T $>$}
+
+The \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} class\+: Clase derivada de sensor para sensor de pulso. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classPulseSensor_add9236e8c47aeb5bdcc09b6c6f2b5074}\label{classPulseSensor_add9236e8c47aeb5bdcc09b6c6f2b5074}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!PulseSensor@{PulseSensor}}
+\index{PulseSensor@{PulseSensor}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PulseSensor()}{PulseSensor()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::\mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} (\begin{DoxyParamCaption}\item[{Q\+Serial\+Port $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p} & Objeto puerto serie asociado al sensor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulseSensor_a0002e97c1f911b12aa448e5847885b1c}\label{classPulseSensor_a0002e97c1f911b12aa448e5847885b1c}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!````~PulseSensor@{$\sim$PulseSensor}}
+\index{````~PulseSensor@{$\sim$PulseSensor}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$PulseSensor()}{~PulseSensor()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+virtual \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classPulseSensor_a16082b517bee9426f76a206ad5517a6f}\label{classPulseSensor_a16082b517bee9426f76a206ad5517a6f}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!GetFreqMax@{GetFreqMax}}
+\index{GetFreqMax@{GetFreqMax}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetFreqMax()}{GetFreqMax()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::Get\+Freq\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Freq\+Max\+: Obtiene el dato respectivo a la máxima frecuencia. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor máximo de pulso leído 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulseSensor_a63e0c96f22f35b91ec76356cc0290ca1}\label{classPulseSensor_a63e0c96f22f35b91ec76356cc0290ca1}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!GetPulse@{GetPulse}}
+\index{GetPulse@{GetPulse}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetPulse()}{GetPulse()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::Get\+Pulse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Pulse\+: Obtiene el dato respectivo del sensor. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor actual de pulso 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulseSensor_a7d699c425fe6a5e69217949ca0ec09b0}\label{classPulseSensor_a7d699c425fe6a5e69217949ca0ec09b0}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::Get\+Value\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get\+Value\+: Envía la orden al puerto serie y obtiene el dato respectivo. 
+
+
+
+Implementa \mbox{\hyperlink{classSensors_aefcdb5ecbe0423bf5dadd54022f261af}{Sensors$<$ T $>$}}.
+
+\mbox{\Hypertarget{classPulseSensor_ade42c46892737dd399d50b59caaaad2d}\label{classPulseSensor_ade42c46892737dd399d50b59caaaad2d}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!UpdateValue@{UpdateValue}}
+\index{UpdateValue@{UpdateValue}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{UpdateValue()}{UpdateValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::Update\+Value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update\+Value\+: Utilizado exclusivamente por el sensor de pulso. Actualiza el valor actual de acuerdo a las últimas lecturas. 
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classPulseSensor_afd03163c460706e3308a0662f92f3f73}\label{classPulseSensor_afd03163c460706e3308a0662f92f3f73}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!instantData@{instantData}}
+\index{instantData@{instantData}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{instantData}{instantData}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ T $>$ \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::instant\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+instant\+Data\+: Almacena datos instantáneos para luego promediar y actualizar current\+Value 
+
+\mbox{\Hypertarget{classPulseSensor_a5b7ad2c9be24e8cd485880a66829978e}\label{classPulseSensor_a5b7ad2c9be24e8cd485880a66829978e}} 
+\index{PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}!maxFrequency@{maxFrequency}}
+\index{maxFrequency@{maxFrequency}!PulseSensor$<$ T $>$@{PulseSensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{maxFrequency}{maxFrequency}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classPulseSensor}{Pulse\+Sensor}}$<$ T $>$\+::max\+Frequency = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+max\+Frequency\+: Propiedad donde se almacena la máxima frecuencia 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{sensors_8h}{sensors.\+h}}\end{DoxyCompactItemize}

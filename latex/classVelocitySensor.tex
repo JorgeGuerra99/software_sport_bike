@@ -1,0 +1,221 @@
+\hypertarget{classVelocitySensor}{}\doxysection{Referencia de la plantilla de la Clase Velocity\+Sensor$<$ T $>$}
+\label{classVelocitySensor}\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+
+
+The \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} class\+: Clase derivada de sensor para sensor de velocidad.  
+
+
+
+
+{\ttfamily \#include $<$sensors.\+h$>$}
+
+
+
+Diagrama de herencias de Velocity\+Sensor$<$ T $>$
+% FIG 0
+
+
+Diagrama de colaboración para Velocity\+Sensor$<$ T $>$\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVelocitySensor_a66431bc307885614d04ee74e3a0c7b9f}{Velocity\+Sensor}} (Q\+Serial\+Port $\ast$p)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classVelocitySensor_a06a5b76bdd49a01f1d048ff527b3b6ae}{$\sim$\+Velocity\+Sensor}} ()
+\item 
+virtual void \mbox{\hyperlink{classVelocitySensor_abd08fb9f326664607064fbb98032b61d}{Get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Get\+Value\+: Actualiza valor actual del sensor. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classVelocitySensor_a8d7e87418e1ffafdc9ce2a887186a542}{Get\+Veloc}} (const int \&sel=0) const
+\begin{DoxyCompactList}\small\item\em Get\+Veloc\+: Permite obtener la velocidad del sensor en R\+PM o km/h de acuerdo al parámetro sel. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classVelocitySensor_a72f157f5b7828e7200a50fbcfe61652b}{Get\+Veloc\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Veloc\+Max\+: Permite obtener el valor de la velocidad máxima sensada. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classVelocitySensor_a98df5160b560e92022df2decf621e133}{Get\+Veloc\+Prom}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Veloc\+Prom\+: Permite obtener el valor promedio de los datos sensados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classVelocitySensor_a440c83bfefebaaad0340fb4e1e17216d}{veloc\+Max}} = 0
+\begin{DoxyCompactList}\small\item\em veloc\+Max\+: Propiedad donde se almacena la velocidad máxima \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classVelocitySensor_ae81ce3f42d71315491a044b581b8e176}{veloc\+Med}}
+\begin{DoxyCompactList}\small\item\em veloc\+Med\+: Propiedad donde se almacena la velocidad media o promedio \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classVelocitySensor_a5f7ac9e1bbde3a3c9273d2262317b894}{data\+Read}} = 0
+\begin{DoxyCompactList}\small\item\em data\+Read\+: Cantidad de datos leídos. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classVelocitySensor_a49e32fb812d38fe36b7eaab98a771049}{sum\+Data}} = 0
+\begin{DoxyCompactList}\small\item\em sum\+Data\+: Acumulador de datos \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classVelocitySensor_a14e4654f9a75194d6e37d6cfb7bb4047}{kmh}}
+\begin{DoxyCompactList}\small\item\em kmh\+: Propiedad donde se almacena la velocidad cuya unidades son km/h \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classVelocitySensor_a3b445e8537495b5d0b0181cff8a3b1a4}{radius}} = 0.\+2
+\begin{DoxyCompactList}\small\item\em radius\+: Valor de radio de la rueda de la bicicleta estática \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class Velocity\+Sensor$<$ T $>$}
+
+The \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} class\+: Clase derivada de sensor para sensor de velocidad. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classVelocitySensor_a66431bc307885614d04ee74e3a0c7b9f}\label{classVelocitySensor_a66431bc307885614d04ee74e3a0c7b9f}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!VelocitySensor@{VelocitySensor}}
+\index{VelocitySensor@{VelocitySensor}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{VelocitySensor()}{VelocitySensor()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::\mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} (\begin{DoxyParamCaption}\item[{Q\+Serial\+Port $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p} & Objeto puerto serie asociado al sensor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVelocitySensor_a06a5b76bdd49a01f1d048ff527b3b6ae}\label{classVelocitySensor_a06a5b76bdd49a01f1d048ff527b3b6ae}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!````~VelocitySensor@{$\sim$VelocitySensor}}
+\index{````~VelocitySensor@{$\sim$VelocitySensor}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$VelocitySensor()}{~VelocitySensor()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+virtual \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classVelocitySensor_abd08fb9f326664607064fbb98032b61d}\label{classVelocitySensor_abd08fb9f326664607064fbb98032b61d}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::Get\+Value\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get\+Value\+: Actualiza valor actual del sensor. 
+
+
+
+Implementa \mbox{\hyperlink{classSensors_aefcdb5ecbe0423bf5dadd54022f261af}{Sensors$<$ T $>$}}.
+
+\mbox{\Hypertarget{classVelocitySensor_a8d7e87418e1ffafdc9ce2a887186a542}\label{classVelocitySensor_a8d7e87418e1ffafdc9ce2a887186a542}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!GetVeloc@{GetVeloc}}
+\index{GetVeloc@{GetVeloc}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetVeloc()}{GetVeloc()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::Get\+Veloc (\begin{DoxyParamCaption}\item[{const int \&}]{sel = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Veloc\+: Permite obtener la velocidad del sensor en R\+PM o km/h de acuerdo al parámetro sel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sel} & Si sel = 0 retorna velocidad R\+PM, si sel = 1 retorna velocidad en km/h \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor actual en la unidad seleccionada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVelocitySensor_a72f157f5b7828e7200a50fbcfe61652b}\label{classVelocitySensor_a72f157f5b7828e7200a50fbcfe61652b}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!GetVelocMax@{GetVelocMax}}
+\index{GetVelocMax@{GetVelocMax}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetVelocMax()}{GetVelocMax()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::Get\+Veloc\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Veloc\+Max\+: Permite obtener el valor de la velocidad máxima sensada. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna la velocidad máxima leída 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVelocitySensor_a98df5160b560e92022df2decf621e133}\label{classVelocitySensor_a98df5160b560e92022df2decf621e133}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!GetVelocProm@{GetVelocProm}}
+\index{GetVelocProm@{GetVelocProm}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetVelocProm()}{GetVelocProm()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::Get\+Veloc\+Prom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Veloc\+Prom\+: Permite obtener el valor promedio de los datos sensados. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna la velocidad promedio leída 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classVelocitySensor_a5f7ac9e1bbde3a3c9273d2262317b894}\label{classVelocitySensor_a5f7ac9e1bbde3a3c9273d2262317b894}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!dataRead@{dataRead}}
+\index{dataRead@{dataRead}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dataRead}{dataRead}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::data\+Read = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+data\+Read\+: Cantidad de datos leídos. 
+
+Utilizado para calcular la velocidad media \mbox{\Hypertarget{classVelocitySensor_a14e4654f9a75194d6e37d6cfb7bb4047}\label{classVelocitySensor_a14e4654f9a75194d6e37d6cfb7bb4047}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!kmh@{kmh}}
+\index{kmh@{kmh}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{kmh}{kmh}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::kmh\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+kmh\+: Propiedad donde se almacena la velocidad cuya unidades son km/h 
+
+\mbox{\Hypertarget{classVelocitySensor_a3b445e8537495b5d0b0181cff8a3b1a4}\label{classVelocitySensor_a3b445e8537495b5d0b0181cff8a3b1a4}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!radius@{radius}}
+\index{radius@{radius}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::radius = 0.\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+radius\+: Valor de radio de la rueda de la bicicleta estática 
+
+el valor en el que está instanciado es en metros \mbox{\Hypertarget{classVelocitySensor_a49e32fb812d38fe36b7eaab98a771049}\label{classVelocitySensor_a49e32fb812d38fe36b7eaab98a771049}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!sumData@{sumData}}
+\index{sumData@{sumData}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sumData}{sumData}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::sum\+Data = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sum\+Data\+: Acumulador de datos 
+
+\mbox{\Hypertarget{classVelocitySensor_a440c83bfefebaaad0340fb4e1e17216d}\label{classVelocitySensor_a440c83bfefebaaad0340fb4e1e17216d}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!velocMax@{velocMax}}
+\index{velocMax@{velocMax}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{velocMax}{velocMax}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::veloc\+Max = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+veloc\+Max\+: Propiedad donde se almacena la velocidad máxima 
+
+\mbox{\Hypertarget{classVelocitySensor_ae81ce3f42d71315491a044b581b8e176}\label{classVelocitySensor_ae81ce3f42d71315491a044b581b8e176}} 
+\index{VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}!velocMed@{velocMed}}
+\index{velocMed@{velocMed}!VelocitySensor$<$ T $>$@{VelocitySensor$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{velocMed}{velocMed}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classVelocitySensor}{Velocity\+Sensor}}$<$ T $>$\+::veloc\+Med\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+veloc\+Med\+: Propiedad donde se almacena la velocidad media o promedio 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{sensors_8h}{sensors.\+h}}\end{DoxyCompactItemize}

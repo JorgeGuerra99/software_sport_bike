@@ -26,7 +26,7 @@ weightwindow::weightwindow(User*& usu, QWidget *parent) :
 
 weightwindow::~weightwindow()
 {
-    emit NewSession();
+    if (wei->timeSes != 0) emit NewSession();
     delete ui;
     delete wei;
     cout << "destructor de weightwindow" << endl;
@@ -36,10 +36,13 @@ void weightwindow::StartButton()
 {
     wei->Start();
     timer.start();
-    ui->pushButton->setDisabled( true );
-    ui->pushButton_3->setEnabled( true );
-    ui->pushButton_5->setEnabled( true );
-    ui->pushButton_7->setDisabled( true );
+    if (wei->IsActive())
+    {
+        ui->pushButton->setDisabled( true );
+        ui->pushButton_3->setEnabled( true );
+        ui->pushButton_5->setEnabled( true );
+        ui->pushButton_7->setDisabled( true );
+    }
 }
 
 void weightwindow::PauseButton()
@@ -70,13 +73,16 @@ void weightwindow::StopButton()
 void weightwindow::UiSample()
 {
     wei->Sample();
-    ui->lcdNumber->display( wei->timeSes );
-    ui->lcdNumber_2->display( wei->GetLastData( 1 ) );
-    ui->lcdNumber_3->display( wei->GetDistance() );
-    ui->lcdNumber_4->display( wei->GetLastData( 0 ) );
-    ui->lcdNumber_5->display( wei->GetLastData( 2 ) );
-    ui->lcdNumber_6->display( wei->GetCalories() );
-    ui->label_7->setText( QString::fromStdString( wei->screenMessage ) );
+    if (wei->IsActive())
+    {
+        ui->lcdNumber->display( wei->timeSes );
+        ui->lcdNumber_2->display( wei->GetLastData( 1 ) );
+        ui->lcdNumber_3->display( wei->GetDistance() );
+        ui->lcdNumber_4->display( wei->GetLastData( 0 ) );
+        ui->lcdNumber_5->display( wei->GetLastData( 2 ) );
+        ui->lcdNumber_6->display( wei->GetCalories() );
+        ui->label_7->setText( QString::fromStdString( wei->screenMessage ) );
+    }
 }
 
 void weightwindow::SerialConfigButton()

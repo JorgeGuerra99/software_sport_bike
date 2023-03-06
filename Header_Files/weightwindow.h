@@ -18,6 +18,10 @@ namespace Ui {
 class weightwindow;
 }
 
+/**
+ * @brief The weightwindow class
+ * @details Ventana de sesión de entrenamiento del tipo Weightloss (Interfaz gráfica)
+ */
 class weightwindow : public QMainWindow
 {
     Q_OBJECT

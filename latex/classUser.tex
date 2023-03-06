@@ -1,0 +1,391 @@
+\hypertarget{classUser}{}\doxysection{Referencia de la Clase User}
+\label{classUser}\index{User@{User}}
+
+
+The \mbox{\hyperlink{classUser}{User}} class\+: Objeto de usuario.  
+
+
+
+
+{\ttfamily \#include $<$user.\+h$>$}
+
+
+
+Diagrama de colaboración para User\+:
+% FIG 0
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser_a9c9ac28f4e79fe820bd717a308d441c7}{User}} (const string \&\mbox{\hyperlink{classUser_a643f85779a4693855c171c396f49e515}{name}}, const int \&ag, const char \&sx, const float \&wei, const float \&hei, const string \&pass)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classUser}{User}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser_a3581d0994033a044dabbaa667d4c463d}{User}} (const string \&\mbox{\hyperlink{classUser_a643f85779a4693855c171c396f49e515}{name}}, const string \&pass)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classUser}{User}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser_a4a1cf6514a6cd9deffad180d953f5810}{User}} (const \mbox{\hyperlink{classUser}{User}} \&c\+User)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classUser}{User}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classUser_a7d1cf7c22ba031caec015ec427419513}{$\sim$\+User}} ()
+\item 
+void \mbox{\hyperlink{classUser_a74f3b164f0bd928181cc6c1ffe42e382}{Save\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Save\+Data\+: Almacena los datos del archivo de usuario en el archivo correspondiente. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a057275fd19c03fdafff6691e1d5394aa}{Load\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Load\+Data\+: Carga los datos del archivo de usuario existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a8494628126b7f27cf0a27fd5674f39cb}{Save\+Last\+Session}} (\mbox{\hyperlink{classSession}{Session}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Save\+Last\+Session\+: Almacena la última sesión en el vector de punteros. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classUser_a427f6b6422bffa08e97ae81d961d0ccc}{Name\+Sessions}} ()
+\begin{DoxyCompactList}\small\item\em Name\+Sessions\+: Permite tener los nombres de las sesiones. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSession}{Session}} $\ast$ \mbox{\hyperlink{classUser_a50c2d2dec6c0151cff2862b68e6635e7}{Get\+Session}} (const int \&pos\+Session) const
+\begin{DoxyCompactList}\small\item\em Get\+Session\+: Permite retornar una única sesión ya realizada por el usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>string \mbox{\hyperlink{classUser_a643f85779a4693855c171c396f49e515}{name}}\\
+\>int \mbox{\hyperlink{classUser_aa5829689588d1f982e1a69b73bd68655}{age}}\\
+\>char \mbox{\hyperlink{classUser_a417eec8b8c3f58faaa901342b3822166}{sex}}\\
+\>float \mbox{\hyperlink{classUser_a7ef1640a17e441ada07ce0c9da6de84d}{weight}}\\
+\>float \mbox{\hyperlink{classUser_a02200b62b8aa92ef77dc43745a21073f}{height}}\\
+\} \mbox{\hyperlink{classUser_a2fb06450cb79afc838a9c42e53697c51}{dataUser}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em data\+User\+: Estructura donde se almacena los datos del usuario \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classUser_a37faf45574bb4483bfeb49cada17ce8c}{Extract\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Extract\+Data\+: Extrae los datos del usuario del archivo User\+Data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a3da38a4a3028a207d2b915b56e67e428}{Verif\+Reg}} (const string \&\mbox{\hyperlink{classUser_a643f85779a4693855c171c396f49e515}{name}})
+\begin{DoxyCompactList}\small\item\em Verif\+Reg\+: Verifica si el nombre usuario ya está registrado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a5e1df373ef33cba8b14334e807f7322e}{Verif\+User}} (const string \&name\+Us, const string \&pass)
+\begin{DoxyCompactList}\small\item\em Verif\+User\+: Verifica el nombre de usuario y contraseña sean correcto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+fstream \mbox{\hyperlink{classUser_a7fa06ebfd52e2b3916cd314d26f38adf}{user\+Data}}
+\begin{DoxyCompactList}\small\item\em user\+Data\+: Objeto del archivo que contiene los datos de cada usuario registrado \end{DoxyCompactList}\item 
+fstream \mbox{\hyperlink{classUser_ac100c57ef0eb515f55dc8ec6e943168f}{sessions\+Data}}
+\begin{DoxyCompactList}\small\item\em sessions\+Data\+: Objeto del archivo que contiene los datos de sesión del usuario \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classUser_ab537b9a55bc7d7fcafcdf8e53d085e67}{password}}
+\begin{DoxyCompactList}\small\item\em password\+: Propiedad donde se almacena la contraseña \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classSession}{Session}} $\ast$ $>$ \mbox{\hyperlink{classUser_aa67cbcc778e93344e7b1fd3dfc839928}{sessions}}
+\begin{DoxyCompactList}\small\item\em sessions\+: Vector de punteros a sesión utilizado para almacenar las diferentes clases de sesión \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCardio}{Cardio}} $\ast$ \mbox{\hyperlink{classUser_ab68c9e072e96a70cd5c448939aca3982}{aux\+Cardio}}
+\begin{DoxyCompactList}\small\item\em aux\+Cardio\+: Puntero auxiliar del objeto cardio \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} $\ast$ \mbox{\hyperlink{classUser_ab5671cc6297789ac56dbe26f12c3fd2b}{aux\+Weight\+Loss}}
+\begin{DoxyCompactList}\small\item\em aux\+Weight\+Loss\+: Puntero auxiliar del objeto \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFree}{Free}} $\ast$ \mbox{\hyperlink{classUser_a0c961b056668de52d5173308bdb12492}{aux\+Free}}
+\begin{DoxyCompactList}\small\item\em aux\+Free\+: Puntero auxiliar del objeto \mbox{\hyperlink{classFree}{Free}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSession}{Session}} $\ast$ \mbox{\hyperlink{classUser_a65a11af58ee90876df1b9a8e5cd58882}{aux\+Session}}
+\begin{DoxyCompactList}\small\item\em aux\+Session\+: Puntero auxiliar del objeto \mbox{\hyperlink{classSession}{Session}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classUser}{User}} class\+: Objeto de usuario. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classUser_a9c9ac28f4e79fe820bd717a308d441c7}\label{classUser_a9c9ac28f4e79fe820bd717a308d441c7}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const int \&}]{ag,  }\item[{const char \&}]{sx,  }\item[{const float \&}]{wei,  }\item[{const float \&}]{hei,  }\item[{const string \&}]{pass }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classUser}{User}} -\/ Constructor. 
+
+Constructor para usuario nuevo 
+\begin{DoxyParams}{Parámetros}
+{\em name} & Nombre del usuario \\
+\hline
+{\em ag} & Edad del usuario \\
+\hline
+{\em sx} & Genero del usuario \\
+\hline
+{\em wei} & Peso del usuario \\
+\hline
+{\em hei} & Altura del usuario \\
+\hline
+{\em pass} & Constraseña del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a3581d0994033a044dabbaa667d4c463d}\label{classUser_a3581d0994033a044dabbaa667d4c463d}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const string \&}]{pass }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classUser}{User}} -\/ Constructor. 
+
+Constructor para usuario existent4e 
+\begin{DoxyParams}{Parámetros}
+{\em name} & Nombre del usuario \\
+\hline
+{\em pass} & Contraseña del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a4a1cf6514a6cd9deffad180d953f5810}\label{classUser_a4a1cf6514a6cd9deffad180d953f5810}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUser}{User}} \&}]{c\+User }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classUser}{User}} -\/ Constructor. 
+
+Constructor copia 
+\begin{DoxyParams}{Parámetros}
+{\em c\+Usre} & Objeto del tipo usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a7d1cf7c22ba031caec015ec427419513}\label{classUser_a7d1cf7c22ba031caec015ec427419513}} 
+\index{User@{User}!````~User@{$\sim$User}}
+\index{````~User@{$\sim$User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
+{\footnotesize\ttfamily virtual User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classUser_a37faf45574bb4483bfeb49cada17ce8c}\label{classUser_a37faf45574bb4483bfeb49cada17ce8c}} 
+\index{User@{User}!ExtractData@{ExtractData}}
+\index{ExtractData@{ExtractData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{ExtractData()}{ExtractData()}}
+{\footnotesize\ttfamily void User\+::\+Extract\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Extract\+Data\+: Extrae los datos del usuario del archivo User\+Data. 
+
+\mbox{\Hypertarget{classUser_a50c2d2dec6c0151cff2862b68e6635e7}\label{classUser_a50c2d2dec6c0151cff2862b68e6635e7}} 
+\index{User@{User}!GetSession@{GetSession}}
+\index{GetSession@{GetSession}!User@{User}}
+\doxysubsubsection{\texorpdfstring{GetSession()}{GetSession()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSession}{Session}}$\ast$ User\+::\+Get\+Session (\begin{DoxyParamCaption}\item[{const int \&}]{pos\+Session }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Session\+: Permite retornar una única sesión ya realizada por el usuario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pos\+Session} & Posición en la que se encuentra la sesión requerida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Retorna todos los datos relacionados a la sesión realizada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a057275fd19c03fdafff6691e1d5394aa}\label{classUser_a057275fd19c03fdafff6691e1d5394aa}} 
+\index{User@{User}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily bool User\+::\+Load\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Load\+Data\+: Carga los datos del archivo de usuario existente. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna verdadero/falso dependiendo si el archivo existe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a427f6b6422bffa08e97ae81d961d0ccc}\label{classUser_a427f6b6422bffa08e97ae81d961d0ccc}} 
+\index{User@{User}!NameSessions@{NameSessions}}
+\index{NameSessions@{NameSessions}!User@{User}}
+\doxysubsubsection{\texorpdfstring{NameSessions()}{NameSessions()}}
+{\footnotesize\ttfamily vector$<$ string $>$ User\+::\+Name\+Sessions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Name\+Sessions\+: Permite tener los nombres de las sesiones. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el nombre de las sesiones ya realizadas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a74f3b164f0bd928181cc6c1ffe42e382}\label{classUser_a74f3b164f0bd928181cc6c1ffe42e382}} 
+\index{User@{User}!SaveData@{SaveData}}
+\index{SaveData@{SaveData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{SaveData()}{SaveData()}}
+{\footnotesize\ttfamily void User\+::\+Save\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Save\+Data\+: Almacena los datos del archivo de usuario en el archivo correspondiente. 
+
+\mbox{\Hypertarget{classUser_a8494628126b7f27cf0a27fd5674f39cb}\label{classUser_a8494628126b7f27cf0a27fd5674f39cb}} 
+\index{User@{User}!SaveLastSession@{SaveLastSession}}
+\index{SaveLastSession@{SaveLastSession}!User@{User}}
+\doxysubsubsection{\texorpdfstring{SaveLastSession()}{SaveLastSession()}}
+{\footnotesize\ttfamily void User\+::\+Save\+Last\+Session (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSession}{Session}} $\ast$}]{ses }\end{DoxyParamCaption})}
+
+
+
+Save\+Last\+Session\+: Almacena la última sesión en el vector de punteros. 
+
+\mbox{\Hypertarget{classUser_a3da38a4a3028a207d2b915b56e67e428}\label{classUser_a3da38a4a3028a207d2b915b56e67e428}} 
+\index{User@{User}!VerifReg@{VerifReg}}
+\index{VerifReg@{VerifReg}!User@{User}}
+\doxysubsubsection{\texorpdfstring{VerifReg()}{VerifReg()}}
+{\footnotesize\ttfamily bool User\+::\+Verif\+Reg (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verif\+Reg\+: Verifica si el nombre usuario ya está registrado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em name} & Nombre de usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Retorna verdadero si el nombre usuario se encuentra registrado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a5e1df373ef33cba8b14334e807f7322e}\label{classUser_a5e1df373ef33cba8b14334e807f7322e}} 
+\index{User@{User}!VerifUser@{VerifUser}}
+\index{VerifUser@{VerifUser}!User@{User}}
+\doxysubsubsection{\texorpdfstring{VerifUser()}{VerifUser()}}
+{\footnotesize\ttfamily bool User\+::\+Verif\+User (\begin{DoxyParamCaption}\item[{const string \&}]{name\+Us,  }\item[{const string \&}]{pass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verif\+User\+: Verifica el nombre de usuario y contraseña sean correcto. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em name\+Us} & \+: Nombre del usuario \\
+\hline
+{\em pass} & \+: Contraseña del usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\+: Booleano dependiendo si el usuario y contraseña son válidos o no 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classUser_aa5829689588d1f982e1a69b73bd68655}\label{classUser_aa5829689588d1f982e1a69b73bd68655}} 
+\index{User@{User}!age@{age}}
+\index{age@{age}!User@{User}}
+\doxysubsubsection{\texorpdfstring{age}{age}}
+{\footnotesize\ttfamily int User\+::age}
+
+\mbox{\Hypertarget{classUser_ab68c9e072e96a70cd5c448939aca3982}\label{classUser_ab68c9e072e96a70cd5c448939aca3982}} 
+\index{User@{User}!auxCardio@{auxCardio}}
+\index{auxCardio@{auxCardio}!User@{User}}
+\doxysubsubsection{\texorpdfstring{auxCardio}{auxCardio}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCardio}{Cardio}}$\ast$ User\+::aux\+Cardio\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+aux\+Cardio\+: Puntero auxiliar del objeto cardio 
+
+\mbox{\Hypertarget{classUser_a0c961b056668de52d5173308bdb12492}\label{classUser_a0c961b056668de52d5173308bdb12492}} 
+\index{User@{User}!auxFree@{auxFree}}
+\index{auxFree@{auxFree}!User@{User}}
+\doxysubsubsection{\texorpdfstring{auxFree}{auxFree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFree}{Free}}$\ast$ User\+::aux\+Free\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+aux\+Free\+: Puntero auxiliar del objeto \mbox{\hyperlink{classFree}{Free}} 
+
+\mbox{\Hypertarget{classUser_a65a11af58ee90876df1b9a8e5cd58882}\label{classUser_a65a11af58ee90876df1b9a8e5cd58882}} 
+\index{User@{User}!auxSession@{auxSession}}
+\index{auxSession@{auxSession}!User@{User}}
+\doxysubsubsection{\texorpdfstring{auxSession}{auxSession}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSession}{Session}}$\ast$ User\+::aux\+Session\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+aux\+Session\+: Puntero auxiliar del objeto \mbox{\hyperlink{classSession}{Session}} 
+
+\mbox{\Hypertarget{classUser_ab5671cc6297789ac56dbe26f12c3fd2b}\label{classUser_ab5671cc6297789ac56dbe26f12c3fd2b}} 
+\index{User@{User}!auxWeightLoss@{auxWeightLoss}}
+\index{auxWeightLoss@{auxWeightLoss}!User@{User}}
+\doxysubsubsection{\texorpdfstring{auxWeightLoss}{auxWeightLoss}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}}$\ast$ User\+::aux\+Weight\+Loss\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+aux\+Weight\+Loss\+: Puntero auxiliar del objeto \mbox{\hyperlink{classWeightLoss}{Weight\+Loss}} 
+
+\mbox{\Hypertarget{classUser_a2fb06450cb79afc838a9c42e53697c51}\label{classUser_a2fb06450cb79afc838a9c42e53697c51}} 
+\index{User@{User}!dataUser@{dataUser}}
+\index{dataUser@{dataUser}!User@{User}}
+\doxysubsubsection{\texorpdfstring{dataUser}{dataUser}}
+{\footnotesize\ttfamily struct \{ ... \}  User\+::data\+User}
+
+
+
+data\+User\+: Estructura donde se almacena los datos del usuario 
+
+\mbox{\Hypertarget{classUser_a02200b62b8aa92ef77dc43745a21073f}\label{classUser_a02200b62b8aa92ef77dc43745a21073f}} 
+\index{User@{User}!height@{height}}
+\index{height@{height}!User@{User}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily float User\+::height}
+
+\mbox{\Hypertarget{classUser_a643f85779a4693855c171c396f49e515}\label{classUser_a643f85779a4693855c171c396f49e515}} 
+\index{User@{User}!name@{name}}
+\index{name@{name}!User@{User}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily string User\+::name}
+
+\mbox{\Hypertarget{classUser_ab537b9a55bc7d7fcafcdf8e53d085e67}\label{classUser_ab537b9a55bc7d7fcafcdf8e53d085e67}} 
+\index{User@{User}!password@{password}}
+\index{password@{password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily string User\+::password\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+password\+: Propiedad donde se almacena la contraseña 
+
+\mbox{\Hypertarget{classUser_aa67cbcc778e93344e7b1fd3dfc839928}\label{classUser_aa67cbcc778e93344e7b1fd3dfc839928}} 
+\index{User@{User}!sessions@{sessions}}
+\index{sessions@{sessions}!User@{User}}
+\doxysubsubsection{\texorpdfstring{sessions}{sessions}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classSession}{Session}} $\ast$$>$ User\+::sessions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sessions\+: Vector de punteros a sesión utilizado para almacenar las diferentes clases de sesión 
+
+\mbox{\Hypertarget{classUser_ac100c57ef0eb515f55dc8ec6e943168f}\label{classUser_ac100c57ef0eb515f55dc8ec6e943168f}} 
+\index{User@{User}!sessionsData@{sessionsData}}
+\index{sessionsData@{sessionsData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{sessionsData}{sessionsData}}
+{\footnotesize\ttfamily fstream User\+::sessions\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sessions\+Data\+: Objeto del archivo que contiene los datos de sesión del usuario 
+
+\mbox{\Hypertarget{classUser_a417eec8b8c3f58faaa901342b3822166}\label{classUser_a417eec8b8c3f58faaa901342b3822166}} 
+\index{User@{User}!sex@{sex}}
+\index{sex@{sex}!User@{User}}
+\doxysubsubsection{\texorpdfstring{sex}{sex}}
+{\footnotesize\ttfamily char User\+::sex}
+
+\mbox{\Hypertarget{classUser_a7fa06ebfd52e2b3916cd314d26f38adf}\label{classUser_a7fa06ebfd52e2b3916cd314d26f38adf}} 
+\index{User@{User}!userData@{userData}}
+\index{userData@{userData}!User@{User}}
+\doxysubsubsection{\texorpdfstring{userData}{userData}}
+{\footnotesize\ttfamily fstream User\+::user\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+user\+Data\+: Objeto del archivo que contiene los datos de cada usuario registrado 
+
+\mbox{\Hypertarget{classUser_a7ef1640a17e441ada07ce0c9da6de84d}\label{classUser_a7ef1640a17e441ada07ce0c9da6de84d}} 
+\index{User@{User}!weight@{weight}}
+\index{weight@{weight}!User@{User}}
+\doxysubsubsection{\texorpdfstring{weight}{weight}}
+{\footnotesize\ttfamily float User\+::weight}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{user_8h}{user.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{user_8cpp}{user.\+cpp}}\end{DoxyCompactItemize}

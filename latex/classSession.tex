@@ -1,0 +1,621 @@
+\hypertarget{classSession}{}\doxysection{Referencia de la Clase Session}
+\label{classSession}\index{Session@{Session}}
+
+
+The \mbox{\hyperlink{classSession}{Session}} class\+: Clase abstracta para sesión de entrenamiento genérica.  
+
+
+
+
+{\ttfamily \#include $<$session.\+h$>$}
+
+
+
+Diagrama de herencias de Session
+% FIG 0
+
+
+Diagrama de colaboración para Session\+:
+% FIG 1
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classSession_a08190b14e9436c49b935854b37430914}{Get\+Last\+Data}} (const int \&a=0) const
+\begin{DoxyCompactList}\small\item\em Get\+Last\+Data\+: Retorna el último valor en alguno de los vectores de los datos sensados. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSession_aef5333781f549e9ff2b1c939c1d6d14f}{Get\+Calories}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Calories\+: Permite obtener el valor de las calorias quemadas en la sesión. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSession_ae7b216f8f06b683520ac23fab4ea8f8a}{Get\+Distance}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Distance\+: Permite obterner el valor de la distancia realizada en la sesión. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSession_a1458b749c24954172b9408067afe3093}{Get\+Veloc\+Max\+Med}} (const int \&s=0) const
+\begin{DoxyCompactList}\small\item\em Get\+Veloc\+Max\+Med\+: Permite obtener el valor de la velociada máxima o media del entrenamiento. \end{DoxyCompactList}\item 
+const vector$<$ double $>$ \mbox{\hyperlink{classSession_a80c0646b299d9e5d70fd642ab86bb468}{Get\+All\+Data}} (const char \&sel=\textquotesingle{}P\textquotesingle{}) const
+\begin{DoxyCompactList}\small\item\em Get\+All\+Data\+: Permite extraer todos los datos obtenidos del sensor que se desee. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}{Write\+Report}} () const =0
+\begin{DoxyCompactList}\small\item\em Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSession_a4fd03d6f5bdf1555750120eaebe0d20f}{Is\+Active}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classSession_a774f58fff9a5932030ffaf255ec46d7f}{name\+Session}}
+\begin{DoxyCompactList}\small\item\em name\+Session\+: Propiedad donde se almacena el nombre de la sesión realizada \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSession_afcc880c7a69d680ea9be70dd39c40d21}{time\+Ses}} = 0
+\begin{DoxyCompactList}\small\item\em time\+Ses\+: Contador de M\+U\+E\+S\+T\+R\+AS de la sesión \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classSession_a7dbd907ff4bfd8ce37539774964009d6}{screen\+Message}} = \char`\"{}Sesión de entrenamiento\char`\"{}
+\begin{DoxyCompactList}\small\item\em screen\+Message\+: Se guardan diferentes mensajes los cuales después son mostrados en las ventanas \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classSession_abc3def220e3cb53ac4924dd92cb84b85}{session\+Type}}
+\begin{DoxyCompactList}\small\item\em session\+Type\+: Se asigna el tipo de sesión que vaya a elegir el usuario \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStateBike}{State\+Bike}} \mbox{\hyperlink{classSession_a794e4b9b546a0be0d973393a97d6abbe}{bike}}
+\begin{DoxyCompactList}\small\item\em bike\+: Objeto de la clase \mbox{\hyperlink{classStateBike}{State\+Bike}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSession_a729bbfa653a7f59ceec3d2edc8eee549}{Session}} (const string \&\mbox{\hyperlink{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}{name}}, const int \&\mbox{\hyperlink{classSession_aca4eb847251e09c13a2d418490e07ca0}{age}}, const char \&\mbox{\hyperlink{classSession_a2ffea959fde6a8d7858c62183a69b2f6}{sex}}, const float \&\mbox{\hyperlink{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}{weight}}, const float \&\mbox{\hyperlink{classSession_ac49151747b435cd6166b1a1de717c0cc}{height}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSession}{Session}} -\/ Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSession_ad92ef09b872c9227e38a6efdd4d8a837}{Session}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSession}{Session}} -\/ Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classSession_ac44f83f3472d320993e4d28d16846cc8}{$\sim$\+Session}} ()
+\item 
+virtual void \mbox{\hyperlink{classSession_a2a2d3e0c334d0aceec2a77cf28640142}{Start}} ()=0
+\begin{DoxyCompactList}\small\item\em Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSession_a15b8986466f5977333fb0800b9f59854}{Sample}} ()=0
+\begin{DoxyCompactList}\small\item\em Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSession_a5b002cf9178ce0cd264f4bfa385c1fe1}{Load\+Config}} ()=0
+\begin{DoxyCompactList}\small\item\em Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classSession_a7f5eead2ea6c0e480dee49b2f7512c06}{Pause}} ()=0
+\begin{DoxyCompactList}\small\item\em Pause\+: Deshabilita el muestreo de datos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSession_a84e61c9e93a3f27e1c83c18105c93bf6}{End}} ()=0
+\begin{DoxyCompactList}\small\item\em End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classSession_a3db6ff532fd0d3b24d8393c8cc3c101a}{Alarm\+Ppm}} ()
+\begin{DoxyCompactList}\small\item\em Alarm\+Ppm\+: Alerta de pulsaciones. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classSession_adbc8ec77e766e9a12a08eb64e2bde321}{Calc\+Calories}} () const
+\begin{DoxyCompactList}\small\item\em Calc\+Calories\+: Realiza el calculo de calorias quemadas mientras transcurre la sesión. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSession_a2b13d967bd8655a8e0ebb6e96174402d}{Print}} (ostream \&os) const =0
+\begin{DoxyCompactList}\small\item\em Print\+: Permite llamar a la sobrecarga del operador correspondiente. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSession_a4afb01b2dc12b536500cd2345a0c3875}{Is\+Paused}} () const
+\begin{DoxyCompactList}\small\item\em Is\+Paused\+: Permite saber si la sesión se encuentra pausada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{classSession_a4f25acf81f5dff3fbe9cca81567aabc8}{veloc\+Data}}
+\begin{DoxyCompactList}\small\item\em veloc\+Data\+: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del sensor de velocidad \end{DoxyCompactList}\item 
+vector$<$ double $>$ \mbox{\hyperlink{classSession_a23a157599645938ba94a411220799b66}{pulse\+Data}}
+\begin{DoxyCompactList}\small\item\em pulse\+Data\+: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del sensor de pulsos \end{DoxyCompactList}\item 
+vector$<$ double $>$ \mbox{\hyperlink{classSession_a7f2aa64b56b4d0839053c4fdb28ce585}{data\+Of\+Load}}
+\begin{DoxyCompactList}\small\item\em data\+Of\+Load\+: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del sensor de carga \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classSession_ae805ea4fb2594f3362f6d8ba96ba3198}{date}}
+\begin{DoxyCompactList}\small\item\em date\+: Propiedad donde se almacena la fecha de la sesión realizada \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSession_a761de2b7785bed3cc73a1038e4fa4dda}{ses\+Act}} = false
+\begin{DoxyCompactList}\small\item\em ses\+Act\+: Flag que indica el estado de la sesión \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>string \mbox{\hyperlink{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}{name}}\\
+\>int \mbox{\hyperlink{classSession_aca4eb847251e09c13a2d418490e07ca0}{age}}\\
+\>char \mbox{\hyperlink{classSession_a2ffea959fde6a8d7858c62183a69b2f6}{sex}}\\
+\>float \mbox{\hyperlink{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}{weight}}\\
+\>float \mbox{\hyperlink{classSession_ac49151747b435cd6166b1a1de717c0cc}{height}}\\
+\} \mbox{\hyperlink{classSession_ab9e139a22bdb0027308ce79189b88869}{dataUser}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em data\+User\+: Estructura donde se almacena los datos del usuario \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSession_a59af1f8cae26ca30f12a49623bf68d3e}{paused}} = false
+\begin{DoxyCompactList}\small\item\em paused\+: Flag correspondiente a la pausa de la sesión \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSession_aae641068e27e26107eeb1f0a99ab5d7e}{calories}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em calories\+: Propiedad donde se almacenan las calorias quemadas durante la sesión \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSession_a33faeb8297848b6a2ccb0a1d37f09e22}{distance}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em distance\+: Propiedad donde se almacena la distancia recorrida durante la sesión \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSession_affba46191eb9e99d13076d9204cfa2bf}{vel\+Max}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em vel\+Max\+: Propiedad donde se almacena la velocidad máxima de la sesión \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSession_a0eb33652119216cc00ab673ca2d0eb22}{vel\+Med}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em vel\+Med\+: Propiedad donde se almacena la velocidad media o promedio la sesión realizada \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{classSession_abaaeb55509c052622b6013cc4801399f}{sample\+Time}} = 1
+\begin{DoxyCompactList}\small\item\em sample\+Time\+: Es el tiempo de muestreo \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSession_a597c04e40a72006d67bbb18f1358df65}{ppm\+Max}}
+\begin{DoxyCompactList}\small\item\em ppm\+Max\+: Valor donde se asigna el máximo valor de pulsación para el usuario \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{classSession_a03b9bfc0e85f9f2d321f7ddcb5adc38e}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{classSession}{Session}} \&session)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+The \mbox{\hyperlink{classSession}{Session}} class\+: Clase abstracta para sesión de entrenamiento genérica. 
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classSession_a729bbfa653a7f59ceec3d2edc8eee549}\label{classSession_a729bbfa653a7f59ceec3d2edc8eee549}} 
+\index{Session@{Session}!Session@{Session}}
+\index{Session@{Session}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{Session()}{Session()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Session\+::\+Session (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const int \&}]{age,  }\item[{const char \&}]{sex,  }\item[{const float \&}]{weight,  }\item[{const float \&}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{classSession}{Session}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em name} & \+: nombre del usuario \\
+\hline
+{\em age} & \+: edad del usuario \\
+\hline
+{\em sex} & \+: genero del usuario \\
+\hline
+{\em weight} & \+: peso del usurio \\
+\hline
+{\em height} & \+: altura del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSession_ad92ef09b872c9227e38a6efdd4d8a837}\label{classSession_ad92ef09b872c9227e38a6efdd4d8a837}} 
+\index{Session@{Session}!Session@{Session}}
+\index{Session@{Session}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{Session()}{Session()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Session\+::\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{classSession}{Session}} -\/ Constructor. 
+
+\mbox{\Hypertarget{classSession_ac44f83f3472d320993e4d28d16846cc8}\label{classSession_ac44f83f3472d320993e4d28d16846cc8}} 
+\index{Session@{Session}!````~Session@{$\sim$Session}}
+\index{````~Session@{$\sim$Session}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{$\sim$Session()}{~Session()}}
+{\footnotesize\ttfamily virtual Session\+::$\sim$\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classSession_a3db6ff532fd0d3b24d8393c8cc3c101a}\label{classSession_a3db6ff532fd0d3b24d8393c8cc3c101a}} 
+\index{Session@{Session}!AlarmPpm@{AlarmPpm}}
+\index{AlarmPpm@{AlarmPpm}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{AlarmPpm()}{AlarmPpm()}}
+{\footnotesize\ttfamily bool Session\+::\+Alarm\+Ppm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Alarm\+Ppm\+: Alerta de pulsaciones. 
+
+Alerta al usuario de que tiene una frecuencia cardiaca que puede ser peligrosa \begin{DoxyReturn}{Devuelve}
+Retorna un verdadero en caso de superar la frecuencia máxima determinada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_adbc8ec77e766e9a12a08eb64e2bde321}\label{classSession_adbc8ec77e766e9a12a08eb64e2bde321}} 
+\index{Session@{Session}!CalcCalories@{CalcCalories}}
+\index{CalcCalories@{CalcCalories}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{CalcCalories()}{CalcCalories()}}
+{\footnotesize\ttfamily double Session\+::\+Calc\+Calories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Calc\+Calories\+: Realiza el calculo de calorias quemadas mientras transcurre la sesión. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna un doble con las calorias quemadas durante la sesión 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_a84e61c9e93a3f27e1c83c18105c93bf6}\label{classSession_a84e61c9e93a3f27e1c83c18105c93bf6}} 
+\index{Session@{Session}!End@{End}}
+\index{End@{End}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily virtual void Session\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+End\+: Se desactiva las variables para evitar que siga realizando el muestreo de datos. 
+
+
+
+Implementado en \mbox{\hyperlink{classFree_a57310e12867aefb3917816870a4b2a62}{Free}}, \mbox{\hyperlink{classWeightLoss_aaa3ba0abb49fab41946ecbb911594b28}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_a55f3f7cca1461e3aaf2b11d6b01e0835}{Cardio}}.
+
+\mbox{\Hypertarget{classSession_a80c0646b299d9e5d70fd642ab86bb468}\label{classSession_a80c0646b299d9e5d70fd642ab86bb468}} 
+\index{Session@{Session}!GetAllData@{GetAllData}}
+\index{GetAllData@{GetAllData}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{GetAllData()}{GetAllData()}}
+{\footnotesize\ttfamily const vector$<$ double $>$ Session\+::\+Get\+All\+Data (\begin{DoxyParamCaption}\item[{const char \&}]{sel = {\ttfamily \textquotesingle{}P\textquotesingle{}} }\end{DoxyParamCaption}) const}
+
+
+
+Get\+All\+Data\+: Permite extraer todos los datos obtenidos del sensor que se desee. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em sel} & Puede ser los valores \textquotesingle{}P\textquotesingle{}, \textquotesingle{}V\textquotesingle{} o \textquotesingle{}L\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Con sel=\textquotesingle{}P\textquotesingle{} para el sensor de pulsos, sel=\textquotesingle{}V\textquotesingle{} con el de velocidad y sel=\textquotesingle{}L\textquotesingle{} para el sensor de carga 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_aef5333781f549e9ff2b1c939c1d6d14f}\label{classSession_aef5333781f549e9ff2b1c939c1d6d14f}} 
+\index{Session@{Session}!GetCalories@{GetCalories}}
+\index{GetCalories@{GetCalories}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{GetCalories()}{GetCalories()}}
+{\footnotesize\ttfamily float Session\+::\+Get\+Calories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Calories\+: Permite obtener el valor de las calorias quemadas en la sesión. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor float de las calorias 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_ae7b216f8f06b683520ac23fab4ea8f8a}\label{classSession_ae7b216f8f06b683520ac23fab4ea8f8a}} 
+\index{Session@{Session}!GetDistance@{GetDistance}}
+\index{GetDistance@{GetDistance}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{GetDistance()}{GetDistance()}}
+{\footnotesize\ttfamily float Session\+::\+Get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get\+Distance\+: Permite obterner el valor de la distancia realizada en la sesión. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor floar de la distancia en kilometros 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_a08190b14e9436c49b935854b37430914}\label{classSession_a08190b14e9436c49b935854b37430914}} 
+\index{Session@{Session}!GetLastData@{GetLastData}}
+\index{GetLastData@{GetLastData}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{GetLastData()}{GetLastData()}}
+{\footnotesize\ttfamily double Session\+::\+Get\+Last\+Data (\begin{DoxyParamCaption}\item[{const int \&}]{a = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Last\+Data\+: Retorna el último valor en alguno de los vectores de los datos sensados. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em a} & Indica de que sensor se extraerá el último dato, a=\textquotesingle{}0\textquotesingle{} para sensor de pulso, a=\textquotesingle{}1\textquotesingle{} para sensor de veocidad y a=\textquotesingle{}2\textquotesingle{} para sensor de carga \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Retorna el valor double con el último dato leído del sensor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_a1458b749c24954172b9408067afe3093}\label{classSession_a1458b749c24954172b9408067afe3093}} 
+\index{Session@{Session}!GetVelocMaxMed@{GetVelocMaxMed}}
+\index{GetVelocMaxMed@{GetVelocMaxMed}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{GetVelocMaxMed()}{GetVelocMaxMed()}}
+{\footnotesize\ttfamily double Session\+::\+Get\+Veloc\+Max\+Med (\begin{DoxyParamCaption}\item[{const int \&}]{s = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Veloc\+Max\+Med\+: Permite obtener el valor de la velociada máxima o media del entrenamiento. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s} & Su valor puede ser 0, 1 u cualquier otro valor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Retorna un valor del tipo double si s=\textquotesingle{}0\textquotesingle{} devuelve la velocidad máxima, para s=\textquotesingle{}1\textquotesingle{} retorna la velocidad media, en caso contrario retorna un -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_a4fd03d6f5bdf1555750120eaebe0d20f}\label{classSession_a4fd03d6f5bdf1555750120eaebe0d20f}} 
+\index{Session@{Session}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool Session\+::\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classSession_a4afb01b2dc12b536500cd2345a0c3875}\label{classSession_a4afb01b2dc12b536500cd2345a0c3875}} 
+\index{Session@{Session}!IsPaused@{IsPaused}}
+\index{IsPaused@{IsPaused}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{IsPaused()}{IsPaused()}}
+{\footnotesize\ttfamily bool Session\+::\+Is\+Paused (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Is\+Paused\+: Permite saber si la sesión se encuentra pausada. 
+
+\begin{DoxyReturn}{Devuelve}
+Retorna un valor que de ser verdadero la sesión fue pausada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSession_a5b002cf9178ce0cd264f4bfa385c1fe1}\label{classSession_a5b002cf9178ce0cd264f4bfa385c1fe1}} 
+\index{Session@{Session}!LoadConfig@{LoadConfig}}
+\index{LoadConfig@{LoadConfig}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{LoadConfig()}{LoadConfig()}}
+{\footnotesize\ttfamily virtual void Session\+::\+Load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Load\+Config\+: Asigna a los contenedores correspondientes la configuración de la sesión. 
+
+Extrae de un archivo txt la configuración del entrenamiento 
+
+Implementado en \mbox{\hyperlink{classFree_aad5ff896480402a53480fe50ad20dd83}{Free}}, \mbox{\hyperlink{classWeightLoss_a047c0dc5ffe74f609f7385615994336c}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_a83e56a7ee2f6f024f12466c32c0ef027}{Cardio}}.
+
+\mbox{\Hypertarget{classSession_a7f5eead2ea6c0e480dee49b2f7512c06}\label{classSession_a7f5eead2ea6c0e480dee49b2f7512c06}} 
+\index{Session@{Session}!Pause@{Pause}}
+\index{Pause@{Pause}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily virtual bool Session\+::\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pause\+: Deshabilita el muestreo de datos. 
+
+Evalua los últimos 5 valores de velocidad, en caso de ser cero se deshabilita el muestreo de datos \begin{DoxyReturn}{Devuelve}
+Retorna verdadero en caso de que la suma de cero 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{classFree_a223278096e8a111102a84724d014e686}{Free}}, \mbox{\hyperlink{classWeightLoss_a7bc276d3535d150156ce9c933c1438e0}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_a31349815c43065d8cd253a203ad8f31d}{Cardio}}.
+
+\mbox{\Hypertarget{classSession_a2b13d967bd8655a8e0ebb6e96174402d}\label{classSession_a2b13d967bd8655a8e0ebb6e96174402d}} 
+\index{Session@{Session}!Print@{Print}}
+\index{Print@{Print}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily virtual void Session\+::\+Print (\begin{DoxyParamCaption}\item[{ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Print\+: Permite llamar a la sobrecarga del operador correspondiente. 
+
+
+
+Implementado en \mbox{\hyperlink{classFree_a0c1f3311c48f6ebec5a816023f785f32}{Free}}, \mbox{\hyperlink{classWeightLoss_a54bee4d37a48098fc40846e8afdd0627}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_ad0994bc408d457df1d212b0984891673}{Cardio}}.
+
+\mbox{\Hypertarget{classSession_a15b8986466f5977333fb0800b9f59854}\label{classSession_a15b8986466f5977333fb0800b9f59854}} 
+\index{Session@{Session}!Sample@{Sample}}
+\index{Sample@{Sample}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{Sample()}{Sample()}}
+{\footnotesize\ttfamily virtual void Session\+::\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Sample\+: Método de muestreo a ejecutarse reiteradamente durante la sesión. 
+
+
+
+Implementado en \mbox{\hyperlink{classFree_a6bf443d5bec1f49e1b414338fb1f9228}{Free}}, \mbox{\hyperlink{classWeightLoss_a4cff1c750b466a82afef60b3e3b89527}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_ae90c46bdcc6514952b5d0baab3eacb89}{Cardio}}.
+
+\mbox{\Hypertarget{classSession_a2a2d3e0c334d0aceec2a77cf28640142}\label{classSession_a2a2d3e0c334d0aceec2a77cf28640142}} 
+\index{Session@{Session}!Start@{Start}}
+\index{Start@{Start}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily virtual void Session\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Start\+: Inicia el entrenamiento -\/ habilito sample y habilita el flag de ses\+Act. 
+
+
+
+Implementado en \mbox{\hyperlink{classFree_aed799ec43f16bcb4b918bca93c2eca24}{Free}}, \mbox{\hyperlink{classWeightLoss_a8e7fbc4d68af40137a9bbcd9ae4e5fa4}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_af310b6e4f541c07b1166b2d33205d754}{Cardio}}.
+
+\mbox{\Hypertarget{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}\label{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}} 
+\index{Session@{Session}!WriteReport@{WriteReport}}
+\index{WriteReport@{WriteReport}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{WriteReport()}{WriteReport()}}
+{\footnotesize\ttfamily virtual void Session\+::\+Write\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. 
+
+
+
+Implementado en \mbox{\hyperlink{classFree_a71469e9b48a967bc51eafdf35113bbff}{Free}}, \mbox{\hyperlink{classWeightLoss_ac6be82acdaefc01839faebde9e7a376e}{Weight\+Loss}} y \mbox{\hyperlink{classCardio_a66b4661097b4dc374f6e76f84b797fc7}{Cardio}}.
+
+
+
+\doxysubsection{Documentación de las funciones relacionadas y clases amigas}
+\mbox{\Hypertarget{classSession_a03b9bfc0e85f9f2d321f7ddcb5adc38e}\label{classSession_a03b9bfc0e85f9f2d321f7ddcb5adc38e}} 
+\index{Session@{Session}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classSession}{Session}} \&}]{session }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classSession_aca4eb847251e09c13a2d418490e07ca0}\label{classSession_aca4eb847251e09c13a2d418490e07ca0}} 
+\index{Session@{Session}!age@{age}}
+\index{age@{age}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{age}{age}}
+{\footnotesize\ttfamily int Session\+::age}
+
+\mbox{\Hypertarget{classSession_a794e4b9b546a0be0d973393a97d6abbe}\label{classSession_a794e4b9b546a0be0d973393a97d6abbe}} 
+\index{Session@{Session}!bike@{bike}}
+\index{bike@{bike}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{bike}{bike}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateBike}{State\+Bike}} Session\+::bike}
+
+
+
+bike\+: Objeto de la clase \mbox{\hyperlink{classStateBike}{State\+Bike}} 
+
+\mbox{\Hypertarget{classSession_aae641068e27e26107eeb1f0a99ab5d7e}\label{classSession_aae641068e27e26107eeb1f0a99ab5d7e}} 
+\index{Session@{Session}!calories@{calories}}
+\index{calories@{calories}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{calories}{calories}}
+{\footnotesize\ttfamily float Session\+::calories = 0.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+calories\+: Propiedad donde se almacenan las calorias quemadas durante la sesión 
+
+\mbox{\Hypertarget{classSession_a7f2aa64b56b4d0839053c4fdb28ce585}\label{classSession_a7f2aa64b56b4d0839053c4fdb28ce585}} 
+\index{Session@{Session}!dataOfLoad@{dataOfLoad}}
+\index{dataOfLoad@{dataOfLoad}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{dataOfLoad}{dataOfLoad}}
+{\footnotesize\ttfamily vector$<$ double $>$ Session\+::data\+Of\+Load\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+data\+Of\+Load\+: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del sensor de carga 
+
+\mbox{\Hypertarget{classSession_ab9e139a22bdb0027308ce79189b88869}\label{classSession_ab9e139a22bdb0027308ce79189b88869}} 
+\index{Session@{Session}!dataUser@{dataUser}}
+\index{dataUser@{dataUser}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{dataUser}{dataUser}}
+{\footnotesize\ttfamily struct \{ ... \}  Session\+::data\+User\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+data\+User\+: Estructura donde se almacena los datos del usuario 
+
+\mbox{\Hypertarget{classSession_ae805ea4fb2594f3362f6d8ba96ba3198}\label{classSession_ae805ea4fb2594f3362f6d8ba96ba3198}} 
+\index{Session@{Session}!date@{date}}
+\index{date@{date}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{date}{date}}
+{\footnotesize\ttfamily string Session\+::date\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+date\+: Propiedad donde se almacena la fecha de la sesión realizada 
+
+\mbox{\Hypertarget{classSession_a33faeb8297848b6a2ccb0a1d37f09e22}\label{classSession_a33faeb8297848b6a2ccb0a1d37f09e22}} 
+\index{Session@{Session}!distance@{distance}}
+\index{distance@{distance}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{distance}{distance}}
+{\footnotesize\ttfamily float Session\+::distance = 0.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+distance\+: Propiedad donde se almacena la distancia recorrida durante la sesión 
+
+\mbox{\Hypertarget{classSession_ac49151747b435cd6166b1a1de717c0cc}\label{classSession_ac49151747b435cd6166b1a1de717c0cc}} 
+\index{Session@{Session}!height@{height}}
+\index{height@{height}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily float Session\+::height}
+
+\mbox{\Hypertarget{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}\label{classSession_aa0f52e870f6919cae73a6dfa6b5c823b}} 
+\index{Session@{Session}!name@{name}}
+\index{name@{name}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily string Session\+::name}
+
+\mbox{\Hypertarget{classSession_a774f58fff9a5932030ffaf255ec46d7f}\label{classSession_a774f58fff9a5932030ffaf255ec46d7f}} 
+\index{Session@{Session}!nameSession@{nameSession}}
+\index{nameSession@{nameSession}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{nameSession}{nameSession}}
+{\footnotesize\ttfamily string Session\+::name\+Session}
+
+
+
+name\+Session\+: Propiedad donde se almacena el nombre de la sesión realizada 
+
+\mbox{\Hypertarget{classSession_a59af1f8cae26ca30f12a49623bf68d3e}\label{classSession_a59af1f8cae26ca30f12a49623bf68d3e}} 
+\index{Session@{Session}!paused@{paused}}
+\index{paused@{paused}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{paused}{paused}}
+{\footnotesize\ttfamily bool Session\+::paused = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+paused\+: Flag correspondiente a la pausa de la sesión 
+
+\mbox{\Hypertarget{classSession_a597c04e40a72006d67bbb18f1358df65}\label{classSession_a597c04e40a72006d67bbb18f1358df65}} 
+\index{Session@{Session}!ppmMax@{ppmMax}}
+\index{ppmMax@{ppmMax}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{ppmMax}{ppmMax}}
+{\footnotesize\ttfamily float Session\+::ppm\+Max\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+ppm\+Max\+: Valor donde se asigna el máximo valor de pulsación para el usuario 
+
+\mbox{\Hypertarget{classSession_a23a157599645938ba94a411220799b66}\label{classSession_a23a157599645938ba94a411220799b66}} 
+\index{Session@{Session}!pulseData@{pulseData}}
+\index{pulseData@{pulseData}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{pulseData}{pulseData}}
+{\footnotesize\ttfamily vector$<$ double $>$ Session\+::pulse\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+pulse\+Data\+: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del sensor de pulsos 
+
+\mbox{\Hypertarget{classSession_abaaeb55509c052622b6013cc4801399f}\label{classSession_abaaeb55509c052622b6013cc4801399f}} 
+\index{Session@{Session}!sampleTime@{sampleTime}}
+\index{sampleTime@{sampleTime}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{sampleTime}{sampleTime}}
+{\footnotesize\ttfamily const float Session\+::sample\+Time = 1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+sample\+Time\+: Es el tiempo de muestreo 
+
+\mbox{\Hypertarget{classSession_a7dbd907ff4bfd8ce37539774964009d6}\label{classSession_a7dbd907ff4bfd8ce37539774964009d6}} 
+\index{Session@{Session}!screenMessage@{screenMessage}}
+\index{screenMessage@{screenMessage}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{screenMessage}{screenMessage}}
+{\footnotesize\ttfamily string Session\+::screen\+Message = \char`\"{}Sesión de entrenamiento\char`\"{}}
+
+
+
+screen\+Message\+: Se guardan diferentes mensajes los cuales después son mostrados en las ventanas 
+
+\mbox{\Hypertarget{classSession_a761de2b7785bed3cc73a1038e4fa4dda}\label{classSession_a761de2b7785bed3cc73a1038e4fa4dda}} 
+\index{Session@{Session}!sesAct@{sesAct}}
+\index{sesAct@{sesAct}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{sesAct}{sesAct}}
+{\footnotesize\ttfamily bool Session\+::ses\+Act = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+ses\+Act\+: Flag que indica el estado de la sesión 
+
+\mbox{\Hypertarget{classSession_abc3def220e3cb53ac4924dd92cb84b85}\label{classSession_abc3def220e3cb53ac4924dd92cb84b85}} 
+\index{Session@{Session}!sessionType@{sessionType}}
+\index{sessionType@{sessionType}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{sessionType}{sessionType}}
+{\footnotesize\ttfamily string Session\+::session\+Type}
+
+
+
+session\+Type\+: Se asigna el tipo de sesión que vaya a elegir el usuario 
+
+\mbox{\Hypertarget{classSession_a2ffea959fde6a8d7858c62183a69b2f6}\label{classSession_a2ffea959fde6a8d7858c62183a69b2f6}} 
+\index{Session@{Session}!sex@{sex}}
+\index{sex@{sex}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{sex}{sex}}
+{\footnotesize\ttfamily char Session\+::sex}
+
+\mbox{\Hypertarget{classSession_afcc880c7a69d680ea9be70dd39c40d21}\label{classSession_afcc880c7a69d680ea9be70dd39c40d21}} 
+\index{Session@{Session}!timeSes@{timeSes}}
+\index{timeSes@{timeSes}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{timeSes}{timeSes}}
+{\footnotesize\ttfamily int Session\+::time\+Ses = 0}
+
+
+
+time\+Ses\+: Contador de M\+U\+E\+S\+T\+R\+AS de la sesión 
+
+\mbox{\Hypertarget{classSession_affba46191eb9e99d13076d9204cfa2bf}\label{classSession_affba46191eb9e99d13076d9204cfa2bf}} 
+\index{Session@{Session}!velMax@{velMax}}
+\index{velMax@{velMax}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{velMax}{velMax}}
+{\footnotesize\ttfamily double Session\+::vel\+Max = 0.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+vel\+Max\+: Propiedad donde se almacena la velocidad máxima de la sesión 
+
+\mbox{\Hypertarget{classSession_a0eb33652119216cc00ab673ca2d0eb22}\label{classSession_a0eb33652119216cc00ab673ca2d0eb22}} 
+\index{Session@{Session}!velMed@{velMed}}
+\index{velMed@{velMed}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{velMed}{velMed}}
+{\footnotesize\ttfamily double Session\+::vel\+Med = 0.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+vel\+Med\+: Propiedad donde se almacena la velocidad media o promedio la sesión realizada 
+
+\mbox{\Hypertarget{classSession_a4f25acf81f5dff3fbe9cca81567aabc8}\label{classSession_a4f25acf81f5dff3fbe9cca81567aabc8}} 
+\index{Session@{Session}!velocData@{velocData}}
+\index{velocData@{velocData}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{velocData}{velocData}}
+{\footnotesize\ttfamily vector$<$ double $>$ Session\+::veloc\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+veloc\+Data\+: Correspondiente al contenedor vector donde se van a guardar los valores provenientes del sensor de velocidad 
+
+\mbox{\Hypertarget{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}\label{classSession_a95f7b8b2c32d3a3749d35ec7b50b961e}} 
+\index{Session@{Session}!weight@{weight}}
+\index{weight@{weight}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{weight}{weight}}
+{\footnotesize\ttfamily float Session\+::weight}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Header\+\_\+\+Files/\mbox{\hyperlink{session_8h}{session.\+h}}\item 
+Source\+\_\+\+Files/\mbox{\hyperlink{session_8cpp}{session.\+cpp}}\end{DoxyCompactItemize}
