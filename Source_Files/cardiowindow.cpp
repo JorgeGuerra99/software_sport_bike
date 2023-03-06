@@ -25,7 +25,7 @@ CardioWindow::CardioWindow(User*& usu, QWidget *parent) :
 
 CardioWindow::~CardioWindow()
 {
-    emit NewSession();
+    if (car->timeSes != 0) emit NewSession();
     delete ui;
     delete car;
     cout << "destructor de cardiowindow" << endl;
@@ -35,10 +35,12 @@ void CardioWindow::StartButton()
 {
     car->Start();
     timer.start();
-    ui->pushButton->setDisabled( true );
-    ui->pushButton_2->setEnabled( true );
-    ui->pushButton_3->setEnabled( true );
-
+    if (car->IsActive())
+    {
+        ui->pushButton->setDisabled( true );
+        ui->pushButton_2->setEnabled( true );
+        ui->pushButton_3->setEnabled( true );
+    }
 }
 
 void CardioWindow::PauseButton()
@@ -68,13 +70,16 @@ void CardioWindow::StopButton()
 void CardioWindow::UiSample()
 {
     car->Sample();
-    ui->lcdNumber->display( car->timeSes );
-    ui->lcdNumber_2->display( car->GetLastData( 1 ) );
-    ui->lcdNumber_3->display( car->GetLastData( 2 ) );
-    ui->lcdNumber_4->display( car->GetLastData( 0 ) );
-    ui->lcdNumber_5->display( car->GetDistance() );
-    ui->lcdNumber_6->display( car->GetCalories() );
-    ui->label_5->setText( QString::fromStdString( car->screenMessage ) );
+    if (car->IsActive())
+    {
+        ui->lcdNumber->display( car->timeSes );
+        ui->lcdNumber_2->display( car->GetLastData( 1 ) );
+        ui->lcdNumber_3->display( car->GetLastData( 2 ) );
+        ui->lcdNumber_4->display( car->GetLastData( 0 ) );
+        ui->lcdNumber_5->display( car->GetDistance() );
+        ui->lcdNumber_6->display( car->GetCalories() );
+        ui->label_5->setText( QString::fromStdString( car->screenMessage ) );
+    }
 }
 
 void CardioWindow::SerialConfigButton()

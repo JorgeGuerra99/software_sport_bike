@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['weightloss_242',['WeightLoss',['../classWeightLoss.html',1,'']]],
-  ['weightwindow_243',['weightwindow',['../classweightwindow.html',1,'']]]
+  ['weightloss_243',['WeightLoss',['../classWeightLoss.html',1,'']]],
+  ['weightwindow_244',['weightwindow',['../classweightwindow.html',1,'']]]
 ];

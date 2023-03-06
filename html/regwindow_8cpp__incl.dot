@@ -54,11 +54,12 @@ digraph "Source_Files/regwindow.cpp"
   Node20 [label="math.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node19 -> Node21 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node21 [label="unistd.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node6 -> Node22 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 -> Node22 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node22 [label="dialogwin.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dialogwin_8h.html",tooltip="Ventana para mostrar mensajes al usuario."];
   Node22 -> Node23 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node23 [label="QDialog",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node22 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node22 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node24 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node24 [label="ui_regwindow.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

@@ -16,6 +16,6 @@ var searchData=
   ['configwindow_30',['ConfigWindow',['../classConfigWindow.html',1,'ConfigWindow'],['../classConfigWindow.html#afb8c42353d2db7da76f4f55bccfb02c4',1,'ConfigWindow::ConfigWindow()']]],
   ['configwindow_2ecpp_31',['configwindow.cpp',['../configwindow_8cpp.html',1,'']]],
   ['configwindow_2eh_32',['configwindow.h',['../configwindow_8h.html',1,'']]],
-  ['confwin_33',['confWin',['../classFreeWindow.html#ae16b6fb6ce626be831f50ddf89da09e7',1,'FreeWindow::confWin()'],['../classCardioWindow.html#a175700c0b3c763c929aef758ca8a1e37',1,'CardioWindow::confWin()'],['../classweightwindow.html#a2c5fa2dbacfb87bedf2041d46c6f888c',1,'weightwindow::confWin()']]],
+  ['confwin_33',['confWin',['../classCardioWindow.html#a175700c0b3c763c929aef758ca8a1e37',1,'CardioWindow::confWin()'],['../classFreeWindow.html#ae16b6fb6ce626be831f50ddf89da09e7',1,'FreeWindow::confWin()'],['../classweightwindow.html#a2c5fa2dbacfb87bedf2041d46c6f888c',1,'weightwindow::confWin()']]],
   ['currentvalue_34',['currentValue',['../classSensors.html#a1d46cdb9649c55b9dd2c1fee39742133',1,'Sensors']]]
 ];

@@ -1,4 +1,4 @@
-#include "freewindow.h"
+#include "Header_Files/freewindow.h"
 #include "ui_freewindow.h"
 
 FreeWindow::FreeWindow(User*& usu, QWidget *parent) :
@@ -24,7 +24,7 @@ FreeWindow::FreeWindow(User*& usu, QWidget *parent) :
 
 FreeWindow::~FreeWindow()
 {
-    emit NewSession();
+    if (fre->timeSes != 0) emit NewSession();
     delete fre;
     delete ui;
 }
@@ -33,9 +33,12 @@ void FreeWindow::StartButton()
 {
     fre->Start();
     timer.start();
-    ui->pushButton->setDisabled( true );
-    ui->pushButton_3->setEnabled( true );
-    ui->pushButton_5->setEnabled( true );
+    if (fre->IsActive())
+    {
+        ui->pushButton->setDisabled( true );
+        ui->pushButton_3->setEnabled( true );
+        ui->pushButton_5->setEnabled( true );
+    }
 }
 
 void FreeWindow::PauseButton()
@@ -66,13 +69,16 @@ void FreeWindow::StopButton()
 void FreeWindow::UiSample()
 {
     fre->Sample();
-    ui->lcdNumber->display( fre->timeSes );
-    ui->lcdNumber_2->display( fre->GetLastData( 1 ) );
-    ui->lcdNumber_3->display( fre->GetDistance() );
-    ui->lcdNumber_4->display( fre->GetLastData( 0 ) );
-    ui->lcdNumber_5->display( fre->GetLastData( 2 ) );
-    ui->lcdNumber_6->display( fre->GetCalories() );
-    ui->label_7->setText( QString::fromStdString( fre->screenMessage ) );
+    if (fre->IsActive())
+    {
+        ui->lcdNumber->display( fre->timeSes );
+        ui->lcdNumber_2->display( fre->GetLastData( 1 ) );
+        ui->lcdNumber_3->display( fre->GetDistance() );
+        ui->lcdNumber_4->display( fre->GetLastData( 0 ) );
+        ui->lcdNumber_5->display( fre->GetLastData( 2 ) );
+        ui->lcdNumber_6->display( fre->GetCalories() );
+        ui->label_7->setText( QString::fromStdString( fre->screenMessage ) );
+    }
 }
 
 void FreeWindow::SerialConfigButton()

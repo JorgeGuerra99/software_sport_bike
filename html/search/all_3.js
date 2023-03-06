@@ -7,7 +7,7 @@ var searchData=
   ['datawindow_2ecpp_39',['datawindow.cpp',['../datawindow_8cpp.html',1,'']]],
   ['datawindow_2eh_40',['datawindow.h',['../datawindow_8h.html',1,'']]],
   ['date_41',['date',['../classSession.html#ae805ea4fb2594f3362f6d8ba96ba3198',1,'Session']]],
-  ['datwin_42',['datWin',['../classFreeWindow.html#a89d3cbd66caac47c807857e5856fdc15',1,'FreeWindow::datWin()'],['../classCardioWindow.html#a4e257b9f0677e7949f96bee0ac2814dc',1,'CardioWindow::datWin()'],['../classweightwindow.html#a16ecaac7c2806998720663328705c199',1,'weightwindow::datWin()']]],
+  ['datwin_42',['datWin',['../classCardioWindow.html#a4e257b9f0677e7949f96bee0ac2814dc',1,'CardioWindow::datWin()'],['../classFreeWindow.html#a89d3cbd66caac47c807857e5856fdc15',1,'FreeWindow::datWin()'],['../classweightwindow.html#a16ecaac7c2806998720663328705c199',1,'weightwindow::datWin()']]],
   ['dialogwin_43',['DialogWin',['../classDialogWin.html',1,'DialogWin'],['../classDialogWin.html#a57e1a7e9716de00b3f7c20ea2c20e26f',1,'DialogWin::DialogWin()']]],
   ['dialogwin_2ecpp_44',['dialogwin.cpp',['../dialogwin_8cpp.html',1,'']]],
   ['dialogwin_2eh_45',['dialogwin.h',['../dialogwin_8h.html',1,'']]],

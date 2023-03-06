@@ -120,7 +120,9 @@ void Cardio::Start()
     }  catch ( int e ) {
         if ( e == ERROR_SERIAL_OPEN )
         {
-            cout << "ERROR SERIAL" << endl;
+            DialogWin* msj;
+            msj = new DialogWin ("ERROR: No se pudo abrir el puerto serie");
+            msj->show();
             sesAct = false; //No inicia si no puede abrir el puerto serie
         }
     }
@@ -512,7 +514,9 @@ void WeightLoss::Start ()
     }  catch ( int e ) {
         if ( e == ERROR_SERIAL_OPEN )
         {
-            cout << "ERROR SERIAL" << endl;
+            DialogWin* msj;
+            msj = new DialogWin ("ERROR: No se pudo abrir el puerto serie");
+            msj->show();
             sesAct = false;
         }
     }
@@ -901,7 +905,9 @@ void Free::Start()
     }  catch ( int e ) {
         if ( e == ERROR_SERIAL_OPEN )
         {
-            cout << "ERROR SERIAL" << endl;
+            DialogWin* msj;
+            msj = new DialogWin ("ERROR: No se pudo abrir el puerto serie");
+            msj->show();
             sesAct = false; //No inicia si no puede abrir el puerto serie
         }
     }

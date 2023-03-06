@@ -31,7 +31,9 @@ double \mbox{\hyperlink{classSession_a1458b749c24954172b9408067afe3093}{Get\+Vel
 const vector$<$ double $>$ \mbox{\hyperlink{classSession_a80c0646b299d9e5d70fd642ab86bb468}{Get\+All\+Data}} (const char \&sel=\textquotesingle{}P\textquotesingle{}) const
 \begin{DoxyCompactList}\small\item\em Get\+All\+Data\+: Permite extraer todos los datos obtenidos del sensor que se desee. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classSession_acc2ccaa2a0cb7df6a18caba1642bbc63}{Write\+Report}} () const =0
-\begin{DoxyCompactList}\small\item\em Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Write\+Report\+: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSession_a4fd03d6f5bdf1555750120eaebe0d20f}{Is\+Active}} () const
+\end{DoxyCompactItemize}
 \doxysubsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
 \item 
@@ -283,6 +285,12 @@ Get\+Veloc\+Max\+Med\+: Permite obtener el valor de la velociada máxima o media
 \begin{DoxyReturn}{Devuelve}
 Retorna un valor del tipo double si s=\textquotesingle{}0\textquotesingle{} devuelve la velocidad máxima, para s=\textquotesingle{}1\textquotesingle{} retorna la velocidad media, en caso contrario retorna un -\/1 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classSession_a4fd03d6f5bdf1555750120eaebe0d20f}\label{classSession_a4fd03d6f5bdf1555750120eaebe0d20f}} 
+\index{Session@{Session}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!Session@{Session}}
+\doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool Session\+::\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{classSession_a4afb01b2dc12b536500cd2345a0c3875}\label{classSession_a4afb01b2dc12b536500cd2345a0c3875}} 
 \index{Session@{Session}!IsPaused@{IsPaused}}
 \index{IsPaused@{IsPaused}!Session@{Session}}

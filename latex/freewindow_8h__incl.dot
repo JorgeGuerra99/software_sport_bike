@@ -1,9 +1,9 @@
-digraph "freewindow.h"
+digraph "Header_Files/freewindow.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="freewindow.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Ventana de sesión de entrenamiento del tipo Free (INTERFAZ GRÁFICA)"];
+  Node1 [label="Header_Files/freewindow.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Ventana de sesión de entrenamiento del tipo Free (INTERFAZ GRÁFICA)"];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="QMainWindow",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
@@ -42,20 +42,21 @@ digraph "freewindow.h"
   Node16 [label="math.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node15 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
   Node17 [label="unistd.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node1 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
-  Node18 [label="Header_Files/user.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$user_8h.html",tooltip="Clase Usuario: Contiene los datos y métodos de un usuario."];
-  Node18 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
-  Node18 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
-  Node18 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
-  Node18 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="dialogwin.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dialogwin_8h.html",tooltip="Ventana para mostrar mensajes al usuario."];
   Node18 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
-  Node19 [label="filesystem",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node18 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
-  Node18 -> Node20 [color="midnightblue",fontsize="10",style="solid"];
-  Node20 [label="dialogwin.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dialogwin_8h.html",tooltip="Ventana para mostrar mensajes al usuario."];
-  Node20 -> Node21 [color="midnightblue",fontsize="10",style="solid"];
-  Node21 [label="QDialog",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node19 [label="QDialog",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node18 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node20 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 [label="Header_Files/user.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$user_8h.html",tooltip="Clase Usuario: Contiene los datos y métodos de un usuario."];
+  Node20 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
   Node20 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 -> Node21 [color="midnightblue",fontsize="10",style="solid"];
+  Node21 [label="filesystem",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node20 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
   Node1 -> Node22 [color="midnightblue",fontsize="10",style="solid"];
   Node22 [label="Header_Files/configwindow.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$configwindow_8h.html",tooltip="Ventana de configuración del puerto serie."];
   Node22 -> Node23 [color="midnightblue",fontsize="10",style="solid"];
@@ -71,5 +72,5 @@ digraph "freewindow.h"
   Node24 -> Node25 [color="midnightblue",fontsize="10",style="solid"];
   Node25 [label="Header_Files/qcustomplot.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node24 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
-  Node24 -> Node20 [color="midnightblue",fontsize="10",style="solid"];
+  Node24 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
 }

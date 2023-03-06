@@ -13,6 +13,7 @@
 #include <fstream>
 #include <time.h>
 #include "bike.h"
+#include "dialogwin.h"
 
 /**
  *@brief enum: Utilizado para contener errores de diferentes tipos
@@ -58,6 +59,7 @@ public:
      * @brief WriteReport: Permite exportar unicamente la sesión realizada en ese instante en un archivo txt
      */
     virtual void WriteReport () const = 0;
+    bool IsActive () const { return sesAct;}
     /**
      * @brief nameSession: Propiedad donde se almacena el nombre de la sesión realizada
      */
@@ -218,7 +220,7 @@ public:
     /**
      * @brief Cardio - Constructor
      */
-    Cardio () { cout << "Constructor por defecto: Cardio" << endl; }
+    Cardio () { sessionType = "Cardio";}
     virtual ~Cardio() { cout << "destructor cardio" << endl;}
     /**
      * @brief Start: Inicia el entrenamiento - habilito sample y habilita el flag de sesAct
@@ -302,7 +304,7 @@ public:
     /**
      * @brief WeightLoss - Constructor
      */
-    WeightLoss (){ cout << "Constructor por defecto: WeightLoss" << endl; }
+    WeightLoss (){ sessionType = "Weightloss";}
     virtual ~WeightLoss() { cout << "destructor de weightloss" << endl;}
     /**
      * @brief Start: Inicia el entrenamiento - habilito sample y habilita el flag de sesAct
@@ -387,7 +389,7 @@ public:
     /**
      * @brief Free - Constructor
      */
-    Free(){ cout << "Constructor por defecto: Free" << endl; }
+    Free(){ sessionType = "Free";}
     virtual ~Free () { cout << "destructor de free"  << endl;}
     /**
      * @brief Start: Inicia el entrenamiento - habilito sample y habilita el flag de sesAct
